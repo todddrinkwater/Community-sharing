@@ -44,7 +44,7 @@ Merge pull request together
 ## Planning
 - Brainstorm (broad concept)
 
-![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Brainstorm.jpg)
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Brainstorm.jpg = 200x200)
 
 ##### Problem
 - Require something
