@@ -130,3 +130,42 @@ Merge pull request together
 - Sodium
 
 ### UI / WIREFRAMES
+
+**Pages**
+- Title & Navbar
+- Home
+- Listing page
+- Item Page
+- Dashboard/Profile
+- Lender Form
+- Login/Register
+
+### Database Structure
+
+Users    |
+---------|
+ID       |
+Firstname|
+Lastname |
+Email    |
+Phone    |
+Location |
+Password |
+
+Item     |
+---------|
+ID       |
+Catagory |
+ItemName |
+Description|
+Available|
+Location |
+Owner ID |
+
+Loan      |
+----------|
+TransactID|
+BorrowerID|
+ItemID    |
+Pick-up   |
+Drop-off  |
