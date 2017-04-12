@@ -1,12 +1,44 @@
-.dot {
-  width: 2rem;
-  height: 2rem;
-  border: 1px #ccc solid;
-  border-radius: 50%;
+* {
+  border: 1px solid black;
 }
 
-button {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
+body {
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* --- Search Bar --- */
+
+/*.SearchBar {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}*/
+
+ #search-input {
+    width: 100%;
+}
+
+
+
+/* --- List Item Component in Listing Page--- */
+
+.listItemHeader h2 {
+  padding: 0;
+  margin: 3% 0 0 0;
+}
+
+.listItemHeader h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.ListItem {
+  width: 100%;
+}
+
+.listItemImage {
+  width: 100%
 }

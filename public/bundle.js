@@ -3886,6 +3886,7 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
+	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3898,9 +3899,12 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey]) {
+	          if (!manualPropTypeCallCache[cacheKey] &&
+	          // Avoid spamming the console because they are often not actionable except for lib authors
+	          manualPropTypeWarningCount < 3) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
+	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -23805,13 +23809,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AddWord = __webpack_require__(217);
+	var _List = __webpack_require__(217);
 	
-	var _AddWord2 = _interopRequireDefault(_AddWord);
-	
-	var _Words = __webpack_require__(219);
-	
-	var _Words2 = _interopRequireDefault(_Words);
+	var _List2 = _interopRequireDefault(_List);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23819,8 +23819,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'app-container' },
-	    _react2.default.createElement(_Words2.default, null),
-	    _react2.default.createElement(_AddWord2.default, null)
+	    _react2.default.createElement(_List2.default, null)
 	  );
 	}
 	
@@ -23840,125 +23839,49 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRedux = __webpack_require__(182);
-	
-	var _actions = __webpack_require__(218);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function AddWord(props) {
-	  var dispatch = props.dispatch;
-	
-	  return _react2.default.createElement('input', {
-	    placeholder: 'Enter a word or phrase',
-	    onKeyUp: function onKeyUp(e) {
-	      submitWord(e, dispatch);
-	    }
-	  });
-	}
-	
-	function submitWord(e, dispatch) {
-	  if (e.keyCode === 13) {
-	    dispatch((0, _actions.addWord)(e.currentTarget.value));
-	    e.currentTarget.value = '';
-	  }
-	}
-	
-	var provideDispatch = (0, _reactRedux.connect)();
-	var connectedAddWord = provideDispatch(AddWord);
-	
-	exports.default = connectedAddWord;
-
-/***/ },
-/* 218 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var nextWordId = 0;
-	
-	var addWord = exports.addWord = function addWord(word) {
-	  return {
-	    type: 'ADD_WORD',
-	    id: nextWordId++,
-	    word: word
-	  };
-	};
-
-/***/ },
-/* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(182);
-	
-	var _Word = __webpack_require__(220);
-	
-	var _Word2 = _interopRequireDefault(_Word);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Words(props) {
-	  var wordsList = props.words;
-	
+	function List(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    null,
-	    wordsList.map(function (wordObject) {
-	      return _react2.default.createElement(_Word2.default, { key: wordObject.id, word: wordObject.word });
-	    })
+	    { className: 'List' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'SearchBar' },
+	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search', placeholder: 'Search..' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'listItem' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'listItemHeader' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'List Item Title'
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Location'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'listItemImageContainer' },
+	        _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...'
+	      )
+	    )
 	  );
 	}
 	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    words: state.words
-	  };
-	};
-	
-	var provideCorrectProps = (0, _reactRedux.connect)(mapStateToProps);
-	var connectedWords = provideCorrectProps(Words);
-	
-	exports.default = connectedWords;
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Word = function Word(_ref) {
-	  var word = _ref.word;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    word
-	  );
-	};
-	
-	exports.default = Word;
+	exports.default = List;
 
 /***/ }
 /******/ ]);
