@@ -15,7 +15,7 @@
   "author": "EDA",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.11.0"
   },
   "babel": {
     "presets": [
