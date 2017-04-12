@@ -44,7 +44,7 @@ Merge pull request together
 ## Planning
 - Brainstorm (broad concept)
 
-![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/Brainstorm.jpg)
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Brainstorm.jpg)
 
 ##### Problem
 - Require something
@@ -133,25 +133,24 @@ Merge pull request together
 
 **Pages**
 - Title & Navbar
-![alt tag]('')
 
 - HomePage
-![alt tag]('https://github.com/community-sharing/Community-sharing/blob/master/pictures/Home.jpg')
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Home.jpg)
 
 - ListingPage or ListPage
-![alt tag]('https://github.com/community-sharing/Community-sharing/blob/master/pictures/ListPage.jpg')
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/ListPage.jpg)
 
 - ListItemPage
-![alt tag]('https://github.com/community-sharing/Community-sharing/blob/master/pictures/ListItem.jpg')
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/ListItem.jpg)
 
 - Dashboard/Profile Page
-![alt tag]('https://github.com/community-sharing/Community-sharing/blob/master/pictures/Profile.jpg')
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Profile.jpg)
 
 - LenderFormPage
-![alt tag]('https://github.com/community-sharing/Community-sharing/blob/master/pictures/LenderForm.jpg')
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/LenderForm.jpg)
 
 - Login/RegisterFormPage
-![alt tag]('https://github.com/community-sharing/Community-sharing/blob/master/pictures/RegisterForm.jpg')
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/RegisterForm.jpg)
 
 
 ### Database Structure
