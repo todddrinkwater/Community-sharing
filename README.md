@@ -133,6 +133,7 @@ Merge pull request together
 
 **Pages**
 - Title & Navbar
+{{Image here}}
 
 - HomePage
 ![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Home.jpg)
