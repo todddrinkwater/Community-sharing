@@ -1,12 +1,5 @@
-.dot {
-  width: 2rem;
-  height: 2rem;
-  border: 1px #ccc solid;
-  border-radius: 50%;
-}
-
-button {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
+body {
+  font-size: 100%;
+  margin: 0px;
+  padding: 0px;
 }
