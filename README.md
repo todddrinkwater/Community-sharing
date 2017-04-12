@@ -156,30 +156,30 @@ Merge pull request together
 
 ### Database Structure
 
-Users    |
+users    |
 ---------|
-ID       |
-Firstname|
-Lastname |
-Email    |
-Phone    |
-Location |
-Password |
+user_id       |
+fname|
+lname |
+email    |
+phone    |
+location |
+hash |
 
-Item     |
+items     |
 ---------|
-ID       |
-Catagory |
-ItemName |
-Description|
-Available|
-Location |
-Owner ID |
+item_id       |
+catagory |
+item_ame |
+description|
+available|
+image_url |
+owner_id |
 
-Loan      |
+loans      |
 ----------|
-TransactID|
-BorrowerID|
-ItemID    |
-Pick-up   |
-Drop-off  |
+loan_id|
+borrower_id|
+item_id    |
+pickup   |
+dropoff  |
