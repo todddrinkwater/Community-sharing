@@ -1,7 +1,11 @@
+* {
+  border: 1px solid black;
+}
+
 body {
- font-size: 100%;
- margin: 0px;
- padding: 0px;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 ul{
@@ -9,7 +13,6 @@ ul{
   padding: 0px;
   margin: 0px;
 }
-
 
 /*Header*/
 
@@ -65,5 +68,43 @@ ul{
 .navigation-item{
   padding: 1em;
   border: 1px solid black;
+}
 
+/* --- Search Bar --- */
+
+ #search-input {
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.Category-ul {
+  display: flex;
+  text-align: center;
+  padding: 0;
+}
+
+ .Category-li {
+  list-style-type: none;
+  width: 25%;
+  font-size: 1em;
+}
+
+/* --- List Item Component in Listing Page--- */
+
+.listItemHeader h2 {
+  padding: 0;
+  margin: 3% 0 0 0;
+}
+
+.listItemHeader h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.ListItem {
+  width: 100%;
+}
+
+.listItemImage {
+  width: 100%
 }

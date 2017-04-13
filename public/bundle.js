@@ -3886,7 +3886,6 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
-	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3899,12 +3898,9 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey] &&
-	          // Avoid spamming the console because they are often not actionable except for lib authors
-	          manualPropTypeWarningCount < 3) {
+	          if (!manualPropTypeCallCache[cacheKey]) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
-	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -23802,7 +23798,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Header = __webpack_require__(217);
+	var _List = __webpack_require__(217);
+	
+	var _List2 = _interopRequireDefault(_List);
+	
+	var _Header = __webpack_require__(219);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
@@ -23812,7 +23812,8 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'app-container' },
-	    _react2.default.createElement(_Header2.default, null)
+	    _react2.default.createElement(_Header2.default, null),
+	    _react2.default.createElement(_List2.default, null)
 	  );
 	}
 	
@@ -23832,11 +23833,139 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _ListItem = __webpack_require__(218);
+	
+	var _ListItem2 = _interopRequireDefault(_ListItem);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function List(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'List' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'SearchBar' },
+	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search', placeholder: 'Search..' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'Category' },
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'Category-ul' },
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Tools'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Music Equipment'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Sport & Rec'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Other'
+	          )
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(_ListItem2.default, null)
+	  );
+	}
+	
+	exports.default = List;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function ListItem(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "listItem" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "listItemHeader" },
+	      _react2.default.createElement(
+	        "h2",
+	        null,
+	        "List Item Title"
+	      ),
+	      _react2.default.createElement(
+	        "h3",
+	        null,
+	        "Location"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "listItemImageContainer" },
+	      _react2.default.createElement("img", { className: "listItemImage", src: "http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg" })
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah..."
+	    )
+	  );
+	}
+	
+	exports.default = ListItem;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _actions = __webpack_require__(218);
+	var _actions = __webpack_require__(220);
 	
-	var _NavigationMenu = __webpack_require__(219);
+	var _NavigationMenu = __webpack_require__(221);
 	
 	var _NavigationMenu2 = _interopRequireDefault(_NavigationMenu);
 	
@@ -23890,7 +24019,7 @@
 	}
 
 /***/ },
-/* 218 */
+/* 220 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23914,7 +24043,7 @@
 	};
 
 /***/ },
-/* 219 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
