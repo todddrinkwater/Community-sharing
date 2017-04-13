@@ -60,7 +60,7 @@
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _App = __webpack_require__(216);
+	var _App = __webpack_require__(215);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -23750,49 +23750,10 @@
 	
 	var _redux = __webpack_require__(191);
 	
-	var _words = __webpack_require__(215);
-	
-	var _words2 = _interopRequireDefault(_words);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _redux.combineReducers)({
-	  words: _words2.default
-	});
+	exports.default = (0, _redux.combineReducers)({});
 
 /***/ },
 /* 215 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	
-	var words = function words() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case 'ADD_WORD':
-	      var newState = [].concat(_toConsumableArray(state), [{
-	        id: action.id,
-	        word: action.word
-	      }]);
-	      return newState;
-	
-	    default:
-	      return state;
-	  }
-	};
-	
-	exports.default = words;
-
-/***/ },
-/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23805,13 +23766,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AddWord = __webpack_require__(217);
+	var _Homepage = __webpack_require__(216);
 	
-	var _AddWord2 = _interopRequireDefault(_AddWord);
-	
-	var _Words = __webpack_require__(219);
-	
-	var _Words2 = _interopRequireDefault(_Words);
+	var _Homepage2 = _interopRequireDefault(_Homepage);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23819,18 +23776,17 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'app-container' },
-	    _react2.default.createElement(_Words2.default, null),
-	    _react2.default.createElement(_AddWord2.default, null)
+	    _react2.default.createElement(_Homepage2.default, null)
 	  );
 	}
 	
 	exports.default = App;
 
 /***/ },
-/* 217 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -23840,125 +23796,34 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRedux = __webpack_require__(182);
-	
-	var _actions = __webpack_require__(218);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function AddWord(props) {
-	  var dispatch = props.dispatch;
-	
-	  return _react2.default.createElement('input', {
-	    placeholder: 'Enter a word or phrase',
-	    onKeyUp: function onKeyUp(e) {
-	      submitWord(e, dispatch);
-	    }
-	  });
-	}
-	
-	function submitWord(e, dispatch) {
-	  if (e.keyCode === 13) {
-	    dispatch((0, _actions.addWord)(e.currentTarget.value));
-	    e.currentTarget.value = '';
-	  }
-	}
-	
-	var provideDispatch = (0, _reactRedux.connect)();
-	var connectedAddWord = provideDispatch(AddWord);
-	
-	exports.default = connectedAddWord;
-
-/***/ },
-/* 218 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var nextWordId = 0;
-	
-	var addWord = exports.addWord = function addWord(word) {
-	  return {
-	    type: 'ADD_WORD',
-	    id: nextWordId++,
-	    word: word
-	  };
-	};
-
-/***/ },
-/* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(182);
-	
-	var _Word = __webpack_require__(220);
-	
-	var _Word2 = _interopRequireDefault(_Word);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Words(props) {
-	  var wordsList = props.words;
-	
+	function HomePage() {
 	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    wordsList.map(function (wordObject) {
-	      return _react2.default.createElement(_Word2.default, { key: wordObject.id, word: wordObject.word });
-	    })
+	    "div",
+	    { className: "homepage" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "borrow-div" },
+	      _react2.default.createElement(
+	        "p",
+	        { className: "borrow-p" },
+	        "Im here to Borrow"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "lend-div" },
+	      _react2.default.createElement(
+	        "p",
+	        { className: "lend-p" },
+	        "Im here to Lend"
+	      )
+	    )
 	  );
 	}
 	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    words: state.words
-	  };
-	};
-	
-	var provideCorrectProps = (0, _reactRedux.connect)(mapStateToProps);
-	var connectedWords = provideCorrectProps(Words);
-	
-	exports.default = connectedWords;
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Word = function Word(_ref) {
-	  var word = _ref.word;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    word
-	  );
-	};
-	
-	exports.default = Word;
+	exports.default = HomePage;
 
 /***/ }
 /******/ ]);

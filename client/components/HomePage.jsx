@@ -3,8 +3,12 @@ import React from 'react'
 function HomePage () {
   return (
     <div className="homepage">
-      <div className="borrow">Im here to Borrow</div>
-      <div className="lend">Im here to Lend</div>
+      <div className="borrow-div">
+        <p className="borrow-p">Im here to Borrow</p>
+      </div>
+      <div className="lend-div">
+        <p className="lend-p">Im here to Lend</p>
+      </div>
     </div>
   )
 }
