@@ -23758,10 +23758,15 @@
 	
 	var _menuState2 = _interopRequireDefault(_menuState);
 	
+	var _dashboardState = __webpack_require__(271);
+	
+	var _dashboardState2 = _interopRequireDefault(_dashboardState);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _redux.combineReducers)({
-	  menuState: _menuState2.default
+	  menuState: _menuState2.default,
+	  dashboardState: _dashboardState2.default
 	});
 
 /***/ },
@@ -23824,6 +23829,14 @@
 	
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 	
+	var _Register = __webpack_require__(268);
+	
+	var _Register2 = _interopRequireDefault(_Register);
+	
+	var _Login = __webpack_require__(269);
+	
+	var _Login2 = _interopRequireDefault(_Login);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function App(props) {
@@ -23839,7 +23852,10 @@
 	        null,
 	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _HomePage2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list', component: _List2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-item', component: _ItemListing2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-item', component: _ItemListing2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/dashboard', component: _Dashboard2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default })
 	      )
 	    )
 	  );
@@ -27475,7 +27491,7 @@
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27485,35 +27501,41 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouterDom = __webpack_require__(217);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ListItem(props) {
 	  return _react2.default.createElement(
-	    "div",
-	    { className: "listItem" },
+	    'div',
+	    { className: 'listItem' },
 	    _react2.default.createElement(
-	      "div",
-	      { className: "listItemHeader" },
+	      'div',
+	      { className: 'listItemHeader' },
 	      _react2.default.createElement(
-	        "h2",
+	        'h2',
 	        null,
-	        "List Item Title"
+	        'List Item Title'
 	      ),
 	      _react2.default.createElement(
-	        "h3",
+	        'h3',
 	        null,
-	        "Location"
+	        'Location'
 	      )
 	    ),
 	    _react2.default.createElement(
-	      "div",
-	      { className: "listItemImageContainer" },
-	      _react2.default.createElement("img", { className: "listItemImage", src: "http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg" })
+	      _reactRouterDom.Link,
+	      { to: '/list-item' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'listItemImageContainer' },
+	        _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
+	      )
 	    ),
 	    _react2.default.createElement(
-	      "p",
+	      'p',
 	      null,
-	      "List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah..."
+	      'List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...'
 	    )
 	  );
 	}
@@ -27612,6 +27634,13 @@
 	  return {
 	    type: 'MENU_STATE',
 	    menuState: currentMenuState
+	  };
+	};
+	
+	var dashboardTab = exports.dashboardTab = function dashboardTab(clickedTab) {
+	  return {
+	    type: 'DASHBOARD_TAB',
+	    dashboardState: clickedTab
 	  };
 	};
 
@@ -27825,6 +27854,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRedux = __webpack_require__(182);
+	
+	var _actions = __webpack_require__(256);
+	
 	var _MySharingDetails = __webpack_require__(261);
 	
 	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
@@ -27835,7 +27868,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function Dashboard() {
+	function Dashboard(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'dashboard-container' },
@@ -27844,22 +27877,37 @@
 	      { className: 'dashboard-menu-container' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'dashboard-button dashboard-active-button' },
+	        { id: 'sharing-button', className: 'dashboard-button dashboard-active-button', onClick: function onClick() {
+	            return changeTab(props, 'MySharingDetails');
+	          } },
 	        'My Sharing'
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'dashboard-button' },
+	        { id: 'profile-button', className: 'dashboard-button', onClick: function onClick() {
+	            return changeTab(props, 'myProfile');
+	          } },
 	        'My Profile'
 	      )
 	    ),
-	    _react2.default.createElement(_MyProfile2.default, null)
+	    props.dashboardState == 'MySharingDetails' ? _react2.default.createElement(_MySharingDetails2.default, null) : _react2.default.createElement(_MyProfile2.default, null)
 	  );
 	}
 	
-	exports.default = Dashboard;
+	function mapStateToProps(state) {
+	  return {
+	    dispatch: state.dispatch,
+	    dashboardState: state.dashboardState
+	  };
+	}
 	
-	// <MySharingDetails />
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Dashboard);
+	
+	
+	function changeTab(props, clickedTab) {
+	
+	  props.dispatch((0, _actions.dashboardTab)(clickedTab));
+	}
 
 /***/ },
 /* 261 */
@@ -28160,6 +28208,113 @@
 	}
 	
 	exports.default = MyProfile;
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(217);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Register = function Register() {
+	  return _react2.default.createElement('div', { className: 'register' });
+	};
+	
+	exports.default = Register;
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(217);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Login = function Login(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'Login' },
+	    _react2.default.createElement('img', { src: 'http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'LoginGreeting' },
+	      'Welcome to [insert kick-ass name here]. ',
+	      _react2.default.createElement('br', null),
+	      ' Please sign in below.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Email'
+	    ),
+	    _react2.default.createElement('input', { type: 'text', name: 'email' }),
+	    _react2.default.createElement('br', null),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Password'
+	    ),
+	    _react2.default.createElement('input', { type: 'password', name: 'password' }),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'No account?'
+	    ),
+	    _react2.default.createElement(
+	      _reactRouterDom.Link,
+	      { to: '/register' },
+	      'Register Now?'
+	    )
+	  );
+	};
+	
+	exports.default = Login;
+
+/***/ },
+/* 270 */,
+/* 271 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var openTab = function openTab() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'MySharingDetails';
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'DASHBOARD_TAB':
+	      return action.dashboardState;
+	
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = openTab;
 
 /***/ }
 /******/ ]);

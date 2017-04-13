@@ -12,3 +12,10 @@ export const menuNavigation = () => {
     menuState: currentMenuState
   }
 }
+
+export const dashboardTab = (clickedTab) => {
+  return {
+    type: 'DASHBOARD_TAB',
+    dashboardState: clickedTab
+  }
+}

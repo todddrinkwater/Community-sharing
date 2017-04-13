@@ -134,6 +134,7 @@ ul{
 
 /*Dashboard - Sharing*/
 
+
 .dashboard-active-button{
   background-color: #eee
 }
@@ -235,6 +236,7 @@ ul{
   font-weight: bold;
   font-size: 0.9em;
 }
+
 /* --- Item Listing Component --- */
 
 .itemTitle {
@@ -244,7 +246,6 @@ ul{
 
 .itemListingImage {
   width: 100%;
-
 }
 
 .itemListingUserDetails{
@@ -274,4 +275,36 @@ ul{
 .requestForm input {
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+/* --- Login Component ---- */
+
+.Login {
+  width: 100%;
+  margin-bottom: 25%
+}
+
+.Login img {
+  width: 80%;
+  margin: 25% auto 10%;
+  display: block;
+}
+
+.LoginGreeting {
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.Login input {
+  margin: auto;
+  display: block;
+  font-size: 1.4em;
+  width: 80%
+}
+
+.Login p {
+  margin: auto;
+  text-align: center;
+  font-size: 1.4em;
+  width: 80%
 }
