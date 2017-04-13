@@ -1,13 +1,11 @@
 import React from 'react'
 
-import AddWord from '../containers/AddWord'
-import Words from '../containers/Words'
+import List from '../containers/List'
 
 function App (props) {
   return (
     <div className='app-container'>
-      <Words />
-      <AddWord />
+      <List />
     </div>
   )
 }
