@@ -3886,7 +3886,6 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
-	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3899,12 +3898,9 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey] &&
-	          // Avoid spamming the console because they are often not actionable except for lib authors
-	          manualPropTypeWarningCount < 3) {
+	          if (!manualPropTypeCallCache[cacheKey]) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
-	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -23820,6 +23816,14 @@
 	
 	var _ItemListing2 = _interopRequireDefault(_ItemListing);
 	
+	var _Dashboard = __webpack_require__(260);
+	
+	var _Dashboard2 = _interopRequireDefault(_Dashboard);
+	
+	var _Register = __webpack_require__(267);
+	
+	var _Register2 = _interopRequireDefault(_Register);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function App(props) {
@@ -23835,7 +23839,9 @@
 	        null,
 	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _HomePage2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list', component: _List2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-item', component: _ItemListing2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-item', component: _ItemListing2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/dashboard', component: _Dashboard2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default })
 	      )
 	    )
 	  );
@@ -27471,7 +27477,7 @@
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27481,35 +27487,41 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouterDom = __webpack_require__(217);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ListItem(props) {
 	  return _react2.default.createElement(
-	    "div",
-	    { className: "listItem" },
+	    'div',
+	    { className: 'listItem' },
 	    _react2.default.createElement(
-	      "div",
-	      { className: "listItemHeader" },
+	      'div',
+	      { className: 'listItemHeader' },
 	      _react2.default.createElement(
-	        "h2",
+	        'h2',
 	        null,
-	        "List Item Title"
+	        'List Item Title'
 	      ),
 	      _react2.default.createElement(
-	        "h3",
+	        'h3',
 	        null,
-	        "Location"
+	        'Location'
 	      )
 	    ),
 	    _react2.default.createElement(
-	      "div",
-	      { className: "listItemImageContainer" },
-	      _react2.default.createElement("img", { className: "listItemImage", src: "http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg" })
+	      _reactRouterDom.Link,
+	      { to: '/list-item' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'listItemImageContainer' },
+	        _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
+	      )
 	    ),
 	    _react2.default.createElement(
-	      "p",
+	      'p',
 	      null,
-	      "List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah..."
+	      'List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...'
 	    )
 	  );
 	}
@@ -27806,6 +27818,315 @@
 	}
 	
 	exports.default = ItemListing;
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _MySharingDetails = __webpack_require__(261);
+	
+	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Dashboard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-container' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'dashboard-menu-container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-button dashboard-active-button' },
+	        'My Sharing'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-button' },
+	        'My Profile'
+	      )
+	    ),
+	    _react2.default.createElement(_MySharingDetails2.default, null)
+	  );
+	}
+	
+	exports.default = Dashboard;
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _MyListings = __webpack_require__(262);
+	
+	var _MyListings2 = _interopRequireDefault(_MyListings);
+	
+	var _ImBorrowing = __webpack_require__(264);
+	
+	var _ImBorrowing2 = _interopRequireDefault(_ImBorrowing);
+	
+	var _MySharedItems = __webpack_require__(265);
+	
+	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MySharingDetails() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_MyListings2.default, null),
+	    _react2.default.createElement(_ImBorrowing2.default, null),
+	    _react2.default.createElement(_MySharedItems2.default, null)
+	  );
+	}
+	
+	exports.default = MySharingDetails;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Card = __webpack_require__(263);
+	
+	var _Card2 = _interopRequireDefault(_Card);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyListings() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'MY LISTINGS',
+	    _react2.default.createElement(_Card2.default, null)
+	  );
+	}
+	
+	exports.default = MyListings;
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Card() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CC500BAT.png/220px-CC500BAT.png' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          'Mower'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'card-button' },
+	        'More'
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = Card;
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Card = __webpack_require__(263);
+	
+	var _Card2 = _interopRequireDefault(_Card);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyBorrowing() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'IM BORROWING',
+	    _react2.default.createElement(_Card2.default, null)
+	  );
+	}
+	
+	exports.default = MyBorrowing;
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _SharedCard = __webpack_require__(266);
+	
+	var _SharedCard2 = _interopRequireDefault(_SharedCard);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MySharedItems() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'MY SHARED ITEMS',
+	    _react2.default.createElement(_SharedCard2.default, null)
+	  );
+	}
+	
+	exports.default = MySharedItems;
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function SharedCard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://www.dfhtechnologies.com/images/user.png' }),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'shared-card-details' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'shared-name' },
+	          'You'
+	        ),
+	        ' are sharing your lawnmower with ',
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'shared-name' },
+	          'Todd'
+	        )
+	      ),
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://vignette1.wikia.nocookie.net/sote-rp/images/c/c4/User-placeholder.png/revision/latest?cb=20150624004222' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'card-button' },
+	        'More'
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = SharedCard;
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(217);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Register = function Register() {
+	  return _react2.default.createElement('div', { className: 'register' });
+	};
+	
+	exports.default = Register;
 
 /***/ }
 /******/ ]);

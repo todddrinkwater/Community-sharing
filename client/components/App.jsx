@@ -5,6 +5,8 @@ import List from '../containers/List'
 import Header from './Header.jsx'
 import HomePage from './HomePage'
 import ItemListing from './ItemListing'
+import Dashboard from './Dashboard'
+import Register from './Register'
 
 function App (props) {
   return (
@@ -15,6 +17,8 @@ function App (props) {
         <Route exact path='/' component={HomePage} />
         <Route path='/list' component={List} />
         <Route path='/list-item' component={ItemListing} />
+        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/register' component={Register} />
       </div>
     </Router>
     </div>
