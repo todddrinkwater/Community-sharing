@@ -185,3 +185,29 @@ ul{
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
+/* --- Login Component ---- */
+
+.Login {
+  width: 100%
+}
+
+.Login img {
+  width: 80%;
+  margin: 25% auto 10%;
+  display: block;
+}
+
+.Login input {
+  margin: auto;
+  display: block;
+  font-size: 1.4em;
+  width: 80%
+}
+
+.Login p {
+  margin: auto;
+  text-align: center;
+  font-size: 1.4em;
+  width: 80%
+}
