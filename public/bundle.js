@@ -23809,7 +23809,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _List = __webpack_require__(217);
+	var _List = __webpack_require__(218);
 	
 	var _List2 = _interopRequireDefault(_List);
 	
@@ -23826,7 +23826,8 @@
 	exports.default = App;
 
 /***/ },
-/* 217 */
+/* 217 */,
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23839,6 +23840,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _ListItem = __webpack_require__(219);
+	
+	var _ListItem2 = _interopRequireDefault(_ListItem);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function List(props) {
@@ -23850,38 +23855,60 @@
 	      { className: 'SearchBar' },
 	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search', placeholder: 'Search..' })
 	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'listItem' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'listItemHeader' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'List Item Title'
-	        ),
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Location'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'listItemImageContainer' },
-	        _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...'
-	      )
-	    )
+	    _react2.default.createElement(_ListItem2.default, null)
 	  );
 	}
 	
 	exports.default = List;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function ListItem(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "listItem" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "listItemHeader" },
+	      _react2.default.createElement(
+	        "h2",
+	        null,
+	        "List Item Title"
+	      ),
+	      _react2.default.createElement(
+	        "h3",
+	        null,
+	        "Location"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "listItemImageContainer" },
+	      _react2.default.createElement("img", { className: "listItemImage", src: "http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg" })
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah..."
+	    )
+	  );
+	}
+	
+	exports.default = ListItem;
 
 /***/ }
 /******/ ]);
