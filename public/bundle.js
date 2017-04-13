@@ -23839,35 +23839,93 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _NavigationMenu = __webpack_require__(218);
+	
+	var _NavigationMenu2 = _interopRequireDefault(_NavigationMenu);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Header = function Header() {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'header-container' },
+	    { className: 'header-menu-container' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'hambuger-container' },
-	      _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'title-container' },
+	      { className: 'header-container' },
 	      _react2.default.createElement(
-	        'h3',
-	        null,
-	        'Community Sharing'
+	        'div',
+	        { className: 'hambuger-container' },
+	        _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'title-container' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Community Sharing'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'login-button-container' },
+	        _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
 	      )
 	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'login-button-container' },
-	      _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
-	    )
+	    _react2.default.createElement(_NavigationMenu2.default, null)
 	  );
 	};
 	
 	exports.default = Header;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var NavigationMenu = function NavigationMenu() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'navigation-menu-container' },
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Register/Login'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Your Dashboard'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Borrow and item'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Lend and item'
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = NavigationMenu;
 
 /***/ }
 /******/ ]);
