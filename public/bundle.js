@@ -56,11 +56,11 @@
 	
 	var _redux = __webpack_require__(191);
 	
-	var _reducers = __webpack_require__(214);
+	var _reducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./reducers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _App = __webpack_require__(216);
+	var _App = __webpack_require__(215);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -23739,7 +23739,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 214 */
+/* 214 */,
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23748,41 +23749,35 @@
 	  value: true
 	});
 	
-	var _redux = __webpack_require__(191);
+	var _react = __webpack_require__(1);
 	
-	var _menuState = __webpack_require__(215);
+	var _react2 = _interopRequireDefault(_react);
 	
-	var _menuState2 = _interopRequireDefault(_menuState);
+	var _List = __webpack_require__(216);
+	
+	var _List2 = _interopRequireDefault(_List);
+	
+	var _Header = __webpack_require__(218);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	var _Homepage = __webpack_require__(221);
+	
+	var _Homepage2 = _interopRequireDefault(_Homepage);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = (0, _redux.combineReducers)({
-	  menuState: _menuState2.default
-	});
-
-/***/ },
-/* 215 */
-/***/ function(module, exports) {
-
-	'use strict';
+	function App(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'app-container' },
+	    _react2.default.createElement(_Header2.default, null),
+	    _react2.default.createElement(_List2.default, null),
+	    _react2.default.createElement(_Homepage2.default, null)
+	  );
+	}
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var menuState = function menuState() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case 'MENU_STATE':
-	      return action.menuState;
-	
-	    default:
-	      return state;
-	  }
-	};
-	
-	exports.default = menuState;
+	exports.default = App;
 
 /***/ },
 /* 216 */
@@ -23798,42 +23793,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _List = __webpack_require__(217);
-	
-	var _List2 = _interopRequireDefault(_List);
-	
-	var _Header = __webpack_require__(219);
-	
-	var _Header2 = _interopRequireDefault(_Header);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function App(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'app-container' },
-	    _react2.default.createElement(_Header2.default, null),
-	    _react2.default.createElement(_List2.default, null)
-	  );
-	}
-	
-	exports.default = App;
-
-/***/ },
-/* 217 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _ListItem = __webpack_require__(218);
+	var _ListItem = __webpack_require__(217);
 	
 	var _ListItem2 = _interopRequireDefault(_ListItem);
 	
@@ -23899,7 +23859,7 @@
 	exports.default = List;
 
 /***/ },
-/* 218 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23948,7 +23908,7 @@
 	exports.default = ListItem;
 
 /***/ },
-/* 219 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23963,9 +23923,9 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _actions = __webpack_require__(220);
+	var _actions = __webpack_require__(219);
 	
-	var _NavigationMenu = __webpack_require__(221);
+	var _NavigationMenu = __webpack_require__(220);
 	
 	var _NavigationMenu2 = _interopRequireDefault(_NavigationMenu);
 	
@@ -24019,7 +23979,7 @@
 	}
 
 /***/ },
-/* 220 */
+/* 219 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24043,7 +24003,7 @@
 	};
 
 /***/ },
-/* 221 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24090,6 +24050,49 @@
 	};
 	
 	exports.default = NavigationMenu;
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function HomePage() {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "homepage" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "borrow-div" },
+	      _react2.default.createElement(
+	        "p",
+	        { className: "borrow-p" },
+	        "Im here to Borrow"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "lend-div" },
+	      _react2.default.createElement(
+	        "p",
+	        { className: "lend-p" },
+	        "Im here to Lend"
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = HomePage;
 
 /***/ }
 /******/ ]);

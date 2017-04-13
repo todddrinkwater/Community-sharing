@@ -44,7 +44,7 @@ Merge pull request together
 ## Planning
 - Brainstorm (broad concept)
 
-![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/Brainstorm.jpg)
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Brainstorm.jpg)
 
 ##### Problem
 - Require something
@@ -133,41 +133,55 @@ Merge pull request together
 
 **Pages**
 - Title & Navbar
-- Home
-- Listing page
-- Item Page
-- Dashboard/Profile
-- Lender Form
-- Login/Register
+{{Image here}}
+
+- HomePage
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Home.jpg)
+
+- ListingPage or ListPage
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/ListPage.jpg)
+
+- ListItemPage
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/ListItem.jpg)
+
+- Dashboard/Profile Page
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Profile.jpg)
+
+- LenderFormPage
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/LenderForm.jpg)
+
+- Login/RegisterFormPage
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/RegisterForm.jpg)
+
 
 {{images here}}
 
 ### Database Structure
 
-Users    |
+users    |
 ---------|
-ID       |
-Firstname|
-Lastname |
-Email    |
-Phone    |
-Location |
-Password |
+user_id       |
+fname|
+lname |
+email    |
+phone    |
+location |
+hash |
 
-Item     |
+items     |
 ---------|
-ID       |
-Catagory |
-ItemName |
-Description|
-Available|
-Location |
-Owner ID |
+item_id       |
+catagory |
+item_ame |
+description|
+available|
+image_url |
+owner_id |
 
-Loan      |
+loans      |
 ----------|
-TransactID|
-BorrowerID|
-ItemID    |
-Pick-up   |
-Drop-off  |
+loan_id|
+borrower_id|
+item_id    |
+pickup   |
+dropoff  |

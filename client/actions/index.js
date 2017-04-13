@@ -11,5 +11,4 @@ export const menuNavigation = () => {
     type: 'MENU_STATE',
     menuState: currentMenuState
   }
-
 }

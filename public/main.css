@@ -4,14 +4,48 @@
 
 body {
   font-size: 100%;
-  padding: 0;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 ul{
   list-style: none;
   padding: 0px;
   margin: 0px;
+}
+
+/*Homepage*/
+
+.borrow-div {
+  background-image: url('https://us.123rf.com/450wm/72soul/72soul1402/72soul140200057/25919221-illustration-depicting-a-set-of-cut-out-printed-letters-arranged-to-form-the-word-borrow.jpg?ver=6');
+  width: 100%;
+  height: 15em;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.lend-div {
+  background-image: url('https://letstalkpayments.com/wp-content/uploads/2015/10/11442058625_5223427501_b.jpg');
+  width: 100%;
+  height: 15em;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.borrow-p {
+  background-color: black;
+  color: white;
+  top: 1%;
+  left: 1%;
+  padding: 1%;
+}
+
+.lend-p {
+  background-color: black;
+  color: white;
+  top: 1%;
+  left: 1%;
+  padding: 1%;
 }
 
 /*Header*/
