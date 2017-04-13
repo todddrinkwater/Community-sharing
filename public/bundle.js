@@ -24254,29 +24254,33 @@
 	function Card() {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'card-container' },
-	    _react2.default.createElement('img', { className: 'card-image', src: 'http://www.homedepot.com/hdus/en_US/DTCCOMNEW/fetch/Category_Pages/Outdoor/Power_Equipment/Lawn_Mowers/self-propelled-mowers1.jpg' }),
+	    { className: 'card-wrapper' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'card-details-container' },
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'card-heading' },
-	        'Mower'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'card-details' },
-	        'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
-	      ),
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CC500BAT.png/220px-CC500BAT.png' }),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'card-button-container' },
+	        { className: 'card-details-container' },
 	        _react2.default.createElement(
-	          'button',
-	          { className: 'card-button' },
-	          'More'
+	          'p',
+	          { className: 'card-heading' },
+	          'Mower'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
 	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'card-button' },
+	        'More'
 	      )
 	    )
 	  );
@@ -24298,13 +24302,18 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Card = __webpack_require__(225);
+	
+	var _Card2 = _interopRequireDefault(_Card);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function MyBorrowing() {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'dashboard-section' },
-	    'IM BORROWING'
+	    'IM BORROWING',
+	    _react2.default.createElement(_Card2.default, null)
 	  );
 	}
 	
@@ -24324,17 +24333,77 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _SharedCard = __webpack_require__(228);
+	
+	var _SharedCard2 = _interopRequireDefault(_SharedCard);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function MySharedItems() {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'dashboard-section' },
-	    'MY SHARED ITEMS'
+	    'MY SHARED ITEMS',
+	    _react2.default.createElement(_SharedCard2.default, null)
 	  );
 	}
 	
 	exports.default = MySharedItems;
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function SharedCard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://www.dfhtechnologies.com/images/user.png' }),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'shared-card-details' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'shared-name' },
+	          'You'
+	        ),
+	        ' are sharing your lawnmower with ',
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'shared-name' },
+	          'Todd'
+	        )
+	      ),
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://vignette1.wikia.nocookie.net/sote-rp/images/c/c4/User-placeholder.png/revision/latest?cb=20150624004222' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'card-button' },
+	        'More'
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = SharedCard;
 
 /***/ }
 /******/ ]);
