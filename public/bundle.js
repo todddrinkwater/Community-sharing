@@ -3886,6 +3886,7 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
+	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3898,9 +3899,12 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey]) {
+	          if (!manualPropTypeCallCache[cacheKey] &&
+	          // Avoid spamming the console because they are often not actionable except for lib authors
+	          manualPropTypeWarningCount < 3) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
+	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -23750,10 +23754,49 @@
 	
 	var _redux = __webpack_require__(191);
 	
+<<<<<<< HEAD
 	exports.default = (0, _redux.combineReducers)({});
 
 /***/ },
 /* 215 */
+=======
+	var _menuState = __webpack_require__(215);
+	
+	var _menuState2 = _interopRequireDefault(_menuState);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _redux.combineReducers)({
+	  menuState: _menuState2.default
+	});
+
+/***/ },
+/* 215 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var menuState = function menuState() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'MENU_STATE':
+	      return action.menuState;
+	
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = menuState;
+
+/***/ },
+/* 216 */
+>>>>>>> 7303c45b9f49f3e8bc8fc0ff5412f353dd8555ba
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23766,9 +23809,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+<<<<<<< HEAD
 	var _Homepage = __webpack_require__(216);
 	
 	var _Homepage2 = _interopRequireDefault(_Homepage);
+=======
+	var _Header = __webpack_require__(217);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+>>>>>>> 7303c45b9f49f3e8bc8fc0ff5412f353dd8555ba
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23776,17 +23825,28 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'app-container' },
+<<<<<<< HEAD
 	    _react2.default.createElement(_Homepage2.default, null)
+=======
+	    _react2.default.createElement(_Header2.default, null)
+>>>>>>> 7303c45b9f49f3e8bc8fc0ff5412f353dd8555ba
 	  );
 	}
 	
 	exports.default = App;
 
 /***/ },
+<<<<<<< HEAD
 /* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+=======
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+>>>>>>> 7303c45b9f49f3e8bc8fc0ff5412f353dd8555ba
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -23796,6 +23856,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+<<<<<<< HEAD
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function HomePage() {
@@ -23824,6 +23885,137 @@
 	}
 	
 	exports.default = HomePage;
+=======
+	var _reactRedux = __webpack_require__(182);
+	
+	var _actions = __webpack_require__(218);
+	
+	var _NavigationMenu = __webpack_require__(219);
+	
+	var _NavigationMenu2 = _interopRequireDefault(_NavigationMenu);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Header = function Header(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'header-menu-container' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'header-container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'hambuger-container', onClick: function onClick() {
+	            return openMenu(props);
+	          } },
+	        _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'title-container' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Community Sharing'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'login-button-container' },
+	        _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
+	      )
+	    ),
+	    props.menuState ? _react2.default.createElement(_NavigationMenu2.default, null) : ""
+	  );
+	};
+	
+	function mapStateToProps(state) {
+	  return {
+	    dispatch: state.dispatch,
+	    menuState: state.menuState
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
+	
+	
+	function openMenu(props) {
+	  props.dispatch((0, _actions.menuNavigation)());
+	}
+
+/***/ },
+/* 218 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var currentMenuState = false;
+	
+	var menuNavigation = exports.menuNavigation = function menuNavigation() {
+	  if (currentMenuState == false) {
+	    currentMenuState = true;
+	  } else {
+	    currentMenuState = false;
+	  }
+	
+	  return {
+	    type: 'MENU_STATE',
+	    menuState: currentMenuState
+	  };
+	};
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var NavigationMenu = function NavigationMenu() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'navigation-menu-container' },
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Register/Login'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Your Dashboard'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Borrow and item'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { className: 'navigation-item' },
+	        'Lend and item'
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = NavigationMenu;
+>>>>>>> 7303c45b9f49f3e8bc8fc0ff5412f353dd8555ba
 
 /***/ }
 /******/ ]);
