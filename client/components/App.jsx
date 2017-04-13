@@ -1,4 +1,5 @@
 import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 import List from '../containers/List'
 import Header from './Header.jsx'
@@ -14,6 +15,14 @@ function App (props) {
       <HomePage />
       <ItemListing />
       <Login />
+      <Header />
+      <Router>
+        <div>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/list' component={List} />
+          <Route path='/list-item' component={ItemListing} />
+        </div>
+      </Router>
     </div>
   )
 }
