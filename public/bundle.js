@@ -23845,6 +23845,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var tempMenuState = true;
+	
 	var Header = function Header() {
 	  return _react2.default.createElement(
 	    'div',
@@ -23854,7 +23856,9 @@
 	      { className: 'header-container' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'hambuger-container' },
+	        { className: 'hambuger-container', onClick: function onClick() {
+	            return openMenu();
+	          } },
 	        _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
 	      ),
 	      _react2.default.createElement(
@@ -23872,11 +23876,16 @@
 	        _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
 	      )
 	    ),
-	    _react2.default.createElement(_NavigationMenu2.default, null)
+	    tempMenuState ? _react2.default.createElement(_NavigationMenu2.default, null) : ""
 	  );
 	};
 	
 	exports.default = Header;
+	
+	
+	function openMenu() {
+	  alert('hamburger clicked');
+	}
 
 /***/ },
 /* 218 */

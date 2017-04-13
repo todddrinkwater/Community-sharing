@@ -1,12 +1,14 @@
 import React from 'react'
 import NavigationMenu from './NavigationMenu.jsx'
 
+var tempMenuState = true
+
 const Header = () => (
 
   <div className='header-menu-container'>
 
     <div className='header-container'>
-      <div className='hambuger-container'>
+      <div className='hambuger-container' onClick={ () => openMenu() }>
         <i className="fa fa-bars" aria-hidden="true"></i>
       </div>
 
@@ -19,9 +21,13 @@ const Header = () => (
       </div>
     </div>
 
-    <NavigationMenu />
+     { tempMenuState ? <NavigationMenu /> : "" }
 
   </div>
 )
 
 export default Header
+
+function openMenu() {
+  alert('hamburger clicked')
+}
