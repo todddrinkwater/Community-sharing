@@ -27066,6 +27066,24 @@
 	  function Link() {
 	    var _temp, _this, _ret;
 	
+<<<<<<< HEAD
+	var _Login = __webpack_require__(224);
+	
+	var _Login2 = _interopRequireDefault(_Login);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function App(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'app-container' },
+	    _react2.default.createElement(_Header2.default, null),
+	    _react2.default.createElement(_List2.default, null),
+	    _react2.default.createElement(_HomePage2.default, null),
+	    _react2.default.createElement(_ItemListing2.default, null),
+	    _react2.default.createElement(_Login2.default, null)
+	  );
+=======
 	    _classCallCheck(this, Link);
 	
 	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
@@ -27189,6 +27207,7 @@
 	
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
+>>>>>>> 5833eff35cf7c061d44d9a65d8b1719a2336daf2
 	}
 	
 	function _objectWithoutProperties(obj, keys) {
@@ -27806,6 +27825,52 @@
 	}
 	
 	exports.default = ItemListing;
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Login = function Login(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "Login" },
+	    _react2.default.createElement("img", { src: "http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png" }),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "LoginGreeting" },
+	      "Welcome to [insert kick-ass name here]. ",
+	      _react2.default.createElement("br", null),
+	      " Please sign in below."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Email"
+	    ),
+	    _react2.default.createElement("input", { type: "text", name: "email" }),
+	    _react2.default.createElement("br", null),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Password"
+	    ),
+	    _react2.default.createElement("input", { type: "password", name: "password" })
+	  );
+	};
+	
+	exports.default = Login;
 
 /***/ }
 /******/ ]);
