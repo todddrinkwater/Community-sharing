@@ -7,9 +7,9 @@ var app = require('../server/server')
 test('returning items', function (t) {
   supertest(app)
     .get('/items')
-    .end(checkReturnsObject)
+    .end(checkReturnedObject)
 
-  function checkReturnsObject(err, res) {
+  function checkReturnedObject(err, res) {
     if (err) { throw err }
 
     var response = typeof(res.body)

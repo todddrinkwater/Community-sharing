@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
     table.string('lname')
     table.string('email')
     table.string('phone')
-    table.string('location')
     table.binary('hash')
   })
 

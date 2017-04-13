@@ -27690,9 +27690,13 @@
 	
 	var _reactRouterDom = __webpack_require__(218);
 	
+	var _reactRedux = __webpack_require__(182);
+	
+	var _actions = __webpack_require__(257);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var NavigationMenu = function NavigationMenu() {
+	var NavigationMenu = function NavigationMenu(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'navigation-menu-container' },
@@ -27704,7 +27708,9 @@
 	        null,
 	        _react2.default.createElement(
 	          'li',
-	          { className: 'navigation-item' },
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/login' },
@@ -27713,7 +27719,9 @@
 	        ),
 	        _react2.default.createElement(
 	          'li',
-	          { className: 'navigation-item' },
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/dashboard' },
@@ -27722,7 +27730,9 @@
 	        ),
 	        _react2.default.createElement(
 	          'li',
-	          { className: 'navigation-item' },
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/list' },
@@ -27731,7 +27741,9 @@
 	        ),
 	        _react2.default.createElement(
 	          'li',
-	          { className: 'navigation-item' },
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/lender-form' },
@@ -27743,7 +27755,19 @@
 	  );
 	};
 	
-	exports.default = NavigationMenu;
+	function mapStateToProps(state) {
+	  return {
+	    dispatch: state.dispatch,
+	    menuState: state.menuState
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(NavigationMenu);
+	
+	
+	function openMenu(props) {
+	  props.dispatch((0, _actions.menuNavigation)());
+	}
 
 /***/ },
 /* 259 */
@@ -27935,7 +27959,6 @@
 	
 	
 	function changeTab(props, clickedTab) {
-	
 	  props.dispatch((0, _actions.dashboardTab)(clickedTab));
 	}
 
