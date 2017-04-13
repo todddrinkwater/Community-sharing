@@ -1,7 +1,6 @@
 import React from 'react'
 
-function HomePage () {
-  return (
+const HomePage = () => (
     <div className="homepage">
       <div className="borrow-div">
         <p className="borrow-p">Im here to Borrow</p>
@@ -11,6 +10,5 @@ function HomePage () {
       </div>
     </div>
   )
-}
 
 export default HomePage
