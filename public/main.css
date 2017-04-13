@@ -1,3 +1,7 @@
+* {
+  border:1px solid black
+}
+
 body {
   font-size: 100%;
   margin: 0px;
@@ -285,4 +289,12 @@ ul{
   text-align: center;
   font-size: 1.4em;
   width: 80%
+}
+
+
+/* --- Order Page --- */
+
+.MyListingImage {
+  width: 15%;
+  float: left;
 }
