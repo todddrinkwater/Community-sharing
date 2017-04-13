@@ -1,15 +1,22 @@
 import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 import List from '../containers/List'
-import Header from './Header'
+import Header from './Header.jsx'
 import HomePage from './HomePage'
-import Dashboard from './Dashboard'
+import ItemListing from './ItemListing'
 
 function App (props) {
   return (
     <div className='app-container'>
-      <Header />
-      <Dashboard />
+    <Header />
+    <Router>
+      <div>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/list' component={List} />
+        <Route path='/list-item' component={ItemListing} />
+      </div>
+    </Router>
     </div>
   )
 }
