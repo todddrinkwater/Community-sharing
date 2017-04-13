@@ -34,7 +34,5 @@ function mapStateToProps(state){
 export default connect(mapStateToProps)(Dashboard)
 
 function changeTab(props, clickedTab) {
-  
-
   props.dispatch(dashboardTab(clickedTab))
 }
