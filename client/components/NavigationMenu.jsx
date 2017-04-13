@@ -16,10 +16,3 @@ const NavigationMenu = () => (
 )
 
 export default NavigationMenu
-
-
-
-// <li className='navigation-item'>Register/Login</li>
-// <li className='navigation-item'>Your Dashboard</li>
-// <li className='navigation-item'>Borrow and item</li>
-// <li className='navigation-item'>Lend and item</li>

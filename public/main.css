@@ -1,7 +1,3 @@
-* {
-  border: 1px solid black;
-}
-
 body {
   font-size: 100%;
   margin: 0px;
@@ -66,6 +62,7 @@ ul{
   height: 3em;
   text-align: center;
   display: flex;
+  line-height: 0.8em;
 }
 
 .login-button-container{
@@ -135,6 +132,88 @@ ul{
   width: 100%
 }
 
+/*Dashboard*/
+
+.dashboard-active-button{
+  background-color: #eee
+}
+
+.dashboard-button{
+  border: 1px solid black;
+  text-align: center;
+  flex-grow: 1;
+  padding-top: 0.5em;
+}
+
+.dashboard-menu-container{
+  width: 100%;
+  height: 2em;
+  display: flex;
+}
+
+.dashboard-section{
+  border: 1px solid gray;
+  margin: 0.5em 0em;;
+  padding: 1em 0.5em;
+}
+
+/*Card*/
+
+.card-button{
+  border: 1px solid black;
+  border-radius: 0.7em;
+  font-size: 0.7em;
+  width: 100%;
+  height: 2em;
+}
+
+.card-button-container{
+  margin: 0.5em auto;
+  width: 5em;
+}
+
+.card-container{
+  display: flex;
+}
+
+.card-details-container{
+  width: 75%;
+  padding: 0.3em;
+  flex-grow: 1;
+}
+
+.card-details{
+  padding: 0px;
+  font-size: 0.8em;
+}
+
+.card-heading{
+  margin: 0.5em 0em;
+  padding: 0px;
+  font-weight: bold;
+}
+
+.card-image{
+  width: 3em;
+  height: 3em;
+  margin: 0.5em;
+  float: left;
+}
+
+.card-wrapper{
+  border: 1px solid black;
+}
+
+.shared-card-details{
+  padding: 0px;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.shared-name{
+  font-weight: bold;
+  font-size: 0.9em;
+}
 
 /* --- Item Listing Component --- */
 
@@ -145,7 +224,6 @@ ul{
 
 .itemListingImage {
   width: 100%;
-
 }
 
 .itemListingUserDetails{
