@@ -23820,6 +23820,10 @@
 	
 	var _ItemListing2 = _interopRequireDefault(_ItemListing);
 	
+	var _Dashboard = __webpack_require__(260);
+	
+	var _Dashboard2 = _interopRequireDefault(_Dashboard);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function App(props) {
@@ -27806,6 +27810,356 @@
 	}
 	
 	exports.default = ItemListing;
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _MySharingDetails = __webpack_require__(261);
+	
+	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
+	
+	var _MyProfile = __webpack_require__(267);
+	
+	var _MyProfile2 = _interopRequireDefault(_MyProfile);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Dashboard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-container' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'dashboard-menu-container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-button dashboard-active-button' },
+	        'My Sharing'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-button' },
+	        'My Profile'
+	      )
+	    ),
+	    _react2.default.createElement(_MyProfile2.default, null)
+	  );
+	}
+	
+	exports.default = Dashboard;
+	
+	// <MySharingDetails />
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _MyListings = __webpack_require__(262);
+	
+	var _MyListings2 = _interopRequireDefault(_MyListings);
+	
+	var _ImBorrowing = __webpack_require__(264);
+	
+	var _ImBorrowing2 = _interopRequireDefault(_ImBorrowing);
+	
+	var _MySharedItems = __webpack_require__(265);
+	
+	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MySharingDetails() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_MyListings2.default, null),
+	    _react2.default.createElement(_ImBorrowing2.default, null),
+	    _react2.default.createElement(_MySharedItems2.default, null)
+	  );
+	}
+	
+	exports.default = MySharingDetails;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Card = __webpack_require__(263);
+	
+	var _Card2 = _interopRequireDefault(_Card);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyListings() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'MY LISTINGS',
+	    _react2.default.createElement(_Card2.default, null)
+	  );
+	}
+	
+	exports.default = MyListings;
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Card() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CC500BAT.png/220px-CC500BAT.png' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          'Mower'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'card-button' },
+	        'More'
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = Card;
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Card = __webpack_require__(263);
+	
+	var _Card2 = _interopRequireDefault(_Card);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyBorrowing() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'IM BORROWING',
+	    _react2.default.createElement(_Card2.default, null)
+	  );
+	}
+	
+	exports.default = MyBorrowing;
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _SharedCard = __webpack_require__(266);
+	
+	var _SharedCard2 = _interopRequireDefault(_SharedCard);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MySharedItems() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'MY SHARED ITEMS',
+	    _react2.default.createElement(_SharedCard2.default, null)
+	  );
+	}
+	
+	exports.default = MySharedItems;
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function SharedCard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://www.dfhtechnologies.com/images/user.png' }),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'shared-card-details' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'shared-name' },
+	          'You'
+	        ),
+	        ' are sharing your lawnmower with ',
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'shared-name' },
+	          'Todd'
+	        )
+	      ),
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://vignette1.wikia.nocookie.net/sote-rp/images/c/c4/User-placeholder.png/revision/latest?cb=20150624004222' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'card-button' },
+	        'More'
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = SharedCard;
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyProfile() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'profile-continer' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'profile-image-container' },
+	      _react2.default.createElement('img', { className: 'profile-image', src: 'http://www.dfhtechnologies.com/images/user.png' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'profile-details-container' },
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'First Name: Dan'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Last Name: Blake'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Email: dan@hotmail.com'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Phone Number: 0231324123'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Location: Wellington'
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = MyProfile;
 
 /***/ }
 /******/ ]);

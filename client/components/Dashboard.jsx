@@ -1,6 +1,7 @@
 import React from 'react'
 
 import MySharingDetails from '../containers/MySharingDetails.jsx'
+import MyProfile from '../containers/MyProfile.jsx'
 
 
 function Dashboard () {
@@ -15,9 +16,11 @@ function Dashboard () {
           My Profile
         </div>
       </div>
-      <MySharingDetails />
+      <MyProfile />
     </div>
   )
 }
 
 export default Dashboard
+
+      // <MySharingDetails />

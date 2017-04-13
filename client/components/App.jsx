@@ -5,6 +5,7 @@ import List from '../containers/List'
 import Header from './Header.jsx'
 import HomePage from './HomePage'
 import ItemListing from './ItemListing'
+import Dashboard from './Dashboard.jsx'
 
 function App (props) {
   return (

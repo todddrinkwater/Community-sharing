@@ -132,9 +132,7 @@ ul{
   width: 100%
 }
 
-
-<<<<<<< HEAD
-/*Dashboard*/
+/*Dashboard - Sharing*/
 
 .dashboard-active-button{
   background-color: #eee
@@ -158,6 +156,27 @@ ul{
   margin: 0.5em 0em;;
   padding: 1em 0.5em;
 }
+
+/*Dashboard - Profile*/
+.profile-continer{
+  width: 80%;
+  margin: 2em auto;
+}
+
+.profile-details-container{
+  margin-left: 2em;
+}
+
+.profile-image{
+  height: 7em;
+  width: 100%;
+}
+
+.profile-image-container{
+  width: 7em;
+  margin: 0px auto;
+}
+
 
 /*Card*/
 
@@ -215,7 +234,7 @@ ul{
 .shared-name{
   font-weight: bold;
   font-size: 0.9em;
-=======
+}
 /* --- Item Listing Component --- */
 
 .itemTitle {
@@ -255,5 +274,4 @@ ul{
 .requestForm input {
   margin-top: 5%;
   margin-bottom: 5%;
->>>>>>> a17eab619bcdbbc12addaa256e8128295d5f142f
 }
