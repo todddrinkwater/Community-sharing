@@ -294,7 +294,7 @@ ul{
 
 /* --- Order Page --- */
 
-.MyListingImage {
-  width: 15%;
-  float: left;
+.Order {
+  width: 70%;
+  margin: auto;
 }
