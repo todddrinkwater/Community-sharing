@@ -165,7 +165,11 @@ fname    | string
 lname    | string
 email    | string
 phone    | string
-location | string
+address  | string
+suburb   | string
+town_city| string
+postcode | string
+user_image_url| string
 hash     | binary
 
 items    | Data type
@@ -177,6 +181,7 @@ description| string
 available| boolean
 image_url| string
 owner_id | integer references users.user_id
+location | string
 
 loans     | Data type
 ----------|----------
