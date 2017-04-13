@@ -1,14 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { menuNavigation } from '../actions'
+
+
 import NavigationMenu from './NavigationMenu.jsx'
 
-var tempMenuState = true
-
-const Header = () => (
+let Header = (props) => (
 
   <div className='header-menu-container'>
 
     <div className='header-container'>
-      <div className='hambuger-container' onClick={ () => openMenu() }>
+      <div className='hambuger-container' onClick={ () => openMenu(props) }>
         <i className="fa fa-bars" aria-hidden="true"></i>
       </div>
 
@@ -21,13 +23,20 @@ const Header = () => (
       </div>
     </div>
 
-     { tempMenuState ? <NavigationMenu /> : "" }
+     { props.menuState ? <NavigationMenu /> : "" }
 
   </div>
 )
 
-export default Header
+function mapStateToProps(state){
+  return {
+    dispatch: state.dispatch,
+    menuState: state.menuState
+  }
+}
 
-function openMenu() {
-  alert('hamburger clicked')
+export default connect(mapStateToProps)(Header)
+
+function openMenu(props) {
+  props.dispatch(menuNavigation())
 }

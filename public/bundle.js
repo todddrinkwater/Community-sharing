@@ -23754,14 +23754,14 @@
 	
 	var _redux = __webpack_require__(191);
 	
-	var _words = __webpack_require__(215);
+	var _menuState = __webpack_require__(215);
 	
-	var _words2 = _interopRequireDefault(_words);
+	var _menuState2 = _interopRequireDefault(_menuState);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _redux.combineReducers)({
-	  words: _words2.default
+	  menuState: _menuState2.default
 	});
 
 /***/ },
@@ -23773,27 +23773,20 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	
-	var words = function words() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	var menuState = function menuState() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case 'ADD_WORD':
-	      var newState = [].concat(_toConsumableArray(state), [{
-	        id: action.id,
-	        word: action.word
-	      }]);
-	      return newState;
+	    case 'MENU_STATE':
+	      return action.menuState;
 	
 	    default:
 	      return state;
 	  }
 	};
 	
-	exports.default = words;
+	exports.default = menuState;
 
 /***/ },
 /* 216 */
@@ -23839,15 +23832,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _NavigationMenu = __webpack_require__(218);
+	var _reactRedux = __webpack_require__(182);
+	
+	var _actions = __webpack_require__(218);
+	
+	var _NavigationMenu = __webpack_require__(219);
 	
 	var _NavigationMenu2 = _interopRequireDefault(_NavigationMenu);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var tempMenuState = true;
-	
-	var Header = function Header() {
+	var Header = function Header(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'header-menu-container' },
@@ -23857,7 +23852,7 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'hambuger-container', onClick: function onClick() {
-	            return openMenu();
+	            return openMenu(props);
 	          } },
 	        _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
 	      ),
@@ -23876,19 +23871,50 @@
 	        _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
 	      )
 	    ),
-	    tempMenuState ? _react2.default.createElement(_NavigationMenu2.default, null) : ""
+	    props.menuState ? _react2.default.createElement(_NavigationMenu2.default, null) : ""
 	  );
 	};
 	
-	exports.default = Header;
+	function mapStateToProps(state) {
+	  return {
+	    dispatch: state.dispatch,
+	    menuState: state.menuState
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
 	
 	
-	function openMenu() {
-	  alert('hamburger clicked');
+	function openMenu(props) {
+	  props.dispatch((0, _actions.menuNavigation)());
 	}
 
 /***/ },
 /* 218 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var currentMenuState = false;
+	
+	var menuNavigation = exports.menuNavigation = function menuNavigation() {
+	  if (currentMenuState == false) {
+	    currentMenuState = true;
+	  } else {
+	    currentMenuState = false;
+	  }
+	
+	  return {
+	    type: 'MENU_STATE',
+	    menuState: currentMenuState
+	  };
+	};
+
+/***/ },
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

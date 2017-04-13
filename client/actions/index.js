@@ -1,9 +1,15 @@
-let nextWordId = 0
+var currentMenuState = false
 
-export const addWord = (word) => {
-  return {
-    type: 'ADD_WORD',
-    id: nextWordId++,
-    word
+export const menuNavigation = () => {
+  if(currentMenuState == false){
+    currentMenuState = true;
+  }else{
+    currentMenuState = false
   }
+
+  return {
+    type: 'MENU_STATE',
+    menuState: currentMenuState
+  }
+
 }

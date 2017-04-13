@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
 
-import words from './words'
+import menuState from './menuState'
 
 export default combineReducers({
-  words
+  menuState
 })
-
