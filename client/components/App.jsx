@@ -2,7 +2,7 @@ import React from 'react'
 
 import List from '../containers/List'
 import Header from './Header.jsx'
-import HomePage from './Homepage'
+import HomePage from './HomePage'
 
 function App (props) {
   return (
