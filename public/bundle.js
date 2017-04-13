@@ -3886,7 +3886,6 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
-	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3899,12 +3898,9 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey] &&
-	          // Avoid spamming the console because they are often not actionable except for lib authors
-	          manualPropTypeWarningCount < 3) {
+	          if (!manualPropTypeCallCache[cacheKey]) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
-	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -23861,6 +23857,14 @@
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
+	var _Order = __webpack_require__(271);
+	
+	var _Order2 = _interopRequireDefault(_Order);
+	
+	var _LenderForm = __webpack_require__(272);
+	
+	var _LenderForm2 = _interopRequireDefault(_LenderForm);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function App(props) {
@@ -23879,7 +23883,9 @@
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-item', component: _ItemListing2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/dashboard', component: _Dashboard2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/order', component: _Order2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/lender-form', component: _LenderForm2.default })
 	      )
 	    )
 	  );
@@ -28041,6 +28047,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouterDom = __webpack_require__(218);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Card() {
@@ -28070,9 +28078,13 @@
 	      'div',
 	      { className: 'card-button-container' },
 	      _react2.default.createElement(
-	        'button',
-	        { className: 'card-button' },
-	        'More'
+	        _reactRouterDom.Link,
+	        { to: 'order' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'More'
+	        )
 	      )
 	    )
 	  );
@@ -28156,6 +28168,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouterDom = __webpack_require__(218);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function SharedCard() {
@@ -28187,9 +28201,13 @@
 	      'div',
 	      { className: 'card-button-container' },
 	      _react2.default.createElement(
-	        'button',
-	        { className: 'card-button' },
-	        'More'
+	        _reactRouterDom.Link,
+	        { to: 'order' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'More'
+	        )
 	      )
 	    )
 	  );
@@ -28392,6 +28410,168 @@
 	};
 	
 	exports.default = Login;
+
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Order = function Order(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { "class": "Order" },
+	    _react2.default.createElement(
+	      "h1",
+	      null,
+	      "Request Approved - Transaction Receipt"
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      null,
+	      "Item Details"
+	    ),
+	    _react2.default.createElement(
+	      "ul",
+	      null,
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Item: Lawn Mower"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Pick Up Date: 01-01-2015"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Drop Off Date: 03-01-2015"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      null,
+	      "Lender Details"
+	    ),
+	    _react2.default.createElement(
+	      "ul",
+	      null,
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Name: Dan Ba-la-kay"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Phone: 021120021"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "email: dblake@gunit.com"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      null,
+	      "Borrower Details"
+	    ),
+	    _react2.default.createElement(
+	      "ul",
+	      null,
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Name: Pou Pou"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Phone: 021120021"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "email: pou@yeahboiii.com"
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = Order;
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var LenderForm = function LenderForm(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { "class": "lenderForm" },
+	    _react2.default.createElement(
+	      "h1",
+	      null,
+	      "List An Item"
+	    ),
+	    _react2.default.createElement(
+	      "form",
+	      { action: "index.html", method: "post" },
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Title:"
+	      ),
+	      _react2.default.createElement("input", { type: "text", "class": "lname" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Category"
+	      ),
+	      _react2.default.createElement("input", { type: "text", "class": "email" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Description"
+	      ),
+	      _react2.default.createElement("input", { type: "text", "class": "address" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Image Upload"
+	      ),
+	      _react2.default.createElement("input", { type: "file", name: "pic", accept: "image/*" }),
+	      _react2.default.createElement("br", null),
+	      _react2.default.createElement("input", { "class": "createListing", type: "submit", value: "Create Listing" })
+	    )
+	  );
+	};
+	
+	exports.default = LenderForm;
 
 /***/ }
 /******/ ]);

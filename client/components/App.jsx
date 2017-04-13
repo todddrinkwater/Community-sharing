@@ -8,7 +8,8 @@ import ItemListing from './ItemListing'
 import Dashboard from './Dashboard'
 import Register from './Register'
 import Login from './Login'
-
+import Order from './Order'
+import LenderForm from './LenderForm'
 
 function App (props) {
   return (
@@ -22,6 +23,8 @@ function App (props) {
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
+          <Route path='/order' component={Order} />
+          <Route path='/lender-form' component={LenderForm} />
         </div>
       </Router>
     </div>
