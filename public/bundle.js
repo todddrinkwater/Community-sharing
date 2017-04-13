@@ -56,11 +56,11 @@
 	
 	var _redux = __webpack_require__(191);
 	
-	var _reducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./reducers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _reducers = __webpack_require__(214);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _App = __webpack_require__(215);
+	var _App = __webpack_require__(216);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -3886,6 +3886,7 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
+	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3898,9 +3899,12 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey]) {
+	          if (!manualPropTypeCallCache[cacheKey] &&
+	          // Avoid spamming the console because they are often not actionable except for lib authors
+	          manualPropTypeWarningCount < 3) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
+	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -23739,8 +23743,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 214 */,
-/* 215 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23749,35 +23752,41 @@
 	  value: true
 	});
 	
-	var _react = __webpack_require__(1);
+	var _redux = __webpack_require__(191);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _menuState = __webpack_require__(215);
 	
-	var _List = __webpack_require__(216);
-	
-	var _List2 = _interopRequireDefault(_List);
-	
-	var _Header = __webpack_require__(218);
-	
-	var _Header2 = _interopRequireDefault(_Header);
-	
-	var _Homepage = __webpack_require__(221);
-	
-	var _Homepage2 = _interopRequireDefault(_Homepage);
+	var _menuState2 = _interopRequireDefault(_menuState);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function App(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'app-container' },
-	    _react2.default.createElement(_Header2.default, null),
-	    _react2.default.createElement(_List2.default, null),
-	    _react2.default.createElement(_Homepage2.default, null)
-	  );
-	}
+	exports.default = (0, _redux.combineReducers)({
+	  menuState: _menuState2.default
+	});
+
+/***/ },
+/* 215 */
+/***/ function(module, exports) {
+
+	'use strict';
 	
-	exports.default = App;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var menuState = function menuState() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'MENU_STATE':
+	      return action.menuState;
+	
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = menuState;
 
 /***/ },
 /* 216 */
@@ -23793,7 +23802,52 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ListItem = __webpack_require__(217);
+	var _List = __webpack_require__(217);
+	
+	var _List2 = _interopRequireDefault(_List);
+	
+	var _Header = __webpack_require__(219);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	var _HomePage = __webpack_require__(222);
+	
+	var _HomePage2 = _interopRequireDefault(_HomePage);
+	
+	var _ItemListing = __webpack_require__(223);
+	
+	var _ItemListing2 = _interopRequireDefault(_ItemListing);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function App(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'app-container' },
+	    _react2.default.createElement(_Header2.default, null),
+	    _react2.default.createElement(_List2.default, null),
+	    _react2.default.createElement(_HomePage2.default, null),
+	    _react2.default.createElement(_ItemListing2.default, null)
+	  );
+	}
+	
+	exports.default = App;
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ListItem = __webpack_require__(218);
 	
 	var _ListItem2 = _interopRequireDefault(_ListItem);
 	
@@ -23859,7 +23913,7 @@
 	exports.default = List;
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23908,7 +23962,7 @@
 	exports.default = ListItem;
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23923,9 +23977,9 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _actions = __webpack_require__(219);
+	var _actions = __webpack_require__(220);
 	
-	var _NavigationMenu = __webpack_require__(220);
+	var _NavigationMenu = __webpack_require__(221);
 	
 	var _NavigationMenu2 = _interopRequireDefault(_NavigationMenu);
 	
@@ -23979,7 +24033,7 @@
 	}
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24003,7 +24057,7 @@
 	};
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24052,7 +24106,7 @@
 	exports.default = NavigationMenu;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24093,6 +24147,78 @@
 	}
 	
 	exports.default = HomePage;
+
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function ItemListing(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "ItemListing" },
+	    _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement(
+	        "h1",
+	        { className: "itemTitle" },
+	        "Item Title"
+	      ),
+	      _react2.default.createElement("img", { className: "itemListingImage", src: "http://static.musiciansfriend.com/derivates/18/001/446/174/DV016_Jpg_Large_518963.019_cherry_body_closeup.jpg" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Item description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah..."
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "itemListingUserDetails" },
+	      _react2.default.createElement("img", { className: "itemListingUserPhoto", src: "https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" }),
+	      _react2.default.createElement(
+	        "h2",
+	        null,
+	        "Lender Name"
+	      ),
+	      _react2.default.createElement(
+	        "h3",
+	        null,
+	        "Lender Location"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "form",
+	      { className: "requestForm", action: "/action_page.php" },
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        _react2.default.createElement("input", { type: "checkbox", name: "vehicle", value: "Bike" }),
+	        "By ticking this box, I agree to the ",
+	        _react2.default.createElement(
+	          "a",
+	          { href: "#" },
+	          "Terms and Condtions"
+	        ),
+	        " of Community Share."
+	      ),
+	      _react2.default.createElement("input", { type: "submit", value: "Request Item" })
+	    )
+	  );
+	}
+	
+	exports.default = ItemListing;
 
 /***/ }
 /******/ ]);
