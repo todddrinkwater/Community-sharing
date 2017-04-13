@@ -27616,6 +27616,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouterDom = __webpack_require__(217);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var NavigationMenu = function NavigationMenu() {
@@ -27623,33 +27625,58 @@
 	    'div',
 	    { className: 'navigation-menu-container' },
 	    _react2.default.createElement(
-	      'ul',
+	      _reactRouterDom.HashRouter,
 	      null,
 	      _react2.default.createElement(
-	        'li',
-	        { className: 'navigation-item' },
-	        'Register/Login'
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        { className: 'navigation-item' },
-	        'Your Dashboard'
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        { className: 'navigation-item' },
-	        'Borrow and item'
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        { className: 'navigation-item' },
-	        'Lend and item'
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item' },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/login' },
+	            'Register/Login'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item' },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/dashboard' },
+	            'Your Dashboard'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item' },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/list' },
+	            'Borrow and item'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item' },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/lender-form' },
+	            'Lend and item'
+	          )
+	        )
 	      )
 	    )
 	  );
 	};
 	
 	exports.default = NavigationMenu;
+	
+	// <li className='navigation-item'>Register/Login</li>
+	// <li className='navigation-item'>Your Dashboard</li>
+	// <li className='navigation-item'>Borrow and item</li>
+	// <li className='navigation-item'>Lend and item</li>
 
 /***/ },
 /* 258 */
@@ -27674,26 +27701,35 @@
 	    'div',
 	    { className: 'homepage' },
 	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Testing'
+	      _reactRouterDom.Link,
+	      { to: '/list' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'borrow-div' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'borrow-p' },
+	          'IM HERE TO BORROW'
+	        )
+	      )
 	    ),
 	    _react2.default.createElement(
 	      _reactRouterDom.Link,
-	      { to: '/' },
-	      'Home'
+	      { to: '/lender-form' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'lend-div' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'lend-p' },
+	          'IM HERE TO LEND'
+	        )
+	      )
 	    )
 	  );
 	}
 	
 	exports.default = HomePage;
-	
-	// <div className="borrow-div">
-	//   <p className="borrow-p">Im here to Borrow</p>
-	// </div>
-	// <div className="lend-div">
-	//   <p className="lend-p">Im here to Lend</p>
-	// </div>
 
 /***/ }
 /******/ ]);
