@@ -23786,8 +23786,6 @@
 
 /***/ },
 /* 216 */
-<<<<<<< HEAD
-=======
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27828,7 +27826,6 @@
 
 /***/ },
 /* 260 */
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27841,19 +27838,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-<<<<<<< HEAD
-	var _List = __webpack_require__(217);
-=======
 	var _MySharingDetails = __webpack_require__(261);
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 	
 	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
 	
-<<<<<<< HEAD
-	var _Header = __webpack_require__(219);
-=======
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 	
 	function Dashboard() {
 	  return _react2.default.createElement(
@@ -27897,11 +27886,6 @@
 	
 	var _MyListings2 = _interopRequireDefault(_MyListings);
 	
-<<<<<<< HEAD
-	var _HomePage = __webpack_require__(222);
-	
-	var _HomePage2 = _interopRequireDefault(_HomePage);
-=======
 	var _ImBorrowing = __webpack_require__(264);
 	
 	var _ImBorrowing2 = _interopRequireDefault(_ImBorrowing);
@@ -27909,35 +27893,23 @@
 	var _MySharedItems = __webpack_require__(265);
 	
 	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function MySharingDetails() {
 	  return _react2.default.createElement(
 	    'div',
-<<<<<<< HEAD
-	    { className: 'app-container' },
-	    _react2.default.createElement(_Header2.default, null),
-	    _react2.default.createElement(_List2.default, null),
-	    _react2.default.createElement(_HomePage2.default, null)
-=======
 	    null,
 	    _react2.default.createElement(_MyListings2.default, null),
 	    _react2.default.createElement(_ImBorrowing2.default, null),
 	    _react2.default.createElement(_MySharedItems2.default, null)
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 	  );
 	}
 	
 	exports.default = MySharingDetails;
 
 /***/ },
-<<<<<<< HEAD
-/* 217 */
-=======
 /* 262 */
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27950,11 +27922,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-<<<<<<< HEAD
-	var _ListItem = __webpack_require__(218);
-=======
 	var _Card = __webpack_require__(263);
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 	
 	var _Card2 = _interopRequireDefault(_Card);
 	
@@ -27972,11 +27940,7 @@
 	exports.default = MyListings;
 
 /***/ },
-<<<<<<< HEAD
-/* 218 */
-=======
 /* 263 */
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28029,11 +27993,7 @@
 	exports.default = Card;
 
 /***/ },
-<<<<<<< HEAD
-/* 219 */
-=======
 /* 264 */
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28046,15 +28006,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-<<<<<<< HEAD
-	var _reactRedux = __webpack_require__(182);
-	
-	var _actions = __webpack_require__(220);
-	
-	var _NavigationMenu = __webpack_require__(221);
-=======
 	var _Card = __webpack_require__(263);
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 	
 	var _Card2 = _interopRequireDefault(_Card);
 	
@@ -28072,13 +28024,8 @@
 	exports.default = MyBorrowing;
 
 /***/ },
-<<<<<<< HEAD
-/* 220 */
-/***/ function(module, exports) {
-=======
 /* 265 */
 /***/ function(module, exports, __webpack_require__) {
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 
 	'use strict';
 	
@@ -28108,11 +28055,7 @@
 	exports.default = MySharedItems;
 
 /***/ },
-<<<<<<< HEAD
-/* 221 */
-=======
 /* 266 */
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28187,7 +28130,7 @@
 	var Register = function Register() {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'Login' },
+	    { className: 'login' },
 	    _react2.default.createElement('img', { src: 'http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' }),
 	    _react2.default.createElement(
 	      'div',
@@ -28206,6 +28149,7 @@
 	          'First Name: '
 	        ),
 	        _react2.default.createElement('input', { type: 'text', className: 'fname' }),
+	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
 	          'label',
 	          null,
@@ -28245,11 +28189,7 @@
 	exports.default = Register;
 
 /***/ },
-<<<<<<< HEAD
-/* 222 */
-=======
 /* 268 */
->>>>>>> 608b9898fa72029153846a060c0f1e2b0d1a4098
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28269,7 +28209,7 @@
 	var Login = function Login(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'Login' },
+	    { className: 'login' },
 	    _react2.default.createElement('img', { src: 'http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' }),
 	    _react2.default.createElement(
 	      'div',
@@ -28284,13 +28224,13 @@
 	      'Email'
 	    ),
 	    _react2.default.createElement('input', { type: 'text', name: 'email' }),
-	    _react2.default.createElement('br', null),
 	    _react2.default.createElement(
 	      'p',
 	      null,
 	      'Password'
 	    ),
 	    _react2.default.createElement('input', { type: 'password', name: 'password' }),
+	    _react2.default.createElement('input', { type: 'submit', value: 'Login' }),
 	    _react2.default.createElement(
 	      'p',
 	      null,

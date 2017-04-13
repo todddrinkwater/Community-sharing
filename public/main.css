@@ -257,47 +257,58 @@ ul{
 
 /* --- Login Component ---- */
 
-.Login {
+.login {
   width: 100%;
-  margin-bottom: 25%
+  margin-bottom: 25%;
+  text-align: center;
 }
 
-.Login img {
+.login img {
   width: 80%;
   margin: 25% auto 10%;
   display: block;
 }
 
-.LoginGreeting {
+.loginGreeting {
   margin-bottom: 3%;
   text-align: center;
 }
 
-.Login input {
-  margin: auto;
-  display: block;
-  font-size: 1.4em;
-  width: 80%
+.login input {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0px auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-.Login p {
+.login p {
   margin: auto;
   text-align: center;
   font-size: 1.4em;
   width: 80%
+}
+
+.login input[type=submit] {
+  margin-top: 1em;
+  background-color: #4CAF50;
+  color: white;
 }
 
 /*REGISTER*/
 
 .register {
   text-align: center;
-  color: black;
+  color: black
 }
 
 .register img {
   width: 80%;
   margin: 25% auto 10%;
-  display: block;
+  display: block
 }
 
 .register input {
@@ -310,7 +321,7 @@ ul{
 }
 
 .register input[type=submit] {
-  margin-top: 2em;
+  margin-top: 1em;
   background-color: #4CAF50;
-  color: white;
+  color: white
 }
