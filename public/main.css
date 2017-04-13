@@ -11,14 +11,22 @@ body {
 
 /* --- Search Bar --- */
 
-/*.SearchBar {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}*/
 
  #search-input {
     width: 100%;
+    font-size: 1.5em;
+}
+
+.Category-ul {
+  display: flex;
+  text-align: center;
+  padding: 0;
+}
+
+ .Category-li {
+  list-style-type: none;
+  width: 25%;
+  font-size: 1em;
 }
 
 

@@ -23809,7 +23809,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _List = __webpack_require__(218);
+	var _List = __webpack_require__(217);
 	
 	var _List2 = _interopRequireDefault(_List);
 	
@@ -23826,8 +23826,7 @@
 	exports.default = App;
 
 /***/ },
-/* 217 */,
-/* 218 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23840,7 +23839,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ListItem = __webpack_require__(219);
+	var _ListItem = __webpack_require__(218);
 	
 	var _ListItem2 = _interopRequireDefault(_ListItem);
 	
@@ -23855,6 +23854,50 @@
 	      { className: 'SearchBar' },
 	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search', placeholder: 'Search..' })
 	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'Category' },
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'Category-ul' },
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Tools'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Music Equipment'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Sport & Rec'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'Category-li' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Other'
+	          )
+	        )
+	      )
+	    ),
 	    _react2.default.createElement(_ListItem2.default, null)
 	  );
 	}
@@ -23862,7 +23905,7 @@
 	exports.default = List;
 
 /***/ },
-/* 219 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
