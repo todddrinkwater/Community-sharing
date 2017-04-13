@@ -24160,17 +24160,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _MyListings = __webpack_require__(224);
+	var _MySharingDetails = __webpack_require__(229);
 	
-	var _MyListings2 = _interopRequireDefault(_MyListings);
-	
-	var _ImBorrowing = __webpack_require__(226);
-	
-	var _ImBorrowing2 = _interopRequireDefault(_ImBorrowing);
-	
-	var _MySharedItems = __webpack_require__(227);
-	
-	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
+	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -24192,13 +24184,7 @@
 	        'My Profile'
 	      )
 	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(_MyListings2.default, null),
-	      _react2.default.createElement(_ImBorrowing2.default, null),
-	      _react2.default.createElement(_MySharedItems2.default, null)
-	    )
+	    _react2.default.createElement(_MySharingDetails2.default, null)
 	  );
 	}
 	
@@ -24404,6 +24390,46 @@
 	}
 	
 	exports.default = SharedCard;
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _MyListings = __webpack_require__(224);
+	
+	var _MyListings2 = _interopRequireDefault(_MyListings);
+	
+	var _ImBorrowing = __webpack_require__(226);
+	
+	var _ImBorrowing2 = _interopRequireDefault(_ImBorrowing);
+	
+	var _MySharedItems = __webpack_require__(227);
+	
+	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MySharingDetails() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_MyListings2.default, null),
+	    _react2.default.createElement(_ImBorrowing2.default, null),
+	    _react2.default.createElement(_MySharedItems2.default, null)
+	  );
+	}
+	
+	exports.default = MySharingDetails;
 
 /***/ }
 /******/ ]);

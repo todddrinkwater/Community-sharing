@@ -1,8 +1,6 @@
 import React from 'react'
 
-import MyListings from '../containers/MyListings.jsx'
-import ImBorrowing from '../containers/ImBorrowing.jsx'
-import MySharedItems from '../containers/MySharedItems.jsx'
+import MySharingDetails from '../containers/MySharingDetails.jsx'
 
 
 function Dashboard () {
@@ -17,13 +15,7 @@ function Dashboard () {
           My Profile
         </div>
       </div>
-
-      <div>
-        <MyListings />
-        <ImBorrowing />
-        <MySharedItems />
-      </div>
-
+      <MySharingDetails />
     </div>
   )
 }
