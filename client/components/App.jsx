@@ -1,15 +1,15 @@
 import React from 'react'
 
 import List from '../containers/List'
-import Header from './Header.jsx'
-import HomePage from './Homepage'
+import Header from './Header'
+import HomePage from './HomePage'
+import Dashboard from './Dashboard'
 
 function App (props) {
   return (
     <div className='app-container'>
       <Header />
-      <List />
-      <HomePage />
+      <Dashboard />
     </div>
   )
 }

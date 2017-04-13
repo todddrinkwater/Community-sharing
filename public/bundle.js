@@ -56,11 +56,11 @@
 	
 	var _redux = __webpack_require__(191);
 	
-	var _reducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./reducers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _reducers = __webpack_require__(214);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _App = __webpack_require__(215);
+	var _App = __webpack_require__(216);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -3886,6 +3886,7 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
+	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3898,9 +3899,12 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey]) {
+	          if (!manualPropTypeCallCache[cacheKey] &&
+	          // Avoid spamming the console because they are often not actionable except for lib authors
+	          manualPropTypeWarningCount < 3) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
+	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -23739,8 +23743,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 214 */,
-/* 215 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23749,35 +23752,41 @@
 	  value: true
 	});
 	
-	var _react = __webpack_require__(1);
+	var _redux = __webpack_require__(191);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _menuState = __webpack_require__(215);
 	
-	var _List = __webpack_require__(216);
-	
-	var _List2 = _interopRequireDefault(_List);
-	
-	var _Header = __webpack_require__(218);
-	
-	var _Header2 = _interopRequireDefault(_Header);
-	
-	var _Homepage = __webpack_require__(221);
-	
-	var _Homepage2 = _interopRequireDefault(_Homepage);
+	var _menuState2 = _interopRequireDefault(_menuState);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function App(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'app-container' },
-	    _react2.default.createElement(_Header2.default, null),
-	    _react2.default.createElement(_List2.default, null),
-	    _react2.default.createElement(_Homepage2.default, null)
-	  );
-	}
+	exports.default = (0, _redux.combineReducers)({
+	  menuState: _menuState2.default
+	});
+
+/***/ },
+/* 215 */
+/***/ function(module, exports) {
+
+	'use strict';
 	
-	exports.default = App;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var menuState = function menuState() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'MENU_STATE':
+	      return action.menuState;
+	
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = menuState;
 
 /***/ },
 /* 216 */
@@ -23793,7 +23802,50 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ListItem = __webpack_require__(217);
+	var _List = __webpack_require__(217);
+	
+	var _List2 = _interopRequireDefault(_List);
+	
+	var _Header = __webpack_require__(219);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	var _HomePage = __webpack_require__(222);
+	
+	var _HomePage2 = _interopRequireDefault(_HomePage);
+	
+	var _Dashboard = __webpack_require__(223);
+	
+	var _Dashboard2 = _interopRequireDefault(_Dashboard);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function App(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'app-container' },
+	    _react2.default.createElement(_Header2.default, null),
+	    _react2.default.createElement(_Dashboard2.default, null)
+	  );
+	}
+	
+	exports.default = App;
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ListItem = __webpack_require__(218);
 	
 	var _ListItem2 = _interopRequireDefault(_ListItem);
 	
@@ -23859,7 +23911,7 @@
 	exports.default = List;
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23908,7 +23960,7 @@
 	exports.default = ListItem;
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23923,9 +23975,9 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _actions = __webpack_require__(219);
+	var _actions = __webpack_require__(220);
 	
-	var _NavigationMenu = __webpack_require__(220);
+	var _NavigationMenu = __webpack_require__(221);
 	
 	var _NavigationMenu2 = _interopRequireDefault(_NavigationMenu);
 	
@@ -23979,7 +24031,7 @@
 	}
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24003,7 +24055,7 @@
 	};
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24038,12 +24090,12 @@
 	      _react2.default.createElement(
 	        'li',
 	        { className: 'navigation-item' },
-	        'Borrow and item'
+	        'Borrow an item'
 	      ),
 	      _react2.default.createElement(
 	        'li',
 	        { className: 'navigation-item' },
-	        'Lend and item'
+	        'Lend an item'
 	      )
 	    )
 	  );
@@ -24052,7 +24104,7 @@
 	exports.default = NavigationMenu;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24093,6 +24145,196 @@
 	}
 	
 	exports.default = HomePage;
+
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _MyListings = __webpack_require__(224);
+	
+	var _MyListings2 = _interopRequireDefault(_MyListings);
+	
+	var _ImBorrowing = __webpack_require__(226);
+	
+	var _ImBorrowing2 = _interopRequireDefault(_ImBorrowing);
+	
+	var _MySharedItems = __webpack_require__(227);
+	
+	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Dashboard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-container' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'dashboard-menu-container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-button dashboard-active-button' },
+	        'My Sharing'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-button' },
+	        'My Profile'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(_MyListings2.default, null),
+	      _react2.default.createElement(_ImBorrowing2.default, null),
+	      _react2.default.createElement(_MySharedItems2.default, null)
+	    )
+	  );
+	}
+	
+	exports.default = Dashboard;
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Card = __webpack_require__(225);
+	
+	var _Card2 = _interopRequireDefault(_Card);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyListings() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'MY LISTINGS',
+	    _react2.default.createElement(_Card2.default, null)
+	  );
+	}
+	
+	exports.default = MyListings;
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Card() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-container' },
+	    _react2.default.createElement('img', { className: 'card-image', src: 'http://www.homedepot.com/hdus/en_US/DTCCOMNEW/fetch/Category_Pages/Outdoor/Power_Equipment/Lawn_Mowers/self-propelled-mowers1.jpg' }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-details-container' },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'card-heading' },
+	        'Mower'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'card-details' },
+	        'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-button-container' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'More'
+	        )
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = Card;
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyBorrowing() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'IM BORROWING'
+	  );
+	}
+	
+	exports.default = MyBorrowing;
+
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MySharedItems() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'MY SHARED ITEMS'
+	  );
+	}
+	
+	exports.default = MySharedItems;
 
 /***/ }
 /******/ ]);

@@ -1,7 +1,3 @@
-* {
-  border: 1px solid black;
-}
-
 body {
   font-size: 100%;
   margin: 0px;
@@ -75,6 +71,7 @@ ul{
   height: 3em;
   text-align: center;
   display: flex;
+  line-height: 0.8em;
 }
 
 .login-button-container{
@@ -102,6 +99,7 @@ ul{
 .navigation-item{
   padding: 1em;
   border: 1px solid black;
+  background-color: white;
 }
 
 /* --- Search Bar --- */
@@ -141,4 +139,73 @@ ul{
 
 .listItemImage {
   width: 100%
+}
+
+
+/*Dashboard*/
+
+.dashboard-active-button{
+  background-color: #eee
+}
+
+.dashboard-button{
+  border: 1px solid black;
+  text-align: center;
+  flex-grow: 1;
+  padding-top: 0.5em;
+}
+
+.dashboard-menu-container{
+  width: 100%;
+  height: 2em;
+  display: flex;
+}
+
+.dashboard-section{
+  border: 1px solid green;
+  margin: 0.5em 0em;;
+  padding: 1em 0.5em;
+}
+
+/*Card*/
+
+.card-button{
+  border: 1px solid black;
+  border-radius: 0.7em;
+  font-size: 0.7em;
+  width: 5em;
+}
+
+.card-button-container{
+  margin: 0.5em auto;
+  width: 5em;
+}
+
+.card-container{
+  border: 1px solid black;
+}
+
+.card-details-container{
+  width: 75%;
+  display: inline-block;
+  padding: 0.3em;
+}
+
+.card-details{
+  padding: 0px;
+  font-size: 0.8em;
+}
+
+.card-heading{
+  margin: 0.5em 0em;
+  padding: 0px;
+  font-weight: bold;
+}
+
+.card-image{
+  width: 3em;
+  height: 3em;
+  margin: 0.5em;
+  display: inline-block;
+  float: left;
 }
