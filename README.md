@@ -158,30 +158,30 @@ Merge pull request together
 
 ### Database Structure
 
-users    |
----------|
-user_id       |
-fname|
-lname |
-email    |
-phone    |
-location |
-hash |
+users    | Data type
+---------|----------
+user_id  | increments
+fname    | string
+lname    | string
+email    | string
+phone    | string
+location | string
+hash     | binary
 
-items     |
----------|
-item_id       |
-catagory |
-item_ame |
-description|
-available|
-image_url |
-owner_id |
+items    | Data type
+---------|----------
+item_id  | increments
+catagory | string
+item_name| string
+description| string
+available| boolean
+image_url| string
+owner_id | integer references users.user_id
 
-loans      |
-----------|
-loan_id|
-borrower_id|
-item_id    |
-pickup   |
-dropoff  |
+loans     | Data type
+----------|----------
+loan_id   | increments
+borrower_id| integer references users.user_id
+item_id    | integer references items.item_id
+pickup   | datetime
+dropoff  | datetime
