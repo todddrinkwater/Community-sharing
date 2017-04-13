@@ -361,3 +361,29 @@ ul{
   background-color: #4CAF50;
   color: white
 }
+
+
+/* --- LenderForm --- */
+
+.lenderForm {
+  width: 100%;
+}
+
+.lenderForm h1 {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.lenderForm .input {
+  width: 90%;
+}
+
+.lenderForm p {
+  width: 20%;
+}
+
+.createListing {
+  margin: 3% 5%;
+  width: 90%
+}
