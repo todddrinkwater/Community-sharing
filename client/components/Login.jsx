@@ -8,7 +8,6 @@ let Login = (props) => (
     <p>Email</p><input type="text" name="email" />
     <p>Password</p><input type="password" name="password" />
     <input type="submit" value="Login" />
-
     <p>No account?</p><Link to="/register">Register Now?</Link>
   </div>
 )
