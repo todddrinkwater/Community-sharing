@@ -154,6 +154,8 @@ Merge pull request together
 ![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/RegisterForm.jpg)
 
 
+{{images here}}
+
 ### Database Structure
 
 users    |
