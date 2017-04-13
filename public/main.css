@@ -32,20 +32,11 @@ ul{
   background-repeat: no-repeat;
 }
 
-.borrow-p {
+.borrow-p, .lend-p {
   background-color: black;
   color: white;
-  top: 1%;
-  left: 1%;
-  padding: 1%;
-}
-
-.lend-p {
-  background-color: black;
-  color: white;
-  top: 1%;
-  left: 1%;
-  padding: 1%;
+  padding: 3%;
+  text-align: center;
 }
 
 /*Header*/
