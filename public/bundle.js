@@ -28132,7 +28132,62 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Register = function Register() {
-	  return _react2.default.createElement('div', { className: 'register' });
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'login' },
+	    _react2.default.createElement('img', { src: 'http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'register' },
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Register'
+	      ),
+	      _react2.default.createElement(
+	        'form',
+	        null,
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'First Name: '
+	        ),
+	        _react2.default.createElement('input', { type: 'text', className: 'fname' }),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Last Name: '
+	        ),
+	        _react2.default.createElement('input', { type: 'text', className: 'lname' }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Email: '
+	        ),
+	        _react2.default.createElement('input', { type: 'text', className: 'email' }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Address: '
+	        ),
+	        _react2.default.createElement('input', { type: 'text', className: 'address' }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Phone Number: '
+	        ),
+	        _react2.default.createElement('input', { type: 'text', className: 'phone' }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Password: '
+	        ),
+	        _react2.default.createElement('input', { type: 'password', className: 'hash' }),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Register' })
+	      )
+	    )
+	  );
 	};
 	
 	exports.default = Register;
@@ -28158,7 +28213,7 @@
 	var Login = function Login(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'Login' },
+	    { className: 'login' },
 	    _react2.default.createElement('img', { src: 'http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' }),
 	    _react2.default.createElement(
 	      'div',
@@ -28173,13 +28228,13 @@
 	      'Email'
 	    ),
 	    _react2.default.createElement('input', { type: 'text', name: 'email' }),
-	    _react2.default.createElement('br', null),
 	    _react2.default.createElement(
 	      'p',
 	      null,
 	      'Password'
 	    ),
 	    _react2.default.createElement('input', { type: 'password', name: 'password' }),
+	    _react2.default.createElement('input', { type: 'submit', value: 'Login' }),
 	    _react2.default.createElement(
 	      'p',
 	      null,
@@ -28187,7 +28242,7 @@
 	    ),
 	    _react2.default.createElement(
 	      _reactRouterDom.Link,
-	      { className: 'LoginLink', to: '/register' },
+	      { to: '/register' },
 	      'Register Now?'
 	    )
 	  );
