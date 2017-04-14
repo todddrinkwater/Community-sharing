@@ -5,7 +5,7 @@ import { menuNavigation } from '../actions'
 
 import NavigationMenu from './NavigationMenu.jsx'
 
-let Header = (props) => (
+export const Header = (props) => (
 
   <div className='header-menu-container'>
 

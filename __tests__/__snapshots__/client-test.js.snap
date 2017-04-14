@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header (Snapshot) The Header renders 1`] = `
+<div
+  className="header-menu-container"
+>
+  <div
+    className="header-container"
+  >
+    <div
+      className="hambuger-container"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-bars"
+      />
+    </div>
+    <div
+      className="title-container"
+    >
+      <p
+        className="site-title"
+      >
+        Community Sharing
+      </p>
+    </div>
+    <div
+      className="login-button-container"
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-user"
+      />
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`Order (Snapshot) The Order renders 1`] = `
+<div
+  class="Order"
+>
+  <h1>
+    Request Approved - Transaction Receipt
+  </h1>
+  <h3>
+    Item Details
+  </h3>
+  <ul>
+    <li>
+      Item: Lawn Mower
+    </li>
+    <li>
+      Pick Up Date: 01-01-2015
+    </li>
+    <li>
+      Drop Off Date: 03-01-2015
+    </li>
+  </ul>
+  <h3>
+    Lender Details
+  </h3>
+  <ul>
+    <li>
+      Name: Dan Ba-la-kay
+    </li>
+    <li>
+      Phone: 021120021
+    </li>
+    <li>
+      email: dblake@gunit.com
+    </li>
+  </ul>
+  <h3>
+    Borrower Details
+  </h3>
+  <ul>
+    <li>
+      Name: Pou Pou
+    </li>
+    <li>
+      Phone: 021120021
+    </li>
+    <li>
+      email: pou@yeahboiii.com
+    </li>
+  </ul>
+</div>
+`;
