@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-export default combineReducers({
-
 import menuState from './menuState'
+import dashboardState from './dashboardState'
 
 export default combineReducers({
-  menuState
+  menuState,
+  dashboardState
 })

@@ -1,18 +1,31 @@
 import React from 'react'
+import { HashRouter as Router, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { menuNavigation } from '../actions'
 
-const NavigationMenu = () => (
+const NavigationMenu = (props) => (
 
   <div className='navigation-menu-container'>
-
-    <ul>
-      <li className='navigation-item'>Register/Login</li>
-      <li className='navigation-item'>Your Dashboard</li>
-      <li className='navigation-item'>Borrow and item</li>
-      <li className='navigation-item'>Lend and item</li>
-    </ul>
-
+    <Router>
+      <ul>
+        <li className='navigation-item' onClick={ () => openMenu(props) }><Link to="/login">Register/Login</Link></li>
+        <li className='navigation-item' onClick={ () => openMenu(props) }><Link to="/dashboard">Your Dashboard</Link></li>
+        <li className='navigation-item' onClick={ () => openMenu(props) }><Link to="/list">Borrow an item</Link></li>
+        <li className='navigation-item' onClick={ () => openMenu(props) }><Link to="/lender-form">Lend an item</Link></li>
+      </ul>
+    </Router>
   </div>
-
 )
 
-export default NavigationMenu
+function mapStateToProps(state){
+  return {
+    dispatch: state.dispatch,
+    menuState: state.menuState
+  }
+}
+
+export default connect(mapStateToProps)(NavigationMenu)
+
+function openMenu(props) {
+  props.dispatch(menuNavigation())
+}

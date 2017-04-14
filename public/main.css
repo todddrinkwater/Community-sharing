@@ -1,3 +1,8 @@
+* {
+  border:1px solid black;
+  box-sizing: border-box;
+}
+
 body {
   font-size: 100%;
   margin: 0px;
@@ -28,20 +33,11 @@ ul{
   background-repeat: no-repeat;
 }
 
-.borrow-p {
+.borrow-p, .lend-p {
   background-color: black;
   color: white;
-  top: 1%;
-  left: 1%;
-  padding: 1%;
-}
-
-.lend-p {
-  background-color: black;
-  color: white;
-  top: 1%;
-  left: 1%;
-  padding: 1%;
+  padding: 3%;
+  text-align: center;
 }
 
 /*Header*/
@@ -71,6 +67,7 @@ ul{
   height: 3em;
   text-align: center;
   display: flex;
+  line-height: 0.8em;
 }
 
 .login-button-container{
@@ -83,8 +80,17 @@ ul{
 
 }
 
+.site-title{
+  font-size: 1.4em;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  padding-top:0.8em; 
+}
+
 .title-container{
   width: 100%;
+  height: 100%;
 }
 
 /*Navigation Menu*/
@@ -98,4 +104,296 @@ ul{
 .navigation-item{
   padding: 1em;
   border: 1px solid black;
+  background-color: white;
+}
+
+/* --- Search Bar --- */
+
+ #search-input {
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.Category-ul {
+  display: flex;
+  text-align: center;
+  padding: 0;
+}
+
+ .Category-li {
+  list-style-type: none;
+  width: 25%;
+  font-size: 1em;
+}
+
+/* --- List Item Component in Listing Page --- */
+
+.listItemHeader h2 {
+  padding: 0;
+  margin: 3% 0 0 0;
+}
+
+.listItemHeader h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.ListItem {
+  width: 100%;
+}
+
+.listItemImage {
+  width: 100%
+}
+
+/*Dashboard - Sharing*/
+
+
+.dashboard-active-button{
+  background-color: #eee
+}
+
+.dashboard-button{
+  border: 1px solid black;
+  text-align: center;
+  flex-grow: 1;
+  padding-top: 0.5em;
+}
+
+.dashboard-menu-container{
+  width: 100%;
+  height: 2em;
+  display: flex;
+}
+
+.dashboard-section{
+  border: 1px solid gray;
+  margin: 0.5em 0em;;
+  padding: 1em 0.5em;
+}
+
+/*Dashboard - Profile*/
+.profile-continer{
+  width: 80%;
+  margin: 2em auto;
+}
+
+.profile-details-container{
+  margin-left: 2em;
+}
+
+.profile-image{
+  height: 7em;
+  width: 100%;
+}
+
+.profile-image-container{
+  width: 7em;
+  margin: 0px auto;
+}
+
+
+/*Card*/
+
+.card-button{
+  border: 1px solid black;
+  border-radius: 0.7em;
+  font-size: 0.7em;
+  width: 100%;
+  height: 2em;
+}
+
+.card-button-container{
+  margin: 0.5em auto;
+  width: 5em;
+}
+
+.card-container{
+  display: flex;
+}
+
+.card-details-container{
+  width: 75%;
+  padding: 0.3em;
+  flex-grow: 1;
+}
+
+.card-details{
+  padding: 0px;
+  font-size: 0.8em;
+}
+
+.card-heading{
+  margin: 0.5em 0em;
+  padding: 0px;
+  font-weight: bold;
+}
+
+.card-image{
+  width: 3em;
+  height: 3em;
+  margin: 0.5em;
+  float: left;
+}
+
+.card-wrapper{
+  border: 1px solid black;
+}
+
+.shared-card-details{
+  padding: 0px;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.shared-name{
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+/* --- Item Listing Component --- */
+
+.itemTitle {
+  text-align: center
+}
+
+
+.itemListingImage {
+  width: 100%;
+}
+
+.itemListingUserDetails{
+  margin: auto;
+  text-align: center;
+}
+
+.itemListingUserDetails img {
+  margin: auto;
+  display: block;
+}
+
+.itemListingUserPhoto {
+  width: 80%;
+  align: center;
+  border-radius: 100%;
+}
+
+.itemListingUserDetails .input[type="submit"]{
+  margin: 5%;
+}
+
+.requestForm {
+  text-align: center;
+}
+
+.requestForm input {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/* --- Login Component ---- */
+
+.login {
+  width: 100%;
+  margin-bottom: 25%;
+  text-align: center;
+}
+
+.login img {
+  width: 80%;
+  margin: 25% auto 10%;
+  display: block;
+}
+
+.loginGreeting {
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.login input {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0px auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.login p {
+  margin: auto;
+  text-align: center;
+  font-size: 1.4em;
+  width: 80%
+}
+
+.login input[type=submit] {
+  margin-top: 1em;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+/* --- Order Page --- */
+
+.Order {
+  width: 70%;
+  margin: auto;
+}
+
+
+/*REGISTER*/
+
+.register {
+  text-align: center;
+  color: black
+}
+
+.register img {
+  width: 80%;
+  margin: 25% auto 10%;
+  display: block
+}
+
+.register input {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0px auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.register input[type=submit] {
+  margin-top: 1em;
+  background-color: #4CAF50;
+  color: white
+}
+
+
+/* --- LenderForm --- */
+
+.lenderForm {
+  width: 100%;
+}
+
+.lenderForm h1 {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.lenderForm .input {
+  width: 90%;
+}
+
+.lenderForm p {
+  width: 20%;
+}
+
+.createListing {
+  margin: 3% 5%;
+  width: 90%
 }
