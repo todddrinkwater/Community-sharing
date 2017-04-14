@@ -22,22 +22,9 @@ export const dashboardTab = (clickedTab) => {
   }
 }
 
-export const getListings = () => {
-  return {
-    type: 'GET_LISTINGS'
-  }
-}
-
-export function fetchListings () {
-  return (dispatch) => {
-    request
-      .get(`https://localhost:3000/api/item`)
-      .end((err, res) => {
-        if (err) {
-          console.error(err.message)
-          return
-        }
-        dispatch(receivePosts(res.body.data.children))
-      })
-  }
-}
+// To be 
+// export const getListings = () => {
+//   return {
+//     type: 'GET_LISTINGS'
+//   }
+// }

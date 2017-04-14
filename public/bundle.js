@@ -68,6 +68,8 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
+	var _api = __webpack_require__(282);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default), window.devToolsExtension ? window.devToolsExtension() : function (f) {
@@ -75,6 +77,10 @@
 	}));
 	
 	document.addEventListener('DOMContentLoaded', function () {
+	  (0, _api.getListings)(function (err, listings) {
+	    if (err) console.log(err); // to do handle error
+	    console.log(listings);
+	  });
 	  (0, _reactDom.render)(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
@@ -27573,8 +27579,6 @@
 	
 	var _reactRouterDom = __webpack_require__(219);
 	
-	var _api = __webpack_require__(282);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ListItem(props) {
@@ -27583,35 +27587,31 @@
 	    { className: 'listItem' },
 	    _react2.default.createElement(
 	      'div',
-	      null,
+	      { className: 'listItemHeader' },
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'List Item Title'
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        'Location'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      _reactRouterDom.Link,
+	      { to: '/list-item' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'listItemHeader' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'List Item Title'
-	        ),
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Location'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/list-item' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'listItemImageContainer' },
-	          _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...'
+	        { className: 'listItemImageContainer' },
+	        _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
 	      )
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'List Item Description goes here... blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...  blah blah blah...'
 	    )
 	  );
 	}
@@ -27698,8 +27698,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.getListings = exports.dashboardTab = exports.menuNavigation = undefined;
-	exports.fetchListings = fetchListings;
+	exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(259);
 	
@@ -27729,23 +27728,12 @@
 	  };
 	};
 	
-	var getListings = exports.getListings = function getListings() {
-	  return {
-	    type: 'GET_LISTINGS'
-	  };
-	};
-	
-	function fetchListings() {
-	  return function (dispatch) {
-	    _superagent2.default.get('https://localhost:3000/api/item').end(function (err, res) {
-	      if (err) {
-	        console.error(err.message);
-	        return;
-	      }
-	      dispatch(receivePosts(res.body.data.children));
-	    });
-	  };
-	}
+	// To be 
+	// export const getListings = () => {
+	//   return {
+	//     type: 'GET_LISTINGS'
+	//   }
+	// }
 
 /***/ },
 /* 259 */
@@ -30648,7 +30636,7 @@
 	
 	var listUrl = url.format(config);
 	
-	var getListings = function getListings() {
+	var getListings = function getListings(callback) {
 	  request.get(listUrl + "/items/").end(function (err, res) {
 	    if (err) {
 	      callback(err);
@@ -30658,7 +30646,7 @@
 	  });
 	};
 	
-	module.exports = getListings;
+	module.exports = { getListings: getListings };
 
 /***/ },
 /* 283 */

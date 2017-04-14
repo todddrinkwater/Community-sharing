@@ -5,7 +5,7 @@ const config = require('../config')
 var listUrl = url.format(config)
 
 
-const getListings = () => {
+const getListings = (callback) => {
   request
     .get(listUrl + "/items/")
     .end(function (err, res) {
@@ -17,4 +17,4 @@ const getListings = () => {
     })
 }
 
-module.exports = getListings
+module.exports = { getListings }

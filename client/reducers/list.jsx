@@ -7,8 +7,9 @@ var defaultItems = [
 
 const listings = (state = defaultItems, action) => {
   switch (action.type) {
-    case 'DASHBOARD_TAB':
-      return action.dashboardState
+    case 'GET_LISTINGS':
+      return action
+      
 
     default:
       return state

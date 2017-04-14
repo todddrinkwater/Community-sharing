@@ -7,12 +7,18 @@ import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 import App from './components/App'
 
+import { getListings } from './api'
+
 let store = createStore(reducers, compose(
   applyMiddleware(thunkMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
 
 document.addEventListener('DOMContentLoaded', () => {
+  getListings( (err, listings) => {
+    if (err) console.log(err) // to do handle error
+    console.log(listings);
+  } )
   render(
     <Provider store={store}>
       <App />
