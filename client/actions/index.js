@@ -31,7 +31,7 @@ export const getListings = () => {
 export function fetchListings () {
   return (dispatch) => {
     request
-      .get(`http://www.reddit.com/r/${subreddit}.json`)
+      .get(`https://localhost:3000/api/item`)
       .end((err, res) => {
         if (err) {
           console.error(err.message)
