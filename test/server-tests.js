@@ -43,16 +43,16 @@ test('return item', function (t) {
 
 test('return user', function (t) {
   supertest(app)
-    .get('/user/7005')
+    .get('/user/jb@email.com')
     .end(checkReturnedObject)
 
   function checkReturnedObject(err, res) {
     if (err) { throw err }
-
+    console.log(res.body)
     var response = typeof(res.body)
     var expected = 'object'
-    var actualID = res.body[0].user_id
-    var expectedID = 7005
+    var actualID = res.body[0].email
+    var expectedID = 'jb@email.com'
 
     // assert
     t.equal(response, expected)
