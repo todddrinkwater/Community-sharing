@@ -1,3 +1,5 @@
+import request from 'superagent'
+
 var currentMenuState = false
 
 export const menuNavigation = () => {
@@ -17,5 +19,13 @@ export const dashboardTab = (clickedTab) => {
   return {
     type: 'DASHBOARD_TAB',
     dashboardState: clickedTab
+  }
+}
+
+
+export const getAllListings = (listings) => {
+  return {
+    type: 'GET_LISTINGS',
+    allListings: listings
   }
 }

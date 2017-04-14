@@ -1,5 +1,6 @@
 import React from 'react'
 import ListItem from '../components/ListItem'
+import {connect} from 'react-redux'
 
 function List(props) {
   return (
@@ -17,8 +18,19 @@ function List(props) {
       </ul>
       </div>
 
-      <ListItem />
-  </div>
-  )}
+      {props.allListings.map( (listItem) => {
+         return (
+           <ListItem key={listItem.item_id} {...listItem}/>
+          )
+      })}
 
-export default List
+  </div>
+)}
+
+  function mapStateToProps(state){
+    return {
+      allListings: state.allListings
+    }
+  }
+
+  export default connect(mapStateToProps)(List)
