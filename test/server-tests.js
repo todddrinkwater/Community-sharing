@@ -60,3 +60,23 @@ test('return user', function (t) {
     t.end()
   }
 })
+
+test('return loan items', function (t) {
+  supertest(app)
+    .get('/loanItems/7005')
+    .end(checkReturnedObject)
+
+  function checkReturnedObject(err, res) {
+    if (err) { throw err }
+
+    var response = typeof(res.body)
+    var expected = 'object'
+    var actualID = res.body[0].item_id
+    var expectedID = 12003
+
+    // assert
+    t.equal(response, expected)
+    t.equal(actualID, expectedID)
+    t.end()
+  }
+})
