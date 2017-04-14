@@ -3886,6 +3886,7 @@
 	  function createChainableTypeChecker(validate) {
 	    if (process.env.NODE_ENV !== 'production') {
 	      var manualPropTypeCallCache = {};
+	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3898,9 +3899,12 @@
 	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey]) {
+	          if (!manualPropTypeCallCache[cacheKey] &&
+	          // Avoid spamming the console because they are often not actionable except for lib authors
+	          manualPropTypeWarningCount < 3) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
+	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -27614,8 +27618,8 @@
 	        'div',
 	        { className: 'title-container' },
 	        _react2.default.createElement(
-	          'h2',
-	          null,
+	          'p',
+	          { className: 'site-title' },
 	          'Community Sharing'
 	        )
 	      ),
@@ -27736,7 +27740,7 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/list' },
-	            'Borrow and item'
+	            'Borrow an item'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -27747,7 +27751,7 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/lender-form' },
-	            'Lend and item'
+	            'Lend an item'
 	          )
 	        )
 	      )
@@ -28016,9 +28020,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Card = __webpack_require__(264);
+	var _MyListingsCard = __webpack_require__(273);
 	
-	var _Card2 = _interopRequireDefault(_Card);
+	var _MyListingsCard2 = _interopRequireDefault(_MyListingsCard);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -28027,7 +28031,7 @@
 	    'div',
 	    { className: 'dashboard-section' },
 	    'MY LISTINGS',
-	    _react2.default.createElement(_Card2.default, null)
+	    _react2.default.createElement(_MyListingsCard2.default, null)
 	  );
 	}
 	
@@ -28532,7 +28536,7 @@
 	var LenderForm = function LenderForm(props) {
 	  return _react2.default.createElement(
 	    "div",
-	    { "class": "lenderForm" },
+	    { className: "lenderForm" },
 	    _react2.default.createElement(
 	      "h1",
 	      null,
@@ -28546,19 +28550,19 @@
 	        null,
 	        "Title:"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "lname" }),
+	      _react2.default.createElement("input", { type: "text", className: "lname" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
 	        "Category"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "email" }),
+	      _react2.default.createElement("input", { type: "text", className: "email" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
 	        "Description"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "address" }),
+	      _react2.default.createElement("input", { type: "text", className: "address" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
@@ -28566,12 +28570,71 @@
 	      ),
 	      _react2.default.createElement("input", { type: "file", name: "pic", accept: "image/*" }),
 	      _react2.default.createElement("br", null),
-	      _react2.default.createElement("input", { "class": "createListing", type: "submit", value: "Create Listing" })
+	      _react2.default.createElement("input", { className: "createListing", type: "submit", value: "Create Listing" })
 	    )
 	  );
 	};
 	
 	exports.default = LenderForm;
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(218);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyListingsCard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          'Hedge Trimmer'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        _reactRouterDom.Link,
+	        { to: '/list-item' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'View'
+	        )
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = MyListingsCard;
 
 /***/ }
 /******/ ]);
