@@ -6,7 +6,7 @@ var db = require('../db')
 router.get('/', function (req, res) {
 
   db.getItems().then((result) => {
-    res.send('all')
+    res.send(result)
   })
   .catch((err) => {
     res.status(500).send(err)

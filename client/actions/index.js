@@ -1,5 +1,3 @@
-import request from 'superagent'
-
 var currentMenuState = false
 
 export const menuNavigation = () => {
@@ -27,5 +25,12 @@ export const getAllListings = (listings) => {
   return {
     type: 'GET_LISTINGS',
     allListings: listings
+  }
+}
+
+export const displaySingleItem = (item) => {
+  return {
+    type: 'SINGLE_ITEM',
+    item
   }
 }
