@@ -20,7 +20,7 @@ function List(props) {
 
       {props.allListings.map( (listItem) => {
          return (
-           <ListItem key={listItem.item_id} {...listItem}/>
+           <ListItem key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
           )
       })}
 
@@ -29,7 +29,8 @@ function List(props) {
 
   function mapStateToProps(state){
     return {
-      allListings: state.allListings
+      allListings: state.allListings,
+      dispatch: state.dispatch
     }
   }
 
