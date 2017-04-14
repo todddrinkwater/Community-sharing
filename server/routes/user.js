@@ -3,9 +3,10 @@ var router = express.Router()
 
 var db = require('../db')
 
-router.get('/:id', function (req, res) {
-  var id = req.params.id
-  db.getUser(id).then((result) => {
+router.get('/:email', function (req, res) {
+  var email = req.params.email
+  console.log(email);
+  db.getUser(email).then((result) => {
     res.send(result)
   })
   .catch((err) => {

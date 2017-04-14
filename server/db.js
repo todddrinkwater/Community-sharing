@@ -19,8 +19,9 @@ function getItem (id) {
   .join('users', 'owner_id', 'user_id')
 }
 
-function getUser (id) {
-  return knex('users').where('user_id', id)
+function getUser (email) {
+  console.log(email);
+  return knex('users').where('email', email)
 
 }
 
