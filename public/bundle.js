@@ -68,7 +68,9 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _api = __webpack_require__(282);
+	var _actions = __webpack_require__(258);
+	
+	var _api = __webpack_require__(283);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -79,7 +81,7 @@
 	document.addEventListener('DOMContentLoaded', function () {
 	  (0, _api.getListings)(function (err, listings) {
 	    if (err) console.log(err); // to do handle error
-	    console.log(listings);
+	    store.dispatch((0, _actions.getAllListings)(listings));
 	  });
 	  (0, _reactDom.render)(_react2.default.createElement(
 	    _reactRedux.Provider,
@@ -23802,11 +23804,16 @@
 	
 	var _dashboardState2 = _interopRequireDefault(_dashboardState);
 	
+	var _allListings = __webpack_require__(292);
+	
+	var _allListings2 = _interopRequireDefault(_allListings);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _redux.combineReducers)({
 	  menuState: _menuState2.default,
-	  dashboardState: _dashboardState2.default
+	  dashboardState: _dashboardState2.default,
+	  allListings: _allListings2.default
 	});
 
 /***/ },
@@ -23893,19 +23900,19 @@
 	
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 	
-	var _Register = __webpack_require__(278);
+	var _Register = __webpack_require__(279);
 	
 	var _Register2 = _interopRequireDefault(_Register);
 	
-	var _Login = __webpack_require__(279);
+	var _Login = __webpack_require__(280);
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _Order = __webpack_require__(280);
+	var _Order = __webpack_require__(281);
 	
 	var _Order2 = _interopRequireDefault(_Order);
 	
-	var _LenderForm = __webpack_require__(281);
+	var _LenderForm = __webpack_require__(282);
 	
 	var _LenderForm2 = _interopRequireDefault(_LenderForm);
 	
@@ -27505,6 +27512,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function List(props) {
+	  console.log(props.allListings);
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'List' },
@@ -27561,7 +27569,13 @@
 	  );
 	}
 	
-	exports.default = List;
+	function mapStateToProps(state) {
+	  return {
+	    allListings: state.allListings
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(List);
 
 /***/ },
 /* 256 */
@@ -27698,7 +27712,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.getAllListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(259);
 	
@@ -27728,12 +27742,12 @@
 	  };
 	};
 	
-	// To be 
-	// export const getListings = () => {
-	//   return {
-	//     type: 'GET_LISTINGS'
-	//   }
-	// }
+	var getAllListings = exports.getAllListings = function getAllListings(listings) {
+	  return {
+	    type: 'GET_LISTINGS',
+	    allListings: listings
+	  };
+	};
 
 /***/ },
 /* 259 */
@@ -27777,7 +27791,6 @@
 	 * Expose `request`.
 	 */
 	
-<<<<<<< HEAD
 	var request = exports = module.exports = function (method, url) {
 	  // callback
 	  if ('function' == typeof url) {
@@ -27790,65 +27803,6 @@
 	  }
 	
 	  return new exports.Request(method, url);
-=======
-	var NavigationMenu = function NavigationMenu(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'navigation-menu-container' },
-	    _react2.default.createElement(
-	      _reactRouterDom.HashRouter,
-	      null,
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        _react2.default.createElement(
-	          'li',
-	          { className: 'navigation-item', onClick: function onClick() {
-	              return openMenu(props);
-	            } },
-	          _react2.default.createElement(
-	            _reactRouterDom.Link,
-	            { to: '/login' },
-	            'Register/Login'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          { className: 'navigation-item', onClick: function onClick() {
-	              return openMenu(props);
-	            } },
-	          _react2.default.createElement(
-	            _reactRouterDom.Link,
-	            { to: '/dashboard' },
-	            'Your Dashboard'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          { className: 'navigation-item', onClick: function onClick() {
-	              return openMenu(props);
-	            } },
-	          _react2.default.createElement(
-	            _reactRouterDom.Link,
-	            { to: '/list' },
-	            'Borrow an item'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          { className: 'navigation-item', onClick: function onClick() {
-	              return openMenu(props);
-	            } },
-	          _react2.default.createElement(
-	            _reactRouterDom.Link,
-	            { to: '/lender-form' },
-	            'Lend an item'
-	          )
-	        )
-	      )
-	    )
-	  );
->>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	};
 	
 	exports.Request = Request;
@@ -28226,7 +28180,6 @@
 	
 	    self.emit('response', res);
 	
-<<<<<<< HEAD
 	    var new_err;
 	    try {
 	      if (!self._isResponseOK(res)) {
@@ -28247,29 +28200,13 @@
 	    }
 	  });
 	}
-=======
-	var _MyListingsCard = __webpack_require__(273);
-	
-	var _MyListingsCard2 = _interopRequireDefault(_MyListingsCard);
->>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	
 	/**
 	 * Mixin `Emitter` and `RequestBase`.
 	 */
 	
-<<<<<<< HEAD
 	Emitter(Request.prototype);
 	RequestBase(Request.prototype);
-=======
-	function MyListings() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'dashboard-section' },
-	    'MY LISTINGS',
-	    _react2.default.createElement(_MyListingsCard2.default, null)
-	  );
-	}
->>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	
 	/**
 	 * Set Content-Type to `type`, mapping values from `request.types`.
@@ -29864,7 +29801,7 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/list' },
-	            'Borrow and item'
+	            'Borrow an item'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -29875,7 +29812,7 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/lender-form' },
-	            'Lend and item'
+	            'Lend an item'
 	          )
 	        )
 	      )
@@ -30044,7 +29981,7 @@
 	
 	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
 	
-	var _MyProfile = __webpack_require__(277);
+	var _MyProfile = __webpack_require__(278);
 	
 	var _MyProfile2 = _interopRequireDefault(_MyProfile);
 	
@@ -30112,7 +30049,7 @@
 	
 	var _ImBorrowing2 = _interopRequireDefault(_ImBorrowing);
 	
-	var _MySharedItems = __webpack_require__(275);
+	var _MySharedItems = __webpack_require__(276);
 	
 	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
 	
@@ -30144,9 +30081,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Card = __webpack_require__(273);
+	var _MyListingsCard = __webpack_require__(273);
 	
-	var _Card2 = _interopRequireDefault(_Card);
+	var _MyListingsCard2 = _interopRequireDefault(_MyListingsCard);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -30155,7 +30092,7 @@
 	    'div',
 	    { className: 'dashboard-section' },
 	    'MY LISTINGS',
-	    _react2.default.createElement(_Card2.default, null)
+	    _react2.default.createElement(_MyListingsCard2.default, null)
 	  );
 	}
 	
@@ -30163,6 +30100,96 @@
 
 /***/ },
 /* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(219);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyListingsCard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          'Hedge Trimmer'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        _reactRouterDom.Link,
+	        { to: '/list-item' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'View'
+	        )
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = MyListingsCard;
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Card = __webpack_require__(275);
+	
+	var _Card2 = _interopRequireDefault(_Card);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyBorrowing() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'IM BORROWING',
+	    _react2.default.createElement(_Card2.default, null)
+	  );
+	}
+	
+	exports.default = MyBorrowing;
+
+/***/ },
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30221,7 +30248,7 @@
 	exports.default = Card;
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30234,38 +30261,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Card = __webpack_require__(273);
-	
-	var _Card2 = _interopRequireDefault(_Card);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function MyBorrowing() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'dashboard-section' },
-	    'IM BORROWING',
-	    _react2.default.createElement(_Card2.default, null)
-	  );
-	}
-	
-	exports.default = MyBorrowing;
-
-/***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _SharedCard = __webpack_require__(276);
+	var _SharedCard = __webpack_require__(277);
 	
 	var _SharedCard2 = _interopRequireDefault(_SharedCard);
 	
@@ -30283,7 +30279,7 @@
 	exports.default = MySharedItems;
 
 /***/ },
-/* 276 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30344,7 +30340,7 @@
 	exports.default = SharedCard;
 
 /***/ },
-/* 277 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30403,7 +30399,7 @@
 	exports.default = MyProfile;
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30482,7 +30478,7 @@
 	exports.default = Register;
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30540,7 +30536,7 @@
 	exports.default = Login;
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30642,7 +30638,7 @@
 	exports.default = Order;
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30660,7 +30656,7 @@
 	var LenderForm = function LenderForm(props) {
 	  return _react2.default.createElement(
 	    "div",
-	    { "class": "lenderForm" },
+	    { className: "lenderForm" },
 	    _react2.default.createElement(
 	      "h1",
 	      null,
@@ -30674,19 +30670,19 @@
 	        null,
 	        "Title:"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "lname" }),
+	      _react2.default.createElement("input", { type: "text", className: "lname" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
 	        "Category"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "email" }),
+	      _react2.default.createElement("input", { type: "text", className: "email" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
 	        "Description"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "address" }),
+	      _react2.default.createElement("input", { type: "text", className: "address" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
@@ -30694,7 +30690,7 @@
 	      ),
 	      _react2.default.createElement("input", { type: "file", name: "pic", accept: "image/*" }),
 	      _react2.default.createElement("br", null),
-	      _react2.default.createElement("input", { "class": "createListing", type: "submit", value: "Create Listing" })
+	      _react2.default.createElement("input", { className: "createListing", type: "submit", value: "Create Listing" })
 	    )
 	  );
 	};
@@ -30702,14 +30698,14 @@
 	exports.default = LenderForm;
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var request = __webpack_require__(259);
-	var url = __webpack_require__(283);
-	var config = __webpack_require__(290);
+	var url = __webpack_require__(284);
+	var config = __webpack_require__(291);
 	
 	var listUrl = url.format(config);
 	
@@ -30726,7 +30722,7 @@
 	module.exports = { getListings: getListings };
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -30754,8 +30750,8 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var punycode = __webpack_require__(284);
-	var util = __webpack_require__(286);
+	var punycode = __webpack_require__(285);
+	var util = __webpack_require__(287);
 	
 	exports.parse = urlParse;
 	exports.resolve = urlResolve;
@@ -30838,7 +30834,7 @@
 	  'gopher:': true,
 	  'file:': true
 	},
-	    querystring = __webpack_require__(287);
+	    querystring = __webpack_require__(288);
 	
 	function urlParse(url, parseQueryString, slashesDenoteHost) {
 	  if (url && util.isObject(url) && url instanceof Url) return url;
@@ -31440,7 +31436,7 @@
 	};
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {'use strict';
@@ -31953,7 +31949,7 @@
 		/** Expose `punycode` */
 		// Some AMD build optimizers, like r.js, check for specific condition patterns
 		// like the following:
-		if ("function" == 'function' && _typeof(__webpack_require__(285)) == 'object' && __webpack_require__(285)) {
+		if ("function" == 'function' && _typeof(__webpack_require__(286)) == 'object' && __webpack_require__(286)) {
 			!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return punycode;
 			}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -31975,7 +31971,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(205)(module), (function() { return this; }())))
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -31983,7 +31979,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32006,16 +32002,16 @@
 	};
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	exports.decode = exports.parse = __webpack_require__(288);
-	exports.encode = exports.stringify = __webpack_require__(289);
+	exports.decode = exports.parse = __webpack_require__(289);
+	exports.encode = exports.stringify = __webpack_require__(290);
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -32104,7 +32100,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -32173,12 +32169,11 @@
 	};
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-<<<<<<< HEAD
 	var configs = {
 	  production: {
 	    host: 'community-sharing.herokuapp.com',
@@ -32189,111 +32184,34 @@
 	    protocol: 'http',
 	    port: 3000
 	  }
-=======
-	var LenderForm = function LenderForm(props) {
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "lenderForm" },
-	    _react2.default.createElement(
-	      "h1",
-	      null,
-	      "List An Item"
-	    ),
-	    _react2.default.createElement(
-	      "form",
-	      { action: "index.html", method: "post" },
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        "Title:"
-	      ),
-	      _react2.default.createElement("input", { type: "text", className: "lname" }),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        "Category"
-	      ),
-	      _react2.default.createElement("input", { type: "text", className: "email" }),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        "Description"
-	      ),
-	      _react2.default.createElement("input", { type: "text", className: "address" }),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        "Image Upload"
-	      ),
-	      _react2.default.createElement("input", { type: "file", name: "pic", accept: "image/*" }),
-	      _react2.default.createElement("br", null),
-	      _react2.default.createElement("input", { className: "createListing", type: "submit", value: "Create Listing" })
-	    )
-	  );
->>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	};
 	
 	module.exports = configs[process.env.NODE || 'development'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 273 */
-/***/ function(module, exports, __webpack_require__) {
+/* 292 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var allListings = function allListings() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var action = arguments[1];
 	
-	var _react = __webpack_require__(1);
+	  switch (action.type) {
+	    case 'GET_LISTINGS':
+	      return action.allListings;
 	
-	var _react2 = _interopRequireDefault(_react);
+	    default:
+	      return state;
+	  }
+	};
 	
-	var _reactRouterDom = __webpack_require__(218);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function MyListingsCard() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'card-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: 'http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg' }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'card-details-container' },
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-heading' },
-	          'Hedge Trimmer'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-details' },
-	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-button-container' },
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/list-item' },
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'card-button' },
-	          'View'
-	        )
-	      )
-	    )
-	  );
-	}
-	
-	exports.default = MyListingsCard;
+	exports.default = allListings;
 
 /***/ }
 /******/ ]);

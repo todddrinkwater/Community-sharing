@@ -22,9 +22,10 @@ export const dashboardTab = (clickedTab) => {
   }
 }
 
-// To be 
-// export const getListings = () => {
-//   return {
-//     type: 'GET_LISTINGS'
-//   }
-// }
+
+export const getAllListings = (listings) => {
+  return {
+    type: 'GET_LISTINGS',
+    allListings: listings
+  }
+}
