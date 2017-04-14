@@ -2,12 +2,14 @@ import { combineReducers } from 'redux'
 
 import menuState from './menuState'
 import dashboardState from './dashboardState'
-import allListings from './allListings'
+import initialListings from './allListings'
+import filteredListings from './filteredListings'
 import singleItem from './singleItem'
 
 export default combineReducers({
   menuState,
   dashboardState,
-  allListings,
+  initialListings,
+  filteredListings,
   singleItem
 })
