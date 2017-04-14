@@ -4,8 +4,9 @@ var router = express.Router()
 var db = require('../db')
 
 router.get('/:email', function (req, res) {
+  
   var email = req.params.email
-  console.log(email);
+
   db.getUser(email).then((result) => {
     res.send(result)
   })

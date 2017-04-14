@@ -48,7 +48,7 @@ test('return user', function (t) {
 
   function checkReturnedObject(err, res) {
     if (err) { throw err }
-    console.log(res.body)
+
     var response = typeof(res.body)
     var expected = 'object'
     var actualID = res.body[0].email
