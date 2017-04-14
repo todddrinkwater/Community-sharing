@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { getUsers } from '../api'
 
 let Login = (props) => (
   <div className="login">
