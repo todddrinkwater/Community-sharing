@@ -27626,8 +27626,8 @@
 	        'div',
 	        { className: 'title-container' },
 	        _react2.default.createElement(
-	          'h2',
-	          null,
+	          'p',
+	          { className: 'site-title' },
 	          'Community Sharing'
 	        )
 	      ),
@@ -27748,7 +27748,7 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/list' },
-	            'Borrow and item'
+	            'Borrow an item'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -27759,7 +27759,7 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
 	            { to: '/lender-form' },
-	            'Lend and item'
+	            'Lend an item'
 	          )
 	        )
 	      )
@@ -28028,9 +28028,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+<<<<<<< HEAD
 	var _Card = __webpack_require__(265);
+=======
+	var _MyListingsCard = __webpack_require__(273);
+>>>>>>> d8a4bc7cfd3c818c10083b67680e281edf0a26ef
 	
-	var _Card2 = _interopRequireDefault(_Card);
+	var _MyListingsCard2 = _interopRequireDefault(_MyListingsCard);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -28039,7 +28043,7 @@
 	    'div',
 	    { className: 'dashboard-section' },
 	    'MY LISTINGS',
-	    _react2.default.createElement(_Card2.default, null)
+	    _react2.default.createElement(_MyListingsCard2.default, null)
 	  );
 	}
 	
@@ -28544,7 +28548,7 @@
 	var LenderForm = function LenderForm(props) {
 	  return _react2.default.createElement(
 	    "div",
-	    { "class": "lenderForm" },
+	    { className: "lenderForm" },
 	    _react2.default.createElement(
 	      "h1",
 	      null,
@@ -28558,19 +28562,19 @@
 	        null,
 	        "Title:"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "lname" }),
+	      _react2.default.createElement("input", { type: "text", className: "lname" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
 	        "Category"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "email" }),
+	      _react2.default.createElement("input", { type: "text", className: "email" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
 	        "Description"
 	      ),
-	      _react2.default.createElement("input", { type: "text", "class": "address" }),
+	      _react2.default.createElement("input", { type: "text", className: "address" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
@@ -28578,12 +28582,71 @@
 	      ),
 	      _react2.default.createElement("input", { type: "file", name: "pic", accept: "image/*" }),
 	      _react2.default.createElement("br", null),
-	      _react2.default.createElement("input", { "class": "createListing", type: "submit", value: "Create Listing" })
+	      _react2.default.createElement("input", { className: "createListing", type: "submit", value: "Create Listing" })
 	    )
 	  );
 	};
 	
 	exports.default = LenderForm;
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(218);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyListingsCard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          'Hedge Trimmer'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        _reactRouterDom.Link,
+	        { to: '/list-item' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'View'
+	        )
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = MyListingsCard;
 
 /***/ }
 /******/ ]);
