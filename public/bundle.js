@@ -27660,8 +27660,8 @@
 	        'div',
 	        { className: 'title-container' },
 	        _react2.default.createElement(
-	          'h2',
-	          null,
+	          'p',
+	          { className: 'site-title' },
 	          'Community Sharing'
 	        )
 	      ),
@@ -27777,6 +27777,7 @@
 	 * Expose `request`.
 	 */
 	
+<<<<<<< HEAD
 	var request = exports = module.exports = function (method, url) {
 	  // callback
 	  if ('function' == typeof url) {
@@ -27789,6 +27790,65 @@
 	  }
 	
 	  return new exports.Request(method, url);
+=======
+	var NavigationMenu = function NavigationMenu(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'navigation-menu-container' },
+	    _react2.default.createElement(
+	      _reactRouterDom.HashRouter,
+	      null,
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/login' },
+	            'Register/Login'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/dashboard' },
+	            'Your Dashboard'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/list' },
+	            'Borrow an item'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'navigation-item', onClick: function onClick() {
+	              return openMenu(props);
+	            } },
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/lender-form' },
+	            'Lend an item'
+	          )
+	        )
+	      )
+	    )
+	  );
+>>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	};
 	
 	exports.Request = Request;
@@ -28166,6 +28226,7 @@
 	
 	    self.emit('response', res);
 	
+<<<<<<< HEAD
 	    var new_err;
 	    try {
 	      if (!self._isResponseOK(res)) {
@@ -28186,13 +28247,29 @@
 	    }
 	  });
 	}
+=======
+	var _MyListingsCard = __webpack_require__(273);
+	
+	var _MyListingsCard2 = _interopRequireDefault(_MyListingsCard);
+>>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	
 	/**
 	 * Mixin `Emitter` and `RequestBase`.
 	 */
 	
+<<<<<<< HEAD
 	Emitter(Request.prototype);
 	RequestBase(Request.prototype);
+=======
+	function MyListings() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'dashboard-section' },
+	    'MY LISTINGS',
+	    _react2.default.createElement(_MyListingsCard2.default, null)
+	  );
+	}
+>>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	
 	/**
 	 * Set Content-Type to `type`, mapping values from `request.types`.
@@ -32101,6 +32178,7 @@
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
+<<<<<<< HEAD
 	var configs = {
 	  production: {
 	    host: 'community-sharing.herokuapp.com',
@@ -32111,10 +32189,111 @@
 	    protocol: 'http',
 	    port: 3000
 	  }
+=======
+	var LenderForm = function LenderForm(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "lenderForm" },
+	    _react2.default.createElement(
+	      "h1",
+	      null,
+	      "List An Item"
+	    ),
+	    _react2.default.createElement(
+	      "form",
+	      { action: "index.html", method: "post" },
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Title:"
+	      ),
+	      _react2.default.createElement("input", { type: "text", className: "lname" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Category"
+	      ),
+	      _react2.default.createElement("input", { type: "text", className: "email" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Description"
+	      ),
+	      _react2.default.createElement("input", { type: "text", className: "address" }),
+	      _react2.default.createElement(
+	        "p",
+	        null,
+	        "Image Upload"
+	      ),
+	      _react2.default.createElement("input", { type: "file", name: "pic", accept: "image/*" }),
+	      _react2.default.createElement("br", null),
+	      _react2.default.createElement("input", { className: "createListing", type: "submit", value: "Create Listing" })
+	    )
+	  );
+>>>>>>> 5423daff57f37f9bcbc9394560579ef70c93029b
 	};
 	
 	module.exports = configs[process.env.NODE || 'development'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(218);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyListingsCard() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          'Hedge Trimmer'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        _reactRouterDom.Link,
+	        { to: '/list-item' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'View'
+	        )
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = MyListingsCard;
 
 /***/ }
 /******/ ]);

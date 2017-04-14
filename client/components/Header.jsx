@@ -15,7 +15,7 @@ let Header = (props) => (
       </div>
 
       <div className='title-container'>
-        <h2>Community Sharing</h2>
+        <p className='site-title'>Community Sharing</p>
       </div>
 
       <div className='login-button-container'>
