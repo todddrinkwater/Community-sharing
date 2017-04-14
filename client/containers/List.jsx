@@ -3,7 +3,6 @@ import ListItem from '../components/ListItem'
 import {connect} from 'react-redux'
 
 function List(props) {
-  console.log(props.allListings);
   return (
     <div className='List'>
       <div className="SearchBar">
@@ -18,7 +17,13 @@ function List(props) {
         <li className="Category-li"><a href="#">Other</a></li>
       </ul>
       </div>
-      <ListItem />
+
+      {props.allListings.map( (listItem) => {
+         return (
+           <ListItem key={listItem.item_id} {...listItem}/>
+          )
+      })}
+
   </div>
 )}
 
