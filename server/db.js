@@ -20,7 +20,6 @@ function getItem (id) {
 }
 
 function getUser (email) {
-  console.log(email);
   return knex('users').where('email', email)
 
 }
