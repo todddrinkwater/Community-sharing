@@ -6,7 +6,8 @@ module.exports = {
   getItems,
   getItem,
   getUser,
-  getLoanItems
+  getLoanItems,
+  getLoanedItems
 }
 
 function getItems () {
@@ -25,4 +26,10 @@ function getUser (id) {
 
 function getLoanItems (id) {
   return knex('items').where('owner_id', id)
+}
+
+function getLoanedItems (id) {
+  return knex('items').where('owner_id', id)
+  .join('loans', 'owner_id' , 'lenders_id')
+  .join('users', 'borrowers_id', 'user_id')
 }
