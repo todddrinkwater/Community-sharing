@@ -38,6 +38,56 @@ exports[`Header (Snapshot) The Header renders 1`] = `
 </div>
 `;
 
+exports[`LenderForm (Snapshot) The LenderForm renders 1`] = `
+<div
+  className="lenderForm"
+>
+  <h1>
+    List An Item
+  </h1>
+  <form
+    action="index.html"
+    method="post"
+  >
+    <p>
+      Title:
+    </p>
+    <input
+      className="lname"
+      type="text"
+    />
+    <p>
+      Category
+    </p>
+    <input
+      className="email"
+      type="text"
+    />
+    <p>
+      Description
+    </p>
+    <input
+      className="address"
+      type="text"
+    />
+    <p>
+      Image Upload
+    </p>
+    <input
+      accept="image/*"
+      name="pic"
+      type="file"
+    />
+    <br />
+    <input
+      className="createListing"
+      type="submit"
+      value="Create Listing"
+    />
+  </form>
+</div>
+`;
+
 exports[`Order (Snapshot) The Order renders 1`] = `
 <div
   class="Order"

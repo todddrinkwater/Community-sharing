@@ -1,6 +1,6 @@
 import React from 'react'
 
-let LenderForm = (props) => (
+export const LenderForm = (props) => (
   <div className="lenderForm">
     <h1>List An Item</h1>
     <form action="index.html" method="post">
