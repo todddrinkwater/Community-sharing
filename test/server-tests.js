@@ -14,12 +14,29 @@ test('returning items', function (t) {
 
     var response = typeof(res.body)
     var expected = 'object'
-    var actualLength = response.length
-    var expectedLength = 6
 
     // assert
     t.equal(response, expected)
-    t.equal(actualLength, expectedLength)
+    t.end()
+  }
+})
+
+test('returning item', function (t) {
+  supertest(app)
+    .get('/item/12003')
+    .end(checkReturnedObject)
+
+  function checkReturnedObject(err, res) {
+    if (err) { throw err }
+
+    var response = typeof(res.body)
+    var expected = 'object'
+    var actualID = res.body[0].item_id
+    var expectedID = 12003
+
+    // assert
+    t.equal(response, expected)
+    t.equal(actualID, expectedID)
     t.end()
   }
 })
