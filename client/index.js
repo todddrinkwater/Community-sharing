@@ -17,6 +17,7 @@ let store = createStore(reducers, compose(
 
 document.addEventListener('DOMContentLoaded', () => {
   getListings( (err, listings) => {
+    console.log(listings);
     if (err) console.log(err) // to do handle error
     store.dispatch(getAllListings(listings))
   } )
