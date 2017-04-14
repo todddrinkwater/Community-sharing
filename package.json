@@ -10,7 +10,6 @@
     "knex": "knex",
     "server-test": "node test/server-tests.js | tap-spec",
     "postinstall": "knex migrate:lastest",
-    "seed": "knex seed:run"
   },
   "keywords": [
     "react",
