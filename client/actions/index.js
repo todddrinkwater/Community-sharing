@@ -21,10 +21,17 @@ export const dashboardTab = (clickedTab) => {
 }
 
 
-export const getAllListings = (listings) => {
+export const initialListings = (listings) => {
   return {
     type: 'GET_LISTINGS',
-    allListings: listings
+    initialListings: listings
+  }
+}
+
+export const filteredListings = (listings) => {
+  return {
+    type: 'FILTERED_LISTINGS',
+    filteredListings: listings
   }
 }
 

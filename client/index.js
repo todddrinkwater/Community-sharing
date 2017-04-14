@@ -6,7 +6,8 @@ import thunkMiddleware from 'redux-thunk'
 
 import reducers from './reducers'
 import App from './components/App'
-import {getAllListings} from './actions'
+import {initialListings} from './actions'
+import {filteredListings} from './actions'
 
 import { getListings } from './api'
 
@@ -18,7 +19,8 @@ let store = createStore(reducers, compose(
 document.addEventListener('DOMContentLoaded', () => {
   getListings( (err, listings) => {
     if (err) console.log(err) // to do handle error
-    store.dispatch(getAllListings(listings))
+    store.dispatch(initialListings(listings))
+    store.dispatch(filteredListings(listings))
   } )
   render(
     <Provider store={store}>
