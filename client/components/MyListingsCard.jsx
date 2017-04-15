@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-function MyListingsCard () {
+function MyListingsCard (props) {
+  console.log(props);
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
