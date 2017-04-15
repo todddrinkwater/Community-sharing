@@ -2,6 +2,7 @@ const request = require('superagent')
 const url = require('url')
 const config = require('../config')
 
+
 var urlPath = url.format(config)
 
 const getListings = (callback) => {
@@ -28,6 +29,18 @@ const getUsers = (callback, email) => {
     })
 }
 
-// const listNewItem = (callback)
+const registerUser = (callback, formData) => {
+  request
+    .post(urlPath + "/saveUser")
+    .set('Content-Type', 'application/json')
+    .send(formData)
+    .end(function (err, res) {
+      if (err) {
+        callback(err)
+      } else {
+        callback(null, "Status: 200")
+      }
+    })
+}
 
-module.exports = { getListings, getUsers }
+module.exports = { getListings, getUsers, registerUser }

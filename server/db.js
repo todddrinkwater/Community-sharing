@@ -9,7 +9,8 @@ module.exports = {
   getLoanItems,
   getLoanedItems,
   getBorrowedItems,
-  saveItem
+  saveItem,
+  saveUser
 }
 
 function getItems () {
@@ -44,4 +45,8 @@ function getBorrowedItems (id) {
 
 function saveItem (item) {
    return knex.insert(item).into('items')
+}
+
+function saveUser (user) {
+   return knex.insert(user).into('users')
 }
