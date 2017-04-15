@@ -136,7 +136,6 @@ lname    |
 email    |
 phone    |
 hash     |
-location |
 address  |
 suburd   |
 town/city|
@@ -146,13 +145,13 @@ user_image_url|
 Items     |
 ----------|
 item_id   |
-catagory  |
 item_name |
+category  |
 description|
-available |
+location  |
 image_url |
 owner_id  |
-location  |
+available |
 
 Loans      |
 -----------|
