@@ -7,6 +7,7 @@ let LenderForm = (props) => (
       <label>Title:</label><input type="text" className="lname" />
       <label>Category</label><input type="text" className="email" />
       <label>Description</label><input type="text" className="address" />
+      <label>Location</label><input type="text" className="location" />
       <label>Image Upload</label><input type="file" name="pic" accept="image/*" /><br />
       <input className="createListing" type="submit" value="Create Listing" />
     </form>
