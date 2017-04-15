@@ -14,7 +14,6 @@ const defaultUser = {
 
 
 const loggedInUserDetails = (state = defaultUser, action) => {
-  console.log(state);
   switch (action.type) {
     case 'LOGGED_IN_USER':
       return action.loggedInUserDetails
@@ -22,6 +21,7 @@ const loggedInUserDetails = (state = defaultUser, action) => {
     default:
       return state
   }
+  console.log(state);
 }
 
 export default loggedInUserDetails
