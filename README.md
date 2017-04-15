@@ -64,12 +64,12 @@ Merge pull request together
   + A search will return a list of results (name, photo, location)
   + I can select list item and it will bring up more details to do with the item.
   + On the item profile there will be a request button.
-  + Request button will take us to a page where users can see on request form with
+  + V2 --> Request button will take us to a page where users can see on request form with
     + Item Name
     + T's & C's
     + Date's Booked
     + Submit button
-  + Confirmation page to notify the user their request has been sent and the lender will get in touch with them soon.
+  + V2 ---> Confirmation page to notify the user their request has been sent and the lender will get in touch with them soon.
 
 
 - As a user, I would like to lend out my item/s
@@ -95,7 +95,7 @@ Merge pull request together
     + personal details
     + pending request
     + location
-  + As a user I want to be able to review other users
+  + V2 ---> As a user I want to be able to review other users
 
 ### MVP
 
