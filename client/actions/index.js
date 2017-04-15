@@ -50,10 +50,10 @@ export const displaySingleItem = (item) => {
   }
 }
 
-export const loggedInUser = (userDetails) => {
-  console.log(userDetails);
+export const loggedInUser = (loggedInUserDetails) => {
   return {
-    type: 'USER_LOGIN'
+    type: 'LOGGED_IN_USER',
+    loggedInUserDetails
   }
 }
 
