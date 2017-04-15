@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { getUsers } from '../api'
+
+import { connect } from 'react-redux'
+import { fetchUser } from '../actions'
 
 let Login = (props) => (
   <div className="login">
@@ -8,24 +10,26 @@ let Login = (props) => (
     <div className="LoginGreeting">
       Welcome to [insert kick-ass name here]. <br /> Please sign in below.
     </div>
-    <form onSubmit={ login }>
+    <form  >
       <label>Email</label><input type="text" name="email" placeholder='example@email.com' />
       <label>Password</label><input type="password" name="password" />
-      <input type="submit" value="Login" />
+      <input type="submit" value="Login" onClick={ () => submitUser(props)} />
     </form>
     <p>No account?</p><Link to="/register">Register Now?</Link>
   </div>
 )
 
-function login(event){
-  event.preventDefault(event)
-  var submitedEmail = event.target.elements.email.value
-  var submitedPassword = event.target.elements.password.value
-  getUsers(testCallback, submitedEmail)
+
+function mapStateToProps(state){
+  return {
+    dispatch: state.dispatch,
+  }
 }
 
-function testCallback(err, data){
-  console.log(data);
-}
+export default connect(mapStateToProps)(Login)
 
-export default Login
+
+
+function submitUser(props){
+  props.dispatch(fetchUser('jb@email.com'))
+}
