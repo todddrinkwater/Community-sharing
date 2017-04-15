@@ -1,48 +1,20 @@
-# Community Share
+# Community-Sharing
 
-## Times
-Times:          | Days
-----------------|------------
-Weekdays        | 9am-9pm
-Weekends        | 9am-9pm
-###### Breaks: 1 hour for lunch and short break to get something for dinner
+You'll fins us online @ https://community-sharing.herokuapp.com/#/
 
-## Meals
-Meals:          | Times/Days
-----------------|------------
-Lunch           |
-Dinner          |
+## Getting started
 
-## Roles
-Roles:          | Name:
-----------------|--------
-Project Manager | Jon
-Minister of EE  | Todd
-Product Owner   | Dan
-Git Master      | Pou
+```
+git clone https://github.com/community-sharing/Community-sharing.git
+cd Community-sharing
+npm install
+npm run knex migrate:latest
+npm run knex seed:run
+npm run dev
 
-**Project Manager:**
-Ensuring we all understand the layout of the project, milestones and issues.
-
-**Minister of EE**
-Coming up with enjoyable games, and having comms making sure everyones all good, sorting out mindfulness time?
-
-**Product Owner**
-Ensuring the product matches the users stories, ensuring the product has consistency.
-
-**Git Master**
-Dealing with pull request by making sure its pushed to the right branch and fixing merge conflicts, helping out with git problems.
-
-**Group**
-Merge pull request together
-
-## Conflict Management
-- If its product related lets re-group and seek clarification.
-- Talk it out
-- Sarah (EE)
+```
 
 ## Planning
-- Brainstorm (broad concept)
 
 ![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Brainstorm.jpg)
 
@@ -120,23 +92,26 @@ Merge pull request together
 ### TECHNOLOGIES
 
 - HTML
-- CSS - SASS
+- CSS - **SASS**
 - React
 - Redux
 - Express
 - Knex
-- Passport (passport-local)
 - React Router
-- Sodium
+- **Passport (passport-local)**
+- **Sodium**
 
 ### UI / WIREFRAMES
-
 **Pages**
+
+
 - Title & Navbar
-{{Image here}}
 
 - HomePage
 ![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Home.jpg)
+
+- LenderFormPage
+![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/LenderForm.jpg)
 
 - ListingPage or ListPage
 ![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/ListPage.jpg)
@@ -147,41 +122,84 @@ Merge pull request together
 - Dashboard/Profile Page
 ![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/Profile.jpg)
 
-- LenderFormPage
-![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/LenderForm.jpg)
-
 - Login/RegisterFormPage
 ![alt tag](https://github.com/community-sharing/Community-sharing/blob/master/pictures/RegisterForm.jpg)
 
-
-{{images here}}
-
 ### Database Structure
 
-users    |
+Users    |
 ---------|
-user_id       |
-fname|
-lname |
+user_id  |
+fname    |
+lname    |
 email    |
 phone    |
+hash     |
 location |
-hash |
+address  |
+suburd   |
+town/city|
+postcode |
+user_image_url|
 
-items     |
----------|
-item_id       |
-catagory |
-item_ame |
-description|
-available|
-image_url |
-owner_id |
-
-loans      |
+Items     |
 ----------|
-loan_id|
+item_id   |
+catagory  |
+item_name |
+description|
+available |
+image_url |
+owner_id  |
+location  |
+
+Loans      |
+-----------|
+loan_id    |
+lenders_id |
 borrower_id|
 item_id    |
-pickup   |
-dropoff  |
+pickup     |
+dropoff    |
+
+# Taking care of ourselves and roles.
+
+## Times
+Times:          | Days
+----------------|------------
+Weekdays        | 9am-9pm
+Weekends        | 9am-9pm
+
+###### Breaks: 1 hour for lunch and a break for dinner.
+
+## Meals
+Meals           | Times/Days
+----------------|------------
+Lunch           |
+Dinner          |
+
+## Roles
+
+**Project Manager:**
+Ensuring we all understand the layout of the project, milestones and issues.
+
+**Minister of EE**
+Coming up with enjoyable games, and having comms making sure everyones all good, sorting out mindfulness time?
+
+**Product Owner**
+Ensuring the product matches the users stories, ensuring the product has consistency.
+
+**Git Master**
+Dealing with pull request by making sure its pushed to the right branch and fixing merge conflicts, helping out with git problems.
+
+Roles           | Name:
+----------------|--------
+Project Manager | Pou
+Minister of EE  | Dan
+Product Owner   | Jon
+Git Master      | Todd
+
+## Conflict Management
+- If its product related lets re-group and seek clarification.
+- Talk it out
+- Sarah (EE)

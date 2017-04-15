@@ -11,8 +11,12 @@ const Register = () => (
         <label>Last Name: </label><input type="text" className="lname" />
         <label>Email: </label><input type="text" className="email" />
         <label>Address: </label><input type="text" className="address" />
+        <label>Suburb: </label><input type="text" className="suburb" />
+        <label>Town/City: </label><input type="text" className="town-city" />
+        <label>Postcode: </label><input type="text" className="postcode" />
         <label>Phone Number: </label><input type="text" className="phone" />
         <label>Password: </label><input type="password" className="hash" />
+        <label>Profile Picture</label><input type="file" name="pic" accept="image/*" />
         <input type="submit" value="Register" />
       </form>
     </div>
