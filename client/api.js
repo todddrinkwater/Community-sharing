@@ -43,4 +43,20 @@ const registerUser = (callback, formData) => {
     })
 }
 
-module.exports = { getListings, getUsers, registerUser }
+const getNewItem = (callback, lendData) => {
+  request
+    .post(urlPath + "/saveItem")
+    .set('Content-Type', 'application/json')
+    .send(lendData)
+    .end(function (err, res) {
+      if (err) {
+        callback(err)
+      } else {
+        callback(null, "Status: 200")
+      }
+    })
+}
+
+
+
+module.exports = { getListings, getUsers, registerUser, getNewItem }
