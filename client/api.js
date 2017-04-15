@@ -32,7 +32,7 @@ const getUsers = (callback, email) => {
 
 const registerUser = (callback, formData) => {
   request
-    .post(urlPath + "/saveuser")
+    .post(urlPath + "/saveUser")
     .set('Content-Type', 'application/json')
     .send(formData)
     .end(function (err, res) {

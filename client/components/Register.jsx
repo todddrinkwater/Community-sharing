@@ -5,7 +5,7 @@ import { registerUser } from '../api'
 
 const Register = () => (
   <div className="login">
-    <img src="http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png" method="POST"/>
+    <img src="http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png" />
     <div className="register">
       <h1>Register</h1>
       <form onSubmit={ registerNewUser } method="POST">
@@ -28,20 +28,20 @@ const Register = () => (
 function registerNewUser(event) {
   event.preventDefault(event)
   var formData = {
-   firstName: event.target.elements.fname.value,
-   lastName: event.target.elements.lname.value,
+   fname: event.target.elements.fname.value,
+   lname: event.target.elements.lname.value,
    email: event.target.elements.email.value,
    address: event.target.elements.address.value,
    suburb: event.target.elements.suburb.value,
-   city: event.target.elements.city.value,
+   town_city: event.target.elements.city.value,
    postcode: event.target.elements.postcode.value,
    phone: event.target.elements.phone.value
  }
   registerUser(testCallback, formData)
 }
 
-testCallBack(null, status){
+function testCallback(err, status){
   console.log(status)
 }
 
-export Register // Export registerNewUser
+export default Register
