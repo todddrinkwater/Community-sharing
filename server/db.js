@@ -8,7 +8,8 @@ module.exports = {
   getUser,
   getLoanItems,
   getLoanedItems,
-  getBorrowedItems
+  getBorrowedItems,
+  saveItem
 }
 
 function getItems () {
@@ -39,4 +40,8 @@ function getBorrowedItems (id) {
   return knex('loans').where('borrowers_id', id)
   .join('items', 'lenders_id' , 'owner_id')
   .join('users', 'owner_id', 'user_id')
+}
+
+function saveItem (item) {
+   return knex.insert(item).into('items')
 }
