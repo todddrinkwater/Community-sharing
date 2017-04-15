@@ -17,14 +17,13 @@ const getListings = (callback) => {
 }
 
 const getUsers = (callback, email) => {
-  console.log(email);
   request
-    .get(urlPath + "/users/" + email)
+    .get(urlPath + "/user/"+email)
     .end(function (err, res) {
       if (err) {
         callback(err)
       } else {
-        callback(null, res.body)
+        callback(null, res.body[0])
       }
     })
 }
