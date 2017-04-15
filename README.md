@@ -10,9 +10,10 @@ cd Community-sharing
 npm install
 npm run knex migrate:latest
 npm run knex seed:run
-npm run dev
 
 ```
+
+**To start the server, run `npm run dev`, and go to http://localhost:3000/**
 
 ## Planning
 
