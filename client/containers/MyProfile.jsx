@@ -5,7 +5,7 @@ function MyProfile (props) {
   return (
     <div className='profile-continer'>
       <div className='profile-image-container'>
-        <img className='profile-image' src='http://www.dfhtechnologies.com/images/user.png'></img>
+        <img className='profile-image' src={props.loggedInUserDetails.user_image_url}></img>
       </div>
       <div className='profile-details-container'>
         <p>{props.loggedInUserDetails.fname + " " + props.loggedInUserDetails.lname}</p>
