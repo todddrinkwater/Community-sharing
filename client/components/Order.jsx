@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { orderItemDetails } from '../actions'
 
 function Order (props) {
-  console.log(props);
   return (
     <div className="Order">
       <h1>Request Approved - Transaction Receipt</h1>
