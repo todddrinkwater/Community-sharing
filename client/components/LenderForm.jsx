@@ -2,7 +2,7 @@ import React from 'react'
 
 import { getNewItem } from '../api'
 
-let LenderForm = () => (
+let LenderForm = (props) => (
   <div className="lenderForm">
     <h1>List An Item</h1>
     <form method="post" onSubmit={ newItem } >
