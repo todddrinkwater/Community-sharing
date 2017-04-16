@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-
 function MyProfile (props) {
   return (
     <div className='profile-continer'>
@@ -22,7 +21,6 @@ function MyProfile (props) {
     </div>
   )
 }
-
 
 function mapStateToProps(state){
   return {

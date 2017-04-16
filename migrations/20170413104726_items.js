@@ -9,7 +9,6 @@ exports.up = function(knex, Promise) {
     table.string('image_url')
     table.integer('owner_id').references("users.user_id")
   })
-
 };
 
 exports.down = function(knex, Promise) {

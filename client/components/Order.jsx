@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 
 import { orderItemDetails } from '../actions'
 
+let Order = (props) => (
+  <div className="Order">
+
 function Order (props) {
   return (
     <div className="Order">

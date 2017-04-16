@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const HomePage = () => (
+const Home = () => (
     <div className="homepage">
       <Link to="/list">
         <div className="borrow-div">
@@ -16,4 +16,4 @@ const HomePage = () => (
     </div>
   )
 
-export default HomePage
+export default Home
