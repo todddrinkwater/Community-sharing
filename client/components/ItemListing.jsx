@@ -8,7 +8,7 @@ function ItemListing (props) {
     <div className="ItemListing">
       <div>
         <h1 className="itemTitle">{props.item.item_name}</h1>
-        <img className="itemListingImage" src="http://static.musiciansfriend.com/derivates/18/001/446/174/DV016_Jpg_Large_518963.019_cherry_body_closeup.jpg" />
+        <img className="itemListingImage" src={props.item.image_url} />
         <p>
           {props.item.description}
         </p>

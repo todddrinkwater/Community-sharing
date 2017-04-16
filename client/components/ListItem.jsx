@@ -12,7 +12,7 @@ function ListItem (props) {
 
     <Link to="/list-item">
       <div className="listItemImageContainer" onClick={ () => props.dispatch(displaySingleItem(props))} >
-        <img className="listItemImage" src="http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg" />
+        <img className="listItemImage" src={props.image_url} />
       </div>
     </Link>
 

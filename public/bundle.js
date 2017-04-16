@@ -27862,7 +27862,7 @@
 	        { className: 'listItemImageContainer', onClick: function onClick() {
 	            return props.dispatch((0, _actions.displaySingleItem)(props));
 	          } },
-	        _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
+	        _react2.default.createElement('img', { className: 'listItemImage', src: props.image_url })
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -31726,7 +31726,7 @@
 	        { className: 'itemTitle' },
 	        props.item.item_name
 	      ),
-	      _react2.default.createElement('img', { className: 'itemListingImage', src: 'http://static.musiciansfriend.com/derivates/18/001/446/174/DV016_Jpg_Large_518963.019_cherry_body_closeup.jpg' }),
+	      _react2.default.createElement('img', { className: 'itemListingImage', src: props.item.image_url }),
 	      _react2.default.createElement(
 	        'p',
 	        null,
