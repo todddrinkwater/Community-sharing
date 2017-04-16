@@ -32527,6 +32527,8 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
+	var _reactRouterDom = __webpack_require__(224);
+	
 	var _api = __webpack_require__(293);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -32574,7 +32576,7 @@
 	      ),
 	      _react2.default.createElement('input', { type: 'file', name: 'image_url', accept: 'image/*' }),
 	      _react2.default.createElement('br', null),
-	      _react2.default.createElement('input', { type: 'text', value: props.user_id, name: 'user_id' }),
+	      _react2.default.createElement('input', { type: 'text', value: props.user_id, name: 'user_id', readonly: 'readonly' }),
 	      _react2.default.createElement('input', { className: 'createListing', type: 'submit', value: 'Create Listing' })
 	    )
 	  );

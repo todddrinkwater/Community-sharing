@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { HashRouter as Router, Link } from 'react-router-dom'
+
 
 import { getNewItem } from '../api'
 
@@ -7,15 +9,14 @@ import { getNewItem } from '../api'
 let LenderForm = (props) => (
   <div className="lenderForm">
     <h1>List An Item</h1>
-    <form method="post" onSubmit={ newItem } >
+    <form method="post" onSubmit={ newItem }>
       <label>Title:</label><input type="text" name="item_name" />
       <label>Category</label><input type="text" name="category" />
       <label>Description</label><input type="text" name="description" />
       <label>Location</label><input type="text" name="location" />
       <label>Image Upload</label><input type="file" name="image_url" accept="image/*" /><br />
-      <input type="text" value={props.user_id} name="user_id"/>
+      <input type="text" value={props.user_id} name="user_id" readonly="readonly" />
       <input className="createListing" type="submit" value="Create Listing" />
-
     </form>
   </div>
 )
