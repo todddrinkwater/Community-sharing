@@ -25,7 +25,6 @@ export const dashboardTab = (clickedTab) => {
   }
 }
 
-
 export const initialListings = (listings) => {
   return {
     type: 'GET_LISTINGS',
@@ -64,6 +63,27 @@ export const fetchUser = (submitedEmail) => {
         return
       }
       dispatch(loggedInUser(res.body[0]))
+    })
+  }
+}
+
+export const borrowedItems = (borrowedItemList) => {
+  return {
+    type: 'BORROWED_ITEMS',
+    borrowedItemList
+  }
+}
+
+export const fetchBorrowedItems = (loggedInUserId) => {
+  return (dispatch) => {
+    request
+    .get(urlPath + "/borrowedItems/" + loggedInUserId)
+    .end((err, res) => {
+      if (err) {
+        console.error(err.message)
+        return
+      }
+      dispatch(borrowedItems(res.body))
     })
   }
 }

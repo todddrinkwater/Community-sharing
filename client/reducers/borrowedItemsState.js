@@ -1,4 +1,4 @@
-const borrowedItemsState = (state = ['test borrowed item state'], action) => {
+const borrowedItemsState = (state = [], action) => {
   switch (action.type) {
     case 'BORROWED_ITEMS':
       return action.borrowedItemList
