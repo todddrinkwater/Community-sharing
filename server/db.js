@@ -12,7 +12,8 @@ module.exports = {
   saveItem,
   saveUser,
   deleteItem,
-  saveLoan
+  saveLoan,
+  getUserById
 }
 
 function getItems () {
@@ -26,7 +27,10 @@ function getItem (id) {
 
 function getUser (email) {
   return knex('users').where('email', email)
+}
 
+function getUserById (id) {
+  return knex('users').where('user_id', id)
 }
 
 function getLoanItems (id) {
