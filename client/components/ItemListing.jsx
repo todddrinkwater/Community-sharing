@@ -1,5 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { HashRouter as Router, Link } from 'react-router-dom'
 
 function ItemListing (props) {
   return (
@@ -21,7 +22,11 @@ function ItemListing (props) {
         <p>
           <input type="checkbox" name="vehicle" value="Bike" />By ticking this box, I agree to the <a href="#">Terms and Condtions</a> of Community Share.
         </p>
-        <input type="submit" value="Request Item" />
+        <Router>
+          <Link to="/dashboard">
+            <input type="submit" value="Request Item" />
+          </Link>
+        </Router>
       </form>
     </div>
 

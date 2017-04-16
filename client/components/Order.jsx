@@ -1,7 +1,7 @@
 import React from 'react'
 
 let Order = (props) => (
-  <div class="Order">
+  <div className="Order">
 
     <h1>Request Approved - Transaction Receipt</h1>
 

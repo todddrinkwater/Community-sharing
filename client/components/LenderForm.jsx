@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import { getNewItem } from '../api'
 
 let LenderForm = (props) => (
@@ -28,7 +30,7 @@ function newItem(event) {
 }
 
 function testCallback (err, status) {
- console.log(status);  
+ console.log(status);
 }
 
 export default LenderForm

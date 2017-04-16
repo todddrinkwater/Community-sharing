@@ -3,7 +3,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 
 import List from '../containers/List'
 import Header from './Header.jsx'
-import HomePage from './HomePage'
+import Home from './Home'
 import ItemListing from './ItemListing'
 import Dashboard from './Dashboard'
 import Register from './Register'
@@ -17,7 +17,7 @@ function App (props) {
       <Header />
       <Router>
         <div>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/' component={Home} />
           <Route path='/list' component={List} />
           <Route path='/list-item' component={ItemListing} />
           <Route path='/dashboard' component={Dashboard} />

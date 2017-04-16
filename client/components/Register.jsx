@@ -8,7 +8,7 @@ const Register = () => (
     <img src="http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png" />
     <div className="register">
       <h1>Register</h1>
-      <form onSubmit={ registerNewUser } method="POST">
+      <form onSubmit={ registerNewUser } method="post">
         <label>First Name: </label><input type="text" name="fname" /><br />
         <label>Last Name: </label><input type="text" name="lname"  />
         <label>Email: </label><input type="text" name="email"  />
