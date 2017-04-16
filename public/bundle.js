@@ -23976,7 +23976,7 @@
 	  postcode: "6023",
 	  suburb: "Karori",
 	  town_city: "Wellington",
-	  user_id: 7005,
+	  user_id: 7006,
 	  user_image_url: ""
 	};
 	
@@ -27819,7 +27819,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(263);
 	
@@ -27889,6 +27889,25 @@
 	        return;
 	      }
 	      dispatch(loggedInUser(res.body[0]));
+	    });
+	  };
+	};
+	
+	var borrowedItems = exports.borrowedItems = function borrowedItems(borrowedItemList) {
+	  return {
+	    type: 'BORROWED_ITEMS',
+	    borrowedItemList: borrowedItemList
+	  };
+	};
+	
+	var fetchBorrowedItems = exports.fetchBorrowedItems = function fetchBorrowedItems(loggedInUserId) {
+	  return function (dispatch) {
+	    _superagent2.default.get(urlPath + "/borrowedItems/" + loggedInUserId).end(err, function (res) {
+	      if (err) {
+	        console.error(err.message);
+	        return;
+	      }
+	      dispatch(borrowedItems(res.body));
 	    });
 	  };
 	};
@@ -31779,9 +31798,13 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(182);
 	
 	var _MyListingsCard = __webpack_require__(286);
 	
@@ -31789,16 +31812,28 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function MyListings() {
+	function MyListings(props) {
+	
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'dashboard-section' },
 	    'MY LISTINGS',
-	    _react2.default.createElement(_MyListingsCard2.default, null)
+	    props.allItems.map(function (item) {
+	      if (item.owner_id == props.loggedInUser.user_id) {
+	        return _react2.default.createElement(_MyListingsCard2.default, _extends({ key: item.item_id }, item));
+	      }
+	    })
 	  );
 	}
 	
-	exports.default = MyListings;
+	function mapStateToProps(state) {
+	  return {
+	    allItems: state.initialListings,
+	    loggedInUser: state.loggedInUserDetails
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyListings);
 
 /***/ }),
 /* 286 */
@@ -31818,7 +31853,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function MyListingsCard() {
+	function MyListingsCard(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'card-wrapper' },
@@ -31832,12 +31867,12 @@
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'card-heading' },
-	          'Hedge Trimmer'
+	          props.item_name
 	        ),
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'card-details' },
-	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
+	          props.description
 	        )
 	      )
 	    ),
@@ -32508,8 +32543,6 @@
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouterDom = __webpack_require__(224);
 	
 	var _api = __webpack_require__(293);
 	
