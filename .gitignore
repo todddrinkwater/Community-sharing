@@ -1,1 +1,3 @@
 node_modules
+bundles.js*
+dev.sqlite3
