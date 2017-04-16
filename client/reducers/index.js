@@ -7,6 +7,7 @@ import filteredListings from './filteredListings'
 import singleItem from './singleItem'
 import loggedInUserDetails from './loggedInUserDetails'
 import loanedItems from './loanedItems'
+import orderItemDetails from './orderItemDetails'
 
 export default combineReducers({
   menuState,
@@ -15,5 +16,6 @@ export default combineReducers({
   filteredListings,
   singleItem,
   loggedInUserDetails,
-  loanedItems
+  loanedItems,
+  orderItemDetails
 })

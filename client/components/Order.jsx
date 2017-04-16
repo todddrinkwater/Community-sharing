@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { orderItemDetails } from '../actions'
+
 function Order (props) {
-  console.log(props.loggedInUserDetails);
+  console.log(props);
   return (
     <div className="Order">
       <h1>Request Approved - Transaction Receipt</h1>
@@ -16,16 +18,16 @@ function Order (props) {
 
       <h3>Lender Details</h3>
       <ul>
-        <li>Name: {props.loggedInUserDetails.fname}</li>
+        <li>Name: {props.loggedInUserDetails.fname} {props.loggedInUserDetails.lname}</li>
         <li>Phone: {props.loggedInUserDetails.phone}</li>
         <li>email: {props.loggedInUserDetails.email}</li>
       </ul>
 
       <h3>Borrower Details</h3>
       <ul>
-        <li>Name: Pou Pou</li>
-        <li>Phone: 021120021</li>
-        <li>email: pou@yeahboiii.com</li>
+        <li>Name: {props.orderItemDetails.fname} {props.orderItemDetails.lname}</li>
+        <li>Phone: {props.orderItemDetails.phone}</li>
+        <li>email: {props.orderItemDetails.email}</li>
       </ul>
 
     </div>
@@ -34,7 +36,8 @@ function Order (props) {
 
 function mapStateToProps(state){
   return {
-    loggedInUserDetails: state.loggedInUserDetails
+    loggedInUserDetails: state.loggedInUserDetails,
+    orderItemDetails: state.orderItemDetails[0]
   }
 }
 

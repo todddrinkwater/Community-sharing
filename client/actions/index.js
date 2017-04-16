@@ -91,3 +91,24 @@ export const fetchLoanedItems= (loggedInUserId) => {
     })
   }
 }
+
+export const singleItemOrder = (orderItem) => {
+  return {
+    type: 'SINGLE_ORDER_ITEM',
+    orderItem
+  }
+}
+
+export const fetchSingleItem= (itemId) => {
+  return (dispatch) => {
+  request
+    .get(urlPath + "/item/"+itemId)
+    .end((err, res) => {
+      if (err) {
+        console.error("fetchSingleItem " + err.message)
+        return
+      }
+      dispatch(singleItemOrder(res.body))
+    })
+  }
+}
