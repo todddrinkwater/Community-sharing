@@ -1,7 +1,7 @@
 const request = require('superagent')
 const url = require('url')
-const config = require('../config')
 
+const config = require('../config')
 
 var urlPath = url.format(config)
 

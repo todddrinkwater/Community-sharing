@@ -129,7 +129,7 @@ npm run knex seed:run
 ### Database Structure
 
 Users    |
----------|
+---------|-
 user_id  |
 fname    |
 lname    |
@@ -143,7 +143,7 @@ postcode |
 user_image_url|
 
 Items     |
-----------|
+----------|-
 item_id   |
 item_name |
 category  |
@@ -154,7 +154,7 @@ owner_id  |
 available |
 
 Loans      |
------------|
+-----------|-
 loan_id    |
 lenders_id |
 borrower_id|

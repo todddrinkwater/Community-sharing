@@ -1,7 +1,7 @@
 import React from 'react'
-import ListItem from '../components/ListItem'
 import {connect} from 'react-redux'
 
+import ListItem from '../components/ListItem'
 import { initialListings } from '../actions'
 import { filteredListings } from '../actions'
 
@@ -47,7 +47,7 @@ function List(props) {
       var filteredList = allListings.filter( (listItem) => {
         return listItem.category == category
       })
-      dispatch(filteredListings(filteredList))  
+      dispatch(filteredListings(filteredList))
     }
   }
 

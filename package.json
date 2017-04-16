@@ -9,7 +9,7 @@
     "watch": "nodemon -e js,jsx -x npm test",
     "knex": "knex",
     "server-test": "node test/server-tests.js | tap-spec",
-    "postinstall": "knex migrate:lastest"
+    "postinstall": "knex migrate:latest"
   },
   "keywords": [
     "react",
