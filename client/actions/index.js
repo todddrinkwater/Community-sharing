@@ -63,10 +63,31 @@ export const fetchUser = (submitedEmail) => {
     .get(urlPath + "/user/"+submitedEmail)
     .end((err, res) => {
       if (err) {
-        console.error(err.message)
+        console.error("fetchUser " + err.message)
         return
       }
       dispatch(loggedInUser(res.body[0]))
+    })
+  }
+}
+
+export const loanedItems = (loanedItemsList) => {
+  return {
+    type: 'LOANED_ITEMS',
+    loanedItemsList
+  }
+}
+
+export const fetchLoanedItems= (loggedInUserId) => {
+  return (dispatch) => {
+  request
+    .get(urlPath + "/loanedItems/"+loggedInUserId)
+    .end((err, res) => {
+      if (err) {
+        console.error("fetchLoanedItems " + err.message)
+        return
+      }
+      dispatch(loanedItems(res.body))
     })
   }
 }
