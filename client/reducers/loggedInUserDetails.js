@@ -8,7 +8,7 @@ const defaultUser = {
   postcode: "6023",
   suburb: "Karori",
   town_city: "Wellington",
-  user_id: 7005,
+  user_id: 7006,
   user_image_url: ""
 }
 

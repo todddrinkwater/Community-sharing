@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { getNewItem } from '../api'
 
-let LenderForm = (props) => (
+let LenderForm = () => (
   <div className="lenderForm">
     <h1>List An Item</h1>
     <form method="post" onSubmit={ newItem } >
@@ -28,7 +29,7 @@ function newItem(event) {
 }
 
 function testCallback (err, status) {
- console.log(status);  
+ console.log(status);
 }
 
 export default LenderForm
