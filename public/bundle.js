@@ -70,7 +70,7 @@
 	
 	var _actions = __webpack_require__(262);
 	
-	var _api = __webpack_require__(293);
+	var _api = __webpack_require__(292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -24005,7 +24005,7 @@
 	  value: true
 	});
 	var borrowedItemsState = function borrowedItemsState() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['test borrowed item state'];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -24055,19 +24055,19 @@
 	
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 	
-	var _Register = __webpack_require__(292);
+	var _Register = __webpack_require__(291);
 	
 	var _Register2 = _interopRequireDefault(_Register);
 	
-	var _Login = __webpack_require__(294);
+	var _Login = __webpack_require__(293);
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _Order = __webpack_require__(295);
+	var _Order = __webpack_require__(294);
 	
 	var _Order2 = _interopRequireDefault(_Order);
 	
-	var _LenderForm = __webpack_require__(296);
+	var _LenderForm = __webpack_require__(295);
 	
 	var _LenderForm2 = _interopRequireDefault(_LenderForm);
 	
@@ -27902,7 +27902,7 @@
 	
 	var fetchBorrowedItems = exports.fetchBorrowedItems = function fetchBorrowedItems(loggedInUserId) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + "/borrowedItems/" + loggedInUserId).end(err, function (res) {
+	    _superagent2.default.get(urlPath + "/borrowedItems/" + loggedInUserId).end(function (err, res) {
 	      if (err) {
 	        console.error(err.message);
 	        return;
@@ -31679,6 +31679,8 @@
 	}
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ItemListing);
+	
+	// <Link to="/dashboard" onClick={ () => props.dispatch(addToBorrow(props))}>
 
 /***/ }),
 /* 283 */
@@ -31702,7 +31704,7 @@
 	
 	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
 	
-	var _MyProfile = __webpack_require__(291);
+	var _MyProfile = __webpack_require__(290);
 	
 	var _MyProfile2 = _interopRequireDefault(_MyProfile);
 	
@@ -31766,11 +31768,11 @@
 	
 	var _MyListings2 = _interopRequireDefault(_MyListings);
 	
-	var _MyBorrowing = __webpack_require__(287);
+	var _MyBorrowedItems = __webpack_require__(287);
 	
-	var _MyBorrowing2 = _interopRequireDefault(_MyBorrowing);
+	var _MyBorrowedItems2 = _interopRequireDefault(_MyBorrowedItems);
 	
-	var _MySharedItems = __webpack_require__(289);
+	var _MySharedItems = __webpack_require__(288);
 	
 	var _MySharedItems2 = _interopRequireDefault(_MySharedItems);
 	
@@ -31781,7 +31783,7 @@
 	    'div',
 	    null,
 	    _react2.default.createElement(_MyListings2.default, null),
-	    _react2.default.createElement(_MyBorrowing2.default, null),
+	    _react2.default.createElement(_MyBorrowedItems2.default, null),
 	    _react2.default.createElement(_MySharedItems2.default, null)
 	  );
 	}
@@ -31900,6 +31902,10 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -31908,30 +31914,58 @@
 	
 	var _actions = __webpack_require__(262);
 	
-	var _ImBorrowingCard = __webpack_require__(288);
+	var _ImBorrowingCard = __webpack_require__(296);
 	
 	var _ImBorrowingCard2 = _interopRequireDefault(_ImBorrowingCard);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function MyBorrowing(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'dashboard-section' },
-	    'IM BORROWING',
-	    _react2.default.createElement(_ImBorrowingCard2.default, null)
-	  );
-	}
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MyBorrowedItems = function (_React$Component) {
+	  _inherits(MyBorrowedItems, _React$Component);
+	
+	  function MyBorrowedItems() {
+	    _classCallCheck(this, MyBorrowedItems);
+	
+	    return _possibleConstructorReturn(this, (MyBorrowedItems.__proto__ || Object.getPrototypeOf(MyBorrowedItems)).apply(this, arguments));
+	  }
+	
+	  _createClass(MyBorrowedItems, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.dispatch((0, _actions.fetchBorrowedItems)(this.props.loggedInUserId));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-section' },
+	        'MY BORROWED ITEMS',
+	        this.props.borrowedItemsList.map(function (borrowedItem) {
+	          return _react2.default.createElement(_ImBorrowingCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem));
+	        })
+	      );
+	    }
+	  }]);
+	
+	  return MyBorrowedItems;
+	}(_react2.default.Component);
 	
 	function mapStateToProps(state) {
-	  console.log(state.borrowedItemsState);
 	  return {
 	    dispatch: state.dispatch,
-	    borrowedItemsList: state.borrowedItemsState
+	    borrowedItemsList: state.borrowedItemsState,
+	    loggedInUserId: state.loggedInUserDetails.user_id
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowing);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowedItems);
 
 /***/ }),
 /* 288 */
@@ -31947,66 +31981,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouterDom = __webpack_require__(224);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function ImBorrowingCard() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'card-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CC500BAT.png/220px-CC500BAT.png' }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'card-details-container' },
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-heading' },
-	          'Mower'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-details' },
-	          'Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....'
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-button-container' },
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/order' },
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'card-button' },
-	          'More'
-	        )
-	      )
-	    )
-	  );
-	}
-	
-	exports.default = ImBorrowingCard;
-
-/***/ }),
-/* 289 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _SharedCard = __webpack_require__(290);
+	var _SharedCard = __webpack_require__(289);
 	
 	var _SharedCard2 = _interopRequireDefault(_SharedCard);
 	
@@ -32024,7 +31999,7 @@
 	exports.default = MySharedItems;
 
 /***/ }),
-/* 290 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32085,7 +32060,7 @@
 	exports.default = SharedCard;
 
 /***/ }),
-/* 291 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32162,7 +32137,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyProfile);
 
 /***/ }),
-/* 292 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32177,7 +32152,7 @@
 	
 	var _reactRouterDom = __webpack_require__(224);
 	
-	var _api = __webpack_require__(293);
+	var _api = __webpack_require__(292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32286,7 +32261,7 @@
 	exports.default = Register;
 
 /***/ }),
-/* 293 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32341,7 +32316,7 @@
 	module.exports = { getListings: getListings, getUsers: getUsers, registerUser: registerUser, getNewItem: getNewItem };
 
 /***/ }),
-/* 294 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32429,7 +32404,7 @@
 	}
 
 /***/ }),
-/* 295 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32531,7 +32506,7 @@
 	exports.default = Order;
 
 /***/ }),
-/* 296 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32544,7 +32519,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _api = __webpack_require__(293);
+	var _api = __webpack_require__(292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32613,6 +32588,66 @@
 	}
 	
 	exports.default = LenderForm;
+
+/***/ }),
+/* 296 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(224);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function ImBorrowingCard(props) {
+	  console.log(props);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CC500BAT.png/220px-CC500BAT.png' }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          props.item_name
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          props.description
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-button-container' },
+	      _react2.default.createElement(
+	        _reactRouterDom.Link,
+	        { to: '/order' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button' },
+	          'More'
+	        )
+	      )
+	    )
+	  );
+	}
+	
+	exports.default = ImBorrowingCard;
 
 /***/ })
 /******/ ]);

@@ -25,7 +25,6 @@ export const dashboardTab = (clickedTab) => {
   }
 }
 
-
 export const initialListings = (listings) => {
   return {
     type: 'GET_LISTINGS',
@@ -79,7 +78,7 @@ export const fetchBorrowedItems = (loggedInUserId) => {
   return (dispatch) => {
     request
     .get(urlPath + "/borrowedItems/" + loggedInUserId)
-    .end(err, res => {
+    .end((err, res) => {
       if (err) {
         console.error(err.message)
         return

@@ -39,3 +39,6 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps)(ItemListing)
+
+
+// <Link to="/dashboard" onClick={ () => props.dispatch(addToBorrow(props))}>
