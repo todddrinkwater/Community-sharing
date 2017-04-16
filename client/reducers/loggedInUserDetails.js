@@ -1,15 +1,15 @@
 const defaultUser = {
-  address: "8 Drummond Road",
-  email: "jb@email.com",
-  fname: "Jon Test",
-  hash: "",
-  lname: "Bennett",
+  user_id: 7006,
+  fname: "Pou Default",
+  lname: "Kupenga",
+  email: "pk@email.com",
   phone:"027 111 2222",
+  address: "8 Drummond Road",
   postcode: "6023",
   suburb: "Karori",
   town_city: "Wellington",
-  user_id: 7005,
-  user_image_url: ""
+  user_image_url: "https://avatars0.githubusercontent.com/u/20761533?v=3&s=400",
+  hash: ""
 }
 
 

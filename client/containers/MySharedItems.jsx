@@ -5,21 +5,10 @@ import { fetchLoanedItems } from '../actions'
 
 import SharedCard from '../components/SharedCard'
 
-// function MySharedItems (props) {
-//   return (
-//     <div className='dashboard-section'>
-//       MY SHARED ITEMS
-//       <SharedCard />
-//     </div>
-//   )
-// }
-//
-
-
 class MySharedItems extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchLoanedItems(7006))
+    this.props.dispatch(fetchLoanedItems(this.props.loggedInUser.user_id))
   }
 
   render() {
@@ -28,7 +17,7 @@ class MySharedItems extends React.Component {
         MY SHARED ITEMS
         { this.props.loanedItems.map( (loanedItem) => {
            return (
-             <SharedCard key={loanedItem.loan_id} {...loanedItem} />
+             <SharedCard key={loanedItem.loan_id} {...loanedItem} {...this.props.loggedInUser} />
             )
         })}
       </div>
