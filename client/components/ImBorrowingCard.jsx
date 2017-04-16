@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function ImBorrowingCard (props) {
-  console.log(props);
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
