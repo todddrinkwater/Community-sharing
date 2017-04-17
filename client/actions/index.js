@@ -123,3 +123,24 @@ export const fetchSingleItem = itemId => {
     })
   }
 }
+
+export const lenderDetails = (lenderDetails) => {
+  return {
+    type: 'LENDER_DETAILS',
+    lenderDetails
+  }
+}
+
+export const fetchLenderById = (userId) => {
+  return (dispatch) => {
+  request
+    .get(urlPath + "/userById/" + userId)
+    .end((err, res) => {
+      if (err) {
+        console.error("fetchUserById " + err.message)
+        return
+      }
+      dispatch(lenderDetails(res.body))
+    })
+  }
+}

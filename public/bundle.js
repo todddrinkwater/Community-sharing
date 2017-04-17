@@ -23833,6 +23833,10 @@
 	
 	var _borrowedItemsState2 = _interopRequireDefault(_borrowedItemsState);
 	
+	var _lenderDetails = __webpack_require__(299);
+	
+	var _lenderDetails2 = _interopRequireDefault(_lenderDetails);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _redux.combineReducers)({
@@ -23844,7 +23848,8 @@
 	  loggedInUserDetails: _loggedInUserDetails2.default,
 	  loanedItems: _loanedItems2.default,
 	  orderItemDetails: _orderItemDetails2.default,
-	  borrowedItemsState: _borrowedItemsState2.default
+	  borrowedItemsState: _borrowedItemsState2.default,
+	  lenderDetails: _lenderDetails2.default
 	});
 
 /***/ },
@@ -23971,23 +23976,22 @@
 /* 221 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var defaultUser = {
-	  user_id: 7006,
-	  fname: "Bob",
-	  lname: "Smith",
-	  email: "BS@email.com",
-	  phone: "027 111 2222",
-	  address: "8 Drummond Road",
-	  postcode: "6023",
-	  suburb: "Karori",
-	  town_city: "Wellington",
-	  user_image_url: "https://yt3.ggpht.com/-uJh4oSQAwak/AAAAAAAAAAI/AAAAAAAAAAA/AMGKfKvDP3w/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
-	  hash: ""
+	  user_id: 7005,
+	  fname: 'Jon',
+	  lname: 'Bennett',
+	  email: 'jb@email.com',
+	  phone: '027 111 2222',
+	  address: '8 Drummond Road',
+	  suburb: 'Karori',
+	  town_city: 'Wellington',
+	  postcode: '6023',
+	  user_image_url: 'http://res.cloudinary.com/hpyyiawap/image/upload/v1492378542/jon_diojve.jpg'
 	};
 	
 	var loggedInUserDetails = function loggedInUserDetails() {
@@ -27862,7 +27866,7 @@
 	        { className: 'listItemImageContainer', onClick: function onClick() {
 	            return props.dispatch((0, _actions.displaySingleItem)(props));
 	          } },
-	        _react2.default.createElement('img', { className: 'listItemImage', src: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/174/cache/lawn-mower_17497_600x450.jpg' })
+	        _react2.default.createElement('img', { className: 'listItemImage', src: props.image_url })
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -27885,7 +27889,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(265);
 	
@@ -28012,6 +28016,25 @@
 	        return;
 	      }
 	      dispatch(singleItemOrder(res.body));
+	    });
+	  };
+	};
+	
+	var lenderDetails = exports.lenderDetails = function lenderDetails(_lenderDetails) {
+	  return {
+	    type: 'LENDER_DETAILS',
+	    lenderDetails: _lenderDetails
+	  };
+	};
+	
+	var fetchLenderById = exports.fetchLenderById = function fetchLenderById(userId) {
+	  return function (dispatch) {
+	    _superagent2.default.get(urlPath + "/userById/" + userId).end(function (err, res) {
+	      if (err) {
+	        console.error("fetchUserById " + err.message);
+	        return;
+	      }
+	      dispatch(lenderDetails(res.body));
 	    });
 	  };
 	};
@@ -31704,6 +31727,8 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -31712,79 +31737,109 @@
 	
 	var _reactRouterDom = __webpack_require__(226);
 	
+	var _actions = __webpack_require__(264);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function ItemListing(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'ItemListing' },
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        { className: 'itemTitle' },
-	        props.item.item_name
-	      ),
-	      _react2.default.createElement('img', { className: 'itemListingImage', src: 'http://static.musiciansfriend.com/derivates/18/001/446/174/DV016_Jpg_Large_518963.019_cherry_body_closeup.jpg' }),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        props.item.description
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'itemListingUserDetails' },
-	      _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg' }),
-	      _react2.default.createElement(
-	        'h2',
-	        null,
-	        'Lender Name'
-	      ),
-	      _react2.default.createElement(
-	        'h3',
-	        null,
-	        props.item.location
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'form',
-	      { className: 'requestForm', action: '/action_page.php' },
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        _react2.default.createElement('input', { type: 'checkbox', name: 'vehicle', value: 'Bike' }),
-	        'By ticking this box, I agree to the ',
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ItemListing = function (_React$Component) {
+	  _inherits(ItemListing, _React$Component);
+	
+	  function ItemListing() {
+	    _classCallCheck(this, ItemListing);
+	
+	    return _possibleConstructorReturn(this, (ItemListing.__proto__ || Object.getPrototypeOf(ItemListing)).apply(this, arguments));
+	  }
+	
+	  _createClass(ItemListing, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'ItemListing' },
 	        _react2.default.createElement(
-	          'a',
-	          { href: '#' },
-	          'Terms and Condtions'
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'itemTitle' },
+	            this.props.item.item_name
+	          ),
+	          _react2.default.createElement('img', { className: 'itemListingImage', src: this.props.item.image_url }),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.props.item.description
+	          )
 	        ),
-	        ' of Community Share.'
-	      ),
-	      _react2.default.createElement(
-	        _reactRouterDom.HashRouter,
-	        null,
 	        _react2.default.createElement(
-	          _reactRouterDom.Link,
-	          { to: '/dashboard' },
-	          _react2.default.createElement('input', { type: 'submit', value: 'Request Item' })
+	          'div',
+	          { className: 'itemListingUserDetails' },
+	          _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: this.props.lenderDetails.user_image_url }),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            this.props.lenderDetails.fname,
+	            ' ',
+	            this.props.lenderDetails.lname
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.props.item.location
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { className: 'requestForm', action: '/action_page.php' },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement('input', { type: 'checkbox', name: 'vehicle', value: 'Bike' }),
+	            'By ticking this box, I agree to the ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: '#' },
+	              'Terms and Condtions'
+	            ),
+	            ' of Community Share.'
+	          ),
+	          _react2.default.createElement(
+	            _reactRouterDom.HashRouter,
+	            null,
+	            _react2.default.createElement(
+	              _reactRouterDom.Link,
+	              { to: '/dashboard' },
+	              _react2.default.createElement('input', { type: 'submit', value: 'Request Item' })
+	            )
+	          )
 	        )
-	      )
-	    )
-	  );
-	}
+	      );
+	    }
+	  }]);
+	
+	  return ItemListing;
+	}(_react2.default.Component);
 	
 	function mapStateToProps(state) {
 	  return {
-	    item: state.singleItem
+	    item: state.singleItem,
+	    dispatch: state.dispatch,
+	    lenderDetails: state.lenderDetails[0]
 	  };
 	}
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ItemListing);
-	
-	// <Link to="/dashboard" onClick={ () => props.dispatch(addToBorrow(props))}>
 
 /***/ },
 /* 285 */
@@ -32090,14 +32145,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ImBorrowingCard(props) {
-	  console.log(props);
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'card-wrapper' },
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CC500BAT.png/220px-CC500BAT.png' }),
+	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'card-details-container' },
@@ -32253,7 +32307,7 @@
 	          'You'
 	        ),
 	        ' are sharing your ',
-	        props.description,
+	        props.item_name,
 	        ' with ',
 	        _react2.default.createElement(
 	          'span',
@@ -32261,7 +32315,7 @@
 	          props.fname
 	        )
 	      ),
-	      _react2.default.createElement('img', { className: 'card-image', src: 'http://vignette1.wikia.nocookie.net/sote-rp/images/c/c4/User-placeholder.png/revision/latest?cb=20150624004222' })
+	      _react2.default.createElement('img', { className: 'card-image', src: props.user_image_url })
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -32965,6 +33019,7 @@
 
 /***/ },
 /* 299 */
+<<<<<<< HEAD
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {'use strict';
@@ -38337,6 +38392,29 @@
 	
 	  return ReactPropTypes;
 	};
+=======
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var lenderDetails = function lenderDetails() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['default lender'];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'LENDER_DETAILS':
+	      return action.lenderDetails;
+	
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = lenderDetails;
+>>>>>>> 5b4e0ac0a817b7f87661b7f6e9964d238c04949b
 
 /***/ }
 /******/ ]);
