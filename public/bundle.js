@@ -31966,7 +31966,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: 'http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg' }),
+	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'card-details-container' },
@@ -32849,45 +32849,13 @@
 	    value: function render() {
 	      var user_id = this.props.user_id;
 	
-	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'lenderForm' },
 	        _react2.default.createElement(
-	          _reactDropzone2.default,
-	          {
-	            onDrop: this.onImageDrop.bind(this),
-	            multiple: false,
-	            accept: 'image/*' },
-	          _react2.default.createElement(
-	            'div',
-	            null,
-	            'Drop an image or click to select a file to upload.'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'form',
-	          null,
-	          _react2.default.createElement('div', { className: 'FileUpload' }),
-	          _react2.default.createElement(
-	            'div',
-	            null,
-	            this.state.uploadedFileCloudinaryUrl === '' ? null : _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                this.state.uploadedFile.name
-	              ),
-	              _react2.default.createElement('img', { src: this.state.uploadedFileCloudinaryUrl })
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          'List An iiiiiiii'
+	          'List An Item'
 	        ),
 	        _react2.default.createElement(
 	          'form',
@@ -32895,7 +32863,7 @@
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            'Title:'
+	            'Title'
 	          ),
 	          _react2.default.createElement('input', { type: 'text', name: 'item_name' }),
 	          _react2.default.createElement(
@@ -32921,8 +32889,34 @@
 	            null,
 	            'Image Upload'
 	          ),
-	          _react2.default.createElement('input', { type: 'file', name: 'image_url', accept: 'image/*' }),
+	          _react2.default.createElement('input', { type: 'text', name: 'image_url', readonly: 'readonly', value: this.state.uploadedFileCloudinaryUrl }),
 	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            _reactDropzone2.default,
+	            {
+	              onDrop: this.onImageDrop.bind(this),
+	              multiple: false,
+	              accept: 'image/*' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'uploadButton' },
+	              'Drop an image or click to select a file to upload.'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            this.state.uploadedFileCloudinaryUrl === '' ? null : _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                this.state.uploadedFile.name
+	              ),
+	              _react2.default.createElement('img', { className: 'uploadImage', src: this.state.uploadedFileCloudinaryUrl })
+	            )
+	          ),
 	          _react2.default.createElement('input', { type: 'text', value: user_id, name: 'user_id', readonly: 'readonly' }),
 	          _react2.default.createElement('input', { className: 'createListing', type: 'submit', value: 'Create Listing' })
 	        )
