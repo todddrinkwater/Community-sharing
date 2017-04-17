@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { fetchSingleItem } from '../actions'
 
 function ImBorrowingCard (props) {
   return (
@@ -12,7 +13,9 @@ function ImBorrowingCard (props) {
         </div>
       </div>
       <div className='card-button-container'>
-        <Link to="/order"><button className='card-button'>More</button></Link>
+        <Link to="/OrderMyBorroedItems">
+        <button className='card-button' onClick={ () => props.dispatch(fetchSingleItem(props.item_id))}>More</button>
+      </Link>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { fetchSingleItem } from '../actions'
+import { fetchBorrowerById } from '../actions'
 
 function SharedCard (props) {
   return (
@@ -25,4 +26,5 @@ export default SharedCard
 
 function goToOrder(props){
   props.dispatch(fetchSingleItem(props.item_id))
+  props.dispatch(fetchBorrowerById(props.borrowers_id))
 }

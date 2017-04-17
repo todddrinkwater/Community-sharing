@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { displaySingleItem } from '../actions'
 
 
 function MyListingsCard (props) {
@@ -15,11 +17,22 @@ function MyListingsCard (props) {
           </p>
         </div>
       </div>
-      <div className='card-button-container'>
-        <button className='card-button'>View</button>
-      </div>
+
+      <Link to="/list-item">
+        <div className='card-button-container'>
+          <button className='card-button' onClick={ () => props.dispatch(displaySingleItem(props)) }>View</button>
+        </div>
+      </Link>
+
     </div>
   )
 }
 
-export default MyListingsCard
+function mapStateToProps(state){
+  return {
+    item: state.singleItem,
+    dispatch: state.dispatch,
+  }
+}
+
+export default connect(mapStateToProps)(MyListingsCard)
