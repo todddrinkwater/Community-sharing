@@ -11,10 +11,9 @@ const defaultUser = {
   user_image_url: 'http://res.cloudinary.com/hpyyiawap/image/upload/v1492378542/jon_diojve.jpg'
 }
 
-
 const loggedInUserDetails = (state = defaultUser, action) => {
   switch (action.type) {
-    case 'LOGGED_IN_USER':
+    case "LOGGED_IN_USER":
       return action.loggedInUserDetails
 
     default:

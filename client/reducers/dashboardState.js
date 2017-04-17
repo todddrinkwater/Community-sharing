@@ -1,6 +1,6 @@
-const openTab = (state = 'MySharingDetails', action) => {
+const openTab = (state = "MySharingDetails", action) => {
   switch (action.type) {
-    case 'DASHBOARD_TAB':
+    case "DASHBOARD_TAB":
       return action.dashboardState
 
     default:

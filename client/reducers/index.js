@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux"
 
 import menuState from './menuState'
 import dashboardState from './dashboardState'
@@ -10,6 +10,8 @@ import loanedItems from './loanedItems'
 import orderItemDetails from './orderItemDetails'
 import borrowedItemsState from './borrowedItemsState'
 import lenderDetails from './lenderDetails'
+import borrowerDetails from './borrowerDetails'
+
 
 export default combineReducers({
   menuState,
@@ -21,5 +23,6 @@ export default combineReducers({
   loanedItems,
   orderItemDetails,
   borrowedItemsState,
-  lenderDetails
+  lenderDetails,
+  borrowerDetails
 })
