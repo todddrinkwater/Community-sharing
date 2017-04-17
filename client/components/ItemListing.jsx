@@ -2,14 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter as Router, Link } from 'react-router-dom'
 
-import { fetchUserById } from '../actions'
+import { fetchLenderById} from '../actions'
 
 
 class ItemListing extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchUserById(7005))
+    this.props.dispatch(fetchLenderById(this.props.item.owner_id))
   }
+
   render() {
     return (
       <div className="ItemListing">
@@ -21,8 +22,8 @@ class ItemListing extends React.Component {
           </p>
         </div>
         <div className="itemListingUserDetails">
-          <img className="itemListingUserPhoto" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" />
-          <h2>Lender Name</h2>
+          <img className="itemListingUserPhoto" src={this.props.lenderDetails.user_image_url} />
+          <h2>{this.props.lenderDetails.fname} {this.props.lenderDetails.lname}</h2>
           <h3>{this.props.item.location}</h3>
         </div>
         <form className="requestForm" action="/action_page.php">
@@ -40,45 +41,11 @@ class ItemListing extends React.Component {
   }
 }
 
-
-
-
-
-// function ItemListing (props) {
-//   console.log(props);
-//   return (
-//
-    // <div className="ItemListing">
-    //   <div>
-    //     <h1 className="itemTitle">{props.item.item_name}</h1>
-    //     <img className="itemListingImage" src={props.item.image_url} />
-    //     <p>
-    //       {props.item.description}
-    //     </p>
-    //   </div>
-    //   <div className="itemListingUserDetails">
-    //     <img className="itemListingUserPhoto" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" />
-    //     <h2>Lender Name</h2>
-    //     <h3>{props.item.location}</h3>
-    //   </div>
-    //   <form className="requestForm" action="/action_page.php">
-    //     <p>
-    //       <input type="checkbox" name="vehicle" value="Bike" />By ticking this box, I agree to the <a href="#">Terms and Condtions</a> of Community Share.
-    //     </p>
-    //     <Router>
-    //       <Link to="/dashboard">
-    //         <input type="submit" value="Request Item" />
-    //       </Link>
-    //     </Router>
-    //   </form>
-    // </div>
-//
-// )}
-
 function mapStateToProps(state){
   return {
     item: state.singleItem,
-    dispatch: state.dispatch
+    dispatch: state.dispatch,
+    lenderDetails: state.lenderDetails[0]
   }
 }
 
