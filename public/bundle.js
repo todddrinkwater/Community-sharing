@@ -27807,41 +27807,33 @@
 	      'div',
 	      { className: 'Category' },
 	      _react2.default.createElement(
-	        'ul',
-	        { className: 'Category-ul' },
+	        'select',
+	        { selected: 'All', name: 'category', onChange: function onChange(e) {
+	            return changeEventHandler(e, props.dispatch, props.initialListings);
+	          } },
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "All");
-	            } },
+	          'option',
+	          { value: 'All' },
 	          'All'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Tools");
-	            } },
+	          'option',
+	          { value: 'Tools' },
 	          'Tools'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Musical Instruments");
-	            } },
-	          'Music Instruments'
+	          'option',
+	          { value: 'Musical Instruments' },
+	          'Musical Instruments'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Sport and Recreation");
-	            } },
-	          'Sport & Rec'
+	          'option',
+	          { value: 'Sport and Recreation' },
+	          'Sport and Recreation'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Other");
-	            } },
+	          'option',
+	          { value: 'Other' },
 	          'Other'
 	        )
 	      )
@@ -27850,6 +27842,10 @@
 	      return _react2.default.createElement(_ListItem2.default, _extends({ key: listItem.item_id }, listItem, { dispatch: props.dispatch }));
 	    })
 	  );
+	}
+	
+	function changeEventHandler(event, dispatch, initialListings) {
+	  filterList(dispatch, initialListings, event.currentTarget.value);
 	}
 	
 	function mapStateToProps(state) {
@@ -38196,8 +38192,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var email = '';
-	
 	var Login = function Login(props) {
 	  return _react2.default.createElement(
 	    'div',
@@ -38218,18 +38212,24 @@
 	        null,
 	        'Email'
 	      ),
-	      _react2.default.createElement('input', { type: 'text', name: 'email', placeholder: 'example@email.com', onKeyUp: function onKeyUp(e) {
-	          makeEmail(e);
-	        } }),
+	      _react2.default.createElement('input', { id: 'email-input', type: 'text', name: 'email', placeholder: 'example@email.com' }),
 	      _react2.default.createElement(
 	        'label',
 	        null,
 	        'Password'
 	      ),
 	      _react2.default.createElement('input', { type: 'password', name: 'password' }),
-	      _react2.default.createElement('input', { type: 'submit', value: 'Login', onClick: function onClick() {
-	          return submitUser(props);
-	        } })
+	      _react2.default.createElement(
+	        _reactRouterDom.Link,
+	        { to: '/dashboard' },
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', value: 'Login', onClick: function onClick() {
+	              return submitUser(event, props);
+	            } },
+	          'Login'
+	        )
+	      )
 	    ),
 	    _react2.default.createElement(
 	      'p',
@@ -38244,11 +38244,6 @@
 	  );
 	};
 	
-	function makeEmail(e) {
-	  email = e.currentTarget.value;
-	  console.log(email);
-	}
-	
 	function mapStateToProps(state) {
 	  return {
 	    dispatch: state.dispatch
@@ -38258,8 +38253,9 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Login);
 	
 	
-	function submitUser(props) {
-	  props.dispatch((0, _actions.fetchUser)(email));
+	function submitUser(ev, props) {
+	  ev.preventDefault(ev);
+	  props.dispatch((0, _actions.fetchUser)(document.getElementById('email-input').value));
 	}
 
 /***/ },
