@@ -10,4 +10,4 @@ const configs = {
   }
 }
 
-module.exports = configs[process.env.NODE || 'development']
+module.exports = configs[process.env.NODE_ENV || 'development']

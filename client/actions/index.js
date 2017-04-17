@@ -4,6 +4,7 @@ const url = require('url')
 const config = require('../../config')
 
 var urlPath = url.format(config)
+console.log(config)
 console.log(urlPath)
 var currentMenuState = false
 
