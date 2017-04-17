@@ -115,7 +115,6 @@ function newItem(event) {
 }
 
 function testCallback (err, status) {
- console.log(status);
 }
 
 function mapStateToProps(state){
