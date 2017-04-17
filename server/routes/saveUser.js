@@ -3,12 +3,10 @@ var router = express.Router()
 
 var db = require('../db')
 
-router.get('/:email', function (req, res) {
-  
-  var email = req.params.email
-
-  db.getUser(email).then((result) => {
-    res.send(result)
+router.post('/', function (req, res) {
+  var user = req.body
+  db.saveUser(user).then(() => {
+    res.sendStatus(201)
   })
   .catch((err) => {
     res.status(500).send(err)

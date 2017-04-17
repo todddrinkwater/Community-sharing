@@ -48,7 +48,7 @@ test('return user', function (t) {
 
   function checkReturnedObject(err, res) {
     if (err) { throw err }
-    console.log(res.body)
+
     var response = typeof(res.body)
     var expected = 'object'
     var actualID = res.body[0].email
@@ -77,6 +77,50 @@ test('return loan items', function (t) {
     // assert
     t.equal(response, expected)
     t.equal(actualID, expectedID)
+    t.end()
+  }
+})
+
+test('return loaned items', function (t) {
+  supertest(app)
+    .get('/loanedItems/7006')
+    .end(checkReturnedObject)
+
+  function checkReturnedObject(err, res) {
+    if (err) { throw err }
+    var response = typeof(res.body)
+    var expected = 'object'
+    var actualID = res.body[0].item_id
+    var expectedID = 12004
+    var expectedBorrowerID = 7005
+    var actualBorrowerID = res.body[0].borrowers_id
+
+    // assert
+    t.equal(response, expected)
+    t.equal(actualID, expectedID)
+    t.equal(actualBorrowerID, expectedBorrowerID)
+    t.end()
+  }
+})
+
+test('return borrowed items', function (t) {
+  supertest(app)
+    .get('/borrowedItems/7005')
+    .end(checkReturnedObject)
+
+  function checkReturnedObject(err, res) {
+    if (err) { throw err }
+    var response = typeof(res.body)
+    var expected = 'object'
+    var actualID = res.body[0].item_id
+    var expectedID = 12004
+    var expectedBorrowerID = 7006
+    var actualBorrowerID = res.body[0].lenders_id
+
+    // assert
+    t.equal(response, expected)
+    t.equal(actualID, expectedID)
+    t.equal(actualBorrowerID, expectedBorrowerID)
     t.end()
   }
 })

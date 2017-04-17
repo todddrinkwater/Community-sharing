@@ -1,21 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function MyListingsCard () {
+
+function MyListingsCard (props) {
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
         <img className='card-image' src='http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg'></img>
 
         <div className='card-details-container'>
-          <p className='card-heading'>Hedge Trimmer</p>
+          <p className='card-heading'>{props.item_name}</p>
           <p className='card-details'>
-            Lorem ipsum dolor sit amet, nibh molestie an eos, cu prima error quo, pro eros munere efficiendi in. Vis in eros pertinax voluptatibus....
+            {props.description}
           </p>
         </div>
       </div>
       <div className='card-button-container'>
-        <Link to="/list-item"><button className='card-button'>View</button></Link>
+        <button className='card-button'>View</button>
       </div>
     </div>
   )

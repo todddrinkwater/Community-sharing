@@ -2,12 +2,22 @@ import { combineReducers } from 'redux'
 
 import menuState from './menuState'
 import dashboardState from './dashboardState'
-import allListings from './allListings'
+import initialListings from './allListings'
+import filteredListings from './filteredListings'
 import singleItem from './singleItem'
+import loggedInUserDetails from './loggedInUserDetails'
+import loanedItems from './loanedItems'
+import orderItemDetails from './orderItemDetails'
+import borrowedItemsState from './borrowedItemsState'
 
 export default combineReducers({
   menuState,
   dashboardState,
-  allListings,
-  singleItem
+  initialListings,
+  filteredListings,
+  singleItem,
+  loggedInUserDetails,
+  loanedItems,
+  orderItemDetails,
+  borrowedItemsState
 })

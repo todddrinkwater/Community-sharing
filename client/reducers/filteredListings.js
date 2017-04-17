@@ -1,7 +1,7 @@
 const allListings = (state = [], action) => {
   switch (action.type) {
-    case 'GET_LISTINGS':
-      return action.initialListings
+    case 'FILTERED_LISTINGS':
+      return action.filteredListings
 
     default:
       return state

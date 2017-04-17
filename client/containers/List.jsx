@@ -1,6 +1,9 @@
 import React from 'react'
-import ListItem from '../components/ListItem'
 import {connect} from 'react-redux'
+
+import ListItem from '../components/ListItem'
+import { initialListings } from '../actions'
+import { filteredListings } from '../actions'
 
 function List(props) {
   return (
@@ -10,15 +13,16 @@ function List(props) {
       </div>
 
       <div className="Category">
-      <ul className="Category-ul">
-        <li className="Category-li"><a href="#">Tools</a></li>
-        <li className="Category-li"><a href="#">Music Equipment</a></li>
-        <li className="Category-li"><a href="#">Sport & Rec</a></li>
-        <li className="Category-li"><a href="#">Other</a></li>
-      </ul>
+        <ul className="Category-ul">
+          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "All") }>All</li>
+          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Tools") }>Tools</li>
+          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Musical Instruments" ) }>Music Instruments</li>
+          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Sport and Recreation") }>Sport & Rec</li>
+          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Other") }>Other</li>
+        </ul>
       </div>
 
-      {props.allListings.map( (listItem) => {
+      {props.filteredListings.map( (listItem) => {
          return (
            <ListItem key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
           )
@@ -29,8 +33,21 @@ function List(props) {
 
   function mapStateToProps(state){
     return {
-      allListings: state.allListings,
+      initialListings: state.initialListings,
+      filteredListings: state.filteredListings,
       dispatch: state.dispatch
+    }
+  }
+
+  function filterList (dispatch, allListings, category){
+
+    if (category == "All") {
+      dispatch(filteredListings(allListings))
+    } else {
+      var filteredList = allListings.filter( (listItem) => {
+        return listItem.category == category
+      })
+      dispatch(filteredListings(filteredList))
     }
   }
 
