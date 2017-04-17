@@ -8,6 +8,8 @@ router.get('/:id', function (req, res) {
   console.log(id);
   db.getUserById(id)
   .then((result) => {
+  var id = req.params.owner_id
+  db.getUserById(id).then((result) => {
     res.send(result)
   })
   .catch((err) => {
