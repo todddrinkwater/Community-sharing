@@ -186,7 +186,8 @@ location | string
 loans     | Data type
 ----------|----------
 loan_id   | increments
-borrower_id| integer references users.user_id
+loaners_id| integer
+borrowers_id| integer references users.user_id
 item_id    | integer references items.item_id
 pickup   | datetime
 dropoff  | datetime
