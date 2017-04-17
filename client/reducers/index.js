@@ -9,6 +9,7 @@ import loggedInUserDetails from './loggedInUserDetails'
 import loanedItems from './loanedItems'
 import orderItemDetails from './orderItemDetails'
 import borrowedItemsState from './borrowedItemsState'
+import lenderDetails from './lenderDetails'
 
 export default combineReducers({
   menuState,
@@ -19,5 +20,6 @@ export default combineReducers({
   loggedInUserDetails,
   loanedItems,
   orderItemDetails,
-  borrowedItemsState
+  borrowedItemsState,
+  lenderDetails
 })

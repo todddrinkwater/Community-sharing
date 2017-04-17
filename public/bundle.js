@@ -23833,6 +23833,10 @@
 	
 	var _borrowedItemsState2 = _interopRequireDefault(_borrowedItemsState);
 	
+	var _lenderDetails = __webpack_require__(299);
+	
+	var _lenderDetails2 = _interopRequireDefault(_lenderDetails);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _redux.combineReducers)({
@@ -23844,7 +23848,8 @@
 	  loggedInUserDetails: _loggedInUserDetails2.default,
 	  loanedItems: _loanedItems2.default,
 	  orderItemDetails: _orderItemDetails2.default,
-	  borrowedItemsState: _borrowedItemsState2.default
+	  borrowedItemsState: _borrowedItemsState2.default,
+	  lenderDetails: _lenderDetails2.default
 	});
 
 /***/ },
@@ -27884,7 +27889,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.fetchUserById = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(265);
 	
@@ -28015,14 +28020,20 @@
 	  };
 	};
 	
-	var fetchUserById = exports.fetchUserById = function fetchUserById(userId) {
+	var lenderDetails = exports.lenderDetails = function lenderDetails(_lenderDetails) {
+	  return {
+	    type: 'LENDER_DETAILS',
+	    lenderDetails: _lenderDetails
+	  };
+	};
+	
+	var fetchLenderById = exports.fetchLenderById = function fetchLenderById(userId) {
 	  return function (dispatch) {
 	    _superagent2.default.get(urlPath + "/userById/" + userId).end(function (err, res) {
 	      if (err) {
 	        console.error("fetchUserById " + err.message);
 	        return;
 	      }
-	      console.log(res.body);
 	      dispatch(lenderDetails(res.body));
 	    });
 	  };
@@ -31748,7 +31759,7 @@
 	  _createClass(ItemListing, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.props.dispatch((0, _actions.fetchUserById)(7005));
+	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
 	    }
 	  }, {
 	    key: 'render',
@@ -31774,11 +31785,13 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'itemListingUserDetails' },
-	          _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg' }),
+	          _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: this.props.lenderDetails.user_image_url }),
 	          _react2.default.createElement(
 	            'h2',
 	            null,
-	            'Lender Name'
+	            this.props.lenderDetails.fname,
+	            ' ',
+	            this.props.lenderDetails.lname
 	          ),
 	          _react2.default.createElement(
 	            'h3',
@@ -31818,41 +31831,11 @@
 	  return ItemListing;
 	}(_react2.default.Component);
 	
-	// function ItemListing (props) {
-	//   console.log(props);
-	//   return (
-	//
-	// <div className="ItemListing">
-	//   <div>
-	//     <h1 className="itemTitle">{props.item.item_name}</h1>
-	//     <img className="itemListingImage" src={props.item.image_url} />
-	//     <p>
-	//       {props.item.description}
-	//     </p>
-	//   </div>
-	//   <div className="itemListingUserDetails">
-	//     <img className="itemListingUserPhoto" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" />
-	//     <h2>Lender Name</h2>
-	//     <h3>{props.item.location}</h3>
-	//   </div>
-	//   <form className="requestForm" action="/action_page.php">
-	//     <p>
-	//       <input type="checkbox" name="vehicle" value="Bike" />By ticking this box, I agree to the <a href="#">Terms and Condtions</a> of Community Share.
-	//     </p>
-	//     <Router>
-	//       <Link to="/dashboard">
-	//         <input type="submit" value="Request Item" />
-	//       </Link>
-	//     </Router>
-	//   </form>
-	// </div>
-	//
-	// )}
-	
 	function mapStateToProps(state) {
 	  return {
 	    item: state.singleItem,
-	    dispatch: state.dispatch
+	    dispatch: state.dispatch,
+	    lenderDetails: state.lenderDetails[0]
 	  };
 	}
 	
@@ -32919,6 +32902,30 @@
 	}
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LenderForm);
+
+/***/ },
+/* 299 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var lenderDetails = function lenderDetails() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['default lender'];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'LENDER_DETAILS':
+	      return action.lenderDetails;
+	
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = lenderDetails;
 
 /***/ }
 /******/ ]);

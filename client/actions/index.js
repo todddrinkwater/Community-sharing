@@ -130,7 +130,14 @@ export const fetchSingleItem= (itemId) => {
   }
 }
 
-export const fetchUserById = (userId) => {
+export const lenderDetails = (lenderDetails) => {
+  return {
+    type: 'LENDER_DETAILS',
+    lenderDetails
+  }
+}
+
+export const fetchLenderById = (userId) => {
   return (dispatch) => {
   request
     .get(urlPath + "/userById/" + userId)
@@ -139,7 +146,6 @@ export const fetchUserById = (userId) => {
         console.error("fetchUserById " + err.message)
         return
       }
-      console.log(res.body);
       dispatch(lenderDetails(res.body))
     })
   }

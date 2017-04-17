@@ -5,7 +5,6 @@ var db = require('../db')
 
 router.get('/:id', function (req, res) {
   var id = req.params.id
-  console.log(id);
   db.getUserById(id)
   .then((result) => {
     res.send(result)
