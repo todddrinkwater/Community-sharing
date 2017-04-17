@@ -4,27 +4,26 @@ import { Link } from 'react-router-dom'
 
 import { fetchUser } from '../actions'
 
-var email = ''
-
 let Login = (props) => (
+
   <div className="login">
     <img src="http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png" />
     <div className="LoginGreeting">
       Welcome to [insert kick-ass name here]. <br /> Please sign in below.
     </div>
     <form>
-      <label>Email</label><input type="text" name="email" placeholder='example@email.com' onKeyUp={e => { makeEmail(e) }} />
+      <label>Email</label><input id='email-input' type="text" name="email" placeholder='example@email.com' />
       <label>Password</label><input type="password" name="password" />
-      <input type="submit" value="Login" onClick={ () => submitUser(props)} />
+      <Link to="/dashboard">
+        <button type="button" value="Login" onClick={ () => submitUser(event, props)} >Login</button>
+      </Link>
     </form>
-    <p>No account?</p><Link to="/register">Register Now?</Link>
+    <p>No account?</p>
+    <Link to="/register">
+      Register Now?
+    </Link>
   </div>
 )
-
-function makeEmail (e){
-  email = e.currentTarget.value
-  console.log(email);
-}
 
 function mapStateToProps(state){
   return {
@@ -36,6 +35,7 @@ export default connect(mapStateToProps)(Login)
 
 
 
-function submitUser(props){
-  props.dispatch(fetchUser(email))
+function submitUser(ev, props){
+  ev.preventDefault(ev)
+  props.dispatch(fetchUser(document.getElementById('email-input').value))
 }

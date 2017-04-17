@@ -108,7 +108,8 @@ function newItem(event) {
     description: event.target.elements.description.value,
     location: event.target.elements.location.value,
     image_url: event.target.elements.image_url.value,
-    owner_id: event.target.elements.user_id.value
+    owner_id: event.target.elements.user_id.value,
+    available: true
   }
   getNewItem(testCallback, newItemData)
 }
