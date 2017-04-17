@@ -28016,7 +28016,6 @@
 	        console.error("fetchUser " + err.message);
 	        return;
 	      }
-	      console.log(res.body);
 	      dispatch(loggedInUser(res.body[0]));
 	    });
 	  };
@@ -38229,11 +38228,15 @@
 	      ),
 	      _react2.default.createElement('input', { type: 'password', name: 'password' }),
 	      _react2.default.createElement(
-	        'button',
-	        { type: 'button', value: 'Login', onClick: function onClick() {
-	            return submitUser(event, props);
-	          } },
-	        'Login'
+	        _reactRouterDom.Link,
+	        { to: '/dashboard' },
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', value: 'Login', onClick: function onClick() {
+	              return submitUser(event, props);
+	            } },
+	          'Login'
+	        )
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -38260,7 +38263,6 @@
 	
 	function submitUser(ev, props) {
 	  ev.preventDefault(ev);
-	  console.log(document.getElementById('email-input').value);
 	  props.dispatch((0, _actions.fetchUser)(document.getElementById('email-input').value));
 	}
 
