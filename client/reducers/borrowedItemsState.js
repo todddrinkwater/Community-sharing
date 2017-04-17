@@ -1,6 +1,6 @@
 const borrowedItemsState = (state = [], action) => {
   switch (action.type) {
-    case 'BORROWED_ITEMS':
+    case "BORROWED_ITEMS":
       return action.borrowedItemList
 
     default:
@@ -8,4 +8,4 @@ const borrowedItemsState = (state = [], action) => {
   }
 }
 
- export default borrowedItemsState
+export default borrowedItemsState

@@ -3,7 +3,7 @@ const defaultUser = {
   fname: "Bob",
   lname: "Smith",
   email: "BS@email.com",
-  phone:"027 111 2222",
+  phone: "027 111 2222",
   address: "8 Drummond Road",
   postcode: "6023",
   suburb: "Karori",
@@ -12,10 +12,9 @@ const defaultUser = {
   hash: ""
 }
 
-
 const loggedInUserDetails = (state = defaultUser, action) => {
   switch (action.type) {
-    case 'LOGGED_IN_USER':
+    case "LOGGED_IN_USER":
       return action.loggedInUserDetails
 
     default:
