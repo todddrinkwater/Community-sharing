@@ -27836,7 +27836,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ListItem(props) {
-	  console.log(props);
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'listItem' },
@@ -27885,7 +27884,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.fetchUserById = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(265);
 	
@@ -27973,7 +27972,6 @@
 	        console.error(err.message);
 	        return;
 	      }
-	      console.log(res.body);
 	      dispatch(borrowedItems(res.body));
 	    });
 	  };
@@ -28013,6 +28011,19 @@
 	        return;
 	      }
 	      dispatch(singleItemOrder(res.body));
+	    });
+	  };
+	};
+	
+	var fetchUserById = exports.fetchUserById = function fetchUserById(userId) {
+	  return function (dispatch) {
+	    _superagent2.default.get(urlPath + "/userById/" + userId).end(function (err, res) {
+	      if (err) {
+	        console.error("fetchUserById " + err.message);
+	        return;
+	      }
+	      console.log(res.body);
+	      dispatch(lenderDetails(res.body));
 	    });
 	  };
 	};
@@ -31705,6 +31716,8 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -31713,79 +31726,137 @@
 	
 	var _reactRouterDom = __webpack_require__(226);
 	
+	var _actions = __webpack_require__(264);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function ItemListing(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'ItemListing' },
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        { className: 'itemTitle' },
-	        props.item.item_name
-	      ),
-	      _react2.default.createElement('img', { className: 'itemListingImage', src: props.item.image_url }),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        props.item.description
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'itemListingUserDetails' },
-	      _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg' }),
-	      _react2.default.createElement(
-	        'h2',
-	        null,
-	        'Lender Name'
-	      ),
-	      _react2.default.createElement(
-	        'h3',
-	        null,
-	        props.item.location
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'form',
-	      { className: 'requestForm', action: '/action_page.php' },
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        _react2.default.createElement('input', { type: 'checkbox', name: 'vehicle', value: 'Bike' }),
-	        'By ticking this box, I agree to the ',
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ItemListing = function (_React$Component) {
+	  _inherits(ItemListing, _React$Component);
+	
+	  function ItemListing() {
+	    _classCallCheck(this, ItemListing);
+	
+	    return _possibleConstructorReturn(this, (ItemListing.__proto__ || Object.getPrototypeOf(ItemListing)).apply(this, arguments));
+	  }
+	
+	  _createClass(ItemListing, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.dispatch((0, _actions.fetchUserById)(7005));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'ItemListing' },
 	        _react2.default.createElement(
-	          'a',
-	          { href: '#' },
-	          'Terms and Condtions'
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'itemTitle' },
+	            this.props.item.item_name
+	          ),
+	          _react2.default.createElement('img', { className: 'itemListingImage', src: this.props.item.image_url }),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.props.item.description
+	          )
 	        ),
-	        ' of Community Share.'
-	      ),
-	      _react2.default.createElement(
-	        _reactRouterDom.HashRouter,
-	        null,
 	        _react2.default.createElement(
-	          _reactRouterDom.Link,
-	          { to: '/dashboard' },
-	          _react2.default.createElement('input', { type: 'submit', value: 'Request Item' })
+	          'div',
+	          { className: 'itemListingUserDetails' },
+	          _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg' }),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Lender Name'
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.props.item.location
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { className: 'requestForm', action: '/action_page.php' },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement('input', { type: 'checkbox', name: 'vehicle', value: 'Bike' }),
+	            'By ticking this box, I agree to the ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: '#' },
+	              'Terms and Condtions'
+	            ),
+	            ' of Community Share.'
+	          ),
+	          _react2.default.createElement(
+	            _reactRouterDom.HashRouter,
+	            null,
+	            _react2.default.createElement(
+	              _reactRouterDom.Link,
+	              { to: '/dashboard' },
+	              _react2.default.createElement('input', { type: 'submit', value: 'Request Item' })
+	            )
+	          )
 	        )
-	      )
-	    )
-	  );
-	}
+	      );
+	    }
+	  }]);
+	
+	  return ItemListing;
+	}(_react2.default.Component);
+	
+	// function ItemListing (props) {
+	//   console.log(props);
+	//   return (
+	//
+	// <div className="ItemListing">
+	//   <div>
+	//     <h1 className="itemTitle">{props.item.item_name}</h1>
+	//     <img className="itemListingImage" src={props.item.image_url} />
+	//     <p>
+	//       {props.item.description}
+	//     </p>
+	//   </div>
+	//   <div className="itemListingUserDetails">
+	//     <img className="itemListingUserPhoto" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" />
+	//     <h2>Lender Name</h2>
+	//     <h3>{props.item.location}</h3>
+	//   </div>
+	//   <form className="requestForm" action="/action_page.php">
+	//     <p>
+	//       <input type="checkbox" name="vehicle" value="Bike" />By ticking this box, I agree to the <a href="#">Terms and Condtions</a> of Community Share.
+	//     </p>
+	//     <Router>
+	//       <Link to="/dashboard">
+	//         <input type="submit" value="Request Item" />
+	//       </Link>
+	//     </Router>
+	//   </form>
+	// </div>
+	//
+	// )}
 	
 	function mapStateToProps(state) {
 	  return {
-	    item: state.singleItem
+	    item: state.singleItem,
+	    dispatch: state.dispatch
 	  };
 	}
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ItemListing);
-	
-	// <Link to="/dashboard" onClick={ () => props.dispatch(addToBorrow(props))}>
 
 /***/ },
 /* 285 */
@@ -31888,14 +31959,12 @@
 	    'div',
 	    null,
 	    _react2.default.createElement(_MyListings2.default, null),
-	    _react2.default.createElement(_MyBorrowedItems2.default, null)
+	    _react2.default.createElement(_MyBorrowedItems2.default, null),
+	    _react2.default.createElement(_MySharedItems2.default, null)
 	  );
 	}
 	
 	exports.default = MySharingDetails;
-	
-	
-	{/* <MySharedItems /> */}
 
 /***/ },
 /* 287 */
@@ -32263,7 +32332,7 @@
 	          props.fname
 	        )
 	      ),
-	      _react2.default.createElement('img', { className: 'card-image', src: 'http://vignette1.wikia.nocookie.net/sote-rp/images/c/c4/User-placeholder.png/revision/latest?cb=20150624004222' })
+	      _react2.default.createElement('img', { className: 'card-image', src: props.user_image_url })
 	    ),
 	    _react2.default.createElement(
 	      'div',

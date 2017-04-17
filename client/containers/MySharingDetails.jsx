@@ -10,11 +10,9 @@ function MySharingDetails () {
     <div>
       <MyListings />
       <MyBorrowedItems />
+      <MySharedItems />
     </div>
   )
 }
 
 export default MySharingDetails
-
-
-{/* <MySharedItems /> */}

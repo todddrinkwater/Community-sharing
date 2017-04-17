@@ -83,7 +83,6 @@ export const fetchBorrowedItems = (loggedInUserId) => {
         console.error(err.message)
         return
       }
-      console.log(res.body);
       dispatch(borrowedItems(res.body))
     })
   }
@@ -127,6 +126,21 @@ export const fetchSingleItem= (itemId) => {
         return
       }
       dispatch(singleItemOrder(res.body))
+    })
+  }
+}
+
+export const fetchUserById = (userId) => {
+  return (dispatch) => {
+  request
+    .get(urlPath + "/userById/" + userId)
+    .end((err, res) => {
+      if (err) {
+        console.error("fetchUserById " + err.message)
+        return
+      }
+      console.log(res.body);
+      dispatch(lenderDetails(res.body))
     })
   }
 }

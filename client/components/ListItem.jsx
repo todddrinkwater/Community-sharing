@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { displaySingleItem } from '../actions'
 
 function ListItem (props) {
-  console.log(props);
   return (
   <div className="listItem">
     <div className="listItemHeader">
