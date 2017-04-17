@@ -60,30 +60,33 @@ class LenderForm extends React.Component {
 
           <h1>List An Item</h1>
             <form method="post" onSubmit={ newItem } >
-              <label>Title</label><input type="text" name="item_name" />
+              <label>Title:</label><input type="text" name="item_name" />
               <label>Category</label><input type="text" name="category" />
               <label>Description</label><input type="text" name="description" />
               <label>Location</label><input type="text" name="location" />
               <label>Image Upload</label><input type="text" name="image_url" readonly="readonly" value={this.state.uploadedFileCloudinaryUrl} /><br />
-                <Dropzone
+
+            <div className="imageButtonAndDisplay">
+                <Dropzone className="dropzone"
                   onDrop={this.onImageDrop.bind(this)}
                   multiple={false}
                   accept="image/*">
                     <div className="uploadButton">Drop an image or click to select a file to upload.</div>
                 </Dropzone>
 
-                  <div>
+
+                  <div className="imageContainer">
                     {
                       this.state.uploadedFileCloudinaryUrl === ''
                         ? null
                         : (
                           <div>
-                            <p>{this.state.uploadedFile.name}</p>
                             <img className="uploadImage" src={this.state.uploadedFileCloudinaryUrl} />
                           </div>
                         )
                       }
                   </div>
+                </div>
 
               <input type="text" value={user_id} name="user_id" readonly="readonly" />
               <input className="createListing" type="submit" value="Create Listing" />

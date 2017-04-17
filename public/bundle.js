@@ -32863,7 +32863,7 @@
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            'Title'
+	            'Title:'
 	          ),
 	          _react2.default.createElement('input', { type: 'text', name: 'item_name' }),
 	          _react2.default.createElement(
@@ -32892,29 +32892,28 @@
 	          _react2.default.createElement('input', { type: 'text', name: 'image_url', readonly: 'readonly', value: this.state.uploadedFileCloudinaryUrl }),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
-	            _reactDropzone2.default,
-	            {
-	              onDrop: this.onImageDrop.bind(this),
-	              multiple: false,
-	              accept: 'image/*' },
+	            'div',
+	            { className: 'imageButtonAndDisplay' },
+	            _react2.default.createElement(
+	              _reactDropzone2.default,
+	              { className: 'dropzone',
+	                onDrop: this.onImageDrop.bind(this),
+	                multiple: false,
+	                accept: 'image/*' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'uploadButton' },
+	                'Drop an image or click to select a file to upload.'
+	              )
+	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'uploadButton' },
-	              'Drop an image or click to select a file to upload.'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            null,
-	            this.state.uploadedFileCloudinaryUrl === '' ? null : _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'p',
+	              { className: 'imageContainer' },
+	              this.state.uploadedFileCloudinaryUrl === '' ? null : _react2.default.createElement(
+	                'div',
 	                null,
-	                this.state.uploadedFile.name
-	              ),
-	              _react2.default.createElement('img', { className: 'uploadImage', src: this.state.uploadedFileCloudinaryUrl })
+	                _react2.default.createElement('img', { className: 'uploadImage', src: this.state.uploadedFileCloudinaryUrl })
+	              )
 	            )
 	          ),
 	          _react2.default.createElement('input', { type: 'text', value: user_id, name: 'user_id', readonly: 'readonly' }),
