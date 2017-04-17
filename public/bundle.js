@@ -28013,6 +28013,7 @@
 	        return;
 	      }
 	      dispatch(loggedInUser(res.body[0]));
+	      dispatch(fetchLoanedItems(res.body[0].user_id));
 	    });
 	  };
 	};
