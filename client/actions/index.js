@@ -40,6 +40,7 @@ export const filteredListings = (listings) => {
 }
 
 export const displaySingleItem = (item) => {
+  console.log(item);
   return {
     type: 'SINGLE_ITEM',
     item

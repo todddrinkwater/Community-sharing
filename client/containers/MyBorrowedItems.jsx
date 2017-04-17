@@ -16,7 +16,7 @@ class MyBorrowedItems extends React.Component {
         MY BORROWED ITEMS
         { this.props.borrowedItemsList.map( (borrowedItem) => {
           return (
-            <ImBorrowingCard  key={borrowedItem.loan_id} {...borrowedItem} />
+            <ImBorrowingCard  key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
           )
         })}
       </div>
