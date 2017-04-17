@@ -144,3 +144,24 @@ export const fetchLenderById = (userId) => {
     })
   }
 }
+
+export const borrowerDetails = (borrowerDetails) => {
+  return {
+    type: 'BORROWER_DETAILS',
+    borrowerDetails
+  }
+}
+
+export const fetchBorrowerById = (userId) => {
+  return (dispatch) => {
+  request
+    .get(urlPath + "/userById/" + userId)
+    .end((err, res) => {
+      if (err) {
+        console.error("fetchUserById " + err.message)
+        return
+      }
+      dispatch(borrowerDetails(res.body))
+    })
+  }
+}

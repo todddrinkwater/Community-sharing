@@ -16,11 +16,11 @@ function Order (props) {
         <li>Drop Off Date: 03-01-2015</li>
       </ul>
 
-      <h3>Borrower Details</h3>
+      <h3>Lender Details</h3>
       <ul>
-        <li>Name: {props.borrowerDetails.fname} {props.borrowerDetails.lname}</li>
-        <li>Phone: {props.borrowerDetails.phone}</li>
-        <li>email: {props.borrowerDetails.email}</li>
+        <li>Name: {props.orderItemDetails.fname} {props.orderItemDetails.lname}</li>
+        <li>Phone: {props.orderItemDetails.phone}</li>
+        <li>email: {props.orderItemDetails.email}</li>
       </ul>
 
     </div>
@@ -29,7 +29,6 @@ function Order (props) {
 
 function mapStateToProps(state){
   return {
-    borrowerDetails: state.borrowerDetails[0],
     orderItemDetails: state.orderItemDetails[0]
   }
 }

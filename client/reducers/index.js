@@ -10,6 +10,7 @@ import loanedItems from './loanedItems'
 import orderItemDetails from './orderItemDetails'
 import borrowedItemsState from './borrowedItemsState'
 import lenderDetails from './lenderDetails'
+import borrowerDetails from './borrowerDetails'
 
 
 export default combineReducers({
@@ -22,5 +23,6 @@ export default combineReducers({
   loanedItems,
   orderItemDetails,
   borrowedItemsState,
-  lenderDetails
+  lenderDetails,
+  borrowerDetails
 })
