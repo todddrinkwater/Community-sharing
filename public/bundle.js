@@ -23971,23 +23971,22 @@
 /* 221 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var defaultUser = {
-	  user_id: 7006,
-	  fname: "Bob",
-	  lname: "Smith",
-	  email: "BS@email.com",
-	  phone: "027 111 2222",
-	  address: "8 Drummond Road",
-	  postcode: "6023",
-	  suburb: "Karori",
-	  town_city: "Wellington",
-	  user_image_url: "https://yt3.ggpht.com/-uJh4oSQAwak/AAAAAAAAAAI/AAAAAAAAAAA/AMGKfKvDP3w/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
-	  hash: ""
+	  user_id: 7005,
+	  fname: 'Jon',
+	  lname: 'Bennett',
+	  email: 'jb@email.com',
+	  phone: '027 111 2222',
+	  address: '8 Drummond Road',
+	  suburb: 'Karori',
+	  town_city: 'Wellington',
+	  postcode: '6023',
+	  user_image_url: 'http://res.cloudinary.com/hpyyiawap/image/upload/v1492378542/jon_diojve.jpg'
 	};
 	
 	var loggedInUserDetails = function loggedInUserDetails() {
@@ -27837,6 +27836,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ListItem(props) {
+	  console.log(props);
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'listItem' },
@@ -27973,6 +27973,7 @@
 	        console.error(err.message);
 	        return;
 	      }
+	      console.log(res.body);
 	      dispatch(borrowedItems(res.body));
 	    });
 	  };
@@ -31887,12 +31888,14 @@
 	    'div',
 	    null,
 	    _react2.default.createElement(_MyListings2.default, null),
-	    _react2.default.createElement(_MyBorrowedItems2.default, null),
-	    _react2.default.createElement(_MySharedItems2.default, null)
+	    _react2.default.createElement(_MyBorrowedItems2.default, null)
 	  );
 	}
 	
 	exports.default = MySharingDetails;
+	
+	
+	{/* <MySharedItems /> */}
 
 /***/ },
 /* 287 */
@@ -31966,7 +31969,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: 'http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg' }),
+	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'card-details-container' },
@@ -32096,7 +32099,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CC500BAT.png/220px-CC500BAT.png' }),
+	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'card-details-container' },
@@ -32252,7 +32255,7 @@
 	          'You'
 	        ),
 	        ' are sharing your ',
-	        props.description,
+	        props.item_name,
 	        ' with ',
 	        _react2.default.createElement(
 	          'span',

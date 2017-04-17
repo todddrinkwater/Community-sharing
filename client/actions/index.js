@@ -83,6 +83,7 @@ export const fetchBorrowedItems = (loggedInUserId) => {
         console.error(err.message)
         return
       }
+      console.log(res.body);
       dispatch(borrowedItems(res.body))
     })
   }
