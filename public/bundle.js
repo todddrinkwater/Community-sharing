@@ -28016,6 +28016,7 @@
 	        console.error("fetchUser " + err.message);
 	        return;
 	      }
+	      console.log(res.body);
 	      dispatch(loggedInUser(res.body[0]));
 	    });
 	  };
@@ -38200,8 +38201,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var email = '';
-	
 	var Login = function Login(props) {
 	  return _react2.default.createElement(
 	    'div',
@@ -38222,18 +38221,20 @@
 	        null,
 	        'Email'
 	      ),
-	      _react2.default.createElement('input', { type: 'text', name: 'email', placeholder: 'example@email.com', onKeyUp: function onKeyUp(e) {
-	          makeEmail(e);
-	        } }),
+	      _react2.default.createElement('input', { id: 'email-input', type: 'text', name: 'email', placeholder: 'example@email.com' }),
 	      _react2.default.createElement(
 	        'label',
 	        null,
 	        'Password'
 	      ),
 	      _react2.default.createElement('input', { type: 'password', name: 'password' }),
-	      _react2.default.createElement('input', { type: 'submit', value: 'Login', onClick: function onClick() {
-	          return submitUser(props);
-	        } })
+	      _react2.default.createElement(
+	        'button',
+	        { type: 'button', value: 'Login', onClick: function onClick() {
+	            return submitUser(event, props);
+	          } },
+	        'Login'
+	      )
 	    ),
 	    _react2.default.createElement(
 	      'p',
@@ -38248,11 +38249,6 @@
 	  );
 	};
 	
-	function makeEmail(e) {
-	  email = e.currentTarget.value;
-	  console.log(email);
-	}
-	
 	function mapStateToProps(state) {
 	  return {
 	    dispatch: state.dispatch
@@ -38262,8 +38258,10 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Login);
 	
 	
-	function submitUser(props) {
-	  props.dispatch((0, _actions.fetchUser)(email));
+	function submitUser(ev, props) {
+	  ev.preventDefault(ev);
+	  console.log(document.getElementById('email-input').value);
+	  props.dispatch((0, _actions.fetchUser)(document.getElementById('email-input').value));
 	}
 
 /***/ },

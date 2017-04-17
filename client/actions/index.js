@@ -60,6 +60,7 @@ export const fetchUser = submitedEmail => {
         console.error("fetchUser " + err.message)
         return
       }
+      console.log(res.body);
       dispatch(loggedInUser(res.body[0]))
     })
   }
