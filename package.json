@@ -4,13 +4,13 @@
   "description": "React Redux using express",
   "main": "server/index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server server/index & webpack --watch",
+    "start": "node server",
     "build": "webpack -p",
     "dev": "nodemon server server/index & webpack --watch",
     "watch": "nodemon -e js,jsx -x npm test",
     "knex": "knex",
     "server-test": "node test/server-tests.js | tap-spec",
-    "postinstall": "knex migrate:lastest"
+    "postinstall": "knex migrate:lastest && npm run build"
 
   },
   "keywords": [

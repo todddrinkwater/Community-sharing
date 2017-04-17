@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   entry: './client/index.js',
   output: {
@@ -14,6 +16,9 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new webpack.EnvironmentPlugin(['NODE_ENV'])
+    // new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
   ]
 }
