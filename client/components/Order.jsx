@@ -10,23 +10,17 @@ function Order (props) {
 
       <h3>Item Details</h3>
       <ul>
-        <li>Item: Lawn Mower</li>
+        <li>Item: {props.orderItemDetails.item_name}</li>
+        <li>Details: {props.orderItemDetails.description}</li>
         <li>Pick Up Date: 01-01-2015</li>
         <li>Drop Off Date: 03-01-2015</li>
       </ul>
 
-      <h3>Lender Details</h3>
-      <ul>
-        <li>Name: {props.loggedInUserDetails.fname} {props.loggedInUserDetails.lname}</li>
-        <li>Phone: {props.loggedInUserDetails.phone}</li>
-        <li>email: {props.loggedInUserDetails.email}</li>
-      </ul>
-
       <h3>Borrower Details</h3>
       <ul>
-        <li>Name: {props.orderItemDetails.fname} {props.orderItemDetails.lname}</li>
-        <li>Phone: {props.orderItemDetails.phone}</li>
-        <li>email: {props.orderItemDetails.email}</li>
+        <li>Name: {props.borrowerDetails.fname} {props.borrowerDetails.lname}</li>
+        <li>Phone: {props.borrowerDetails.phone}</li>
+        <li>email: {props.borrowerDetails.email}</li>
       </ul>
 
     </div>
@@ -35,7 +29,7 @@ function Order (props) {
 
 function mapStateToProps(state){
   return {
-    loggedInUserDetails: state.loggedInUserDetails,
+    borrowerDetails: state.borrowerDetails[0],
     orderItemDetails: state.orderItemDetails[0]
   }
 }

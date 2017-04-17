@@ -10,6 +10,7 @@ import Register from './Register'
 import Login from './Login'
 import Order from './Order'
 import LenderForm from './LenderForm'
+import OrderMyBorroedItems from './OrderMyBorroedItems'
 
 function App (props) {
   return (
@@ -25,6 +26,7 @@ function App (props) {
           <Route path='/login' component={Login} />
           <Route path='/order' component={Order} />
           <Route path='/lender-form' component={LenderForm} />
+          <Route path='/OrderMyBorroedItems' component={OrderMyBorroedItems} />
         </div>
       </Router>
     </div>

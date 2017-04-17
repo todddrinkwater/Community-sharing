@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { displaySingleItem } from '../actions'
 
 
 function MyListingsCard (props) {
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
-        <img className='card-image' src='http://maruyama-us.com/wp-content/uploads/2015/02/H23D-600x600.jpg'></img>
+        <img className='card-image' src={props.image_url}></img>
 
         <div className='card-details-container'>
           <p className='card-heading'>{props.item_name}</p>
@@ -15,11 +17,22 @@ function MyListingsCard (props) {
           </p>
         </div>
       </div>
-      <div className='card-button-container'>
-        <button className='card-button'>View</button>
-      </div>
+
+      <Link to="/list-item">
+        <div className='card-button-container'>
+          <button className='card-button' onClick={ () => props.dispatch(displaySingleItem(props)) }>View</button>
+        </div>
+      </Link>
+
     </div>
   )
 }
 
-export default MyListingsCard
+function mapStateToProps(state){
+  return {
+    item: state.singleItem,
+    dispatch: state.dispatch,
+  }
+}
+
+export default connect(mapStateToProps)(MyListingsCard)
