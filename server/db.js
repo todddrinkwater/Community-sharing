@@ -13,7 +13,8 @@ module.exports = {
   saveUser,
   deleteItem,
   saveLoan,
-  getUserById
+  getUserById,
+  getSearchItems
 }
 
 function getItems () {
@@ -73,4 +74,12 @@ function saveLoan (loanRequest) {
      pickup: loanRequest.pickup,
      dropoff: loanRequest.dropoff
    }).into('loans')
+}
+
+function getSearchItems (searchString) {
+  query = "%" + searchString +"%"
+  return knex('items').where('item_name', 'like', query )
+  .orWhere ('description', 'like', query)
+  .orWhere ('category', 'like', query)
+
 }
