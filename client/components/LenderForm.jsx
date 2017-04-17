@@ -60,11 +60,11 @@ class LenderForm extends React.Component {
 
           <h1>List An Item</h1>
             <form method="post" onSubmit={ newItem } >
-              <label>Title:</label><input type="text" name="item_name" />
-              <label>Category</label><input type="text" name="category" />
-              <label>Description</label><input type="text" name="description" />
-              <label>Location</label><input type="text" name="location" />
-              <label>Image Upload</label><input type="text" name="image_url" readonly="readonly" value={this.state.uploadedFileCloudinaryUrl} /><br />
+              <label>Title</label><br /><input type="text" name="item_name" /><br />
+              <label>Category</label><br /><input type="text" name="category" /><br />
+              <label>Description</label><br /><input type="text" name="description" /><br />
+              <label>Location</label><br /><input type="text" name="location" /><br />
+              <label>Image Upload</label><br /><input type="text" name="image_url" readonly="readonly" value={this.state.uploadedFileCloudinaryUrl} /><br />
 
             <div className="imageButtonAndDisplay">
                 <Dropzone className="dropzone"

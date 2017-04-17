@@ -32863,32 +32863,41 @@
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            'Title:'
+	            'Title'
 	          ),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('input', { type: 'text', name: 'item_name' }),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            'Category'
 	          ),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('input', { type: 'text', name: 'category' }),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            'Description'
 	          ),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('input', { type: 'text', name: 'description' }),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            'Location'
 	          ),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('input', { type: 'text', name: 'location' }),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            'Image Upload'
 	          ),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('input', { type: 'text', name: 'image_url', readonly: 'readonly', value: this.state.uploadedFileCloudinaryUrl }),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
