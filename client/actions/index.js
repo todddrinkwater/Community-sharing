@@ -129,3 +129,18 @@ export const fetchSingleItem= (itemId) => {
     })
   }
 }
+
+export const fetchUserById = (userId) => {
+  return (dispatch) => {
+  request
+    .get(urlPath + "/userById/" + userId)
+    .end((err, res) => {
+      if (err) {
+        console.error("fetchUserById " + err.message)
+        return
+      }
+      console.log(res.body);
+      dispatch(lenderDetails(res.body))
+    })
+  }
+}

@@ -33,19 +33,23 @@ function getUserById (id) {
   return knex('users').where('user_id', id)
 }
 
+function getUserById (id) {
+  return knex('users').where('user_id', id)
+}
+
 function getLoanItems (id) {
   return knex('items').where('owner_id', id)
 }
 
 function getLoanedItems (id) {
-  return knex('items').where('owner_id', id)
-  .join('loans', 'owner_id' , 'lenders_id')
+  return knex('loans').where('lenders_id', id)
+  .join('items', 'loans.item_id' , 'items.item_id')
   .join('users', 'borrowers_id', 'user_id')
 }
 
 function getBorrowedItems (id) {
   return knex('loans').where('borrowers_id', id)
-  .join('items', 'lenders_id' , 'owner_id')
+  .join('items', 'loans.item_id' , 'items.item_id')
   .join('users', 'owner_id', 'user_id')
 }
 
