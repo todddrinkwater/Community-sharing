@@ -13,14 +13,15 @@ function List(props) {
       </div>
 
       <div className="Category">
-        <ul className="Category-ul">
-          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "All") }>All</li>
-          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Tools") }>Tools</li>
-          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Musical Instruments" ) }>Music Instruments</li>
-          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Sport and Recreation") }>Sport & Rec</li>
-          <li className="Category-li" onClick={ () => filterList(props.dispatch, props.initialListings, "Other") }>Other</li>
-        </ul>
+        <select selected="All" name="category" onChange={ (e) => changeEventHandler(e, props.dispatch, props.initialListings) }>
+          <option value="All">All</option>
+          <option value="Tools">Tools</option>
+          <option value="Musical Instruments">Musical Instruments</option>
+          <option value="Sport and Recreation">Sport and Recreation</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
+
 
       {props.filteredListings.map( (listItem) => {
          return (
@@ -30,6 +31,11 @@ function List(props) {
 
   </div>
 )}
+
+
+function changeEventHandler(event, dispatch, initialListings) {
+    filterList(dispatch, initialListings, event.currentTarget.value )
+   }
 
   function mapStateToProps(state){
     return {

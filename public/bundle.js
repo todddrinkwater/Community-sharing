@@ -27811,41 +27811,33 @@
 	      'div',
 	      { className: 'Category' },
 	      _react2.default.createElement(
-	        'ul',
-	        { className: 'Category-ul' },
+	        'select',
+	        { selected: 'All', name: 'category', onChange: function onChange(e) {
+	            return changeEventHandler(e, props.dispatch, props.initialListings);
+	          } },
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "All");
-	            } },
+	          'option',
+	          { value: 'All' },
 	          'All'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Tools");
-	            } },
+	          'option',
+	          { value: 'Tools' },
 	          'Tools'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Musical Instruments");
-	            } },
-	          'Music Instruments'
+	          'option',
+	          { value: 'Musical Instruments' },
+	          'Musical Instruments'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Sport and Recreation");
-	            } },
-	          'Sport & Rec'
+	          'option',
+	          { value: 'Sport and Recreation' },
+	          'Sport and Recreation'
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'Category-li', onClick: function onClick() {
-	              return filterList(props.dispatch, props.initialListings, "Other");
-	            } },
+	          'option',
+	          { value: 'Other' },
 	          'Other'
 	        )
 	      )
@@ -27854,6 +27846,10 @@
 	      return _react2.default.createElement(_ListItem2.default, _extends({ key: listItem.item_id }, listItem, { dispatch: props.dispatch }));
 	    })
 	  );
+	}
+	
+	function changeEventHandler(event, dispatch, initialListings) {
+	  filterList(dispatch, initialListings, event.currentTarget.value);
 	}
 	
 	function mapStateToProps(state) {
@@ -38558,7 +38554,8 @@
 	    description: event.target.elements.description.value,
 	    location: event.target.elements.location.value,
 	    image_url: event.target.elements.image_url.value,
-	    owner_id: event.target.elements.user_id.value
+	    owner_id: event.target.elements.user_id.value,
+	    available: true
 	  };
 	  (0, _api.getNewItem)(testCallback, newItemData);
 	}
