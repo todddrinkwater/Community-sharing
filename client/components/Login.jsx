@@ -27,7 +27,7 @@ let Login = (props) => (
 
 function mapStateToProps(state){
   return {
-    dispatch: state.dispatch,
+    dispatch: state.dispatch
   }
 }
 

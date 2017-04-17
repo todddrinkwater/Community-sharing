@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { fetchLoanedItems } from '../actions'
+import { fetchBorrowerById } from '../actions'
 
 import SharedCard from '../components/SharedCard'
 
