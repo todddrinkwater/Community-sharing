@@ -175,3 +175,17 @@ export const listNewItem = (newItemData) => {
     newItemData
   }
 }
+
+export const searchForItem = (searchText) => {
+  return (dispatch) => {
+  request
+    .get(urlPath + "/search/" + searchText)
+    .end((err, res) => {
+      if (err) {
+        console.error("SearchForItem " + err.message)
+        return
+      }
+      dispatch(filteredListings(res.body))
+    })
+  }
+}
