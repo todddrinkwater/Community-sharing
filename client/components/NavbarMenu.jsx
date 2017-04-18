@@ -10,7 +10,7 @@ let NavbarMenu = (props) => (
       <ul>
         <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/login'>Register/Login</Link></li>
         <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/dashboard'>Your Dashboard</Link></li>
-        <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/list'>Borrow an item</Link></li>
+        <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/list-all'>Borrow an item</Link></li>
         <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/lender-form'>Lend an item</Link></li>
       </ul>
     </Router>

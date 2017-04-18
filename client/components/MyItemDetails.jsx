@@ -6,6 +6,7 @@ import { fetchLenderById } from '../actions'
 class MyItemDetails extends React.Component {
   componentDidMount () {
     this.props.dispatch(fetchLenderById(this.props.item.owner_id))
+    window.scrollTo(0, 0)
   }
 
   render () {
