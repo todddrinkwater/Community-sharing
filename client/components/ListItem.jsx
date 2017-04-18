@@ -4,23 +4,24 @@ import { displaySingleItem } from '../actions'
 
 function ListItem (props) {
   return (
-  <div className="listItem">
-    <div className="listItemHeader">
-      <h2>{props.item_name}</h2>
-      <h3>{props.location}</h3>
-    </div>
-
-    <Link to="/list-item">
-      <div className="listItemImageContainer" onClick={ () => props.dispatch(displaySingleItem(props))} >
-        <img className="listItemImage" src={props.image_url} />
+    <div className='listItem'>
+      <div className='listItemHeader'>
+        <h2>{props.item_name}</h2>
+        <h3>{props.location}</h3>
       </div>
-    </Link>
 
-    <div className='list-item-description-container'>
-      <p> {props.description} </p>
+      <Link to='/list-item'>
+        <div className='listItemImageContainer' onClick={() => props.dispatch(displaySingleItem(props))} >
+          <img className='listItemImage' src={props.image_url} />
+        </div>
+      </Link>
+
+      <div className='list-item-description-container'>
+        <p> {props.description} </p>
+      </div>
+
     </div>
-
-  </div>
-)}
+  )
+}
 
 export default ListItem

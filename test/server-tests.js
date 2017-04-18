@@ -9,10 +9,10 @@ test('return items', function (t) {
     .get('/items')
     .end(checkReturnedObject)
 
-  function checkReturnedObject(err, res) {
+  function checkReturnedObject (err, res) {
     if (err) { throw err }
 
-    var response = typeof(res.body)
+    var response = typeof (res.body)
     var expected = 'object'
 
     // assert
@@ -26,10 +26,10 @@ test('return item', function (t) {
     .get('/item/12003')
     .end(checkReturnedObject)
 
-  function checkReturnedObject(err, res) {
+  function checkReturnedObject (err, res) {
     if (err) { throw err }
 
-    var response = typeof(res.body)
+    var response = typeof (res.body)
     var expected = 'object'
     var actualID = res.body[0].item_id
     var expectedID = 12003
@@ -46,10 +46,10 @@ test('return user', function (t) {
     .get('/user/jb@email.com')
     .end(checkReturnedObject)
 
-  function checkReturnedObject(err, res) {
+  function checkReturnedObject (err, res) {
     if (err) { throw err }
 
-    var response = typeof(res.body)
+    var response = typeof (res.body)
     var expected = 'object'
     var actualID = res.body[0].email
     var expectedID = 'jb@email.com'
@@ -66,10 +66,10 @@ test('return loan items', function (t) {
     .get('/loanItems/7005')
     .end(checkReturnedObject)
 
-  function checkReturnedObject(err, res) {
+  function checkReturnedObject (err, res) {
     if (err) { throw err }
 
-    var response = typeof(res.body)
+    var response = typeof (res.body)
     var expected = 'object'
     var actualID = res.body[0].item_id
     var expectedID = 12003
@@ -86,9 +86,9 @@ test('return loaned items', function (t) {
     .get('/loanedItems/7006')
     .end(checkReturnedObject)
 
-  function checkReturnedObject(err, res) {
+  function checkReturnedObject (err, res) {
     if (err) { throw err }
-    var response = typeof(res.body)
+    var response = typeof (res.body)
     var expected = 'object'
     var actualID = res.body[0].item_id
     var expectedID = 12004
@@ -108,9 +108,9 @@ test('return borrowed items', function (t) {
     .get('/borrowedItems/7005')
     .end(checkReturnedObject)
 
-  function checkReturnedObject(err, res) {
+  function checkReturnedObject (err, res) {
     if (err) { throw err }
-    var response = typeof(res.body)
+    var response = typeof (res.body)
     var expected = 'object'
     var actualID = res.body[0].item_id
     var expectedID = 12004

@@ -6,11 +6,10 @@ import { fetchBorrowedItems } from '../actions'
 import ImBorrowingCard from '../components/ImBorrowingCard'
 
 class MyBorrowedItems extends React.Component {
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
-  render() {
+  render () {
     return (
       <div className="dashboard-container">
         <h4>My Borrowed Items</h4>
@@ -27,7 +26,7 @@ class MyBorrowedItems extends React.Component {
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     dispatch: state.dispatch,
     borrowedItemsList: state.borrowedItemsState,

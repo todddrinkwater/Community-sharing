@@ -2,17 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { fetchLoanedItems } from '../actions'
-import { fetchBorrowerById } from '../actions'
 
 import SharedCard from '../components/SharedCard'
 
 class MySharedItems extends React.Component {
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(fetchLoanedItems(this.props.loggedInUser.user_id))
   }
 
-  render() {
+  render () {
     return (
       <div className="dashboard-container">
         <h4>My Shared Items</h4>
@@ -36,7 +34,7 @@ class MySharedItems extends React.Component {
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     dispatch: state.dispatch,
     loggedInUser: state.loggedInUserDetails,

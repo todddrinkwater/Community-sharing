@@ -2,11 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import ListItem from '../components/ListItem'
-import { initialListings } from '../actions'
-import { filteredListings } from '../actions'
-import { searchForItem } from '../actions'
+import { filteredListings, searchForItem } from '../actions'
 
-function List(props) {
+function List (props) {
   return (
     <div className='List'>
       <div className="search-bar-container">
@@ -25,43 +23,41 @@ function List(props) {
         </select>
       </div>
 
-
-      {props.filteredListings.map( (listItem) => {
-         return (
-           <ListItem key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
-          )
+      {props.filteredListings.map((listItem) => {
+        return (
+          <ListItem key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
+        )
       })}
 
-  </div>
-)}
+    </div>
+  )
+}
 
+function changeEventHandler (event, dispatch, initialListings) {
+  filterList(dispatch, initialListings, event.currentTarget.value)
+}
 
-function changeEventHandler(event, dispatch, initialListings) {
-    filterList(dispatch, initialListings, event.currentTarget.value )
-   }
-
-  function mapStateToProps(state){
-    return {
-      initialListings: state.initialListings,
-      filteredListings: state.filteredListings,
-      dispatch: state.dispatch
-    }
+function mapStateToProps (state) {
+  return {
+    initialListings: state.initialListings,
+    filteredListings: state.filteredListings,
+    dispatch: state.dispatch
   }
+}
 
-  function search(dispatch) {
-    dispatch(searchForItem(document.getElementById('search-input').value))
+function search (dispatch) {
+  dispatch(searchForItem(document.getElementById('search-input').value))
+}
+
+function filterList (dispatch, allListings, category) {
+  if (category === 'All') {
+    dispatch(filteredListings(allListings))
+  } else {
+    var filteredList = allListings.filter((listItem) => {
+      return listItem.category === category
+    })
+    dispatch(filteredListings(filteredList))
   }
+}
 
-  function filterList (dispatch, allListings, category){
-
-    if (category == "All") {
-      dispatch(filteredListings(allListings))
-    } else {
-      var filteredList = allListings.filter( (listItem) => {
-        return listItem.category == category
-      })
-      dispatch(filteredListings(filteredList))
-    }
-  }
-
-  export default connect(mapStateToProps)(List)
+export default connect(mapStateToProps)(List)
