@@ -12,6 +12,7 @@ import Order from './Order'
 import LenderForm from './LenderForm'
 import OrderMyBorroedItems from './OrderMyBorroedItems'
 import TermsConditions from './TermsConditions'
+import MyListItem from './MyListItem'
 
 function App (props) {
   return (
@@ -29,6 +30,7 @@ function App (props) {
           <Route path='/lender-form' component={LenderForm} />
           <Route path='/OrderMyBorroedItems' component={OrderMyBorroedItems} />
           <Route path='/TermsConditions' component={TermsConditions} />
+          <Route path='/MyListItem' component={MyListItem} />
         </div>
       </Router>
     </div>
