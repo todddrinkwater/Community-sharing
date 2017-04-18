@@ -1,29 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-function Order (props) {
-  return (
-    <div className='Order'>
-      <h1>Request Approved - Transaction Receipt</h1>
+let Order = (props) => (
+  <div className='Order'>
+    <h1>Request Approved - Transaction Receipt</h1>
 
-      <h3>Item Details</h3>
-      <ul>
-        <li>Item: {props.orderItemDetails.item_name}</li>
-        <li>Details: {props.orderItemDetails.description}</li>
-        <li>Pick Up Date: 01-01-2015</li>
-        <li>Drop Off Date: 03-01-2015</li>
-      </ul>
+    <h3>Item Details</h3>
+    <ul>
+      <li>Item: {props.orderItemDetails.item_name}</li>
+      <li>Details: {props.orderItemDetails.description}</li>
+      <li>Pick Up Date: 01-01-2015</li>
+      <li>Drop Off Date: 03-01-2015</li>
+    </ul>
 
-      <h3>Borrower Details</h3>
-      <ul>
-        <li>Name: {props.borrowerDetails.fname} {props.borrowerDetails.lname}</li>
-        <li>Phone: {props.borrowerDetails.phone}</li>
-        <li>email: {props.borrowerDetails.email}</li>
-      </ul>
+    <h3>Borrower Details</h3>
+    <ul>
+      <li>Name: {props.borrowerDetails.fname} {props.borrowerDetails.lname}</li>
+      <li>Phone: {props.borrowerDetails.phone}</li>
+      <li>email: {props.borrowerDetails.email}</li>
+    </ul>
 
-    </div>
-  )
-}
+  </div>
+)
 
 function mapStateToProps (state) {
   return {

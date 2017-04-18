@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { fetchUser } from '../actions'
 
 let Login = (props) => (
-
   <div className='login'>
     <img src='http://res.cloudinary.com/hpyyiawap/image/upload/v1492507853/community_bxaesr.png' />
     <div className='LoginGreeting'>
