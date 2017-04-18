@@ -21,7 +21,7 @@ var search = require('./routes/search')
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(express.static(path.join(__dirname, '../public')))
-server.use(cors({origin: 'http://localhost:8080'}))
+server.use(cors({origin: '*'}))
 
 server.use('/items', items)
 server.use('/item', item)
