@@ -69,6 +69,9 @@ textarea:focus, input:focus, select:focus, button:focus{
   box-sizing: border-box;
   font-size: 0.7em;
   padding-top: 0.6em;
+  top: 0;
+  right: 0;
+  position: absolute;
 }
 
 .site-title{
@@ -102,10 +105,6 @@ textarea:focus, input:focus, select:focus, button:focus{
   font-weight: bold;
 }
 
-.navLink {
-  margin: 0;
-  padding: 0;
-}
 
 login-button-container {
   margin: 0;
@@ -141,8 +140,8 @@ login-button-container {
   margin-bottom: 1em;
   line-height: 1.3em;
   letter-spacing: 0.2em;
-  padding: 3em 1em;
-  font-size: 0.9em;
+  padding: 2em 1em;
+  font-size: 1em;
   text-align: center;
   background-color: #21d084;
   color:white
@@ -152,7 +151,6 @@ login-button-container {
   width: 95%;
   padding: 0px;
   margin: auto;
-  background-color: #eee;
 }
 
 .homepage-catagory-container{
@@ -160,9 +158,9 @@ login-button-container {
   height: 10em;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 2px #21d084 solid;
   box-sizing: border-box;
   margin-bottom: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #homepage-borrow {
@@ -180,7 +178,7 @@ login-button-container {
   text-align: center;
   padding: 0.5em 0em;
   position: relative;
-  top: 50%;
+  top: 97%;
   transform: translateY(-85%);
   letter-spacing: 0.1em;
   /*border-top: 1px #1492AB solid;
