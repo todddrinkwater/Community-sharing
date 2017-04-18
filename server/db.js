@@ -78,7 +78,9 @@ function saveLoan (loanRequest) {
 
 function getSearchItems (searchString) {
   let stringArray = searchString.split(" ")
-  let query =  stringArray.reduce((query, word) => {return searchResults(query, word)}, knex('items'))
+  let query =  stringArray.reduce(
+    (query, word) => {return searchResults(query, word)},
+    knex('items'))
   return query
 }
 
