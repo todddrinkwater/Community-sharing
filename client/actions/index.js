@@ -187,3 +187,18 @@ export const searchForItem = (searchText) => {
     })
   }
 }
+
+export const updateListing = () => {
+  return (dispatch) => {
+  request
+    .get(urlPath + /items/)
+    .end((err, res) => {
+      if (err) {
+        console.error("upDateListing " + err.message)
+        return
+      }
+      dispatch(initialListings(res.body))
+      dispatch(filteredListings(res.body))
+    })
+  }
+}

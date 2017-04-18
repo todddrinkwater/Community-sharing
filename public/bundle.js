@@ -27976,7 +27976,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.updateListing = exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(267);
 	
@@ -28160,6 +28160,19 @@
 	        console.error("SearchForItem " + err.message);
 	        return;
 	      }
+	      dispatch(filteredListings(res.body));
+	    });
+	  };
+	};
+	
+	var updateListing = exports.updateListing = function updateListing() {
+	  return function (dispatch) {
+	    _superagent2.default.get(urlPath + /items/).end(function (err, res) {
+	      if (err) {
+	        console.error("upDateListing " + err.message);
+	        return;
+	      }
+	      dispatch(initialListings(res.body));
 	      dispatch(filteredListings(res.body));
 	    });
 	  };
@@ -38607,7 +38620,6 @@
 	
 	
 	function newItem(event, props) {
-	  console.log(props);
 	  event.preventDefault(event);
 	  var newItemData = {
 	    item_name: event.target.elements.item_name.value,
@@ -38620,16 +38632,18 @@
 	  };
 	  (0, _api.getNewItem)(testCallback, newItemData);
 	  props.dispatch((0, _actions.listNewItem)(newItemData));
+	  props.dispatch((0, _actions.updateListing)());
 	  props.history.push('/dashboard');
 	}
 	
 	function testCallback(err, status) {
-	  console.log(status);
+	  console.log(err);
 	}
 	
 	function mapStateToProps(state) {
 	  return {
 	    user_id: state.loggedInUserDetails.user_id
+	
 	  };
 	}
 	
