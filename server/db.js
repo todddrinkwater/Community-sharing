@@ -14,7 +14,8 @@ module.exports = {
   deleteItem,
   saveLoan,
   getUserById,
-  getSearchItems
+  getSearchItems,
+  updateItem
 }
 
 function getItems () {
@@ -89,4 +90,16 @@ function searchResults(query, searchString) {
   return query.orWhere('item_name', 'like', wrappedString )
   .orWhere ('description', 'like', wrappedString)
   .orWhere ('category', 'like', wrappedString)
+}
+
+function updateItem (item) {
+   return knex('items').where('item_id', item.item_id)
+   .update({
+     category: item.category,
+     item_name: item.item_name,
+     description: item.description,
+     available: item.available,
+     image_url: item.image_url,
+     owner_id: item.owner_id
+   })
 }

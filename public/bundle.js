@@ -27821,7 +27821,9 @@
 	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search' }),
 	      _react2.default.createElement(
 	        'button',
-	        { className: 'search-button' },
+	        { className: 'search-button', onClick: function onClick() {
+	            return search(props.dispatch);
+	          } },
 	        'Search'
 	      )
 	    ),
@@ -27876,6 +27878,10 @@
 	    filteredListings: state.filteredListings,
 	    dispatch: state.dispatch
 	  };
+	}
+	
+	function search(dispatch) {
+	  dispatch((0, _actions.searchForItem)(document.getElementById('search-input').value));
 	}
 	
 	function filterList(dispatch, allListings, category) {
@@ -27966,7 +27972,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(267);
 	
@@ -28140,6 +28146,18 @@
 	  return {
 	    type: 'LIST_NEW_ITEM',
 	    newItemData: newItemData
+	  };
+	};
+	
+	var searchForItem = exports.searchForItem = function searchForItem(searchText) {
+	  return function (dispatch) {
+	    _superagent2.default.get(urlPath + "/search/" + searchText).end(function (err, res) {
+	      if (err) {
+	        console.error("SearchForItem " + err.message);
+	        return;
+	      }
+	      dispatch(filteredListings(res.body));
+	    });
 	  };
 	};
 
