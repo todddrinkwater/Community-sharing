@@ -8,8 +8,10 @@ import { filteredListings } from '../actions'
 function List(props) {
   return (
     <div className='List'>
-      <div className="SearchBar">
-        <input id="search-input" type="text" name="search" placeholder="Search.." />
+      <div className="search-bar-container">
+        <label className='search-label'>Search</label>
+        <input id="search-input" type="text" name="search" />
+        <button className='search-button'>Search</button>
       </div>
 
       <div className="Category">
