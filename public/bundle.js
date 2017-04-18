@@ -27840,7 +27840,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.updateListing = exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(266);
 	
@@ -28026,6 +28026,19 @@
 	        console.error('SearchForItem ' + err.message);
 	        return;
 	      }
+	      dispatch(filteredListings(res.body));
+	    });
+	  };
+	};
+	
+	var updateListing = exports.updateListing = function updateListing() {
+	  return function (dispatch) {
+	    _superagent2.default.get(urlPath + /items/).end(function (err, res) {
+	      if (err) {
+	        console.error('upDateListing ' + err.message);
+	        return;
+	      }
+	      dispatch(initialListings(res.body));
 	      dispatch(filteredListings(res.body));
 	    });
 	  };
@@ -31506,6 +31519,8 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
+	var _reactRouterDom = __webpack_require__(227);
+	
 	var _actions = __webpack_require__(265);
 	
 	var _NavigationMenu = __webpack_require__(283);
@@ -31529,18 +31544,34 @@
 	        _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
 	      ),
 	      _react2.default.createElement(
-	        'div',
-	        { className: 'title-container' },
+	        _reactRouterDom.HashRouter,
+	        null,
 	        _react2.default.createElement(
-	          'p',
-	          { className: 'site-title' },
-	          'Community Sharing'
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'title-container' },
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'site-title' },
+	                'Community Sharing'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/login' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'login-button-container' },
+	              _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
+	            )
+	          )
 	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'login-button-container' },
-	        _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
 	      )
 	    ),
 	    props.menuState ? _react2.default.createElement(_NavigationMenu2.default, null) : ''
@@ -31874,7 +31905,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function Dashboard(props) {
+	var Dashboard = function Dashboard(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'dashboard-container' },
@@ -31898,7 +31929,7 @@
 	    ),
 	    props.dashboardState === 'MySharingDetails' ? _react2.default.createElement(_MySharingDetails2.default, null) : _react2.default.createElement(_MyProfile2.default, null)
 	  );
-	}
+	};
 	
 	function mapStateToProps(state) {
 	  return {
@@ -31907,12 +31938,11 @@
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Dashboard);
-	
-	
 	function changeTab(props, clickedTab) {
 	  props.dispatch((0, _actions.dashboardTab)(clickedTab));
 	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Dashboard);
 
 /***/ }),
 /* 287 */
