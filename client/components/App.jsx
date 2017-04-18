@@ -11,6 +11,7 @@ import Login from './Login'
 import Order from './Order'
 import LenderForm from './LenderForm'
 import OrderMyBorroedItems from './OrderMyBorroedItems'
+import TermsConditions from './TermsConditions'
 
 function App (props) {
   return (
@@ -27,6 +28,7 @@ function App (props) {
           <Route path='/order' component={Order} />
           <Route path='/lender-form' component={LenderForm} />
           <Route path='/OrderMyBorroedItems' component={OrderMyBorroedItems} />
+          <Route path='/TermsConditions' component={TermsConditions} />
         </div>
       </Router>
     </div>
