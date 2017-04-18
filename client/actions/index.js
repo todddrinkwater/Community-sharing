@@ -63,6 +63,7 @@ export const fetchUser = submitedEmail => {
         return
       }
       dispatch(loggedInUser(res.body[0]))
+      dispatch(fetchLoanedItems(res.body[0].user_id))
     })
   }
 }
@@ -165,5 +166,12 @@ export const fetchBorrowerById = (userId) => {
       }
       dispatch(borrowerDetails(res.body))
     })
+  }
+}
+
+export const listNewItem = (newItemData) => {
+  return {
+    type: 'LIST_NEW_ITEM',
+    newItemData
   }
 }

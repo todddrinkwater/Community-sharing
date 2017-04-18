@@ -13,7 +13,8 @@ module.exports = {
   saveUser,
   deleteItem,
   saveLoan,
-  getUserById
+  getUserById,
+  getSearchItems
 }
 
 function getItems () {
@@ -73,4 +74,17 @@ function saveLoan (loanRequest) {
      pickup: loanRequest.pickup,
      dropoff: loanRequest.dropoff
    }).into('loans')
+}
+
+function getSearchItems (searchString) {
+  let stringArray = searchString.split(" ")
+  let query =  stringArray.reduce((query, word) => {return searchResults(query, word)}, knex('items'))
+  return query
+}
+
+function searchResults(query, searchString) {
+  let wrappedString = "%" + searchString + "%"
+  return query.orWhere('item_name', 'like', wrappedString )
+  .orWhere ('description', 'like', wrappedString)
+  .orWhere ('category', 'like', wrappedString)
 }
