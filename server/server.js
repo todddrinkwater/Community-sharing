@@ -17,11 +17,13 @@ var saveUser = require('./routes/saveUser')
 var deleteItem = require('./routes/deleteItem')
 var loanRequest = require('./routes/loanRequest')
 var search = require('./routes/search')
+var updateItem = require('./routes/updateItem')
+var updateUser = require('./routes/updateUser')
 
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(express.static(path.join(__dirname, '../public')))
-server.use(cors({origin: 'http://localhost:8080'}))
+server.use(cors({origin: '*'}))
 
 server.use('/items', items)
 server.use('/item', item)
@@ -36,5 +38,7 @@ server.use('/saveUser', saveUser)
 server.use('/deleteItem', deleteItem)
 server.use('/loanRequest', loanRequest)
 server.use('/search', search)
+server.use('/updateItem', updateItem)
+server.use('/updateUser', updateUser)
 
 module.exports = server

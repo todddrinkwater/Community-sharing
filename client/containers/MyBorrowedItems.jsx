@@ -6,25 +6,27 @@ import { fetchBorrowedItems } from '../actions'
 import ImBorrowingCard from '../components/ImBorrowingCard'
 
 class MyBorrowedItems extends React.Component {
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
-  render() {
+  render () {
     return (
-      <div className='dashboard-section'>
-        MY BORROWED ITEMS
-        { this.props.borrowedItemsList.map( (borrowedItem) => {
-          return (
-            <ImBorrowingCard  key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
-          )
-        })}
+      <div className="dashboard-container">
+        <h4>My Borrowed Items</h4>
+        <div className='dashboard-section'>
+
+          { this.props.borrowedItemsList.map( (borrowedItem) => {
+            return (
+              <ImBorrowingCard  key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
+            )
+          })}
+        </div>
       </div>
     )
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     dispatch: state.dispatch,
     borrowedItemsList: state.borrowedItemsState,
