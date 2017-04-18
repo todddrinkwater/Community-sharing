@@ -27920,7 +27920,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.updateListing = exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.borrowRequest = exports.updateListing = exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(267);
 	
@@ -28118,6 +28118,18 @@
 	      }
 	      dispatch(initialListings(res.body));
 	      dispatch(filteredListings(res.body));
+	    });
+	  };
+	};
+	
+	var borrowRequest = exports.borrowRequest = function borrowRequest(borrowRequestDetails) {
+	  return function (dispatch) {
+	    _superagent2.default.post(urlPath + /loanRequest/).send(borrowRequestDetails).end(function (err, res) {
+	      if (err) {
+	        console.error('borrowRequest ' + err.message);
+	        return;
+	      }
+	      dispatch(fetchBorrowedItems(borrowRequestDetails.borrowers_id));
 	    });
 	  };
 	};
@@ -37843,11 +37855,12 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
-	      window.scrollTo(0, 0);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'ItemListing' },
@@ -37889,11 +37902,11 @@
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            _react2.default.createElement('input', { type: 'checkbox', name: 'vehicle', value: 'Bike' }),
+	            _react2.default.createElement('input', { type: 'checkbox' }),
 	            'By ticking this box, I agree to the ',
 	            _react2.default.createElement(
 	              _reactRouterDom.Link,
-	              { to: '/ts&cs' },
+	              { to: '/TermsConditions' },
 	              'Terms and Conditions'
 	            ),
 	            ' of Community Share.'
@@ -37904,7 +37917,9 @@
 	            _react2.default.createElement(
 	              _reactRouterDom.Link,
 	              { to: '/dashboard' },
-	              _react2.default.createElement('input', { type: 'submit', value: 'Request Item' })
+	              _react2.default.createElement('input', { type: 'submit', value: 'Request Item', onClick: function onClick() {
+	                  return sendBorrowRequest(_this2.props);
+	                } })
 	            )
 	          )
 	        )
@@ -37915,11 +37930,23 @@
 	  return SingleItem;
 	}(_react2.default.Component);
 	
+	function sendBorrowRequest(props) {
+	  var borrowerRequestDetails = {
+	    borrowers_id: props.loggedInUserDetails.user_id,
+	    lenders_id: props.lenderDetails.user_id,
+	    item_id: props.item.item_id,
+	    pickup: '2017-04-25 14:12:22',
+	    dropoff: '2017-04-30 10:00:00'
+	  };
+	  props.dispatch((0, _actions.borrowRequest)(borrowerRequestDetails));
+	}
+	
 	function mapStateToProps(state) {
 	  return {
 	    item: state.singleItem,
 	    dispatch: state.dispatch,
-	    lenderDetails: state.lenderDetails[0]
+	    lenderDetails: state.lenderDetails[0],
+	    loggedInUserDetails: state.loggedInUserDetails
 	  };
 	}
 	
