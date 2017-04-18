@@ -165,3 +165,10 @@ export const fetchBorrowerById = (userId) => {
     })
   }
 }
+
+export const listNewItem = (newItemData) => {
+  return {
+    type: 'LIST_NEW_ITEM',
+    newItemData
+  }
+}
