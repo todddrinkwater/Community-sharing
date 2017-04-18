@@ -31551,11 +31551,11 @@
 	          'div',
 	          null,
 	          _react2.default.createElement(
-	            _reactRouterDom.Link,
-	            { to: '/' },
+	            'div',
+	            { className: 'title-container' },
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'title-container' },
+	              _reactRouterDom.Link,
+	              { className: 'navLink', to: '/' },
 	              _react2.default.createElement(
 	                'p',
 	                { className: 'site-title' },
@@ -31564,11 +31564,11 @@
 	            )
 	          ),
 	          _react2.default.createElement(
-	            _reactRouterDom.Link,
-	            { to: '/login' },
+	            'div',
+	            { className: 'login-button-container' },
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'login-button-container' },
+	              _reactRouterDom.Link,
+	              { className: 'navLink', to: '/login' },
 	              _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
 	            )
 	          )
@@ -32685,7 +32685,7 @@
 	                )
 	              )
 	            ),
-	            _react2.default.createElement('input', { type: 'submit', value: 'Register' })
+	            _react2.default.createElement('input', { type: 'submit', className: 'itemListingSubmit', value: 'Register' })
 	          )
 	        )
 	      );
@@ -38105,7 +38105,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'login' },
-	    _react2.default.createElement('img', { src: 'http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' }),
+	    _react2.default.createElement('img', { src: 'http://res.cloudinary.com/hpyyiawap/image/upload/v1492507853/community_bxaesr.png' }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'LoginGreeting' },

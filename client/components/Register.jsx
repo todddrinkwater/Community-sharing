@@ -82,7 +82,7 @@ class Register extends React.Component {
                       }
               </div>
             </div>
-            <input type='submit' value='Register' />
+            <input type='submit' className='itemListingSubmit' value='Register' />
           </form>
         </div>
       </div>
