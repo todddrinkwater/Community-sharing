@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import ListItem from '../components/ListItem'
 import { initialListings } from '../actions'
 import { filteredListings } from '../actions'
+import { searchForItem } from '../actions'
 
 function List(props) {
   return (
@@ -11,7 +12,7 @@ function List(props) {
       <div className="search-bar-container">
         <label className='search-label'>Search</label>
         <input id="search-input" type="text" name="search" />
-        <button className='search-button'>Search</button>
+        <button className='search-button' onClick={ () => search(props.dispatch) }>Search</button>
       </div>
 
       <div className="Category">
@@ -45,6 +46,10 @@ function changeEventHandler(event, dispatch, initialListings) {
       filteredListings: state.filteredListings,
       dispatch: state.dispatch
     }
+  }
+
+  function search(dispatch) {
+    dispatch(searchForItem(document.getElementById('search-input').value))
   }
 
   function filterList (dispatch, allListings, category){
