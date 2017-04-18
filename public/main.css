@@ -101,6 +101,16 @@ textarea:focus, input:focus, select:focus, button:focus{
   font-weight: bold;
 }
 
+.navLink {
+  margin: 0;
+  padding: 0;
+}
+
+login-button-container {
+  margin: 0;
+  padding: 0;
+}
+
 /* --- HOMEPAGE --- */
 
 .welcome-image{
@@ -263,6 +273,7 @@ select {
   width: 90%;
   margin: 0.5em auto;
   background-color: #f5f5f5;
+
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
