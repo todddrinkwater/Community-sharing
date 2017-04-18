@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { displaySingleItem } from '../actions'
 
-
 function MyListingsCard (props) {
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
-        <img className='card-image' src={props.image_url}></img>
+        <img className='card-image' src={props.image_url} />
 
         <div className='card-details-container'>
           <p className='card-heading'>{props.item_name}</p>
@@ -18,9 +17,9 @@ function MyListingsCard (props) {
         </div>
       </div>
 
-      <Link to="/list-item" className="cardLink">
+      <Link to='/list-item' className='cardLink'>
         <div className='card-button-container'>
-          <button className='card-button' onClick={ () => props.dispatch(displaySingleItem(props)) }>View</button>
+          <button className='card-button' onClick={() => props.dispatch(displaySingleItem(props))}>View</button>
         </div>
       </Link>
 
@@ -28,10 +27,10 @@ function MyListingsCard (props) {
   )
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     item: state.singleItem,
-    dispatch: state.dispatch,
+    dispatch: state.dispatch
   }
 }
 

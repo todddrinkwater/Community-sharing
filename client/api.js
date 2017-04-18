@@ -1,12 +1,12 @@
-const request = require("superagent")
-const url = require("url")
+const request = require('superagent')
+const url = require('url')
 
-const config = require("../config")
+const config = require('../config')
 
 var urlPath = url.format(config)
 
 const getListings = callback => {
-  request.get(urlPath + "/items/").end(function(err, res) {
+  request.get(urlPath + '/items/').end(function (err, res) {
     if (err) {
       callback(err)
     } else {
@@ -16,7 +16,7 @@ const getListings = callback => {
 }
 
 const getUsers = (callback, email) => {
-  request.get(urlPath + "/user/" + email).end(function(err, res) {
+  request.get(urlPath + '/user/' + email).end(function (err, res) {
     if (err) {
       callback(err)
     } else {
@@ -27,28 +27,28 @@ const getUsers = (callback, email) => {
 
 const registerUser = (callback, formData) => {
   request
-    .post(urlPath + "/saveUser")
-    .set("Content-Type", "application/json")
+    .post(urlPath + '/saveUser')
+    .set('Content-Type', 'application/json')
     .send(formData)
-    .end(function(err, res) {
+    .end(function (err, res) {
       if (err) {
         callback(err)
       } else {
-        callback(null, "Status: 200")
+        callback(null, 'Status: 200')
       }
     })
 }
 
 const getNewItem = (callback, lendData) => {
   request
-    .post(urlPath + "/saveItem")
-    .set("Content-Type", "application/json")
+    .post(urlPath + '/saveItem')
+    .set('Content-Type', 'application/json')
     .send(lendData)
-    .end(function(err, res) {
+    .end(function (err, res) {
       if (err) {
         callback(err)
       } else {
-        callback(null, "Status: 200")
+        callback(null, 'Status: 200')
       }
     })
 }

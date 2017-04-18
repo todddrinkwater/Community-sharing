@@ -1,11 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { orderItemDetails } from '../actions'
-
 function Order (props) {
   return (
-    <div className="Order">
+    <div className='Order'>
       <h1>Request Approved - Transaction Receipt</h1>
 
       <h3>Item Details</h3>
@@ -27,7 +25,7 @@ function Order (props) {
   )
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     borrowerDetails: state.borrowerDetails[0],
     orderItemDetails: state.orderItemDetails[0]
