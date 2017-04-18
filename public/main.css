@@ -134,6 +134,7 @@ login-button-container {
   width: 100%;
   padding: 3em 1em 0em 1em;
   box-sizing: border-box;
+  margin-top: 1em;
 }
 
 .into-text-container{
@@ -141,16 +142,16 @@ login-button-container {
   line-height: 1.3em;
   letter-spacing: 0.2em;
   padding: 3em 1em;
-  font-size: 0.8em;
+  font-size: 0.9em;
   text-align: center;
-  background-color: #1492AB;
+  background-color: #21d084;
   color:white
 }
 
 .homepage {
-  width: 100%;
+  width: 95%;
   padding: 0px;
-  margin: 0px;
+  margin: auto;
   background-color: #eee;
 }
 
@@ -159,7 +160,7 @@ login-button-container {
   height: 10em;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 2px #1492AB solid;
+  border: 2px #21d084 solid;
   box-sizing: border-box;
   margin-bottom: 1em;
 }
@@ -182,8 +183,8 @@ login-button-container {
   top: 50%;
   transform: translateY(-85%);
   letter-spacing: 0.1em;
-  border-top: 1px #1492AB solid;
-  border-bottom: 1px #1492AB solid;
+  /*border-top: 1px #1492AB solid;
+  border-bottom: 1px #1492AB solid;*/
 }
 
 /* --- SEARCH-BAR --- */
