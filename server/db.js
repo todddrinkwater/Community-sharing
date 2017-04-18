@@ -15,7 +15,8 @@ module.exports = {
   saveLoan,
   getUserById,
   getSearchItems,
-  updateItem
+  updateItem,
+  updateUser
 }
 
 function getItems () {
@@ -101,5 +102,20 @@ function updateItem (item) {
      available: item.available,
      image_url: item.image_url,
      owner_id: item.owner_id
+   })
+}
+
+function updateUser (user) {
+   return knex('users').where('user_id', user.user_id)
+   .update({
+     fname: user.fname,
+     lname: user.lname,
+     email: user.email,
+     phone: user.phone,
+     address: user.address,
+     suburb: user.suburb,
+     town_city: user.town_city,
+     postcode: user.postcode,
+     user_image_url: user.user_image_url
    })
 }
