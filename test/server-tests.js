@@ -8,7 +8,7 @@ var knex = require('knex')(config)
 
 var app = require('../server/server')
 
-test('/saveItem', function(t) {
+test('/items', function(t) {
   //post down to server
   //check item is in table using local knex connection
   //reseed table

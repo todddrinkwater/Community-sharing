@@ -41,7 +41,7 @@ const registerUser = (callback, formData) => {
 
 const getNewItem = (callback, lendData) => {
   request
-    .post(urlPath + '/saveItem')
+    .post(urlPath + '/items')
     .set('Content-Type', 'application/json')
     .send(lendData)
     .end(function (err, res) {

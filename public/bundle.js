@@ -37346,7 +37346,7 @@
 	};
 	
 	var getNewItem = function getNewItem(callback, lendData) {
-	  request.post(urlPath + '/saveItem').set('Content-Type', 'application/json').send(lendData).end(function (err, res) {
+	  request.post(urlPath + '/items').set('Content-Type', 'application/json').send(lendData).end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {
