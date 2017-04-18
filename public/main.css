@@ -1,3 +1,7 @@
+/** {
+  border: 1px solid black;
+}*/
+
 body {
   font-size: 100%;
   padding: 0px;
@@ -53,7 +57,7 @@ textarea:focus, input:focus, select:focus, button:focus{
   text-align: center;
   display: flex;
   line-height: 0.8em;
-  background-color: #1492AB;
+  background-color: #21D084;
   color: white;
 }
 
@@ -80,10 +84,11 @@ textarea:focus, input:focus, select:focus, button:focus{
   height: 100%;
 }
 
+
 /* --- NAVIGATION-MENU --- */
 
 .navigation-menu-container{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid 0 0 0 0.5;
   position: absolute;
   width: 100%;
 }
@@ -93,42 +98,81 @@ textarea:focus, input:focus, select:focus, button:focus{
   border-bottom: 1px solid black;
   background-color: #eee;
   color: #1492AB;
+  font-weight: bold;
 }
 
 /* --- HOMEPAGE --- */
 
+.welcome-image{
+  width: 100%;
+  height: 13em;
+  background-image: url('http://res.cloudinary.com/hpyyiawap/image/upload/v1492487435/community_ha7mux.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.welcome-text-container{
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  line-height: 1.7em;
+  letter-spacing: 0.2em;
+  font-size: 1em;
+  height: 100%;
+  width: 100%;
+  padding: 3em 1em 0em 1em;
+  box-sizing: border-box;
+}
+
+.into-text-container{
+  margin-bottom: 1em;
+  line-height: 1.3em;
+  letter-spacing: 0.2em;
+  padding: 3em 1em;
+  font-size: 0.8em;
+  text-align: center;
+  background-color: #1492AB;
+  color:white
+}
+
 .homepage {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 1em
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #eee;
 }
 
-.borrow-div {
-  background-image: url('https://us.123rf.com/450wm/72soul/72soul1402/72soul140200057/25919221-illustration-depicting-a-set-of-cut-out-printed-letters-arranged-to-form-the-word-borrow.jpg?ver=6');
+.homepage-catagory-container{
   width: 100%;
-  height: 15em;
+  height: 10em;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 25px;
+  border: 2px #1492AB solid;
+  box-sizing: border-box;
+  margin-bottom: 1em;
 }
 
-.lend-div {
-  background-image: url('https://letstalkpayments.com/wp-content/uploads/2015/10/11442058625_5223427501_b.jpg');
-  width: 100%;
-  height: 15em;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 25px;
-  margin-top: 1em;
+#homepage-borrow {
+  background-image: url('http://res.cloudinary.com/hpyyiawap/image/upload/c_fit,w_532/v1492489186/landing-mower_altj2b.jpg');
+
+}
+
+#homepage-lend {
+  background-image: url('http://res.cloudinary.com/hpyyiawap/image/upload/v1492489357/Neigbours-hand-shake_dpjyka.jpg');
 }
 
 .borrow-p, .lend-p {
   background: rgba(0, 0, 0, 0.7);
   color: white;
-  padding: 3%;
   text-align: center;
-  line-height: 200%;
+  padding: 0.5em 0em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-85%);
+  letter-spacing: 0.1em;
+  border-top: 1px #1492AB solid;
+  border-bottom: 1px #1492AB solid;
 }
 
 /* --- SEARCH-BAR --- */
@@ -205,6 +249,7 @@ textarea:focus, input:focus, select:focus, button:focus{
   margin: 0.5em auto;
   border: 1px solid black;
   background-color: #eee;
+  overflow: hidden;
 }
 
 .listItemImage {
@@ -228,41 +273,47 @@ textarea:focus, input:focus, select:focus, button:focus{
   border: 1px solid black;
   text-align: center;
   flex-grow: 1;
-  padding-top: 0.5em;
+  padding-top: 0.6em;
 }
 
 .dashboard-menu-container{
   width: 100%;
-  height: 2em;
+  height: 2.5em;
   display: flex;
 }
 
 .dashboard-section{
   border: 1px solid gray;
   margin: 0.5em 0em;;
-  padding: 1em 0.5em;
+  padding: 3%;
   background-color: #eee;
 }
 
 /* --- DAHSBOARD - PROFILE --- */
 
-.profile-continer{
+.profile-container{
   width: 80%;
-  margin: 2em auto;
+  margin: auto;
 }
 
 .profile-details-container{
-  margin-left: 2em;
+  margin: auto;
+}
+
+.profile-details-container p {
+  text-align: center;
+  font-size: 1.4em;
 }
 
 .profile-image{
-  height: 7em;
+  height: 100%;
   width: 100%;
+  border-radius: 100%;
 }
 
 .profile-image-container{
-  width: 7em;
-  margin: 0px auto;
+  width: 70%;
+  margin: 2em auto;
 }
 
 /* --- ORDER --- */
@@ -275,17 +326,23 @@ textarea:focus, input:focus, select:focus, button:focus{
 /* --- IM BORROWING CARD --- */
 
 .card-button{
-  border: 1px solid black;
+  border: 2.7px solid #343477;
   border-radius: 0.7em;
-  font-size: 0.7em;
-  width: 100%;
-  height: 2em;
+  font-size: 0.8em;
+  width: 8em;
+  height: 2.5em;
+  background-color: #ffffff;
+  color: white;
+  font-weight: bold;
+  color: #161631;
 }
 
 .card-button-container{
   margin: 0.5em auto;
   width: 5em;
 }
+
+
 
 .card-container{
   display: flex;
@@ -399,10 +456,31 @@ textarea:focus, input:focus, select:focus, button:focus{
   box-sizing: border-box;
 }
 
-.login input[type=submit] {
+
+.login button {
   margin-top: 1em;
   background-color: #4CAF50;
-  color: white
+  color: white;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0.5em auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.LoginGreeting {
+  margin: 1em auto;
+}
+
+.login img {
+  margin-top: 2em;
+}
+
+.registerLink {
+  text-decoration: underline;
+  color: purple;
+  padding-bottom: 3em;
 }
 
 /* --- REGISTER ---- */

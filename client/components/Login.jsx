@@ -12,15 +12,15 @@ let Login = (props) => (
       Welcome to [insert kick-ass name here]. <br /> Please sign in below.
     </div>
     <form>
-      <label>Email</label><input id='email-input' type="text" name="email" placeholder='example@email.com' />
-      <label>Password</label><input type="password" name="password" />
+      <label>Email</label><br/><input id='email-input' type="text" name="email" placeholder='example@email.com' /><br/>
+      <label>Password</label><br/><input type="password" name="password" />
       <Link to="/dashboard">
         <button type="button" value="Login" onClick={ () => submitUser(event, props)} >Login</button>
       </Link>
     </form>
     <p>No account?</p>
-    <Link to="/register">
-      Register Now?
+    <Link to="/register" className="registerLink">
+      Register Here
     </Link>
   </div>
 )

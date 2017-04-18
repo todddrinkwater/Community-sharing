@@ -31679,16 +31679,29 @@
 	    'div',
 	    { className: 'homepage' },
 	    _react2.default.createElement(
+	      'div',
+	      { className: 'welcome-image' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'welcome-text-container' },
+	        'Welcome to Community Share, a place where you can borrow and lend items with others in you community.'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'into-text-container' },
+	      'To start your journey of commnity sharing and meeting other locals you can choose to browse one of the catagories below.'
+	    ),
+	    _react2.default.createElement(
 	      _reactRouterDom.Link,
 	      { to: '/list' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'borrow-div' },
-	        _react2.default.createElement('br', null),
+	        { id: 'homepage-borrow', className: 'homepage-catagory-container' },
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'borrow-p' },
-	          'IM HERE TO BORROW'
+	          'I would like to borrow something'
 	        )
 	      )
 	    ),
@@ -31697,12 +31710,11 @@
 	      { to: '/lender-form' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'lend-div' },
-	        _react2.default.createElement('br', null),
+	        { id: 'homepage-lend', className: 'homepage-catagory-container' },
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'lend-p' },
-	          'IM HERE TO LEND'
+	          'I would like to lend something'
 	        )
 	      )
 	    )
@@ -32037,7 +32049,7 @@
 	    ),
 	    _react2.default.createElement(
 	      _reactRouterDom.Link,
-	      { to: '/list-item' },
+	      { to: '/list-item', className: 'cardLink' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'card-button-container' },
@@ -32381,7 +32393,7 @@
 	function MyProfile(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'profile-continer' },
+	    { className: 'profile-container' },
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'profile-image-container' },
@@ -38057,12 +38069,15 @@
 	        null,
 	        'Email'
 	      ),
+	      _react2.default.createElement('br', null),
 	      _react2.default.createElement('input', { id: 'email-input', type: 'text', name: 'email', placeholder: 'example@email.com' }),
+	      _react2.default.createElement('br', null),
 	      _react2.default.createElement(
 	        'label',
 	        null,
 	        'Password'
 	      ),
+	      _react2.default.createElement('br', null),
 	      _react2.default.createElement('input', { type: 'password', name: 'password' }),
 	      _react2.default.createElement(
 	        _reactRouterDom.Link,
@@ -38083,8 +38098,8 @@
 	    ),
 	    _react2.default.createElement(
 	      _reactRouterDom.Link,
-	      { to: '/register' },
-	      'Register Now?'
+	      { to: '/register', className: 'registerLink' },
+	      'Register Here'
 	    )
 	  );
 	};

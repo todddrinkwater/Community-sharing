@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 function MyProfile (props) {
   return (
-    <div className='profile-continer'>
+    <div className='profile-container'>
       <div className='profile-image-container'>
         <img className='profile-image' src={props.loggedInUserDetails.user_image_url}></img>
       </div>
