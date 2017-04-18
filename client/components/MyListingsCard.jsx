@@ -15,7 +15,7 @@ let MyListingsCard = (props) => (
         </p>
       </div>
     </div>
-    <Link to='/list-item' className='cardLink'>
+    <Link to='/mylistitem' className='cardLink'>
       <div className='card-button-container'>
         <button className='card-button' onClick={() => props.dispatch(displaySingleItem(props))}>View</button>
       </div>
