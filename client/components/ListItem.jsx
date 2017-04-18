@@ -16,8 +16,9 @@ function ListItem (props) {
       </div>
     </Link>
 
-    <p> {props.description}
-    </p>
+    <div className='list-item-description-container'>
+      <p> {props.description} </p>
+    </div>
 
   </div>
 )}
