@@ -32151,7 +32151,7 @@
 	    ),
 	    _react2.default.createElement(
 	      _reactRouterDom.Link,
-	      { to: '/list-item' },
+	      { to: '/list-item', className: 'cardLink' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'card-button-container' },

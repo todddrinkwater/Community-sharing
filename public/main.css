@@ -57,7 +57,7 @@ textarea:focus, input:focus, select:focus{
   text-align: center;
   display: flex;
   line-height: 0.8em;
-  background-color: #1492AB;
+  background-color: #21D084;
   color: white;
 }
 
@@ -88,7 +88,7 @@ textarea:focus, input:focus, select:focus{
 /* --- NAVIGATION-MENU --- */
 
 .navigation-menu-container{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid 0 0 0 0.5;
   position: absolute;
   width: 100%;
 }
@@ -98,6 +98,7 @@ textarea:focus, input:focus, select:focus{
   border-bottom: 1px solid black;
   background-color: #eee;
   color: #1492AB;
+  font-weight: bold;
 }
 
 /* --- HOMEPAGE --- */
@@ -234,12 +235,12 @@ textarea:focus, input:focus, select:focus{
   border: 1px solid black;
   text-align: center;
   flex-grow: 1;
-  padding-top: 0.5em;
+  padding-top: 0.6em;
 }
 
 .dashboard-menu-container{
   width: 100%;
-  height: 2em;
+  height: 2.5em;
   display: flex;
 }
 
@@ -287,17 +288,23 @@ textarea:focus, input:focus, select:focus{
 /* --- IM BORROWING CARD --- */
 
 .card-button{
-  border: 1px solid black;
+  border: 2.7px solid #343477;
   border-radius: 0.7em;
-  font-size: 0.7em;
-  width: 100%;
-  height: 2em;
+  font-size: 0.8em;
+  width: 8em;
+  height: 2.5em;
+  background-color: #ffffff;
+  color: white;
+  font-weight: bold;
+  color: #161631;
 }
 
 .card-button-container{
   margin: 0.5em auto;
   width: 5em;
 }
+
+
 
 .card-container{
   display: flex;
