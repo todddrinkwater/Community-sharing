@@ -27933,8 +27933,6 @@
 	var config = __webpack_require__(282);
 	
 	var urlPath = url.format(config);
-	console.log(config);
-	console.log(urlPath);
 	var currentMenuState = false;
 	
 	var menuNavigation = exports.menuNavigation = function menuNavigation() {
@@ -37425,9 +37423,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _MyListings = __webpack_require__(327);
+	var _MyItems = __webpack_require__(327);
 	
-	var _MyListings2 = _interopRequireDefault(_MyListings);
+	var _MyItems2 = _interopRequireDefault(_MyItems);
 	
 	var _MyBorrowedItems = __webpack_require__(329);
 	
@@ -37443,7 +37441,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_MyListings2.default, null),
+	    _react2.default.createElement(_MyItems2.default, null),
 	    _react2.default.createElement(_MyBorrowedItems2.default, null),
 	    _react2.default.createElement(_MyLendedItems2.default, null)
 	  );
@@ -37469,13 +37467,13 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _MyAvailableItemsCard = __webpack_require__(328);
+	var _MyItemsCard = __webpack_require__(328);
 	
-	var _MyAvailableItemsCard2 = _interopRequireDefault(_MyAvailableItemsCard);
+	var _MyItemsCard2 = _interopRequireDefault(_MyItemsCard);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function MyListings(props) {
+	function MyItems(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'dashboard-container' },
@@ -37488,8 +37486,8 @@
 	      'div',
 	      { className: 'dashboard-section' },
 	      props.allItems.map(function (item) {
-	        if (item.owner_id == props.loggedInUser.user_id) {
-	          return _react2.default.createElement(_MyAvailableItemsCard2.default, _extends({ key: item.item_id }, item));
+	        if (item.owner_id === props.loggedInUser.user_id) {
+	          return _react2.default.createElement(_MyItemsCard2.default, _extends({ key: item.item_id }, item));
 	        }
 	      })
 	    )
@@ -37503,7 +37501,7 @@
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyListings);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItems);
 
 /***/ }),
 /* 328 */
@@ -37527,7 +37525,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var MyAvailableItemsCard = function MyAvailableItemsCard(props) {
+	var MyItemsCard = function MyItemsCard(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'card-wrapper' },
@@ -37575,7 +37573,7 @@
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyAvailableItemsCard);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemsCard);
 
 /***/ }),
 /* 329 */

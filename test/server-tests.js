@@ -10,11 +10,11 @@ var app = require('../server/server')
 
 console.log(process.env.NODE_ENV)
 
-test('/saveItem', function(t) {
-  //post down to server
-  //check item is in table using local knex connection
-  //reseed table
-  //t.end()
+test('/saveItem', function (t) {
+  // post down to server
+  // check item is in table using local knex connection
+  // reseed table
+  // t.end()
 })
 
 test('return items', function (t) {

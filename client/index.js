@@ -6,8 +6,7 @@ import thunkMiddleware from 'redux-thunk'
 
 import reducers from './reducers'
 import App from './components/App'
-import { initialListings } from './actions'
-import { filteredListings } from './actions'
+import { initialListings, filteredListings } from './actions'
 
 import { getListings } from './api'
 
