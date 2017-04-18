@@ -9,7 +9,7 @@
     "dev": "nodemon server server/index & webpack --watch",
     "watch": "nodemon -e js,jsx -x npm test",
     "knex": "knex",
-    "server-test": "node test/server-tests.js | tap-spec",
+    "server-test": "NODE_ENV=test node test/server-tests.js | tap-spec",
     "postinstall": "knex migrate:lastest && npm run build"
 
   },
