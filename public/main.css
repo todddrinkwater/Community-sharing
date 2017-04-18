@@ -1,3 +1,7 @@
+/** {
+  border: 1px solid black;
+}*/
+
 body {
   font-size: 100%;
   padding: 0px;
@@ -79,6 +83,7 @@ textarea:focus, input:focus, select:focus{
   width: 100%;
   height: 100%;
 }
+
 
 /* --- NAVIGATION-MENU --- */
 
@@ -205,6 +210,7 @@ textarea:focus, input:focus, select:focus{
   margin: 0.5em auto;
   border: 1px solid black;
   background-color: #eee;
+  overflow: hidden;
 }
 
 .listItemImage {
@@ -240,29 +246,35 @@ textarea:focus, input:focus, select:focus{
 .dashboard-section{
   border: 1px solid gray;
   margin: 0.5em 0em;;
-  padding: 1em 0.5em;
+  padding: 3%;
   background-color: #eee;
 }
 
 /* --- DAHSBOARD - PROFILE --- */
 
-.profile-continer{
+.profile-container{
   width: 80%;
-  margin: 2em auto;
+  margin: auto;
 }
 
 .profile-details-container{
-  margin-left: 2em;
+  margin: auto;
+}
+
+.profile-details-container p {
+  text-align: center;
+  font-size: 1.4em;
 }
 
 .profile-image{
-  height: 7em;
+  height: 100%;
   width: 100%;
+  border-radius: 100%;
 }
 
 .profile-image-container{
-  width: 7em;
-  margin: 0px auto;
+  width: 70%;
+  margin: 2em auto;
 }
 
 /* --- ORDER --- */
@@ -399,10 +411,31 @@ textarea:focus, input:focus, select:focus{
   box-sizing: border-box;
 }
 
-.login input[type=submit] {
+
+.login button {
   margin-top: 1em;
   background-color: #4CAF50;
-  color: white
+  color: white;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0.5em auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.LoginGreeting {
+  margin: 1em auto;
+}
+
+.login img {
+  margin-top: 2em;
+}
+
+.registerLink {
+  text-decoration: underline;
+  color: purple;
+  padding-bottom: 3em;
 }
 
 /* --- REGISTER ---- */
