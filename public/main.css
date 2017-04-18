@@ -21,6 +21,10 @@ a{
   color: inherit;
 }
 
+textarea:focus, input:focus, select:focus{
+    outline: none;
+}
+
 /* --- HEADER --- */
 
 .fa-bars{
@@ -129,9 +133,45 @@ a{
 
 /* --- SEARCH-BAR --- */
 
+.search-bar-container{
+  margin: 0px auto;
+  display: flex;
+  height: 2em;
+  padding: 0.5em;
+}
+
+.search-button{
+  border: 1px solid black;
+  flex-grow: 1;
+  margin: 0px;
+  padding: 0px;
+  width: 1.5em;
+  margin-left: 0.5em;
+  border-radius: 0.4em;
+  font-size: 0.8em;
+}
+
+.search-label{
+  flex-grow: 1;
+  margin: 0px;
+  padding: 0.5em 0em 0em 0.5em;
+  width: 1.5em;
+}
+
  #search-input {
-    width: 100%;
-    font-size: 1.5em;
+    flex-grow: 1;
+    margin: 0px;
+    padding: 0px;
+    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 0.4em;
+}
+
+.Category{
+  border: 1px solid black;
+  width: 50%;
+  margin: 0px auto;
+  border-radius: 0.4em;
 }
 
 .Category-ul {

@@ -27811,8 +27811,18 @@
 	    { className: 'List' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'SearchBar' },
-	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search', placeholder: 'Search..' })
+	      { className: 'search-bar-container' },
+	      _react2.default.createElement(
+	        'label',
+	        { className: 'search-label' },
+	        'Search'
+	      ),
+	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search' }),
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'search-button' },
+	        'Search'
+	      )
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -32572,15 +32582,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// -------
-	
-	
-	// -------
-	
-	// -------
 	var CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy';
 	var CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload';
-	// -------
 	
 	var Register = function (_React$Component) {
 	  _inherits(Register, _React$Component);
@@ -38421,15 +38424,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// -------
-	
-	// -------
-	
-	// -------
 	var CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy';
 	var CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload';
-	// -------
-	
 	
 	var LenderForm = function (_React$Component) {
 	  _inherits(LenderForm, _React$Component);
@@ -38589,10 +38585,11 @@
 	  props.history.push('/dashboard');
 	}
 	
-	function testCallback(err, status) {}
+	function testCallback(err, status) {
+	  console.log(status);
+	}
 	
 	function mapStateToProps(state) {
-	  console.log(state);
 	  return {
 	    user_id: state.loggedInUserDetails.user_id
 	  };
