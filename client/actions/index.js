@@ -192,18 +192,6 @@ export const searchForItem = (searchText) => {
 
 export const updateListing = () => {
   return (dispatch) => {
-<<<<<<< HEAD
-  request
-    .get(urlPath + /items/)
-    .end((err, res) => {
-      if (err) {
-        console.error("upDateListing " + err.message)
-        return
-      }
-      dispatch(initialListings(res.body))
-      dispatch(filteredListings(res.body))
-    })
-=======
     request
    .get(urlPath + /items/)
    .end((err, res) => {
@@ -214,6 +202,5 @@ export const updateListing = () => {
      dispatch(initialListings(res.body))
      dispatch(filteredListings(res.body))
    })
->>>>>>> f2644a548c1981a9361a562e0d0607eaeb8f248f
   }
 }

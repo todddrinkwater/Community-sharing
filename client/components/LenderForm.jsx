@@ -90,16 +90,8 @@ class LenderForm extends React.Component {
   }
 }
 
-// ---
-
-<<<<<<< HEAD
-
-
-function newItem(event, props) {
-=======
 function newItem (event, props) {
   console.log(props)
->>>>>>> f2644a548c1981a9361a562e0d0607eaeb8f248f
   event.preventDefault(event)
   var newItemData = {
     item_name: event.target.elements.item_name.value,
@@ -117,15 +109,12 @@ function newItem (event, props) {
 }
 
 function testCallback (err, status) {
-<<<<<<< HEAD
  console.log(err)
-=======
   if (err) {
     console.log(err)
   } else {
     console.log(status)
   }
->>>>>>> f2644a548c1981a9361a562e0d0607eaeb8f248f
 }
 
 function mapStateToProps (state) {
