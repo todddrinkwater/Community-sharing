@@ -417,27 +417,27 @@ select {
   text-align: center
 }
 
-.singleItemImage {
+.itemListingImage {
   width: 100%;
 }
 
-.singleItemUserDetails{
+.itemListingUserDetails{
   margin: auto;
   text-align: center;
 }
 
-.singleItemUserDetails img {
+.itemListingUserDetails img {
   margin: auto;
   display: block;
 }
 
-.singleItemUserPhoto {
+.itemListingUserPhoto {
   width: 80%;
   align: center;
   border-radius: 100%;
 }
 
-.singleItemUserDetails .input[type="submit"]{
+.itemListingUserDetails .input[type="submit"]{
   margin: 5%;
 }
 
