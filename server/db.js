@@ -65,13 +65,8 @@ function saveUser (user) {
 }
 
 function saveLoan (loanRequest) {
-  return knex.insert({
-    borrowers_id: loanRequest.user_id,
-    lenders_id: loanRequest.owners_id,
-    item_id: loanRequest.item_id,
-    pickup: loanRequest.pickup,
-    dropoff: loanRequest.dropoff
-  }).into('loans')
+  console.log(loanRequest);
+  return knex.insert(loanRequest).into('loans')
 }
 
 function getSearchItems (searchString) {

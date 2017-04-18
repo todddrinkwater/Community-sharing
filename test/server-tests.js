@@ -14,7 +14,7 @@ test('/saveItem', function(t) {
   //post down to server
   //check item is in table using local knex connection
   //reseed table
-  //t.end()
+  t.end()
 })
 
 test('return items', function (t) {
@@ -36,7 +36,7 @@ test('return items', function (t) {
 
 test('return item', function (t) {
   supertest(app)
-    .get('/item/12003')
+    .get('/items/12003')
     .end(checkReturnedObject)
 
   function checkReturnedObject (err, res) {

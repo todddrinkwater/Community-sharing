@@ -26,7 +26,7 @@ server.use(express.static(path.join(__dirname, '../public')))
 server.use(cors({origin: '*'}))
 
 server.use('/items', items)
-server.use('/item', item)
+
 server.use('/user', user)
 server.use('/userById', userById)
 server.use('/userById', user)
