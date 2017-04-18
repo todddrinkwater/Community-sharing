@@ -16,7 +16,8 @@ module.exports = {
   saveLoan,
   getSearchItems,
   updateItem,
-  updateUser
+  updateUser,
+  knex
 }
 
 function getItems () {

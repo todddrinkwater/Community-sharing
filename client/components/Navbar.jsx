@@ -4,9 +4,9 @@ import { HashRouter as Router, Link } from 'react-router-dom'
 
 import { menuNavigation } from '../actions'
 
-import NavigationMenu from './NavigationMenu.jsx'
+import NavbarMenu from './NavbarMenu.jsx'
 
-let Header = (props) => (
+let Navbar = (props) => (
   <div className='header-menu-container'>
     <div className='header-container'>
       <div className='hambuger-container' onClick={() => openMenu(props)}>
@@ -27,7 +27,7 @@ let Header = (props) => (
         </div>
       </Router>
     </div>
-    { props.menuState ? <NavigationMenu /> : '' }
+    { props.menuState ? <NavbarMenu /> : '' }
   </div>
 )
 
@@ -42,4 +42,4 @@ function openMenu (props) {
   props.dispatch(menuNavigation())
 }
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(Navbar)

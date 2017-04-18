@@ -4,13 +4,13 @@ import { HashRouter as Router, Link } from 'react-router-dom'
 
 import { menuNavigation } from '../actions'
 
-let NavigationMenu = (props) => (
+let NavbarMenu = (props) => (
   <div className='navigation-menu-container'>
     <Router>
       <ul>
         <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/login'>Register/Login</Link></li>
         <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/dashboard'>Your Dashboard</Link></li>
-        <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/list'>Borrow an item</Link></li>
+        <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/list-all'>Borrow an item</Link></li>
         <li className='navigation-item' onClick={() => openMenu(props)}><Link to='/lender-form'>Lend an item</Link></li>
       </ul>
     </Router>
@@ -28,4 +28,4 @@ function openMenu (props) {
   props.dispatch(menuNavigation())
 }
 
-export default connect(mapStateToProps)(NavigationMenu)
+export default connect(mapStateToProps)(NavbarMenu)

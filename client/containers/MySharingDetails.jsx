@@ -1,15 +1,15 @@
 import React from 'react'
 
-import MyListings from './MyListings.jsx'
+import MyItems from './MyItems.jsx'
 import MyBorrowedItems from './MyBorrowedItems.jsx'
-import MySharedItems from './MySharedItems.jsx'
+import MyLendedItems from './MyLendedItems.jsx'
 
 function MySharingDetails () {
   return (
     <div>
-      <MyListings />
+      <MyItems />
       <MyBorrowedItems />
-      <MySharedItems />
+      <MyLendedItems />
     </div>
   )
 }

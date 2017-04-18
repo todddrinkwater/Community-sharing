@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { fetchSingleItem, fetchBorrowerById } from '../actions'
 
-let SharedCard = (props) => (
+let LendedItemsCard = (props) => (
   <div className='card-wrapper'>
     <div className='card-container'>
       <img className='card-image' src={props.loggedInImage} />
@@ -15,7 +15,7 @@ let SharedCard = (props) => (
       <img className='card-image' src={props.user_image_url} />
     </div>
     <div className='card-button-container'>
-      <Link to='order'><button className='card-button' onClick={() => goToOrder(props)} >More</button></Link>
+      <Link to='/l-details'><button className='card-button' onClick={() => goToOrder(props)} >More</button></Link>
     </div>
   </div>
 )
@@ -25,4 +25,4 @@ function goToOrder (props) {
   props.dispatch(fetchBorrowerById(props.borrowers_id))
 }
 
-export default SharedCard
+export default LendedItemsCard

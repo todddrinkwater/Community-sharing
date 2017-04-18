@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-let Order = (props) => (
+let MyLendedDetails = (props) => (
   <div className='Order'>
     <h1>Request Approved - Transaction Receipt</h1>
 
@@ -29,4 +29,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(Order)
+export default connect(mapStateToProps)(MyLendedDetails)
