@@ -1,15 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// -------
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-// -------
 
-// -------
 const CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload'
-// -------
 
 import { registerUser } from '../api'
 

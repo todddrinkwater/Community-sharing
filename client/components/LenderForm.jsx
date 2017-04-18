@@ -1,19 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-
-// -------
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-// -------
 
 import { getNewItem } from '../api'
 import { listNewItem } from '../actions'
 
-// -------
 const CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload'
-// -------
+
 
 
 
@@ -119,10 +115,7 @@ function newItem(event, props) {
 }
 
 function testCallback (err, status) {
-<<<<<<< HEAD
-=======
  console.log(status)
->>>>>>> 9277412dfd2819ab048e9d5eff820a0ee44e1689
 }
 
 function mapStateToProps(state){
