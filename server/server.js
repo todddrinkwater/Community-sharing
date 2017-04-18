@@ -4,6 +4,8 @@ var bodyParser = require('body-parser')
 var cors = require('cors')
 
 var server = express()
+var db = require('./db')
+server.set('db', db)
 
 var items = require('./routes/items')
 var item = require('./routes/item')
