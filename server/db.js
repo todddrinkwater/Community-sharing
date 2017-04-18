@@ -77,9 +77,14 @@ function saveLoan (loanRequest) {
 }
 
 function getSearchItems (searchString) {
-  query = "%" + searchString +"%"
-  return knex('items').where('item_name', 'like', query )
-  .orWhere ('description', 'like', query)
-  .orWhere ('category', 'like', query)
+  let stringArray = searchString.split(" ")
+  let query =  stringArray.reduce((query, word) => {return searchResults(query, word)}, knex('items'))
+  return query
+}
 
+function searchResults(query, searchString) {
+  let wrappedString = "%" + searchString + "%"
+  return query.orWhere('item_name', 'like', wrappedString )
+  .orWhere ('description', 'like', wrappedString)
+  .orWhere ('category', 'like', wrappedString)
 }
