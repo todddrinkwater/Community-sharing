@@ -27937,10 +27937,15 @@
 	      )
 	    ),
 	    _react2.default.createElement(
-	      'p',
-	      null,
-	      ' ',
-	      props.description
+	      'div',
+	      { className: 'list-item-description-container' },
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        ' ',
+	        props.description,
+	        ' '
+	      )
 	    )
 	  );
 	}
