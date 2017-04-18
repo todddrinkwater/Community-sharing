@@ -6,16 +6,16 @@ import { fetchBorrowedItems } from '../actions'
 import BorrowedItems from '../components/BorrowedItems'
 
 class MyBorrowedItems extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
-  render() {
+  render () {
     return (
       <div className='dashboard-section'>
         MY BORROWED ITEMS
-        { this.props.borrowedItemsList.map( (borrowedItem) => {
+        { this.props.borrowedItemsList.map((borrowedItem) => {
           return (
-            <BorrowedItems  key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
+            <BorrowedItems key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
           )
         })}
       </div>
@@ -23,7 +23,7 @@ class MyBorrowedItems extends React.Component {
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     dispatch: state.dispatch,
     borrowedItemsList: state.borrowedItemsState,

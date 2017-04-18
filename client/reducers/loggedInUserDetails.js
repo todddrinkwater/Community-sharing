@@ -13,7 +13,7 @@ const defaultUser = {
 
 const loggedInUserDetails = (state = defaultUser, action) => {
   switch (action.type) {
-    case "LOGGED_IN_USER":
+    case 'LOGGED_IN_USER':
       return action.loggedInUserDetails
 
     default:

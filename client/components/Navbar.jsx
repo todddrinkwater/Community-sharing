@@ -9,32 +9,32 @@ import NavbarMenu from './NavbarMenu.jsx'
 let Navbar = (props) => (
   <div className='header-menu-container'>
     <div className='header-container'>
-      <div className='hambuger-container' onClick={ () => openMenu(props) }>
-        <i className="fa fa-bars" aria-hidden="true"></i>
+      <div className='hambuger-container' onClick={() => openMenu(props)}>
+        <i className='fa fa-bars' aria-hidden='true' />
       </div>
       <Router>
-        <Link to="/">
+        <Link to='/'>
           <div className='title-container'>
             <p className='site-title'>Community Sharing</p>
           </div>
         </Link>
       </Router>
       <div className='login-button-container'>
-        <i className="fa fa-user" aria-hidden="true"></i>
+        <i className='fa fa-user' aria-hidden='true' />
       </div>
     </div>
-     { props.menuState ? <NavbarMenu /> : "" }
+    { props.menuState ? <NavbarMenu /> : '' }
   </div>
 )
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     dispatch: state.dispatch,
     menuState: state.menuState
   }
 }
 
-function openMenu(props) {
+function openMenu (props) {
   props.dispatch(menuNavigation())
 }
 

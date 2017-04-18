@@ -4,7 +4,6 @@ var router = express.Router()
 var db = require('../db')
 
 router.get('/', function (req, res) {
-
   db.getItems().then((result) => {
     res.send(result)
   })

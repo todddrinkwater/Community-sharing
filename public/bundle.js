@@ -44,7 +44,7 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	var _react = __webpack_require__(1);
 	
@@ -78,7 +78,7 @@
 	  return f;
 	}));
 	
-	document.addEventListener("DOMContentLoaded", function () {
+	document.addEventListener('DOMContentLoaded', function () {
 	  (0, _api.getListings)(function (err, listings) {
 	    if (err) console.log(err); // to do handle error
 	    store.dispatch((0, _actions.initialListings)(listings));
@@ -88,7 +88,7 @@
 	    _reactRedux.Provider,
 	    { store: store },
 	    _react2.default.createElement(_App2.default, null)
-	  ), document.getElementById("app"));
+	  ), document.getElementById('app'));
 	});
 
 /***/ }),
@@ -23861,7 +23861,7 @@
 /* 216 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -23871,7 +23871,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "MENU_STATE":
+	    case 'MENU_STATE':
 	      return action.menuState;
 	
 	    default:
@@ -23885,17 +23885,17 @@
 /* 217 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var openTab = function openTab() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "MySharingDetails";
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'MySharingDetails';
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "DASHBOARD_TAB":
+	    case 'DASHBOARD_TAB':
 	      return action.dashboardState;
 	
 	    default:
@@ -23909,7 +23909,7 @@
 /* 218 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -23919,7 +23919,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "GET_LISTINGS":
+	    case 'GET_LISTINGS':
 	      return action.initialListings;
 	
 	    default:
@@ -23933,7 +23933,7 @@
 /* 219 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -23943,7 +23943,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "FILTERED_LISTINGS":
+	    case 'FILTERED_LISTINGS':
 	      return action.filteredListings;
 	
 	    default:
@@ -23957,7 +23957,7 @@
 /* 220 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -23967,7 +23967,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "SINGLE_ITEM":
+	    case 'SINGLE_ITEM':
 	      return action.item;
 	
 	    default:
@@ -24004,7 +24004,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "LOGGED_IN_USER":
+	    case 'LOGGED_IN_USER':
 	      return action.loggedInUserDetails;
 	
 	    default:
@@ -24018,17 +24018,17 @@
 /* 222 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var loanedItems = function loanedItems() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [{ loan_id: 1, test: "loanedItems test" }];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [{ loan_id: 1, test: 'loanedItems test' }];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "LOANED_ITEMS":
+	    case 'LOANED_ITEMS':
 	      return action.loanedItemsList;
 	
 	    default:
@@ -24042,17 +24042,17 @@
 /* 223 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var defaultOrder = {
 	  user_id: 9009,
-	  fname: "Sam",
-	  lname: "Jones",
-	  email: "SJ@email.com",
-	  phone: "027 111 2222"
+	  fname: 'Sam',
+	  lname: 'Jones',
+	  email: 'SJ@email.com',
+	  phone: '027 111 2222'
 	};
 	
 	var orderItemDetails = function orderItemDetails() {
@@ -24060,7 +24060,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "SINGLE_ORDER_ITEM":
+	    case 'SINGLE_ORDER_ITEM':
 	      return action.orderItem;
 	
 	    default:
@@ -24074,7 +24074,7 @@
 /* 224 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -24084,7 +24084,7 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case "BORROWED_ITEMS":
+	    case 'BORROWED_ITEMS':
 	      return action.borrowedItemList;
 	
 	    default:
@@ -27840,7 +27840,7 @@
 	        _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' })
 	      )
 	    ),
-	    props.menuState ? _react2.default.createElement(_NavbarMenu2.default, null) : ""
+	    props.menuState ? _react2.default.createElement(_NavbarMenu2.default, null) : ''
 	  );
 	};
 	
@@ -27861,7 +27861,7 @@
 /* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27882,57 +27882,57 @@
 	var currentMenuState = false;
 	
 	var menuNavigation = exports.menuNavigation = function menuNavigation() {
-	  if (currentMenuState == false) {
+	  if (currentMenuState === false) {
 	    currentMenuState = true;
 	  } else {
 	    currentMenuState = false;
 	  }
 	  return {
-	    type: "MENU_STATE",
+	    type: 'MENU_STATE',
 	    menuState: currentMenuState
 	  };
 	};
 	
 	var dashboardTab = exports.dashboardTab = function dashboardTab(clickedTab) {
 	  return {
-	    type: "DASHBOARD_TAB",
+	    type: 'DASHBOARD_TAB',
 	    dashboardState: clickedTab
 	  };
 	};
 	
 	var initialListings = exports.initialListings = function initialListings(listings) {
 	  return {
-	    type: "GET_LISTINGS",
+	    type: 'GET_LISTINGS',
 	    initialListings: listings
 	  };
 	};
 	
 	var filteredListings = exports.filteredListings = function filteredListings(listings) {
 	  return {
-	    type: "FILTERED_LISTINGS",
+	    type: 'FILTERED_LISTINGS',
 	    filteredListings: listings
 	  };
 	};
 	
 	var displaySingleItem = exports.displaySingleItem = function displaySingleItem(item) {
 	  return {
-	    type: "SINGLE_ITEM",
+	    type: 'SINGLE_ITEM',
 	    item: item
 	  };
 	};
 	
 	var loggedInUser = exports.loggedInUser = function loggedInUser(loggedInUserDetails) {
 	  return {
-	    type: "LOGGED_IN_USER",
+	    type: 'LOGGED_IN_USER',
 	    loggedInUserDetails: loggedInUserDetails
 	  };
 	};
 	
 	var fetchUser = exports.fetchUser = function fetchUser(submitedEmail) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + "/user/" + submitedEmail).end(function (err, res) {
+	    _superagent2.default.get(urlPath + '/user/' + submitedEmail).end(function (err, res) {
 	      if (err) {
-	        console.error("fetchUser " + err.message);
+	        console.error('fetchUser ' + err.message);
 	        return;
 	      }
 	      dispatch(loggedInUser(res.body[0]));
@@ -27942,14 +27942,14 @@
 	
 	var borrowedItems = exports.borrowedItems = function borrowedItems(borrowedItemList) {
 	  return {
-	    type: "BORROWED_ITEMS",
+	    type: 'BORROWED_ITEMS',
 	    borrowedItemList: borrowedItemList
 	  };
 	};
 	
 	var fetchBorrowedItems = exports.fetchBorrowedItems = function fetchBorrowedItems(loggedInUserId) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + "/borrowedItems/" + loggedInUserId).end(function (err, res) {
+	    _superagent2.default.get(urlPath + '/borrowedItems/' + loggedInUserId).end(function (err, res) {
 	      if (err) {
 	        console.error(err.message);
 	        return;
@@ -27961,16 +27961,16 @@
 	
 	var loanedItems = exports.loanedItems = function loanedItems(loanedItemsList) {
 	  return {
-	    type: "LOANED_ITEMS",
+	    type: 'LOANED_ITEMS',
 	    loanedItemsList: loanedItemsList
 	  };
 	};
 	
 	var fetchLoanedItems = exports.fetchLoanedItems = function fetchLoanedItems(loggedInUserId) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + "/loanedItems/" + loggedInUserId).end(function (err, res) {
+	    _superagent2.default.get(urlPath + '/loanedItems/' + loggedInUserId).end(function (err, res) {
 	      if (err) {
-	        console.error("fetchLoanedItems " + err.message);
+	        console.error('fetchLoanedItems ' + err.message);
 	        return;
 	      }
 	      dispatch(loanedItems(res.body));
@@ -27980,16 +27980,16 @@
 	
 	var singleItemOrder = exports.singleItemOrder = function singleItemOrder(orderItem) {
 	  return {
-	    type: "SINGLE_ORDER_ITEM",
+	    type: 'SINGLE_ORDER_ITEM',
 	    orderItem: orderItem
 	  };
 	};
 	
 	var fetchSingleItem = exports.fetchSingleItem = function fetchSingleItem(itemId) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + "/item/" + itemId).end(function (err, res) {
+	    _superagent2.default.get(urlPath + '/item/' + itemId).end(function (err, res) {
 	      if (err) {
-	        console.error("fetchSingleItem " + err.message);
+	        console.error('fetchSingleItem ' + err.message);
 	        return;
 	      }
 	      dispatch(singleItemOrder(res.body));
@@ -28006,9 +28006,9 @@
 	
 	var fetchLenderById = exports.fetchLenderById = function fetchLenderById(userId) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + "/userById/" + userId).end(function (err, res) {
+	    _superagent2.default.get(urlPath + '/userById/' + userId).end(function (err, res) {
 	      if (err) {
-	        console.error("fetchUserById " + err.message);
+	        console.error('fetchUserById ' + err.message);
 	        return;
 	      }
 	      dispatch(lenderDetails(res.body));
@@ -28025,9 +28025,9 @@
 	
 	var fetchBorrowerById = exports.fetchBorrowerById = function fetchBorrowerById(userId) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + "/userById/" + userId).end(function (err, res) {
+	    _superagent2.default.get(urlPath + '/userById/' + userId).end(function (err, res) {
 	      if (err) {
-	        console.error("fetchUserById " + err.message);
+	        console.error('fetchUserById ' + err.message);
 	        return;
 	      }
 	      dispatch(borrowerDetails(res.body));
@@ -31824,7 +31824,6 @@
 	// ---
 	
 	function newItem(event, props) {
-	  console.log(props);
 	  event.preventDefault(event);
 	  var newItemData = {
 	    item_name: event.target.elements.item_name.value,
@@ -31841,7 +31840,11 @@
 	}
 	
 	function testCallback(err, status) {
-	  console.log(status);
+	  if (err) {
+	    console.log(err);
+	  } else {
+	    console.log(status);
+	  }
 	}
 	
 	function mapStateToProps(state) {
@@ -37231,7 +37234,7 @@
 /* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	var request = __webpack_require__(266);
 	var url = __webpack_require__(274);
@@ -37241,7 +37244,7 @@
 	var urlPath = url.format(config);
 	
 	var getListings = function getListings(callback) {
-	  request.get(urlPath + "/items/").end(function (err, res) {
+	  request.get(urlPath + '/items/').end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {
@@ -37251,7 +37254,7 @@
 	};
 	
 	var getUsers = function getUsers(callback, email) {
-	  request.get(urlPath + "/user/" + email).end(function (err, res) {
+	  request.get(urlPath + '/user/' + email).end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {
@@ -37261,21 +37264,21 @@
 	};
 	
 	var registerUser = function registerUser(callback, formData) {
-	  request.post(urlPath + "/saveUser").set("Content-Type", "application/json").send(formData).end(function (err, res) {
+	  request.post(urlPath + '/saveUser').set('Content-Type', 'application/json').send(formData).end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {
-	      callback(null, "Status: 200");
+	      callback(null, 'Status: 200');
 	    }
 	  });
 	};
 	
 	var getNewItem = function getNewItem(callback, lendData) {
-	  request.post(urlPath + "/saveItem").set("Content-Type", "application/json").send(lendData).end(function (err, res) {
+	  request.post(urlPath + '/saveItem').set('Content-Type', 'application/json').send(lendData).end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {
-	      callback(null, "Status: 200");
+	      callback(null, 'Status: 200');
 	    }
 	  });
 	};
@@ -37381,12 +37384,11 @@
 	}
 	
 	function filterList(dispatch, allListings, category) {
-	
-	  if (category == "All") {
+	  if (category === 'All') {
 	    dispatch((0, _actions.filteredListings)(allListings));
 	  } else {
 	    var filteredList = allListings.filter(function (listItem) {
-	      return listItem.category == category;
+	      return listItem.category === category;
 	    });
 	    dispatch((0, _actions.filteredListings)(filteredList));
 	  }
@@ -37633,7 +37635,7 @@
 	        'My Profile'
 	      )
 	    ),
-	    props.dashboardState == 'MySharingDetails' ? _react2.default.createElement(_MySharingDetails2.default, null) : _react2.default.createElement(_MyProfile2.default, null)
+	    props.dashboardState === 'MySharingDetails' ? _react2.default.createElement(_MySharingDetails2.default, null) : _react2.default.createElement(_MyProfile2.default, null)
 	  );
 	}
 	
@@ -37716,13 +37718,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function MyListings(props) {
-	
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'dashboard-section' },
 	    'MY AVAILABLE ITEMS',
 	    props.allItems.map(function (item) {
-	      if (item.owner_id == props.loggedInUser.user_id) {
+	      if (item.owner_id === props.loggedInUser.user_id) {
 	        return _react2.default.createElement(_AvailableItems2.default, _extends({ key: item.item_id }, item));
 	      }
 	    })
@@ -38140,7 +38141,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        props.loggedInUserDetails.fname + " " + props.loggedInUserDetails.lname
+	        props.loggedInUserDetails.fname + ' ' + props.loggedInUserDetails.lname
 	      ),
 	      _react2.default.createElement(
 	        'p',
@@ -38199,8 +38200,6 @@
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouterDom = __webpack_require__(228);
 	
 	var _reactDropzone = __webpack_require__(285);
 	
@@ -38276,7 +38275,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'login' },
@@ -38407,7 +38405,11 @@
 	}
 	
 	function testCallback(err, status) {
-	  console.log(status);
+	  if (err) {
+	    console.log(err);
+	  } else {
+	    console.log(status);
+	  }
 	}
 	
 	exports.default = Register;
@@ -38467,7 +38469,7 @@
 	        _react2.default.createElement(
 	          'button',
 	          { type: 'button', value: 'Login', onClick: function onClick() {
-	              return submitUser(event, props);
+	              return submitUser(props);
 	            } },
 	          'Login'
 	        )
@@ -38514,8 +38516,6 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactRedux = __webpack_require__(182);
-	
-	var _actions = __webpack_require__(265);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -38615,8 +38615,6 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactRedux = __webpack_require__(182);
-	
-	var _actions = __webpack_require__(265);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
