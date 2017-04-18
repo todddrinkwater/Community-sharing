@@ -178,21 +178,24 @@ textarea:focus, input:focus, select:focus, button:focus{
 /* --- SEARCH-BAR --- */
 
 .search-bar-container{
-  margin: 0px auto;
+  margin: 0.5em auto 0;
   display: flex;
   height: 2em;
   padding: 0.5em;
 }
 
 .search-button{
-  border: 1px solid black;
-  flex-grow: 1;
-  margin: 0px;
-  padding: 0px;
-  width: 1.5em;
-  margin-left: 0.5em;
-  border-radius: 0.4em;
+  border: 2.7px solid #1B2B37;
+  border-radius: 0.7em;
   font-size: 0.8em;
+  width: 7em;
+  height: 2.5em;
+  background-color: #ffffff;
+  color: white;
+  font-weight: bold;
+  color: #161631;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .search-label{
@@ -205,11 +208,13 @@ textarea:focus, input:focus, select:focus, button:focus{
  #search-input {
     flex-grow: 1;
     margin: 0px;
-    padding: 0px 0.5em;
+    padding: 0.5em 0.5em 0 0;
     font-size: 1em;
     border: 1px solid black;
     border-radius: 0.4em;
+    width: 60%;
 }
+
 
 .Category{
   border: 1px solid black;
@@ -230,6 +235,15 @@ textarea:focus, input:focus, select:focus, button:focus{
   font-size: 1em;
 }
 
+select {
+  width: 90%;
+  padding: 8px 20px;
+  margin: 0.3em 5% 0.3em 5%;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #f1f1f1
+}
+
 /* --- List Item Component in Listing Page --- */
 
 .listItemHeader h2 {
@@ -241,21 +255,21 @@ textarea:focus, input:focus, select:focus, button:focus{
 .listItemHeader h3 {
   padding: 0;
   margin: 0;
+  margin-bottom: 1em;
   text-align: center;
 }
 
 .listItem {
   width: 90%;
   margin: 0.5em auto;
-  border: 1px solid black;
-  background-color: #eee;
+  background-color: #f5f5f5;
   overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .listItemImage {
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid black;
 }
 
 .list-item-description-container{
@@ -283,10 +297,18 @@ textarea:focus, input:focus, select:focus, button:focus{
 }
 
 .dashboard-section{
-  border: 1px solid gray;
-  margin: 0.5em 0em;;
-  padding: 3%;
-  background-color: #eee;
+  /*border: 1px solid gray;*/
+  /*margin: 0.5em 0em;;*/
+  /*padding: 3%;*/
+  /*background-color: #eee;*/
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 90%;
+  margin: auto;
+}
+
+
+.dashboard-container h4 {
+  margin: 1em 4% 1em 4%;
 }
 
 /* --- DAHSBOARD - PROFILE --- */
@@ -326,7 +348,7 @@ textarea:focus, input:focus, select:focus, button:focus{
 /* --- IM BORROWING CARD --- */
 
 .card-button{
-  border: 2.7px solid #343477;
+  border: 2.7px solid #1B2B37;
   border-radius: 0.7em;
   font-size: 0.8em;
   width: 8em;

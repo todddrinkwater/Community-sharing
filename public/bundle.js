@@ -24075,6 +24075,10 @@
 	
 	var _TermsConditions2 = _interopRequireDefault(_TermsConditions);
 	
+	var _MyListItem = __webpack_require__(340);
+	
+	var _MyListItem2 = _interopRequireDefault(_MyListItem);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function App(props) {
@@ -24097,7 +24101,8 @@
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/order', component: _Order2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/lender-form', component: _LenderForm2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/OrderMyBorroedItems', component: _OrderMyBorroedItems2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/TermsConditions', component: _TermsConditions2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/TermsConditions', component: _TermsConditions2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/MyListItem', component: _MyListItem2.default })
 	      )
 	    )
 	  );
@@ -27682,11 +27687,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'search-bar-container' },
-	      _react2.default.createElement(
-	        'label',
-	        { className: 'search-label' },
-	        'Search'
-	      ),
+	      _react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
 	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search' }),
 	      _react2.default.createElement(
 	        'button',
@@ -27698,7 +27699,7 @@
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'Category' },
+	      { className: 'category-dropdown' },
 	      _react2.default.createElement(
 	        'select',
 	        { selected: 'All', name: 'category', onChange: function onChange(e) {
@@ -32010,13 +32011,21 @@
 	function MyListings(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'dashboard-section' },
-	    'MY LISTINGS',
-	    props.allItems.map(function (item) {
-	      if (item.owner_id === props.loggedInUser.user_id) {
-	        return _react2.default.createElement(_MyListingsCard2.default, _extends({ key: item.item_id }, item));
-	      }
-	    })
+	    { className: 'dashboard-container' },
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'My Listings'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'dashboard-section' },
+	      props.allItems.map(function (item) {
+	        if (item.owner_id == props.loggedInUser.user_id) {
+	          return _react2.default.createElement(_MyListingsCard2.default, _extends({ key: item.item_id }, item));
+	        }
+	      })
+	    )
 	  );
 	}
 	
@@ -32156,11 +32165,19 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'dashboard-section' },
-	        'MY BORROWED ITEMS',
-	        this.props.borrowedItemsList.map(function (borrowedItem) {
-	          return _react2.default.createElement(_ImBorrowingCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this2.props.dispatch }));
-	        })
+	        { className: 'dashboard-container' },
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'My Borrowed Items'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'dashboard-section' },
+	          this.props.borrowedItemsList.map(function (borrowedItem) {
+	            return _react2.default.createElement(_ImBorrowingCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this2.props.dispatch }));
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -32296,19 +32313,27 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'dashboard-section' },
-	        'MY SHARED ITEMS',
-	        this.props.loanedItems.map(function (loanedItem) {
-	          return _react2.default.createElement(_SharedCard2.default, _extends({
-	            key: loanedItem.loan_id
-	          }, loanedItem, {
-	            loggedInFname: _this2.props.loggedInUser.fname,
-	            loggedInLname: _this2.props.loggedInUser.lname,
-	            loggedInEmail: _this2.props.loggedInUser.email,
-	            loggedInPhone: _this2.props.loggedInUser.phone,
-	            loggedInImage: _this2.props.loggedInUser.user_image_url,
-	            dispatch: _this2.props.dispatch }));
-	        })
+	        { className: 'dashboard-container' },
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'My Shared Items'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'dashboard-section' },
+	          this.props.loanedItems.map(function (loanedItem) {
+	            return _react2.default.createElement(_SharedCard2.default, _extends({
+	              key: loanedItem.loan_id
+	            }, loanedItem, {
+	              loggedInFname: _this2.props.loggedInUser.fname,
+	              loggedInLname: _this2.props.loggedInUser.lname,
+	              loggedInEmail: _this2.props.loggedInUser.email,
+	              loggedInPhone: _this2.props.loggedInUser.phone,
+	              loggedInImage: _this2.props.loggedInUser.user_image_url,
+	              dispatch: _this2.props.dispatch }));
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -38612,6 +38637,105 @@
 	};
 	
 	exports.default = TermsConditions;
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(182);
+	
+	var _reactRouterDom = __webpack_require__(227);
+	
+	var _actions = __webpack_require__(265);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ItemListing = function (_React$Component) {
+	  _inherits(ItemListing, _React$Component);
+	
+	  function ItemListing() {
+	    _classCallCheck(this, ItemListing);
+	
+	    return _possibleConstructorReturn(this, (ItemListing.__proto__ || Object.getPrototypeOf(ItemListing)).apply(this, arguments));
+	  }
+	
+	  _createClass(ItemListing, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'ItemListing' },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'itemTitle' },
+	            this.props.item.item_name
+	          ),
+	          _react2.default.createElement('img', { className: 'itemListingImage', src: this.props.item.image_url }),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.props.item.description
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'itemListingUserDetails' },
+	          _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: this.props.lenderDetails.user_image_url }),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            this.props.lenderDetails.fname,
+	            ' ',
+	            this.props.lenderDetails.lname
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.props.item.location
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ItemListing;
+	}(_react2.default.Component);
+	
+	function mapStateToProps(state) {
+	  return {
+	    item: state.singleItem,
+	    dispatch: state.dispatch,
+	    lenderDetails: state.lenderDetails[0]
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ItemListing);
 
 /***/ })
 /******/ ]);

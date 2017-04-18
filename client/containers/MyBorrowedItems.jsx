@@ -11,13 +11,16 @@ class MyBorrowedItems extends React.Component {
   }
   render () {
     return (
-      <div className='dashboard-section'>
-        MY BORROWED ITEMS
-        { this.props.borrowedItemsList.map((borrowedItem) => {
-          return (
-            <ImBorrowingCard key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
-          )
-        })}
+      <div className="dashboard-container">
+        <h4>My Borrowed Items</h4>
+        <div className='dashboard-section'>
+
+          { this.props.borrowedItemsList.map( (borrowedItem) => {
+            return (
+              <ImBorrowingCard  key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
+            )
+          })}
+        </div>
       </div>
     )
   }
