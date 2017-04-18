@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { fetchLoanedItems } from '../actions'
 
-import LoanedItemCard from '../components/LendedItemsCard'
+import LoanedItemCard from '../components/LoanedItemCard'
 
 class MyLoanedItems extends React.Component {
   componentDidMount () {
@@ -42,4 +42,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(MyLendedItems)
+export default connect(mapStateToProps)(MyLoanedItems)

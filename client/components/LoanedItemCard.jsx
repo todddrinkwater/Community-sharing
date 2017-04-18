@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { fetchSingleItem, fetchBorrowerById } from '../actions'
 
-let LendedItemsCard = (props) => (
+let LoanedItemCard = (props) => (
   <div className='card-wrapper'>
     <div className='card-container'>
       <img className='card-image' src={props.loggedInImage} />
@@ -25,4 +25,4 @@ function goToOrder (props) {
   props.dispatch(fetchBorrowerById(props.borrowers_id))
 }
 
-export default LendedItemsCard
+export default LoanedItemCard
