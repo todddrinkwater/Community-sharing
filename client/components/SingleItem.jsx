@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { HashRouter as Router, Link } from 'react-router-dom'
 
 import { fetchLenderById } from '../actions'
 
-class MyListItem extends React.Component {
+class SingleItem extends React.Component {
   componentDidMount () {
     this.props.dispatch(fetchLenderById(this.props.item.owner_id))
+    window.scrollTo(0, 0)
   }
 
   render () {
@@ -23,6 +25,16 @@ class MyListItem extends React.Component {
           <h2>{this.props.lenderDetails.fname} {this.props.lenderDetails.lname}</h2>
           <h3>{this.props.item.location}</h3>
         </div>
+        <form className='requestForm' action='/action_page.php'>
+          <p>
+            <input type='checkbox' name='vehicle' value='Bike' />By ticking this box, I agree to the <Link to='/ts&cs'>Terms and Conditions</Link> of Community Share.
+          </p>
+          <Router>
+            <Link to='/dashboard'>
+              <input type='submit' value='Request Item' />
+            </Link>
+          </Router>
+        </form>
       </div>
     )
   }
@@ -36,4 +48,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(MyListItem)
+export default connect(mapStateToProps)(SingleItem)

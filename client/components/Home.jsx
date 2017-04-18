@@ -12,7 +12,7 @@ let Home = () => (
         To start your journey of commnity sharing and meeting other locals you can choose to browse one of the catagories below.
       </div>
 
-    <Link to='/list'>
+    <Link to='/list-all'>
       <div id='homepage-borrow' className='homepage-catagory-container'>
         <p className='borrow-p'>I would like to borrow something</p>
       </div>

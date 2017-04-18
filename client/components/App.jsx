@@ -1,36 +1,36 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import List from '../containers/List'
-import Header from './Header.jsx'
 import Home from './Home'
-import ItemListing from './ItemListing'
-import Dashboard from './Dashboard'
-import Register from './Register'
+import MyBorrowedDetails from './MyBorrowedDetails'
 import Login from './Login'
-import Order from './Order'
+import Navbar from './Navbar.jsx'
+import Register from './Register'
+import Dashboard from './Dashboard'
+import SingleItem from './SingleItem'
 import LenderForm from './LenderForm'
-import OrderMyBorroedItems from './OrderMyBorroedItems'
+import MyItemDetails from './MyItemDetails'
+import List from '../containers/List'
 import TermsConditions from './TermsConditions'
-import MyListItem from './MyListItem'
+import MyLendedDetails from './MyLendedDetails'
 
 function App (props) {
   return (
     <div className='app-container'>
-      <Header />
+      <Navbar />
       <Router>
         <div>
           <Route exact path='/' component={Home} />
-          <Route path='/list' component={List} />
-          <Route path='/list-item' component={ItemListing} />
-          <Route path='/dashboard' component={Dashboard} />
-          <Route path='/register' component={Register} />
+          <Route path='/b-details' component={MyBorrowedDetails} />
           <Route path='/login' component={Login} />
-          <Route path='/order' component={Order} />
+          <Route path='/register' component={Register} />
+          <Route path='/dashboard' component={Dashboard} />
+          <Route path='/list-item' component={SingleItem} />
           <Route path='/lender-form' component={LenderForm} />
-          <Route path='/OrderMyBorroedItems' component={OrderMyBorroedItems} />
-          <Route path='/TermsConditions' component={TermsConditions} />
-          <Route path='/mylistitem' component={MyListItem} />
+          <Route path='/my-item-details' component={MyItemDetails} />
+          <Route path='/list-all' component={List} />
+          <Route path='/ts&cs' component={TermsConditions} />
+          <Route path='/l-details' component={MyLendedDetails} />
         </div>
       </Router>
     </div>

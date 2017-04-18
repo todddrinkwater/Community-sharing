@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import ListItem from '../components/ListItem'
+import ListAllItems from '../components/ListAllItems'
 import { filteredListings, searchForItem } from '../actions'
 
 function List (props) {
@@ -25,7 +25,7 @@ function List (props) {
 
       {props.filteredListings.map((listItem) => {
         return (
-          <ListItem key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
+          <ListAllItems key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
         )
       })}
 

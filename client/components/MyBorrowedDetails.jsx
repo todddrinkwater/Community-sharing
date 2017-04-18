@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-let Order = (props) => (
-  <div className='Order'>
+let MyBorrowedDetails = (props) => (
+  <div className='MyBorrowedDetails'>
     <h1>Request Approved - Transaction Receipt</h1>
 
     <h3>Item Details</h3>
@@ -30,4 +30,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(Order)
+export default connect(mapStateToProps)(MyBorrowedDetails)
