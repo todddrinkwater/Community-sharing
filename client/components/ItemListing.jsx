@@ -28,7 +28,7 @@ class ItemListing extends React.Component {
         </div>
         <form className="requestForm" action="/action_page.php">
           <p>
-            <input type="checkbox" name="vehicle" value="Bike" />By ticking this box, I agree to the <a href="#">Terms and Condtions</a> of Community Share.
+            <input type="checkbox" name="vehicle" value="Bike" />By ticking this box, I agree to the <Link to="/TermsConditions">Terms and Conditions</Link> of Community Share.
           </p>
           <Router>
             <Link to="/dashboard">
