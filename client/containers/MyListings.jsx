@@ -6,14 +6,17 @@ import MyListingsCard from '../components/MyListingsCard'
 function MyListings (props) {
 
   return (
+    <div className="myListings">
+      <h4>My Listings</h4>
     <div className='dashboard-section'>
-      MY LISTINGS
+
       { props.allItems.map( (item) => {
         if (item.owner_id == props.loggedInUser.user_id){
           return (
             <MyListingsCard key={item.item_id} {...item}/>
           )}
         })}
+    </div>
     </div>
   )
 }

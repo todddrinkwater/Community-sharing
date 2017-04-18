@@ -32115,13 +32115,21 @@
 	
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'dashboard-section' },
-	    'MY LISTINGS',
-	    props.allItems.map(function (item) {
-	      if (item.owner_id == props.loggedInUser.user_id) {
-	        return _react2.default.createElement(_MyListingsCard2.default, _extends({ key: item.item_id }, item));
-	      }
-	    })
+	    { className: 'myListings' },
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'My Listings'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'dashboard-section' },
+	      props.allItems.map(function (item) {
+	        if (item.owner_id == props.loggedInUser.user_id) {
+	          return _react2.default.createElement(_MyListingsCard2.default, _extends({ key: item.item_id }, item));
+	        }
+	      })
+	    )
 	  );
 	}
 	

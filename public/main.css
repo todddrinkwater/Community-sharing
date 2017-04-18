@@ -283,10 +283,18 @@ textarea:focus, input:focus, select:focus, button:focus{
 }
 
 .dashboard-section{
-  border: 1px solid gray;
-  margin: 0.5em 0em;;
-  padding: 3%;
-  background-color: #eee;
+  /*border: 1px solid gray;*/
+  /*margin: 0.5em 0em;;*/
+  /*padding: 3%;*/
+  /*background-color: #eee;*/
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 90%;
+  margin: auto;
+}
+
+
+.myListings h4 {
+  margin: 1em 4% 1em 4%;
 }
 
 /* --- DAHSBOARD - PROFILE --- */
