@@ -9,6 +9,7 @@ class ItemListing extends React.Component {
     this.props.dispatch(fetchLenderById(this.props.item.owner_id))
   }
 
+
   render () {
     return (
       <div className='ItemListing'>
@@ -30,7 +31,7 @@ class ItemListing extends React.Component {
           </p>
           <Router>
             <Link to='/dashboard'>
-              <input type='submit' value='Request Item' />
+              <input type='submit' className="itemListingSubmit" value='Request Item' />
             </Link>
           </Router>
         </form>

@@ -90,12 +90,13 @@ textarea:focus, input:focus, select:focus, button:focus{
 .navigation-menu-container{
   border-bottom: 1px solid 0 0 0 0.5;
   position: absolute;
-  width: 100%;
+  width: 60%;
 }
 
 .navigation-item{
   padding: 1em;
   border-bottom: 1px solid black;
+  border-right: 1px solid black;
   background-color: #eee;
   color: #1492AB;
   font-weight: bold;
@@ -457,7 +458,7 @@ select {
 
 .requestForm input[type=submit] {
   margin-top: 1em;
-  background-color: #4CAF50;
+  background-color: #21d084;
   color: white;
   width: 90%;
   padding: 12px 20px;
@@ -466,6 +467,8 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+
 
 /* --- LOGIN ---- */
 
@@ -492,7 +495,7 @@ select {
 
 .login button {
   margin-top: 1em;
-  background-color: #4CAF50;
+  background-color: #21D084;
   color: white;
   width: 90%;
   padding: 12px 20px;
@@ -514,6 +517,10 @@ select {
   text-decoration: underline;
   color: purple;
   padding-bottom: 3em;
+}
+
+.itemListingSubmit {
+  background-color: #21D084;
 }
 
 /* --- REGISTER ---- */
@@ -540,7 +547,7 @@ select {
 
 .register input[type=submit] {
   margin-top: 1em;
-  background-color: #4CAF50;
+  background-color: #21D084;
   color: white
 }
 
@@ -568,7 +575,7 @@ select {
 
 .lenderForm input[type=submit] {
   margin-top: 1em;
-  background-color: #4CAF50;
+  background-color: #21d084;
   color: white
 }
 
