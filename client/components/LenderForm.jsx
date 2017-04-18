@@ -8,6 +8,7 @@ import request from 'superagent';
 // -------
 
 import { getNewItem } from '../api'
+import { listNewItem } from '../actions'
 
 // -------
 const CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy'
@@ -59,12 +60,12 @@ class LenderForm extends React.Component {
         <div className="lenderForm">
 
           <h1>List An Item</h1>
-            <form method="post" onSubmit={ newItem } >
+            <form method="post" onSubmit={ (e) => { newItem(e, this.props)} } >
               <label>Title</label><br /><input type="text" name="item_name" /><br />
               <label>Category</label><br /><input type="text" name="category" /><br />
               <label>Description</label><br /><input type="text" name="description" /><br />
               <label>Location</label><br /><input type="text" name="location" /><br />
-              <label>Image Upload</label><br /><input type="text" name="image_url" readonly="readonly" value={this.state.uploadedFileCloudinaryUrl} /><br />
+              <label>Image Upload</label><br /><input type="hidden" name="image_url" value={this.state.uploadedFileCloudinaryUrl} /><br />
 
             <div className="imageButtonAndDisplay">
                 <Dropzone className="dropzone"
@@ -88,7 +89,7 @@ class LenderForm extends React.Component {
                   </div>
                 </div>
 
-              <input type="text" value={user_id} name="user_id" readonly="readonly" />
+              <input type="hidden" value={user_id} name="user_id" />
               <input className="createListing" type="submit" value="Create Listing" />
             </form>
         </div>
@@ -100,7 +101,8 @@ class LenderForm extends React.Component {
 
 
 
-function newItem(event) {
+function newItem(event, props) {
+  console.log(props);
   event.preventDefault(event)
   var newItemData = {
     item_name: event.target.elements.item_name.value,
@@ -112,12 +114,19 @@ function newItem(event) {
     available: true
   }
   getNewItem(testCallback, newItemData)
+  props.dispatch(listNewItem(newItemData))
+  props.history.push('/dashboard')
 }
 
 function testCallback (err, status) {
+<<<<<<< HEAD
+=======
+ console.log(status)
+>>>>>>> 9277412dfd2819ab048e9d5eff820a0ee44e1689
 }
 
 function mapStateToProps(state){
+  console.log(state);
   return {
     user_id: state.loggedInUserDetails.user_id
   }

@@ -23910,6 +23910,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
 	var allListings = function allListings() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
@@ -23917,6 +23920,10 @@
 	  switch (action.type) {
 	    case "GET_LISTINGS":
 	      return action.initialListings;
+	    case 'LIST_NEW_ITEM':
+	      var newState = [].concat(_toConsumableArray(state));
+	      newState.push(action.newItemData);
+	      return newState;
 	
 	    default:
 	      return state;
@@ -27939,7 +27946,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
+	exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
 	
 	var _superagent = __webpack_require__(267);
 	
@@ -28106,6 +28113,13 @@
 	      }
 	      dispatch(borrowerDetails(res.body));
 	    });
+	  };
+	};
+	
+	var listNewItem = exports.listNewItem = function listNewItem(newItemData) {
+	  return {
+	    type: 'LIST_NEW_ITEM',
+	    newItemData: newItemData
 	  };
 	};
 
@@ -38388,6 +38402,8 @@
 	
 	var _api = __webpack_require__(336);
 	
+	var _actions = __webpack_require__(266);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38452,6 +38468,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this3 = this;
+	
 	      var user_id = this.props.user_id;
 	
 	      return _react2.default.createElement(
@@ -38464,7 +38482,9 @@
 	        ),
 	        _react2.default.createElement(
 	          'form',
-	          { method: 'post', onSubmit: newItem },
+	          { method: 'post', onSubmit: function onSubmit(e) {
+	              newItem(e, _this3.props);
+	            } },
 	          _react2.default.createElement(
 	            'label',
 	            null,
@@ -38503,7 +38523,7 @@
 	            'Image Upload'
 	          ),
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('input', { type: 'text', name: 'image_url', readonly: 'readonly', value: this.state.uploadedFileCloudinaryUrl }),
+	          _react2.default.createElement('input', { type: 'hidden', name: 'image_url', value: this.state.uploadedFileCloudinaryUrl }),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'div',
@@ -38530,7 +38550,7 @@
 	              )
 	            )
 	          ),
-	          _react2.default.createElement('input', { type: 'text', value: user_id, name: 'user_id', readonly: 'readonly' }),
+	          _react2.default.createElement('input', { type: 'hidden', value: user_id, name: 'user_id' }),
 	          _react2.default.createElement('input', { className: 'createListing', type: 'submit', value: 'Create Listing' })
 	        )
 	      );
@@ -38543,7 +38563,8 @@
 	// ---
 	
 	
-	function newItem(event) {
+	function newItem(event, props) {
+	  console.log(props);
 	  event.preventDefault(event);
 	  var newItemData = {
 	    item_name: event.target.elements.item_name.value,
@@ -38555,11 +38576,14 @@
 	    available: true
 	  };
 	  (0, _api.getNewItem)(testCallback, newItemData);
+	  props.dispatch((0, _actions.listNewItem)(newItemData));
+	  props.history.push('/dashboard');
 	}
 	
 	function testCallback(err, status) {}
 	
 	function mapStateToProps(state) {
+	  console.log(state);
 	  return {
 	    user_id: state.loggedInUserDetails.user_id
 	  };
