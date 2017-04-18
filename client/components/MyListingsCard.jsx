@@ -1,31 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import { displaySingleItem } from '../actions'
 
-function MyListingsCard (props) {
-  return (
-    <div className='card-wrapper'>
-      <div className='card-container'>
-        <img className='card-image' src={props.image_url} />
-
-        <div className='card-details-container'>
-          <p className='card-heading'>{props.item_name}</p>
-          <p className='card-details'>
-            {props.description}
-          </p>
-        </div>
+let MyListingsCard = (props) => (
+  <div className='card-wrapper'>
+    <div className='card-container'>
+      <img className='card-image' src={props.image_url} />
+      <div className='card-details-container'>
+        <p className='card-heading'>{props.item_name}</p>
+        <p className='card-details'>
+          {props.description}
+        </p>
       </div>
-
-      <Link to="/MyListItem">
-        <div className='card-button-container'>
-          <button className='card-button' onClick={() => props.dispatch(displaySingleItem(props))}>View</button>
-        </div>
-      </Link>
-
     </div>
-  )
-}
+    <Link to='/list-item' className='cardLink'>
+      <div className='card-button-container'>
+        <button className='card-button' onClick={() => props.dispatch(displaySingleItem(props))}>View</button>
+      </div>
+    </Link>
+  </div>
+)
 
 function mapStateToProps (state) {
   return {

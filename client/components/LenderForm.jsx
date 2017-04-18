@@ -5,8 +5,7 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent'
 
 import { getNewItem } from '../api'
-import { listNewItem } from '../actions'
-import { updateListing } from '../actions'
+import { listNewItem, updateListing } from '../actions'
 
 const CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload'
@@ -109,7 +108,6 @@ function newItem (event, props) {
 }
 
 function testCallback (err, status) {
- console.log(err)
   if (err) {
     console.log(err)
   } else {
@@ -119,8 +117,7 @@ function testCallback (err, status) {
 
 function mapStateToProps (state) {
   return {
-    user_id: state.loggedInUserDetails.user_id,
-
+    user_id: state.loggedInUserDetails.user_id
   }
 }
 

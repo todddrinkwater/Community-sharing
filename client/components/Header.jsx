@@ -14,16 +14,16 @@ let Header = (props) => (
       </div>
       <Router>
         <div>
-          <Link to='/'>
             <div className='title-container'>
+              <Link className="navLink" to='/'>
               <p className='site-title'>Community Sharing</p>
+            </Link>
             </div>
-          </Link>
-          <Link to='/login'>
             <div className='login-button-container'>
+              <Link className="navLink" to='/login'>
               <i className='fa fa-user' aria-hidden='true' />
+            </Link>
             </div>
-          </Link>
         </div>
       </Router>
     </div>

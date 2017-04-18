@@ -9,6 +9,7 @@ class ItemListing extends React.Component {
     this.props.dispatch(fetchLenderById(this.props.item.owner_id))
   }
 
+
   render () {
     return (
       <div className='ItemListing'>
