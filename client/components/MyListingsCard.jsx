@@ -17,7 +17,7 @@ function MyListingsCard (props) {
         </div>
       </div>
 
-      <Link to='/list-item' className='cardLink'>
+      <Link to="/MyListItem">
         <div className='card-button-container'>
           <button className='card-button' onClick={() => props.dispatch(displaySingleItem(props))}>View</button>
         </div>
