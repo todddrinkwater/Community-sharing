@@ -14,7 +14,6 @@ import OrderMyBorroedItems from './OrderMyBorroedItems'
 import TermsConditions from './TermsConditions'
 
 function App (props) {
-  console.log(props);
   return (
     <div className='app-container'>
       <Header />
