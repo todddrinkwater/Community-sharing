@@ -30,7 +30,7 @@ function App (props) {
           <Route path='/lender-form' component={LenderForm} />
           <Route path='/OrderMyBorroedItems' component={OrderMyBorroedItems} />
           <Route path='/TermsConditions' component={TermsConditions} />
-          <Route path='/MyListItem' component={MyListItem} />
+          <Route path='/mylistitem' component={MyListItem} />
         </div>
       </Router>
     </div>

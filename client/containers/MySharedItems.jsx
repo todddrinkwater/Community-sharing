@@ -12,21 +12,21 @@ class MySharedItems extends React.Component {
 
   render () {
     return (
-      <div className="dashboard-container">
+      <div className='dashboard-container'>
         <h4>My Shared Items</h4>
         <div className='dashboard-section'>
-          { this.props.loanedItems.map( (loanedItem) => {
-             return (
-               <SharedCard
-                 key={loanedItem.loan_id}
-                 {...loanedItem}
-                 loggedInFname={this.props.loggedInUser.fname}
-                 loggedInLname={this.props.loggedInUser.lname}
-                 loggedInEmail={this.props.loggedInUser.email}
-                 loggedInPhone={this.props.loggedInUser.phone}
-                 loggedInImage={this.props.loggedInUser.user_image_url}
-                 dispatch={this.props.dispatch} />
-              )
+          { this.props.loanedItems.map((loanedItem) => {
+            return (
+              <SharedCard
+                key={loanedItem.loan_id}
+                {...loanedItem}
+                loggedInFname={this.props.loggedInUser.fname}
+                loggedInLname={this.props.loggedInUser.lname}
+                loggedInEmail={this.props.loggedInUser.email}
+                loggedInPhone={this.props.loggedInUser.phone}
+                loggedInImage={this.props.loggedInUser.user_image_url}
+                dispatch={this.props.dispatch} />
+            )
           })}
         </div>
       </div>

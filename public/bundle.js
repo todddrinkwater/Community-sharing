@@ -24102,7 +24102,7 @@
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/lender-form', component: _LenderForm2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/OrderMyBorroedItems', component: _OrderMyBorroedItems2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/TermsConditions', component: _TermsConditions2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/MyListItem', component: _MyListItem2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/mylistitem', component: _MyListItem2.default })
 	      )
 	    )
 	  );
@@ -32085,7 +32085,7 @@
 	    ),
 	    _react2.default.createElement(
 	      _reactRouterDom.Link,
-	      { to: '/list-item', className: 'cardLink' },
+	      { to: '/mylistitem', className: 'cardLink' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'card-button-container' },
@@ -38656,8 +38656,6 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _reactRouterDom = __webpack_require__(227);
-	
 	var _actions = __webpack_require__(265);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -38668,16 +38666,16 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var ItemListing = function (_React$Component) {
-	  _inherits(ItemListing, _React$Component);
+	var MyListItem = function (_React$Component) {
+	  _inherits(MyListItem, _React$Component);
 	
-	  function ItemListing() {
-	    _classCallCheck(this, ItemListing);
+	  function MyListItem() {
+	    _classCallCheck(this, MyListItem);
 	
-	    return _possibleConstructorReturn(this, (ItemListing.__proto__ || Object.getPrototypeOf(ItemListing)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (MyListItem.__proto__ || Object.getPrototypeOf(MyListItem)).apply(this, arguments));
 	  }
 	
-	  _createClass(ItemListing, [{
+	  _createClass(MyListItem, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
@@ -38724,7 +38722,7 @@
 	    }
 	  }]);
 	
-	  return ItemListing;
+	  return MyListItem;
 	}(_react2.default.Component);
 	
 	function mapStateToProps(state) {
@@ -38735,7 +38733,7 @@
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ItemListing);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyListItem);
 
 /***/ })
 /******/ ]);
