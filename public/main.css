@@ -1,3 +1,7 @@
+/** {
+  border: 1px solid black;
+}*/
+
 body {
   font-size: 100%;
   padding: 0px;
@@ -53,7 +57,7 @@ textarea:focus, input:focus, select:focus, button:focus{
   text-align: center;
   display: flex;
   line-height: 0.8em;
-  background-color: #1492AB;
+  background-color: #21D084;
   color: white;
 }
 
@@ -80,10 +84,11 @@ textarea:focus, input:focus, select:focus, button:focus{
   height: 100%;
 }
 
+
 /* --- NAVIGATION-MENU --- */
 
 .navigation-menu-container{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid 0 0 0 0.5;
   position: absolute;
   width: 100%;
 }
@@ -93,6 +98,7 @@ textarea:focus, input:focus, select:focus, button:focus{
   border-bottom: 1px solid black;
   background-color: #eee;
   color: #1492AB;
+  font-weight: bold;
 }
 
 /* --- HOMEPAGE --- */
@@ -243,6 +249,7 @@ textarea:focus, input:focus, select:focus, button:focus{
   margin: 0.5em auto;
   border: 1px solid black;
   background-color: #eee;
+  overflow: hidden;
 }
 
 .listItemImage {
@@ -266,41 +273,47 @@ textarea:focus, input:focus, select:focus, button:focus{
   border: 1px solid black;
   text-align: center;
   flex-grow: 1;
-  padding-top: 0.5em;
+  padding-top: 0.6em;
 }
 
 .dashboard-menu-container{
   width: 100%;
-  height: 2em;
+  height: 2.5em;
   display: flex;
 }
 
 .dashboard-section{
   border: 1px solid gray;
   margin: 0.5em 0em;;
-  padding: 1em 0.5em;
+  padding: 3%;
   background-color: #eee;
 }
 
 /* --- DAHSBOARD - PROFILE --- */
 
-.profile-continer{
+.profile-container{
   width: 80%;
-  margin: 2em auto;
+  margin: auto;
 }
 
 .profile-details-container{
-  margin-left: 2em;
+  margin: auto;
+}
+
+.profile-details-container p {
+  text-align: center;
+  font-size: 1.4em;
 }
 
 .profile-image{
-  height: 7em;
+  height: 100%;
   width: 100%;
+  border-radius: 100%;
 }
 
 .profile-image-container{
-  width: 7em;
-  margin: 0px auto;
+  width: 70%;
+  margin: 2em auto;
 }
 
 /* --- ORDER --- */
@@ -313,17 +326,23 @@ textarea:focus, input:focus, select:focus, button:focus{
 /* --- IM BORROWING CARD --- */
 
 .card-button{
-  border: 1px solid black;
+  border: 2.7px solid #343477;
   border-radius: 0.7em;
-  font-size: 0.7em;
-  width: 100%;
-  height: 2em;
+  font-size: 0.8em;
+  width: 8em;
+  height: 2.5em;
+  background-color: #ffffff;
+  color: white;
+  font-weight: bold;
+  color: #161631;
 }
 
 .card-button-container{
   margin: 0.5em auto;
   width: 5em;
 }
+
+
 
 .card-container{
   display: flex;
@@ -437,10 +456,31 @@ textarea:focus, input:focus, select:focus, button:focus{
   box-sizing: border-box;
 }
 
-.login input[type=submit] {
+
+.login button {
   margin-top: 1em;
   background-color: #4CAF50;
-  color: white
+  color: white;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0.5em auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.LoginGreeting {
+  margin: 1em auto;
+}
+
+.login img {
+  margin-top: 2em;
+}
+
+.registerLink {
+  text-decoration: underline;
+  color: purple;
+  padding-bottom: 3em;
 }
 
 /* --- REGISTER ---- */
