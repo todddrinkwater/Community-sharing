@@ -202,3 +202,18 @@ export const updateListing = () => {
    })
   }
 }
+
+export const borrowRequest = (borrowRequestDetails) => {
+  return (dispatch) => {
+    request
+    .post(urlPath + /loanRequest/)
+    .send(borrowRequestDetails)
+    .end((err, res) => {
+      if (err) {
+        console.error('borrowRequest ' + err.message)
+        return
+      }
+      dispatch(fetchBorrowedItems(borrowRequestDetails.borrowers_id))
+    })
+  }
+}
