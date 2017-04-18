@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { fetchUser } from '../actions'
 
 let Login = (props) => (
-
   <div className='login'>
     <img src='http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' />
     <div className='LoginGreeting'>
