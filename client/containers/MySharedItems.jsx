@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { fetchLoanedItems } from '../actions'
+import { fetchBorrowerById } from '../actions'
 
 import LendedItems from '../components/LendedItems'
 
@@ -14,7 +15,7 @@ class MySharedItems extends React.Component {
   render() {
     return (
       <div className='dashboard-section'>
-        MY LENDED ITEMS
+        MY SHARED ITEMS
         { this.props.loanedItems.map( (loanedItem) => {
            return (
              <LendedItems

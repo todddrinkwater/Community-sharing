@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { fetchUser } from '../actions'
 
 let Login = (props) => (
-
   <div className="login">
     <img src="http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png" />
     <div className="LoginGreeting">
@@ -27,15 +26,13 @@ let Login = (props) => (
 
 function mapStateToProps(state){
   return {
-    dispatch: state.dispatch,
+    dispatch: state.dispatch
   }
 }
-
-export default connect(mapStateToProps)(Login)
-
-
 
 function submitUser(ev, props){
   ev.preventDefault(ev)
   props.dispatch(fetchUser(document.getElementById('email-input').value))
 }
+
+export default connect(mapStateToProps)(Login)

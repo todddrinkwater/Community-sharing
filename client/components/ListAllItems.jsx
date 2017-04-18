@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 import { displaySingleItem } from '../actions'
 
 const ListAllItems = (props) => (
@@ -14,9 +15,10 @@ const ListAllItems = (props) => (
         <img className="listItemImage" src={props.image_url} />
       </div>
     </Link>
-
-    <p> {props.description}
-    </p>
+    
+    <div className='list-item-description-container'>
+      <p> {props.description} </p>
+    </div>
 
   </div>
 )

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { HashRouter as Router, Link } from 'react-router-dom'
 
 import { menuNavigation } from '../actions'
 
@@ -11,9 +12,13 @@ let Navbar = (props) => (
       <div className='hambuger-container' onClick={ () => openMenu(props) }>
         <i className="fa fa-bars" aria-hidden="true"></i>
       </div>
-      <div className='title-container'>
-        <p className='site-title'>Community Sharing</p>
-      </div>
+      <Router>
+        <Link to="/">
+          <div className='title-container'>
+            <p className='site-title'>Community Sharing</p>
+          </div>
+        </Link>
+      </Router>
       <div className='login-button-container'>
         <i className="fa fa-user" aria-hidden="true"></i>
       </div>

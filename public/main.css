@@ -2,12 +2,10 @@ body {
   font-size: 100%;
   padding: 0px;
   margin: 0px;
-  /*margin-left: auto;
-  margin-right: auto;
-  width: 90%;*/
+  font-family: 'Raleway', sans-serif;
 }
 
-ul{
+ul {
   list-style: none;
   padding: 0px;
   margin: 0px;
@@ -18,7 +16,16 @@ label {
   padding-top: 5em;
 }
 
-/* --- NAVBAR --- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+textarea:focus, input:focus, select:focus{
+    outline: none;
+}
+
+/* --- HEADER --- */
 
 .fa-bars{
   font-size: 3em !important;
@@ -33,28 +40,31 @@ label {
 .hambuger-container{
   width: 5em;
   height: 100%;
-  border: 1px solid black;
   text-align: center;
   float: left;
   box-sizing: border-box;
+  font-size: 0.7em;
+  padding-top: 0.6em;
 }
 
 .header-container{
   width: 100%;
-  border: 1px solid black;
   height: 3em;
   text-align: center;
   display: flex;
   line-height: 0.8em;
+  background-color: #1492AB;
+  color: white;
 }
 
 .login-button-container{
   width: 5em;
   height: 100%;
-  border: 1px solid black;
   text-align: center;
   float: left;
   box-sizing: border-box;
+  font-size: 0.7em;
+  padding-top: 0.6em;
 }
 
 .site-title{
@@ -70,18 +80,19 @@ label {
   height: 100%;
 }
 
-/* --- NAVBAR-MENU --- */
+/* --- NAVIGATION-MENU --- */
 
 .navigation-menu-container{
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   position: absolute;
   width: 100%;
 }
 
 .navigation-item{
   padding: 1em;
-  border: 1px solid black;
-  background-color: white;
+  border-bottom: 1px solid black;
+  background-color: #eee;
+  color: #1492AB;
 }
 
 /* --- HOMEPAGE --- */
@@ -122,9 +133,45 @@ label {
 
 /* --- SEARCH-BAR --- */
 
+.search-bar-container{
+  margin: 0px auto;
+  display: flex;
+  height: 2em;
+  padding: 0.5em;
+}
+
+.search-button{
+  border: 1px solid black;
+  flex-grow: 1;
+  margin: 0px;
+  padding: 0px;
+  width: 1.5em;
+  margin-left: 0.5em;
+  border-radius: 0.4em;
+  font-size: 0.8em;
+}
+
+.search-label{
+  flex-grow: 1;
+  margin: 0px;
+  padding: 0.5em 0em 0em 0.5em;
+  width: 1.5em;
+}
+
  #search-input {
-    width: 100%;
-    font-size: 1.5em;
+  flex-grow: 1;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1em;
+  border: 1px solid black;
+  border-radius: 0.4em;
+}
+
+.Category{
+  border: 1px solid black;
+  width: 50%;
+  margin: 0px auto;
+  border-radius: 0.4em;
 }
 
 .Category-ul {
@@ -144,19 +191,31 @@ label {
 .listItemHeader h2 {
   padding: 0;
   margin: 3% 0 0 0;
+  text-align: center;
 }
 
 .listItemHeader h3 {
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
-.ListItem {
-  width: 100%;
+.listItem {
+  width: 90%;
+  margin: 0.5em auto;
+  border: 1px solid black;
+  background-color: #eee;
 }
 
 .listItemImage {
-  width: 100%
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.list-item-description-container{
+  width: 100%;
+  padding: 0.5em;
 }
 
 /* --- DAHSBOARD - SHARING --- */
@@ -182,6 +241,7 @@ label {
   border: 1px solid gray;
   margin: 0.5em 0em;;
   padding: 1em 0.5em;
+  background-color: #eee;
 }
 
 /* --- DAHSBOARD - PROFILE --- */
@@ -257,6 +317,7 @@ label {
 
 .card-wrapper{
   border: 1px solid black;
+  background-color: white;
 }
 
 .shared-card-details{
@@ -425,9 +486,9 @@ label {
 }
 
 .lenderForm img {
-    width: 80%;
-    margin: 0 auto 0;
-    display: block;
+  width: 80%;
+  margin: 0 auto 0;
+  display: block;
 }
 .imageButtonAndDisplay {
   display: flex;

@@ -11,6 +11,7 @@ import Register from './Register'
 import Login from './Login'
 import LendedOrderDetails from './LendedOrderDetails'
 import BorrowedOrderDetails from './BorrowedOrderDetails'
+import TermsConditions from './TermsConditions'
 
 function App (props) {
   return (
@@ -27,6 +28,7 @@ function App (props) {
           <Route path='/login' component={Login} />
           <Route path='/l-order' component={LendedOrderDetails} />
           <Route path='/b-order' component={BorrowedOrderDetails} />
+          <Route path='/Terms&Conditions' component={TermsConditions} />
         </div>
       </Router>
     </div>
