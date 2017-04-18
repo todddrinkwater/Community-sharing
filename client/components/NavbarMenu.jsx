@@ -4,7 +4,7 @@ import { HashRouter as Router, Link } from 'react-router-dom'
 
 import { menuNavigation } from '../actions'
 
-let NavigationMenu = (props) => (
+let NavbarMenu = (props) => (
   <div className='navigation-menu-container'>
     <Router>
       <ul>
@@ -28,4 +28,4 @@ function openMenu (props) {
   props.dispatch(menuNavigation())
 }
 
-export default connect(mapStateToProps)(NavigationMenu)
+export default connect(mapStateToProps)(NavbarMenu)

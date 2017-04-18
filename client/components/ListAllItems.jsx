@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { displaySingleItem } from '../actions'
 
-let ListItem = (props) => (
+let ListAllItems = (props) => (
   <div className='listItem'>
     <div className='listItemHeader'>
       <h2>{props.item_name}</h2>
@@ -20,4 +20,4 @@ let ListItem = (props) => (
   </div>
 )
 
-export default ListItem
+export default ListAllItems

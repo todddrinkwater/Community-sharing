@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { fetchBorrowedItems } from '../actions'
 
-import ImBorrowingCard from '../components/ImBorrowingCard'
+import BorrowedItemsCard from '../components/BorrowedItemsCard'
 
 class MyBorrowedItems extends React.Component {
   componentDidMount () {
@@ -17,7 +17,7 @@ class MyBorrowedItems extends React.Component {
 
           { this.props.borrowedItemsList.map((borrowedItem) => {
             return (
-              <ImBorrowingCard key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
+              <BorrowedItemsCard key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
             )
           })}
         </div>

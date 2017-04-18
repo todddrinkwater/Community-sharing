@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { displaySingleItem } from '../actions'
 
-let MyListingsCard = (props) => (
+let MyAvailableItemsCard = (props) => (
   <div className='card-wrapper'>
     <div className='card-container'>
       <img className='card-image' src={props.image_url} />
@@ -15,7 +15,7 @@ let MyListingsCard = (props) => (
         </p>
       </div>
     </div>
-    <Link to='/mylistitem' className='cardLink'>
+    <Link to='/my-item-details' className='cardLink'>
       <div className='card-button-container'>
         <button className='card-button' onClick={() => props.dispatch(displaySingleItem(props))}>View</button>
       </div>
@@ -30,4 +30,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(MyListingsCard)
+export default connect(mapStateToProps)(MyAvailableItemsCard)

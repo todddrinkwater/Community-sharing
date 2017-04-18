@@ -1,7 +1,3 @@
-/** {
-  border: 1px solid black;
-}*/
-
 body {
   font-size: 100%;
   padding: 0px;
@@ -29,7 +25,7 @@ textarea:focus, input:focus, select:focus, button:focus{
     outline: none;
 }
 
-/* --- HEADER --- */
+/* --- NAVBAR --- */
 
 .fa-bars{
   font-size: 3em !important;
@@ -89,7 +85,7 @@ textarea:focus, input:focus, select:focus, button:focus{
 }
 
 
-/* --- NAVIGATION-MENU --- */
+/* --- NAVBAR-MENU --- */
 
 .navigation-menu-container{
   border-bottom: 1px solid 0 0 0 0.5;
@@ -112,7 +108,7 @@ login-button-container {
   padding: 0;
 }
 
-/* --- HOMEPAGE --- */
+/* --- HOME --- */
 
 .welcome-image{
   width: 100%;
@@ -226,7 +222,6 @@ login-button-container {
     width: 60%;
 }
 
-
 .Category{
   border: 1px solid black;
   width: 50%;
@@ -255,7 +250,7 @@ select {
   background-color: #f1f1f1
 }
 
-/* --- List Item Component in Listing Page --- */
+/* --- LIST ALL ITEMS --- */
 
 .listItemHeader h2 {
   padding: 0;
@@ -309,10 +304,6 @@ select {
 }
 
 .dashboard-section{
-  /*border: 1px solid gray;*/
-  /*margin: 0.5em 0em;;*/
-  /*padding: 3%;*/
-  /*background-color: #eee;*/
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 90%;
   margin: auto;
@@ -350,14 +341,14 @@ select {
   margin: 2em auto;
 }
 
-/* --- ORDER --- */
+/* --- MY BORROWED DETAILS --- */
 
 .Order {
   width: 70%;
   margin: auto;
 }
 
-/* --- IM BORROWING CARD --- */
+/* --- BORROWED ITEMS CARD --- */
 
 .card-button{
   border: 2.7px solid #1B2B37;
@@ -375,8 +366,6 @@ select {
   margin: 0.5em auto;
   width: 5em;
 }
-
-
 
 .card-container{
   display: flex;
@@ -422,33 +411,33 @@ select {
   font-size: 0.9em;
 }
 
-/* --- ITEM LISTING --- */
+/* --- SINGLE ITEM --- */
 
 .itemTitle {
   text-align: center
 }
 
-.itemListingImage {
+.singleItemImage {
   width: 100%;
 }
 
-.itemListingUserDetails{
+.singleItemUserDetails{
   margin: auto;
   text-align: center;
 }
 
-.itemListingUserDetails img {
+.singleItemUserDetails img {
   margin: auto;
   display: block;
 }
 
-.itemListingUserPhoto {
+.singleItemUserPhoto {
   width: 80%;
   align: center;
   border-radius: 100%;
 }
 
-.itemListingUserDetails .input[type="submit"]{
+.singleItemUserDetails .input[type="submit"]{
   margin: 5%;
 }
 
@@ -467,8 +456,6 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
-
 
 /* --- LOGIN ---- */
 
@@ -491,7 +478,6 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 
 .login button {
   margin-top: 1em;
