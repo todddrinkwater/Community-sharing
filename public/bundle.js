@@ -31732,7 +31732,7 @@
 	            } },
 	          _react2.default.createElement(
 	            _reactRouterDom.Link,
-	            { to: '/list' },
+	            { to: '/list-all' },
 	            'Borrow an item'
 	          )
 	        ),
@@ -38010,13 +38010,14 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
+	      window.scrollTo(0, 0);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'SingleItem' },
+	        { className: 'ItemListing' },
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -38025,7 +38026,7 @@
 	            { className: 'itemTitle' },
 	            this.props.item.item_name
 	          ),
-	          _react2.default.createElement('img', { className: 'singleItemImage', src: this.props.item.image_url }),
+	          _react2.default.createElement('img', { className: 'itemListingImage', src: this.props.item.image_url }),
 	          _react2.default.createElement(
 	            'p',
 	            null,
@@ -38034,8 +38035,8 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'singleItemUserDetails' },
-	          _react2.default.createElement('img', { className: 'singleItemUserPhoto', src: this.props.lenderDetails.user_image_url }),
+	          { className: 'itemListingUserDetails' },
+	          _react2.default.createElement('img', { className: 'itemListingUserPhoto', src: this.props.lenderDetails.user_image_url }),
 	          _react2.default.createElement(
 	            'h2',
 	            null,
@@ -38345,6 +38346,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
+	      window.scrollTo(0, 0);
 	    }
 	  }, {
 	    key: 'render',

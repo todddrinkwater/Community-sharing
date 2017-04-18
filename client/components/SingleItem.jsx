@@ -12,16 +12,16 @@ class SingleItem extends React.Component {
 
   render () {
     return (
-      <div className='SingleItem'>
+      <div className='ItemListing'>
         <div>
           <h1 className='itemTitle'>{this.props.item.item_name}</h1>
-          <img className='singleItemImage' src={this.props.item.image_url} />
+          <img className='itemListingImage' src={this.props.item.image_url} />
           <p>
             {this.props.item.description}
           </p>
         </div>
-        <div className='singleItemUserDetails'>
-          <img className='singleItemUserPhoto' src={this.props.lenderDetails.user_image_url} />
+        <div className='itemListingUserDetails'>
+          <img className='itemListingUserPhoto' src={this.props.lenderDetails.user_image_url} />
           <h2>{this.props.lenderDetails.fname} {this.props.lenderDetails.lname}</h2>
           <h3>{this.props.item.location}</h3>
         </div>
