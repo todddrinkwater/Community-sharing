@@ -2,10 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter as Router, Link } from 'react-router-dom'
 
-import { fetchLenderById} from '../actions'
+import { fetchLenderById } from '../actions'
 
-
-class ItemListing extends React.Component {
+class SingleItem extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchLenderById(this.props.item.owner_id))
@@ -49,4 +48,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(ItemListing)
+export default connect(mapStateToProps)(SingleItem)

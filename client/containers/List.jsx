@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import ListItem from '../components/ListItem'
+import ListAllItems from '../components/ListAllItems'
+
 import { initialListings } from '../actions'
 import { filteredListings } from '../actions'
 
@@ -22,10 +23,9 @@ function List(props) {
         </select>
       </div>
 
-
       {props.filteredListings.map( (listItem) => {
          return (
-           <ListItem key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
+           <ListAllItems key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
           )
       })}
 

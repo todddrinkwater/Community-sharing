@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { displaySingleItem } from '../actions'
 
-function ListItem (props) {
-  return (
+const ListAllItems = (props) => (
   <div className="listItem">
     <div className="listItemHeader">
       <h2>{props.item_name}</h2>
@@ -20,6 +19,6 @@ function ListItem (props) {
     </p>
 
   </div>
-)}
+)
 
-export default ListItem
+export default ListAllItems

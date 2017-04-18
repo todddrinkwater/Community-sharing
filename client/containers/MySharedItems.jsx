@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { fetchLoanedItems } from '../actions'
 
-import SharedCard from '../components/SharedCard'
+import LendedItems from '../components/LendedItems'
 
 class MySharedItems extends React.Component {
 
@@ -14,10 +14,10 @@ class MySharedItems extends React.Component {
   render() {
     return (
       <div className='dashboard-section'>
-        MY SHARED ITEMS
+        MY LENDED ITEMS
         { this.props.loanedItems.map( (loanedItem) => {
            return (
-             <SharedCard
+             <LendedItems
                key={loanedItem.loan_id}
                {...loanedItem}
                loggedInFname={this.props.loggedInUser.fname}

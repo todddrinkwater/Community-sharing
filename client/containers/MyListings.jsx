@@ -1,17 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import MyListingsCard from '../components/MyListingsCard'
+import AvailableItems from '../components/AvailableItems'
 
 function MyListings (props) {
 
   return (
     <div className='dashboard-section'>
-      MY LISTINGS
+      MY AVAILABLE ITEMS
       { props.allItems.map( (item) => {
         if (item.owner_id == props.loggedInUser.user_id){
           return (
-            <MyListingsCard key={item.item_id} {...item}/>
+            <AvailableItems key={item.item_id} {...item}/>
           )}
         })}
     </div>

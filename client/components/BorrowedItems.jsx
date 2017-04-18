@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { fetchSingleItem } from '../actions'
 
-function ImBorrowingCard (props) {
+function BorrowedItems (props) {
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
@@ -13,7 +13,7 @@ function ImBorrowingCard (props) {
         </div>
       </div>
       <div className='card-button-container'>
-        <Link to="/OrderMyBorroedItems">
+        <Link to="/b-order">
         <button className='card-button' onClick={ () => props.dispatch(fetchSingleItem(props.item_id))}>More</button>
       </Link>
       </div>
@@ -21,4 +21,4 @@ function ImBorrowingCard (props) {
   )
 }
 
-export default ImBorrowingCard
+export default BorrowedItems

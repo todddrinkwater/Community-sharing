@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 import { fetchSingleItem } from '../actions'
 import { fetchBorrowerById } from '../actions'
 
-function SharedCard (props) {
+function LendedItems (props) {
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
@@ -16,15 +17,15 @@ function SharedCard (props) {
         <img className='card-image' src={props.user_image_url}></img>
     </div>
     <div className='card-button-container'>
-      <Link to="order"><button className='card-button' onClick={ () => goToOrder(props)} >More</button></Link>
+      <Link to="/l-order"><button className='card-button' onClick={ () => goToOrder(props)} >More</button></Link>
     </div>
   </div>
   )
 }
 
-export default SharedCard
-
 function goToOrder(props){
   props.dispatch(fetchSingleItem(props.item_id))
   props.dispatch(fetchBorrowerById(props.borrowers_id))
 }
+
+export default LendedItems

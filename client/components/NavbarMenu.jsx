@@ -3,8 +3,7 @@ import { HashRouter as Router, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { menuNavigation } from '../actions'
 
-const NavigationMenu = (props) => (
-
+const NavbarMenu = (props) => (
   <div className='navigation-menu-container'>
     <Router>
       <ul>
@@ -24,8 +23,8 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(NavigationMenu)
-
 function openMenu(props) {
   props.dispatch(menuNavigation())
 }
+
+export default connect(mapStateToProps)(NavbarMenu)

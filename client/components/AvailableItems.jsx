@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { displaySingleItem } from '../actions'
 
 
-function MyListingsCard (props) {
+function AvailableItems (props) {
   return (
     <div className='card-wrapper'>
       <div className='card-container'>
@@ -35,4 +35,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(MyListingsCard)
+export default connect(mapStateToProps)(AvailableItems)

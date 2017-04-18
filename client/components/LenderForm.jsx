@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-
 // -------
+
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+
 // -------
 
 import { getNewItem } from '../api'
@@ -13,8 +14,6 @@ import { getNewItem } from '../api'
 const CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload'
 // -------
-
-
 
 class LenderForm extends React.Component {
   constructor(props) {
@@ -64,7 +63,7 @@ class LenderForm extends React.Component {
               <label>Category</label><br /><input type="text" name="category" /><br />
               <label>Description</label><br /><input type="text" name="description" /><br />
               <label>Location</label><br /><input type="text" name="location" /><br />
-              <label>Image Upload</label><br /><input type="text" name="image_url" readonly="readonly" value={this.state.uploadedFileCloudinaryUrl} /><br />
+              <label>Image Upload</label><br /><input type="text" name="image_url" readOnly="readOnly" value={this.state.uploadedFileCloudinaryUrl} /><br />
 
             <div className="imageButtonAndDisplay">
                 <Dropzone className="dropzone"
@@ -88,7 +87,7 @@ class LenderForm extends React.Component {
                   </div>
                 </div>
 
-              <input type="text" value={user_id} name="user_id" readonly="readonly" />
+              <input type="text" value={user_id} name="user_id" readOnly="readOnly" />
               <input className="createListing" type="submit" value="Create Listing" />
             </form>
         </div>

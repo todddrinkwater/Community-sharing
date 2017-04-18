@@ -18,7 +18,7 @@ label {
   padding-top: 5em;
 }
 
-/* --- HEADER --- */
+/* --- NAVBAR --- */
 
 .fa-bars{
   font-size: 3em !important;
@@ -70,7 +70,7 @@ label {
   height: 100%;
 }
 
-/* --- NAVIGATION-MENU --- */
+/* --- NAVBAR-MENU --- */
 
 .navigation-menu-container{
   border: 1px solid black;
