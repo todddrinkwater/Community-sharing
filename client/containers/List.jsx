@@ -7,19 +7,19 @@ import { filteredListings, searchForItem } from '../actions'
 function List (props) {
   return (
     <div className='List'>
-      <div className='search-bar-container'>
-        <label className='search-label'>Search</label>
-        <input id='search-input' type='text' name='search' />
-        <button className='search-button' onClick={() => search(props.dispatch)}>Search</button>
+      <div className="search-bar-container">
+        <i className="fa fa-search" aria-hidden="true"></i>
+        <input id="search-input" type="text" name="search" />
+        <button className='search-button' onClick={ () => search(props.dispatch) }>Search</button>
       </div>
 
-      <div className='Category'>
-        <select selected='All' name='category' onChange={(e) => changeEventHandler(e, props.dispatch, props.initialListings)}>
-          <option value='All'>All</option>
-          <option value='Tools'>Tools</option>
-          <option value='Musical Instruments'>Musical Instruments</option>
-          <option value='Sport and Recreation'>Sport and Recreation</option>
-          <option value='Other'>Other</option>
+      <div className="category-dropdown">
+        <select selected="All" name="category" onChange={ (e) => changeEventHandler(e, props.dispatch, props.initialListings) }>
+          <option value="All">All</option>
+          <option value="Tools">Tools</option>
+          <option value="Musical Instruments">Musical Instruments</option>
+          <option value="Sport and Recreation">Sport and Recreation</option>
+          <option value="Other">Other</option>
         </select>
       </div>
 

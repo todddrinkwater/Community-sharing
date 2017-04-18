@@ -27683,11 +27683,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'search-bar-container' },
-	      _react2.default.createElement(
-	        'label',
-	        { className: 'search-label' },
-	        'Search'
-	      ),
+	      _react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
 	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search' }),
 	      _react2.default.createElement(
 	        'button',
@@ -27699,7 +27695,7 @@
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'Category' },
+	      { className: 'category-dropdown' },
 	      _react2.default.createElement(
 	        'select',
 	        { selected: 'All', name: 'category', onChange: function onChange(e) {
@@ -32012,13 +32008,21 @@
 	function MyListings(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'dashboard-section' },
-	    'MY LISTINGS',
-	    props.allItems.map(function (item) {
-	      if (item.owner_id === props.loggedInUser.user_id) {
-	        return _react2.default.createElement(_MyListingsCard2.default, _extends({ key: item.item_id }, item));
-	      }
-	    })
+	    { className: 'dashboard-container' },
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'My Listings'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'dashboard-section' },
+	      props.allItems.map(function (item) {
+	        if (item.owner_id == props.loggedInUser.user_id) {
+	          return _react2.default.createElement(_MyListingsCard2.default, _extends({ key: item.item_id }, item));
+	        }
+	      })
+	    )
 	  );
 	}
 	
@@ -32158,11 +32162,19 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'dashboard-section' },
-	        'MY BORROWED ITEMS',
-	        this.props.borrowedItemsList.map(function (borrowedItem) {
-	          return _react2.default.createElement(_ImBorrowingCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this2.props.dispatch }));
-	        })
+	        { className: 'dashboard-container' },
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'My Borrowed Items'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'dashboard-section' },
+	          this.props.borrowedItemsList.map(function (borrowedItem) {
+	            return _react2.default.createElement(_ImBorrowingCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this2.props.dispatch }));
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -32298,19 +32310,27 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'dashboard-section' },
-	        'MY SHARED ITEMS',
-	        this.props.loanedItems.map(function (loanedItem) {
-	          return _react2.default.createElement(_SharedCard2.default, _extends({
-	            key: loanedItem.loan_id
-	          }, loanedItem, {
-	            loggedInFname: _this2.props.loggedInUser.fname,
-	            loggedInLname: _this2.props.loggedInUser.lname,
-	            loggedInEmail: _this2.props.loggedInUser.email,
-	            loggedInPhone: _this2.props.loggedInUser.phone,
-	            loggedInImage: _this2.props.loggedInUser.user_image_url,
-	            dispatch: _this2.props.dispatch }));
-	        })
+	        { className: 'dashboard-container' },
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'My Shared Items'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'dashboard-section' },
+	          this.props.loanedItems.map(function (loanedItem) {
+	            return _react2.default.createElement(_SharedCard2.default, _extends({
+	              key: loanedItem.loan_id
+	            }, loanedItem, {
+	              loggedInFname: _this2.props.loggedInUser.fname,
+	              loggedInLname: _this2.props.loggedInUser.lname,
+	              loggedInEmail: _this2.props.loggedInUser.email,
+	              loggedInPhone: _this2.props.loggedInUser.phone,
+	              loggedInImage: _this2.props.loggedInUser.user_image_url,
+	              dispatch: _this2.props.dispatch }));
+	          })
+	        )
 	      );
 	    }
 	  }]);
