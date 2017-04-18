@@ -10,12 +10,12 @@ function List(props) {
   return (
     <div className='List'>
       <div className="search-bar-container">
-        <label className='search-label'>Search</label>
+        <i className="fa fa-search" aria-hidden="true"></i>
         <input id="search-input" type="text" name="search" />
         <button className='search-button' onClick={ () => search(props.dispatch) }>Search</button>
       </div>
 
-      <div className="Category">
+      <div className="category-dropdown">
         <select selected="All" name="category" onChange={ (e) => changeEventHandler(e, props.dispatch, props.initialListings) }>
           <option value="All">All</option>
           <option value="Tools">Tools</option>

@@ -185,14 +185,17 @@ textarea:focus, input:focus, select:focus, button:focus{
 }
 
 .search-button{
-  border: 1px solid black;
-  flex-grow: 1;
-  margin: 0px;
-  padding: 0px;
-  width: 1.5em;
-  margin-left: 0.5em;
-  border-radius: 0.4em;
+  border: 2.7px solid #1B2B37;
+  border-radius: 0.7em;
   font-size: 0.8em;
+  width: 7em;
+  height: 2.5em;
+  background-color: #ffffff;
+  color: white;
+  font-weight: bold;
+  color: #161631;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .search-label{
@@ -205,10 +208,15 @@ textarea:focus, input:focus, select:focus, button:focus{
  #search-input {
     flex-grow: 1;
     margin: 0px;
-    padding: 0px 0.5em;
+    padding: 0 0.5em 0 0;
     font-size: 1em;
     border: 1px solid black;
     border-radius: 0.4em;
+    width: 60%;
+}
+
+.search-label {
+  flex-grow: 0.3,
 }
 
 .Category{
@@ -228,6 +236,15 @@ textarea:focus, input:focus, select:focus, button:focus{
   list-style-type: none;
   width: 25%;
   font-size: 1em;
+}
+
+select {
+  width: 90%;
+  padding: 8px 20px;
+  margin: 0.3em 5% 0.3em 5%;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #f1f1f1
 }
 
 /* --- List Item Component in Listing Page --- */
@@ -293,7 +310,7 @@ textarea:focus, input:focus, select:focus, button:focus{
 }
 
 
-.myListings h4 {
+.dashboard-container h4 {
   margin: 1em 4% 1em 4%;
 }
 
@@ -334,7 +351,7 @@ textarea:focus, input:focus, select:focus, button:focus{
 /* --- IM BORROWING CARD --- */
 
 .card-button{
-  border: 2.7px solid #343477;
+  border: 2.7px solid #1B2B37;
   border-radius: 0.7em;
   font-size: 0.8em;
   width: 8em;

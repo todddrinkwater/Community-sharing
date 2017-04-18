@@ -6,7 +6,7 @@ import MyListingsCard from '../components/MyListingsCard'
 function MyListings (props) {
 
   return (
-    <div className="myListings">
+    <div className="dashboard-container">
       <h4>My Listings</h4>
     <div className='dashboard-section'>
 
