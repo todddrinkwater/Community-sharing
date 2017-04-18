@@ -5,7 +5,7 @@ var db = require('../db')
 
 router.post('/', function (req, res) {
   var user = req.body
-  console.log(user);
+  console.log(user)
   db.updateUser(user).then(() => {
     res.sendStatus(201)
   })

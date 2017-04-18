@@ -6,6 +6,7 @@ module.exports = {
   getItems,
   getItem,
   getUser,
+  getUserById,
   getLoanItems,
   getLoanedItems,
   getBorrowedItems,
@@ -13,7 +14,6 @@ module.exports = {
   saveUser,
   deleteItem,
   saveLoan,
-  getUserById,
   getSearchItems,
   updateItem,
   updateUser
@@ -36,65 +36,61 @@ function getUserById (id) {
   return knex('users').where('user_id', id)
 }
 
-function getUserById (id) {
-  return knex('users').where('user_id', id)
-}
-
 function getLoanItems (id) {
   return knex('items').where('owner_id', id)
 }
 
 function getLoanedItems (id) {
   return knex('loans').where('lenders_id', id)
-  .join('items', 'loans.item_id' , 'items.item_id')
+  .join('items', 'loans.item_id', 'items.item_id')
   .join('users', 'borrowers_id', 'user_id')
 }
 
 function getBorrowedItems (id) {
   return knex('loans').where('borrowers_id', id)
-  .join('items', 'loans.item_id' , 'items.item_id')
+  .join('items', 'loans.item_id', 'items.item_id')
   .join('users', 'owner_id', 'user_id')
 }
 
 function saveItem (item) {
-   return knex.insert(item).into('items')
-}
-
-function saveUser (user) {
-   return knex.insert(user).into('users')
+  return knex.insert(item).into('items')
 }
 
 function deleteItem (id) {
-   return knex('items').where('item_id', id).del()
+  return knex('items').where('item_id', id).del()
+}
+
+function saveUser (user) {
+  return knex.insert(user).into('users')
 }
 
 function saveLoan (loanRequest) {
-   return knex.insert({
-     borrowers_id: loanRequest.user_id,
-     lenders_id: loanRequest.owners_id,
-     item_id: loanRequest.item_id,
-     pickup: loanRequest.pickup,
-     dropoff: loanRequest.dropoff
-   }).into('loans')
+  return knex.insert({
+    borrowers_id: loanRequest.user_id,
+    lenders_id: loanRequest.owners_id,
+    item_id: loanRequest.item_id,
+    pickup: loanRequest.pickup,
+    dropoff: loanRequest.dropoff
+  }).into('loans')
 }
 
 function getSearchItems (searchString) {
-  let stringArray = searchString.split(" ")
-  let query =  stringArray.reduce(
-    (query, word) => {return searchResults(query, word)},
+  let stringArray = searchString.split(' ')
+  let query = stringArray.reduce(
+    (query, word) => { return searchResults(query, word) },
     knex('items'))
   return query
 }
 
-function searchResults(query, searchString) {
-  let wrappedString = "%" + searchString + "%"
-  return query.orWhere('item_name', 'like', wrappedString )
-  .orWhere ('description', 'like', wrappedString)
-  .orWhere ('category', 'like', wrappedString)
+function searchResults (query, searchString) {
+  let wrappedString = '%' + searchString + '%'
+  return query.orWhere('item_name', 'like', wrappedString)
+  .orWhere('description', 'like', wrappedString)
+  .orWhere('category', 'like', wrappedString)
 }
 
 function updateItem (item) {
-   return knex('items').where('item_id', item.item_id)
+  return knex('items').where('item_id', item.item_id)
    .update({
      category: item.category,
      item_name: item.item_name,
@@ -106,7 +102,7 @@ function updateItem (item) {
 }
 
 function updateUser (user) {
-   return knex('users').where('user_id', user.user_id)
+  return knex('users').where('user_id', user.user_id)
    .update({
      fname: user.fname,
      lname: user.lname,

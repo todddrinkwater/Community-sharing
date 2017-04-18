@@ -1,15 +1,15 @@
-import React from "react"
-import { render } from "react-dom"
-import { Provider } from "react-redux"
-import { createStore, applyMiddleware, compose } from "redux"
-import thunkMiddleware from "redux-thunk"
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunkMiddleware from 'redux-thunk'
 
-import reducers from "./reducers"
-import App from "./components/App"
-import { initialListings } from "./actions"
-import { filteredListings } from "./actions"
+import reducers from './reducers'
+import App from './components/App'
+import { initialListings } from './actions'
+import { filteredListings } from './actions'
 
-import { getListings } from "./api"
+import { getListings } from './api'
 
 let store = createStore(
   reducers,
@@ -19,7 +19,7 @@ let store = createStore(
   )
 )
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   getListings((err, listings) => {
     if (err) console.log(err) // to do handle error
     store.dispatch(initialListings(listings))
@@ -29,6 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <Provider store={store}>
       <App />
     </Provider>,
-    document.getElementById("app")
+    document.getElementById('app')
   )
 })

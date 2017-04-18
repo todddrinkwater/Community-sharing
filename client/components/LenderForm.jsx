@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Dropzone from 'react-dropzone';
-import request from 'superagent';
+import Dropzone from 'react-dropzone'
+import request from 'superagent'
 
 import { getNewItem } from '../api'
 import { listNewItem } from '../actions'
@@ -10,95 +10,89 @@ import { listNewItem } from '../actions'
 const CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload'
 
-
-
-
 class LenderForm extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
       uploadedFile: null,
       uploadedFileCloudinaryUrl: ''
-    };
+    }
   }
 
-  onImageDrop(files) {
+  onImageDrop (files) {
     this.setState({
       uploadedFile: files[0]
-    });
+    })
 
-    this.handleImageUpload(files[0]);
+    this.handleImageUpload(files[0])
   }
 
-  handleImageUpload(file) {
+  handleImageUpload (file) {
     let upload = request
       .post(CLOUDINARY_UPLOAD_URL)
       .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-      .field('file', file);
+      .field('file', file)
 
     upload.end((err, response) => {
       if (err) {
-        console.error(err);
+        console.error(err)
       }
 
       if (response.body.secure_url !== '') {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url
-        });
+        })
       }
-    });
+    })
   }
 
-  render() {
+  render () {
     const { user_id } = this.props
     return (
-        <div className="lenderForm">
+      <div className='lenderForm'>
 
-          <h1>List An Item</h1>
-            <form method="post" onSubmit={ (e) => { newItem(e, this.props)} } >
-              <label>Title</label><br /><input type="text" name="item_name" /><br />
-              <label>Category</label><br /><input type="text" name="category" /><br />
-              <label>Description</label><br /><input type="text" name="description" /><br />
-              <label>Location</label><br /><input type="text" name="location" /><br />
-              <label>Image Upload</label><br /><input type="hidden" name="image_url" value={this.state.uploadedFileCloudinaryUrl} /><br />
+        <h1>List An Item</h1>
+        <form method='post' onSubmit={(e) => { newItem(e, this.props) }} >
+          <label>Title</label><br /><input type='text' name='item_name' /><br />
+          <label>Category</label><br /><input type='text' name='category' /><br />
+          <label>Description</label><br /><input type='text' name='description' /><br />
+          <label>Location</label><br /><input type='text' name='location' /><br />
+          <label>Image Upload</label><br /><input type='hidden' name='image_url' value={this.state.uploadedFileCloudinaryUrl} /><br />
 
-            <div className="imageButtonAndDisplay">
-                <Dropzone className="dropzone"
-                  onDrop={this.onImageDrop.bind(this)}
-                  multiple={false}
-                  accept="image/*">
-                    <div className="uploadButton">Drop an image or click to select a file to upload.</div>
-                </Dropzone>
+          <div className='imageButtonAndDisplay'>
+            <Dropzone className='dropzone'
+              onDrop={this.onImageDrop.bind(this)}
+              multiple={false}
+              accept='image/*'>
+              <div className='uploadButton'>Drop an image or click to select a file to upload.</div>
+            </Dropzone>
 
-
-                  <div className="imageContainer">
-                    {
+            <div className='imageContainer'>
+              {
                       this.state.uploadedFileCloudinaryUrl === ''
                         ? null
                         : (
                           <div>
-                            <img className="uploadImage" src={this.state.uploadedFileCloudinaryUrl} />
+                            <img className='uploadImage' src={this.state.uploadedFileCloudinaryUrl} />
                           </div>
                         )
                       }
-                  </div>
-                </div>
+            </div>
+          </div>
 
-              <input type="hidden" value={user_id} name="user_id" />
-              <input className="createListing" type="submit" value="Create Listing" />
-            </form>
-        </div>
-      )
+          <input type='hidden' value={user_id} name='user_id' />
+          <input className='createListing' type='submit' value='Create Listing' />
+        </form>
+      </div>
+    )
   }
 }
 
 // ---
 
-
-
-function newItem(event, props) {
-  console.log(props);
+function newItem (event, props) {
+  console.log(props)
   event.preventDefault(event)
   var newItemData = {
     item_name: event.target.elements.item_name.value,
@@ -115,10 +109,14 @@ function newItem(event, props) {
 }
 
 function testCallback (err, status) {
- console.log(status)
+  if (err) {
+    console.log(err)
+  } else {
+    console.log(status)
+  }
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     user_id: state.loggedInUserDetails.user_id
   }

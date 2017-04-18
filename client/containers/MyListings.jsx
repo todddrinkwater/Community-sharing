@@ -4,21 +4,21 @@ import { connect } from 'react-redux'
 import MyListingsCard from '../components/MyListingsCard'
 
 function MyListings (props) {
-
   return (
     <div className='dashboard-section'>
       MY LISTINGS
-      { props.allItems.map( (item) => {
-        if (item.owner_id == props.loggedInUser.user_id){
+      { props.allItems.map((item) => {
+        if (item.owner_id === props.loggedInUser.user_id) {
           return (
-            <MyListingsCard key={item.item_id} {...item}/>
-          )}
-        })}
+            <MyListingsCard key={item.item_id} {...item} />
+          )
+        }
+      })}
     </div>
   )
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     allItems: state.initialListings,
     loggedInUser: state.loggedInUserDetails
