@@ -15,7 +15,7 @@ let Login = (props) => (
       <label>Email</label><br /><input id='email-input' type='text' name='email' placeholder='example@email.com' /><br />
       <label>Password</label><br /><input type='password' name='password' />
       <Link to='/dashboard'>
-        <button type='button' value='Login' onClick={() => submitUser(props)} >Login</button>
+        <button type='button' value='Login' onClick={() => submitUser(event, props)} >Login</button>
       </Link>
     </form>
     <p>No account?</p>
