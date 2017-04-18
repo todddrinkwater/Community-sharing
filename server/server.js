@@ -5,7 +5,7 @@ var cors = require('cors')
 
 var server = express()
 var db = require('./db')
-server.set('db', db)
+server.set('knex', db.knex)
 
 var items = require('./routes/items')
 var item = require('./routes/item')

@@ -1,9 +1,11 @@
 var express = require('express')
 var router = express.Router()
 
+var db = require('../db')
+
 router.get('/:id', function (req, res) {
   var id = req.params.id
-  req.app.get('db').getBorrowedItems(id).then((result) => {
+  db.getBorrowedItems(id).then((result) => {
     res.send(result)
   })
   .catch((err) => {

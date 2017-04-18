@@ -137,6 +137,6 @@ test('return borrowed items', function (t) {
 })
 
 test('close database connection', (t) => {
-  app.get('db').knex.destroy()
+  app.get('knex').destroy()
   t.end()
 })
