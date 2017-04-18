@@ -119,7 +119,6 @@ function testCallback (err, status) {
 }
 
 function mapStateToProps(state){
-  console.log(state);
   return {
     user_id: state.loggedInUserDetails.user_id
   }

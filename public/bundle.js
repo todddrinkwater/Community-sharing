@@ -27817,8 +27817,18 @@
 	    { className: 'List' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'SearchBar' },
-	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search', placeholder: 'Search..' })
+	      { className: 'search-bar-container' },
+	      _react2.default.createElement(
+	        'label',
+	        { className: 'search-label' },
+	        'Search'
+	      ),
+	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search' }),
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'search-button' },
+	        'Search'
+	      )
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -38586,7 +38596,6 @@
 	}
 	
 	function mapStateToProps(state) {
-	  console.log(state);
 	  return {
 	    user_id: state.loggedInUserDetails.user_id
 	  };
