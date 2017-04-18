@@ -38097,7 +38097,7 @@
 	        _react2.default.createElement(
 	          'button',
 	          { type: 'button', value: 'Login', onClick: function onClick() {
-	              return submitUser(props);
+	              return submitUser(event, props);
 	            } },
 	          'Login'
 	        )
