@@ -31,7 +31,7 @@ class ItemListing extends React.Component {
           </p>
           <Router>
             <Link to='/dashboard'>
-              <input type='submit' className="itemListingSubmit" value='Request Item' />
+              <input type='submit' value='Request Item' />
             </Link>
           </Router>
         </form>
