@@ -10,9 +10,9 @@ function MyProfile (props) {
       <div className='profile-details-container'>
         <p className='profile-bold-text'>{props.loggedInUserDetails.fname + ' ' + props.loggedInUserDetails.lname}</p>
         <p><span className='profile-bold-text'> Email:</span><br />
-         {props.loggedInUserDetails.email}</p>
+          {props.loggedInUserDetails.email}</p>
         <p><span className='profile-bold-text'> Phone Number:</span><br />
-         {props.loggedInUserDetails.phone}</p>
+          {props.loggedInUserDetails.phone}</p>
         <p><span className='profile-bold-text'> Address:</span><br />
           {props.loggedInUserDetails.address}, <br />
           {props.loggedInUserDetails.suburb}, {props.loggedInUserDetails.town_city}, <br />
