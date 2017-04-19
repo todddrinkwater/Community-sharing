@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 let MyBorrowedDetails = (props) => (
   <div className='MyBorrowedDetails'>
-    <h1>Request Approved - Transaction Receipt</h1>
+    <h3>Request Approved - Transaction Receipt</h3>
 
     <h3>Item Details</h3>
     <ul>
