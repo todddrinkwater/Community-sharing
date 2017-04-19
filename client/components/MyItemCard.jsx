@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { displaySingleItem } from '../actions'
 
-let MyItemsCard = (props) => (
+let MyItemCard = (props) => (
   <div className='card-wrapper'>
     <div className='card-container'>
       <img className='card-image' src={props.image_url} />
@@ -30,4 +30,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(MyItemsCard)
+export default connect(mapStateToProps)(MyItemCard)

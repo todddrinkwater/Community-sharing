@@ -12,7 +12,7 @@ import LenderForm from './LenderForm'
 import MyItemDetails from './MyItemDetails'
 import List from '../containers/List'
 import TermsConditions from './TermsConditions'
-import MyLendedDetails from './MyLendedDetails'
+import MyLoanedDetails from './MyLoanedDetails'
 
 function App (props) {
   return (
@@ -30,7 +30,7 @@ function App (props) {
           <Route path='/my-item-details' component={MyItemDetails} />
           <Route path='/list-all' component={List} />
           <Route path='/ts&cs' component={TermsConditions} />
-          <Route path='/l-details' component={MyLendedDetails} />
+          <Route path='/l-details' component={MyLoanedDetails} />
         </div>
       </Router>
     </div>

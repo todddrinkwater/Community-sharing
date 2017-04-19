@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import { fetchLoanedItems } from '../actions'
 
-import LendedItemsCard from '../components/LendedItemsCard'
+import LoanedItemCard from '../components/LoanedItemCard'
 
-class MyLendedItems extends React.Component {
+class MyLoanedItems extends React.Component {
   componentDidMount () {
     this.props.dispatch(fetchLoanedItems(this.props.loggedInUser.user_id))
   }
@@ -13,11 +13,11 @@ class MyLendedItems extends React.Component {
   render () {
     return (
       <div className='dashboard-container'>
-        <h4>My Lended Items</h4>
+        <h4>My Loaned Items</h4>
         <div className='dashboard-section'>
           { this.props.loanedItems.map((loanedItem) => {
             return (
-              <LendedItemsCard
+              <LoanedItemCard
                 key={loanedItem.loan_id}
                 {...loanedItem}
                 loggedInFname={this.props.loggedInUser.fname}
@@ -42,4 +42,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(MyLendedItems)
+export default connect(mapStateToProps)(MyLoanedItems)
