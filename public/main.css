@@ -64,7 +64,6 @@ textarea:focus, input:focus, select:focus, button:focus{
 
 .login-button-container{
   width: 5em;
-  height: 100%;
   text-align: center;
   float: left;
   box-sizing: border-box;
@@ -195,6 +194,13 @@ login-button-container {
   padding: 0.5em;
 }
 
+.fa-search{
+  margin-right: 0.3em;
+  margin-left: 0.7em;
+  font-size: 1.2em;
+  padding-top: 0.3em;
+}
+
 .search-button{
   border: 2.7px solid #1B2B37;
   border-radius: 0.7em;
@@ -224,6 +230,7 @@ login-button-container {
     border: 1px solid black;
     border-radius: 0.4em;
     width: 60%;
+    padding: 0.3em;
 }
 
 .Category{
@@ -271,11 +278,11 @@ login-button-container {
 
 .listItem {
   width: 90%;
-  margin: 0.5em auto;
+  margin: 1em auto;
   background-color: #f5f5f5;
-
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid #e0e0e0;
 }
 
 .listItemImage {
@@ -284,11 +291,17 @@ login-button-container {
 }
 
 .list-item-description-container{
-  width: 100%;
+  width: 90%;
   padding: 0.5em;
+  margin: 0px auto;
 }
 
 /* --- DAHSBOARD - SHARING --- */
+
+.dashboard-container{
+  margin-bottom: 2em;
+}
+
 
 .dashboard-active-button{
   color: #21d084;
@@ -344,7 +357,7 @@ login-button-container {
 .profile-image{
   height: 100%;
   width: 100%;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 
 .profile-image-container{
@@ -352,11 +365,27 @@ login-button-container {
   margin: 2em auto;
 }
 
-/* --- MY BORROWED DETAILS --- */
+/* --- TRANSACTION DETAILS --- */
 
-.Order {
+.transaction {
   width: 70%;
-  margin: auto;
+  margin: 0px auto;
+}
+
+.order-image-container{
+  width: 16em;
+  margin: 0px auto;
+  border: 1px solid black;
+  background-color: #eee
+}
+
+.order-image{
+  width: 7em;
+  height: 7em;
+  margin: 0.5em
+}
+.order-bold-text{
+  font-weight: bold;
 }
 
 /* --- BORROWED ITEMS CARD --- */
@@ -401,8 +430,9 @@ login-button-container {
 .card-image{
   width: 3em;
   height: 3em;
-  margin: 0.5em;
+  margin: 0.5em 0.5em 0em 0.5em;
   float: left;
+  border: 1px solid #eee;
 }
 
 .card-wrapper{
@@ -430,6 +460,11 @@ login-button-container {
   text-align: center
 }
 
+.item-listing{
+  width: 90%;
+  margin: 0px auto;
+}
+
 .itemListingImage {
   width: 100%;
 }
@@ -440,14 +475,15 @@ login-button-container {
 }
 
 .itemListingUserDetails img {
-  margin: auto;
+  margin: 0px auto;
   display: block;
+  width: 75%;
 }
 
 .itemListingUserPhoto {
   width: 80%;
   align: center;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 
 .itemListingUserDetails .input[type="submit"]{
@@ -468,6 +504,10 @@ login-button-container {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.request-button{
+  margin-bottom: 3em;
 }
 
 /* --- LOGIN ---- */
