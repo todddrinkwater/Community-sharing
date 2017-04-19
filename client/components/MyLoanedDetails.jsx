@@ -5,7 +5,7 @@ let MyBorrowedDetails = (props) => (
   <div className='transaction'>
     <h3>Request Approved - Transaction Receipt</h3>
 
-    <p> Good News! {props.borrowerDetails.fname} {props.borrowerDetails.lname} wants to borrow your {props.orderItemDetails.item_name}.</p>
+    <p> Good News, {props.borrowerDetails.fname} {props.borrowerDetails.lname} wants to borrow your {props.orderItemDetails.item_name}!</p>
 
     <div className='order-image-container'>
       <img className='order-image' src={props.orderItemDetails.image_url}></img>
@@ -16,7 +16,7 @@ let MyBorrowedDetails = (props) => (
       You can contact {props.borrowerDetails.fname} via the following methods:
       <br />
       <span className='order-bold-text'>Phone:</span> {props.borrowerDetails.phone}<br />
-      <span className='order-bold-text'>email:</span> {props.borrowerDetails.email}<br />
+      <span className='order-bold-text'>Email:</span> {props.borrowerDetails.email}<br />
     </p>
 
   </div>

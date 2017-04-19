@@ -5,7 +5,7 @@ let MyLoanedDetails = (props) => (
   <div className='transaction'>
     <h3>Request Approved - Transaction Receipt</h3>
 
-    <p> Good News! {props.orderItemDetails.fname} {props.orderItemDetails.lname} is lending you their {props.orderItemDetails.item_name}.</p>
+    <p> Good News, {props.orderItemDetails.fname} {props.orderItemDetails.lname} is lending you their {props.orderItemDetails.item_name}!</p>
 
     <div className='order-image-container'>
       <img className='order-image' src={props.orderItemDetails.image_url}></img>
@@ -17,7 +17,7 @@ let MyLoanedDetails = (props) => (
       You can contact {props.orderItemDetails.fname} via the following methods:
       <br />
       <span className='order-bold-text'>Phone:</span> {props.orderItemDetails.phone}<br />
-      <span className='order-bold-text'>email:</span> {props.orderItemDetails.email}<br />
+      <span className='order-bold-text'>Email:</span> {props.orderItemDetails.email}<br />
     </p>
 
   </div>
