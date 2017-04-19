@@ -8,13 +8,12 @@ import BorrowedItemCard from '../components/BorrowedItemCard'
 var toggleMyItems = true
 
 class MyBorrowedItems extends React.Component {
-
-  constructor(){
+  constructor () {
     super()
-    this.state = {  toggleMyItems: true }
+    this.state = { toggleMyItems: true }
   }
 
-  toggleItemView() {
+  toggleItemView () {
     this.setState({ toggleMyItems: !this.state.toggleMyItems })
   }
 
@@ -25,16 +24,16 @@ class MyBorrowedItems extends React.Component {
     console.log(this.props)
     return (
       <div className='dashboard-container'>
-        <h4 onClick={ () => this.toggleItemView() }>My Borrowed Items<i className="fa fa-arrow-down" aria-hidden="true"></i></h4>
-          {this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId): ''}
+        <h4 onClick={() => this.toggleItemView()}>My Borrowed Items<i className='fa fa-arrow-down' aria-hidden='true' /></h4>
+          {this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''}
       </div>
     )
   }
 }
 
-function myItems(borrowedItems, user_id) {
+function myItems (borrowedItems, user_id) {
   return borrowedItems.map((borrowedItem) => {
-    if ( (borrowedItem.owner_id == user_id)) {
+    if ((borrowedItem.owner_id === user_id)) {
       return (
         <BorrowedItemCard key={borrowedItem.loan_id} {...borrowedItem} />
       )

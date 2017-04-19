@@ -8,8 +8,8 @@ let MyBorrowedDetails = (props) => (
     <p> Good News, {props.borrowerDetails.fname} {props.borrowerDetails.lname} wants to borrow your {props.orderItemDetails.item_name}!</p>
 
     <div className='order-image-container'>
-      <img className='order-image' src={props.orderItemDetails.image_url}></img>
-      <img className='order-image' src={props.borrowerDetails.user_image_url}></img>
+      <img className='order-image' src={props.orderItemDetails.image_url} />
+      <img className='order-image' src={props.borrowerDetails.user_image_url} />
     </div>
 
     <p>

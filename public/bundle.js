@@ -24096,15 +24096,15 @@
 	
 	var _List2 = _interopRequireDefault(_List);
 	
-	var _MyLoanedDetails = __webpack_require__(339);
+	var _MyLoanedDetails = __webpack_require__(340);
 	
 	var _MyLoanedDetails2 = _interopRequireDefault(_MyLoanedDetails);
 	
-	var _TermsConditions = __webpack_require__(340);
+	var _TermsConditions = __webpack_require__(341);
 	
 	var _TermsConditions2 = _interopRequireDefault(_TermsConditions);
 	
-	var _MyBorrowerDetails = __webpack_require__(341);
+	var _MyBorrowerDetails = __webpack_require__(342);
 	
 	var _MyBorrowerDetails2 = _interopRequireDefault(_MyBorrowerDetails);
 	
@@ -37663,7 +37663,7 @@
 	
 	function myItems(borrowedItems, user_id) {
 	  return borrowedItems.map(function (borrowedItem) {
-	    if (borrowedItem.owner_id == user_id) {
+	    if (borrowedItem.owner_id === user_id) {
 	      return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem));
 	    }
 	  });
@@ -38486,7 +38486,11 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _ListAllItems = __webpack_require__(338);
+	var _BackToTop = __webpack_require__(338);
+	
+	var _BackToTop2 = _interopRequireDefault(_BackToTop);
+	
+	var _ListAllItems = __webpack_require__(339);
 	
 	var _ListAllItems2 = _interopRequireDefault(_ListAllItems);
 	
@@ -38548,7 +38552,8 @@
 	    ),
 	    props.filteredListings.map(function (listItem) {
 	      return _react2.default.createElement(_ListAllItems2.default, _extends({ key: listItem.item_id }, listItem, { dispatch: props.dispatch }));
-	    })
+	    }),
+	    _react2.default.createElement(_BackToTop2.default, null)
 	  );
 	}
 	
@@ -38583,6 +38588,38 @@
 
 /***/ },
 /* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var BackToTop = function BackToTop() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'BackToTop' },
+	    _react2.default.createElement(
+	      'a',
+	      { href: '#', onClick: function onClick(e) {
+	          e.preventDefault();window.scrollTo(0, 0);
+	        } },
+	      'Back To Top'
+	    )
+	  );
+	};
+	
+	exports.default = BackToTop;
+
+/***/ },
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38647,7 +38684,7 @@
 	exports.default = ListAllItems;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38727,7 +38764,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowedDetails);
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38785,7 +38822,7 @@
 	exports.default = TermsConditions;
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
