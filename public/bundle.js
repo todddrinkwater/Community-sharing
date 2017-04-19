@@ -27822,7 +27822,6 @@
 	};
 	
 	function mapStateToProps(state) {
-	  console.log(state.orderItemDetails[0]);
 	  return {
 	    orderItemDetails: state.orderItemDetails[0]
 	  };
@@ -38116,7 +38115,7 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'ItemListing' },
+	        { className: 'item-listing' },
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -38170,7 +38169,7 @@
 	            _react2.default.createElement(
 	              _reactRouterDom.Link,
 	              { to: '/dashboard' },
-	              _react2.default.createElement('input', { type: 'submit', value: 'Request Item', onClick: function onClick() {
+	              _react2.default.createElement('input', { className: 'request-button', type: 'submit', value: 'Request Item', onClick: function onClick() {
 	                  return sendBorrowRequest(_this2.props);
 	                } })
 	            )
@@ -38549,7 +38548,7 @@
 	      'div',
 	      { className: 'search-bar-container' },
 	      _react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
-	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search' }),
+	      _react2.default.createElement('input', { id: 'search-input', type: 'text', name: 'search', placeholder: 'search...' }),
 	      _react2.default.createElement(
 	        'button',
 	        { className: 'search-button', onClick: function onClick() {

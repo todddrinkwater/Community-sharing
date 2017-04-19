@@ -24,7 +24,6 @@ let MyLoanedDetails = (props) => (
 )
 
 function mapStateToProps (state) {
-  console.log(state.orderItemDetails[0]);
   return {
     orderItemDetails: state.orderItemDetails[0]
   }
