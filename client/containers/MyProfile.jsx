@@ -8,13 +8,14 @@ function MyProfile (props) {
         <img className='profile-image' src={props.loggedInUserDetails.user_image_url} />
       </div>
       <div className='profile-details-container'>
-        <p>{props.loggedInUserDetails.fname + ' ' + props.loggedInUserDetails.lname}</p>
-        <p>Email: {props.loggedInUserDetails.email}</p>
-        <p>Phone Number: {props.loggedInUserDetails.phone}</p>
-        <p>Address:<br />
+        <p className='profile-bold-text'>{props.loggedInUserDetails.fname + ' ' + props.loggedInUserDetails.lname}</p>
+        <p><span className='profile-bold-text'> Email:</span><br />
+         {props.loggedInUserDetails.email}</p>
+        <p><span className='profile-bold-text'> Phone Number:</span><br />
+         {props.loggedInUserDetails.phone}</p>
+        <p><span className='profile-bold-text'> Address:</span><br />
           {props.loggedInUserDetails.address}, <br />
-          {props.loggedInUserDetails.suburb}, <br />
-          {props.loggedInUserDetails.town_city}, <br />
+          {props.loggedInUserDetails.suburb}, {props.loggedInUserDetails.town_city}, <br />
           {props.loggedInUserDetails.postcode} <br />
         </p>
       </div>
