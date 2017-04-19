@@ -90,7 +90,6 @@ class LenderForm extends React.Component {
 }
 
 function newItem (event, props) {
-  console.log(props)
   event.preventDefault(event)
   var newItemData = {
     item_name: event.target.elements.item_name.value,

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter as Router, Link } from 'react-router-dom'
 
-import { menuNavigation, menuVisable } from '../actions'
+import { menuNavigation, menuVisable, dashboardTab } from '../actions'
 
 let NavbarMenu = (props) => (
   <div className='navigation-menu-container'>
@@ -27,6 +27,7 @@ function mapStateToProps (state) {
 function openMenu (props) {
   props.dispatch(menuNavigation())
   props.dispatch(menuVisable())
+  props.dispatch(dashboardTab('MySharingDetails'))
 }
 
 export default connect(mapStateToProps)(NavbarMenu)

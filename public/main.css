@@ -93,17 +93,16 @@ textarea:focus, input:focus, select:focus, button:focus{
 /* --- NAVBAR-MENU --- */
 
 .navigation-menu-container{
-  border-bottom: 1px solid 0 0 0 0.5;
+  border-bottom: 2px solid black;
   position: absolute;
-  width: 60%;
+  width: 100%;
 }
 
 .navigation-item{
   padding: 1em;
   border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  background-color: #eee;
-  color: #1492AB;
+  background-color: white;
+  color: #21D084;
   font-weight: bold;
 }
 
@@ -183,8 +182,6 @@ login-button-container {
   top: 97%;
   transform: translateY(-85%);
   letter-spacing: 0.1em;
-  /*border-top: 1px #1492AB solid;
-  border-bottom: 1px #1492AB solid;*/
 }
 
 /* --- SEARCH-BAR --- */
@@ -292,14 +289,17 @@ select {
 /* --- DAHSBOARD - SHARING --- */
 
 .dashboard-active-button{
-  background-color: #eee
+  color: #21d084;
+  background-color: #eee;
 }
 
 .dashboard-button{
-  border: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   text-align: center;
   flex-grow: 1;
   padding-top: 0.6em;
+  font-weight: bold;
 }
 
 .dashboard-menu-container{
@@ -332,7 +332,11 @@ select {
 
 .profile-details-container p {
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.2em;
+}
+
+.profile-bold-text{
+  font-weight: bold;
 }
 
 .profile-image{

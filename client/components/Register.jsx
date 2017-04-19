@@ -61,7 +61,7 @@ class Register extends React.Component {
             <label>Postcode: </label><input type='text' name='postcode' />
             <label>Phone Number: </label><input type='text' name='phone' />
             <label>Password: </label><input type='password' name='hash' />
-            <label>Profile Picture</label><input type='text' name='user_image_url' readonly='readonly' value={this.state.uploadedFileCloudinaryUrl} /><br />
+            <label>Profile Picture</label><input type='text' name='user_image_url' readOnly='readonly' value={this.state.uploadedFileCloudinaryUrl} /><br />
             <div className='imageButtonAndDisplay'>
               <Dropzone className='dropzone'
                 onDrop={this.onImageDrop.bind(this)}
@@ -91,7 +91,6 @@ class Register extends React.Component {
 }
 
 function registerNewUser (event) {
-  console.log(event.target.elements)
   event.preventDefault(event)
   var formData = {
     fname: event.target.elements.fname.value,
