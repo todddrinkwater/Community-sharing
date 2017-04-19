@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 let MyBorrowerDetails = (props) => (
   <div className='Order'>
     <h1>Request Approved - Transaction Receipt</h1>
-
     <h3>Item Details</h3>
     <ul>
       <li>Item: {props.orderItemDetails.item_name}</li>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-let MyBorrowerDetails = (props) => (
+let MyLoanedDetails = (props) => (
   <div className='Order'>
-    <h1>Request Approved - Transaction Receipt</h1>
+    <h3>Request Approved - Transaction Receipt</h3>
 
     <h3>Item Details</h3>
     <ul>
@@ -30,5 +30,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(MyBorrowerDetails
-)
+export default connect(mapStateToProps)(MyLoanedDetails)
