@@ -8,8 +8,8 @@ let MyLoanedDetails = (props) => (
     <p> Good News, {props.orderItemDetails.fname} {props.orderItemDetails.lname} is lending you their {props.orderItemDetails.item_name}!</p>
 
     <div className='order-image-container'>
-      <img className='order-image' src={props.orderItemDetails.image_url}></img>
-      <img className='order-image' src={props.orderItemDetails.user_image_url}></img>
+      <img className='order-image' src={props.orderItemDetails.image_url} />
+      <img className='order-image' src={props.orderItemDetails.user_image_url} />
     </div>
 
     <p>

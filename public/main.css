@@ -252,13 +252,13 @@ login-button-container {
   font-size: 1em;
 }
 
-select {
+.category-dropdown select {
   width: 90%;
   padding: 8px 20px;
   margin: 0.3em 5% 0.3em 5%;
   border: 1px solid black;
   border-radius: 4px;
-  background-color: #f1f1f1
+  background-color: white;
 }
 
 /* --- LIST ALL ITEMS --- */
@@ -438,7 +438,9 @@ select {
 .card-wrapper{
   border: 1px solid black;
   background-color: white;
-  margin-bottom: 0.1em;
+  margin: 1em auto 1em;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .shared-card-details{
@@ -588,6 +590,7 @@ select {
   color: white
 }
 
+
 /* --- LENDER-FORM ---- */
 
 .lenderForm {
@@ -647,4 +650,26 @@ select {
 }
 .imageButtonAndDisplay {
   display: flex;
+}
+
+<<<<<<< HEAD
+.BackToTop {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #21d084;
+  color: white;
+=======
+.lenderForm select {
+  width: 90%;
+  padding: 8px 20px;
+  margin: 0.3em 5% 0.3em 5%;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: white;
+>>>>>>> 06af0bf92e9e5157bc7a1c13283e1e2669debc60
 }

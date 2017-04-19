@@ -21,6 +21,4 @@ let BorrowedItemCard = (props) => (
   </div>
 )
 
-
-
 export default connect()(BorrowedItemCard)
