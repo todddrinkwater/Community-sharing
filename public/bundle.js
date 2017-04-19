@@ -37645,7 +37645,7 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      // console.log(this.props);
+	      console.log(this.props);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'dashboard-container' },
@@ -37813,21 +37813,17 @@
 	          null,
 	          'My Loaned Items'
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'dashboard-section' },
-	          this.props.loanedItems.map(function (loanedItem) {
-	            return _react2.default.createElement(_LoanedItemCard2.default, _extends({
-	              key: loanedItem.loan_id
-	            }, loanedItem, {
-	              loggedInFname: _this2.props.loggedInUser.fname,
-	              loggedInLname: _this2.props.loggedInUser.lname,
-	              loggedInEmail: _this2.props.loggedInUser.email,
-	              loggedInPhone: _this2.props.loggedInUser.phone,
-	              loggedInImage: _this2.props.loggedInUser.user_image_url,
-	              dispatch: _this2.props.dispatch }));
-	          })
-	        )
+	        this.props.loanedItems.map(function (loanedItem) {
+	          return _react2.default.createElement(_LoanedItemCard2.default, _extends({
+	            key: loanedItem.loan_id
+	          }, loanedItem, {
+	            loggedInFname: _this2.props.loggedInUser.fname,
+	            loggedInLname: _this2.props.loggedInUser.lname,
+	            loggedInEmail: _this2.props.loggedInUser.email,
+	            loggedInPhone: _this2.props.loggedInUser.phone,
+	            loggedInImage: _this2.props.loggedInUser.user_image_url,
+	            dispatch: _this2.props.dispatch }));
+	        })
 	      );
 	    }
 	  }]);
@@ -38266,8 +38262,30 @@
 	            'Category'
 	          ),
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('input', { type: 'text', name: 'category' }),
-	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'select',
+	            { name: 'category' },
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Tools' },
+	              'Tools'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Sport and Recreation' },
+	              'Sport and Recreation'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Music' },
+	              'Music'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Other' },
+	              'Other'
+	            )
+	          ),
 	          _react2.default.createElement(
 	            'label',
 	            null,
