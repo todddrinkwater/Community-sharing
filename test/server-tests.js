@@ -12,6 +12,7 @@ test('/items', function(t) {
   //post down to server
   //check item is in table using local knex connection
   //reseed table
+  // knex.seed.run([config])
   t.end()
 })
 
@@ -40,7 +41,7 @@ test('return item', function (t) {
   function checkReturnedObject (err, res) {
     if (err) { throw err }
 
-    var response = typeof (res.body)
+    var response = typeof(res.body)
     var expected = 'object'
     var actualID = res.body[0].item_id
     var expectedID = 12003
@@ -99,6 +100,7 @@ test('return loaned items', function (t) {
 
   function checkReturnedObject (err, res) {
     if (err) { throw err }
+    console.log(res.body);
     var response = typeof (res.body)
     var expected = 'object'
     var actualID = res.body[0].item_id

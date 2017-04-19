@@ -8,16 +8,15 @@ var db = require('./db')
 server.set('knex', db.knex)
 
 var items = require('./routes/items')
+
 var user = require('./routes/user')
 var userById = require('./routes/userById')
 var loanItems = require('./routes/loanItems')
 var loanedItems = require('./routes/loanedItems')
 var borrowedItems = require('./routes/borrowedItems')
 var saveUser = require('./routes/saveUser')
-var deleteItem = require('./routes/deleteItem')
 var loanRequest = require('./routes/loanRequest')
 var search = require('./routes/search')
-var updateItem = require('./routes/updateItem')
 var updateUser = require('./routes/updateUser')
 
 server.use(bodyParser.json())
@@ -35,10 +34,8 @@ server.use('/loanedItems', loanedItems)
 server.use('/borrowedItems', borrowedItems)
 
 server.use('/saveUser', saveUser)
-server.use('/deleteItem', deleteItem)
 server.use('/loanRequest', loanRequest)
 server.use('/search', search)
-server.use('/updateItem', updateItem)
 server.use('/updateUser', updateUser)
 
 module.exports = server

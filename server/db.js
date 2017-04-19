@@ -85,16 +85,10 @@ function searchResults (query, searchString) {
   .orWhere('category', 'like', wrappedString)
 }
 
-function updateItem (item) {
-  return knex('items').where('item_id', item.item_id)
-   .update({
-     category: item.category,
-     item_name: item.item_name,
-     description: item.description,
-     available: item.available,
-     image_url: item.image_url,
-     owner_id: item.owner_id
-   })
+function updateItem (id, item) {
+  console.log(id + item.item_name);
+  return knex('items').where('item_id', id)
+  .insert(item).into('items')
 }
 
 function updateUser (user) {
