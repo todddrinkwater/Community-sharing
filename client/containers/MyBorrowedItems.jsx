@@ -11,7 +11,7 @@ class MyBorrowedItems extends React.Component {
 
   constructor(){
     super()
-    this.state = {  toggleMyItems: false }
+    this.state = {  toggleMyItems: true }
   }
 
   toggleItemView() {
@@ -39,7 +39,7 @@ function myItems(borrowedItems, user_id) {
   return borrowedItems.map((borrowedItem) => {
     if ( (borrowedItem.owner_id == user_id)) {
       return (
-        <BorrowedItemCard key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
+        <BorrowedItemCard key={borrowedItem.loan_id} {...borrowedItem} />
       )
     }
   })

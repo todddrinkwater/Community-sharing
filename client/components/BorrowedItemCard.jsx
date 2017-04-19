@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { fetchSingleItem } from '../actions'
 
@@ -20,4 +21,6 @@ let BorrowedItemCard = (props) => (
   </div>
 )
 
-export default BorrowedItemCard
+
+
+export default connect()(BorrowedItemCard)
