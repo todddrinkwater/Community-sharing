@@ -88,7 +88,6 @@ textarea:focus, input:focus, select:focus, button:focus{
   padding-right: 2em;
 }
 
-
 /* --- NAVBAR-MENU --- */
 
 .navigation-menu-container{
@@ -658,15 +657,16 @@ login-button-container {
 
 
 .BackToTop {
-  border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
   background-color: #21d084;
   color: white;
+  bottom: 0;
+  width: 100%;
 }
 
 .lenderForm select {
