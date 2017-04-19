@@ -24064,9 +24064,9 @@
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _MyBorrowedDetails = __webpack_require__(265);
+	var _MyLoanedDetails = __webpack_require__(341);
 	
-	var _MyBorrowedDetails2 = _interopRequireDefault(_MyBorrowedDetails);
+	var _MyLoanedDetails2 = _interopRequireDefault(_MyLoanedDetails);
 	
 	var _Login = __webpack_require__(266);
 	
@@ -24104,9 +24104,9 @@
 	
 	var _TermsConditions2 = _interopRequireDefault(_TermsConditions);
 	
-	var _MyLoanedDetails = __webpack_require__(341);
+	var _MyBorrowerDetails = __webpack_require__(342);
 	
-	var _MyLoanedDetails2 = _interopRequireDefault(_MyLoanedDetails);
+	var _MyBorrowerDetails2 = _interopRequireDefault(_MyBorrowerDetails);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -24122,7 +24122,7 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/b-details', component: _MyBorrowedDetails2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/l-details', component: _MyLoanedDetails2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/dashboard', component: _Dashboard2.default }),
@@ -24131,7 +24131,7 @@
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/my-item-details', component: _MyItemDetails2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-all', component: _List2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/ts&cs', component: _TermsConditions2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/l-details', component: _MyLoanedDetails2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/b-details', component: _MyBorrowerDetails2.default })
 	      )
 	    )
 	  );
@@ -27750,6 +27750,10 @@
 	
 	exports.default = Home;
 
+<<<<<<< HEAD
+/***/ }),
+/* 265 */,
+=======
 /***/ },
 /* 265 */
 /***/ function(module, exports, __webpack_require__) {
@@ -27850,6 +27854,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowedDetails);
 
 /***/ },
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 /* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -37995,7 +38000,11 @@
 
 /***/ },
 /* 334 */
+<<<<<<< HEAD
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38083,9 +38092,15 @@
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyProfile);
 
+<<<<<<< HEAD
+/***/ }),
+/* 335 */
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ },
 /* 335 */
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38224,9 +38239,15 @@
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(SingleItem);
 
+<<<<<<< HEAD
+/***/ }),
+/* 336 */
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ },
 /* 336 */
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38436,9 +38457,15 @@
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LenderForm);
 
+<<<<<<< HEAD
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ },
 /* 337 */
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38534,9 +38561,15 @@
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemDetails);
 
+<<<<<<< HEAD
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ },
 /* 338 */
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38647,9 +38680,15 @@
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(List);
 
+<<<<<<< HEAD
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ },
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38712,9 +38751,15 @@
 	
 	exports.default = ListAllItems;
 
+<<<<<<< HEAD
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ },
 /* 340 */
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38770,9 +38815,15 @@
 	
 	exports.default = TermsConditions;
 
+<<<<<<< HEAD
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+=======
 /***/ },
 /* 341 */
 /***/ function(module, exports, __webpack_require__) {
+>>>>>>> a8910365d338c7372edcfc84613115e8884e2798
 
 	'use strict';
 	
@@ -38788,7 +38839,106 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var MyLoanedDetails = function MyLoanedDetails(props) {
+	var MyBorrowerDetails = function MyBorrowerDetails(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'Order' },
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Request Approved - Transaction Receipt'
+	    ),
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Item Details'
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        'Item: ',
+	        props.orderItemDetails.item_name
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        'Details: ',
+	        props.orderItemDetails.description
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        'Pick Up Date: 01-01-2015'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        'Drop Off Date: 03-01-2015'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Borrower Details'
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        'Name: ',
+	        props.borrowerDetails.fname,
+	        ' ',
+	        props.borrowerDetails.lname
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        'Phone: ',
+	        props.borrowerDetails.phone
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        'email: ',
+	        props.borrowerDetails.email
+	      )
+	    )
+	  );
+	};
+	
+	function mapStateToProps(state) {
+	  return {
+	    borrowerDetails: state.borrowerDetails[0],
+	    orderItemDetails: state.orderItemDetails[0]
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowerDetails);
+
+/***/ }),
+/* 342 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(182);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MyBorrowerDetails = function MyBorrowerDetails(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'Order' },
@@ -38831,7 +38981,7 @@
 	    _react2.default.createElement(
 	      'h3',
 	      null,
-	      'Lender Details'
+	      'Owner Details'
 	    ),
 	    _react2.default.createElement(
 	      'ul',
@@ -38866,7 +39016,7 @@
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLoanedDetails);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowerDetails);
 
 /***/ }
 /******/ ]);
