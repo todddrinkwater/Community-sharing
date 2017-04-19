@@ -14,7 +14,6 @@ class MyLoanedItems extends React.Component {
     return (
       <div className='dashboard-container'>
         <h4>My Loaned Items</h4>
-        <div className='dashboard-section'>
           { this.props.loanedItems.map((loanedItem) => {
             return (
               <LoanedItemCard
@@ -28,7 +27,6 @@ class MyLoanedItems extends React.Component {
                 dispatch={this.props.dispatch} />
             )
           })}
-        </div>
       </div>
     )
   }

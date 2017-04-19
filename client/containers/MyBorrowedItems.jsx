@@ -22,13 +22,11 @@ class MyBorrowedItems extends React.Component {
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
   render () {
-    // console.log(this.props);
+    console.log(this.props)
     return (
       <div className='dashboard-container'>
         <h4 onClick={ () => this.toggleItemView() }>My Borrowed Items<i className="fa fa-arrow-down" aria-hidden="true"></i></h4>
-        <div className='dashboard-section'>
           {this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId): ''}
-        </div>
       </div>
     )
   }
