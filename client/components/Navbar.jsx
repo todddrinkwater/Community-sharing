@@ -13,8 +13,8 @@ let Navbar = (props) => (
         { props.menuVisableState ? <i className='fa fa-times' aria-hidden='true' /> : <i className='fa fa-bars' aria-hidden='true' /> }
       </div>
       <Router>
-        <div>
-          <div className='title-container'>
+        <div className='title-container'>
+          <div>
             <Link className='navLink' to='/'>
               <p className='site-title'>Community Sharing</p>
             </Link>

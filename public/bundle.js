@@ -31581,10 +31581,10 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'title-container' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'title-container' },
+	            null,
 	            _react2.default.createElement(
 	              _reactRouterDom.Link,
 	              { className: 'navLink', to: '/' },
