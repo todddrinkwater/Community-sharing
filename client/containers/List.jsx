@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import BackToTop from '../components/BackToTop'
 
 import ListAllItems from '../components/ListAllItems'
 import { filteredListings, searchForItem } from '../actions'
@@ -28,7 +29,7 @@ function List (props) {
           <ListAllItems key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
         )
       })}
-
+      <BackToTop />
     </div>
   )
 }
