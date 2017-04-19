@@ -27780,13 +27780,13 @@
 	    _react2.default.createElement(
 	      'p',
 	      null,
-	      ' Good News! ',
+	      ' Good News, ',
 	      props.orderItemDetails.fname,
 	      ' ',
 	      props.orderItemDetails.lname,
 	      ' is lending you their ',
 	      props.orderItemDetails.item_name,
-	      '.'
+	      '!'
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -27812,7 +27812,7 @@
 	      _react2.default.createElement(
 	        'span',
 	        { className: 'order-bold-text' },
-	        'email:'
+	        'Email:'
 	      ),
 	      ' ',
 	      props.orderItemDetails.email,
@@ -38781,13 +38781,13 @@
 	    _react2.default.createElement(
 	      'p',
 	      null,
-	      ' Good News! ',
+	      ' Good News, ',
 	      props.borrowerDetails.fname,
 	      ' ',
 	      props.borrowerDetails.lname,
 	      ' wants to borrow your ',
 	      props.orderItemDetails.item_name,
-	      '.'
+	      '!'
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -38813,7 +38813,7 @@
 	      _react2.default.createElement(
 	        'span',
 	        { className: 'order-bold-text' },
-	        'email:'
+	        'Email:'
 	      ),
 	      ' ',
 	      props.borrowerDetails.email,
