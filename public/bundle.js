@@ -37654,11 +37654,7 @@
 	          'My Borrowed Items',
 	          _react2.default.createElement('i', { className: 'fa fa-arrow-down', 'aria-hidden': 'true' })
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'dashboard-section' },
-	          this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''
-	        )
+	        this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''
 	      );
 	    }
 	  }]);
