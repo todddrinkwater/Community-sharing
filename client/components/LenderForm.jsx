@@ -55,14 +55,13 @@ class LenderForm extends React.Component {
         <h1>List An Item</h1>
         <form method='post' onSubmit={(e) => { newItem(e, this.props) }} >
           <label>Title</label><br /><input type='text' name='item_name' /><br />
-          <label>Category</label><br /><input type='text' name='category' /><br />
-            <select>
-              <input type='text' name='category'>
-              <option value="Tools">Tools</option>
-              <option value="Sport and Recreation">Sport and Recreation</option>
-              <option value="Music">Music</option>
-              <option value="Other">Other</option>
-            </select>
+          <label>Category</label><br />
+          <select name="category">
+            <option value="Tools">Tools</option>
+            <option value="Sport and Recreation">Sport and Recreation</option>
+            <option value="Music">Music</option>
+            <option value="Other">Other</option>
+          </select>
           <label>Description</label><br /><input type='text' name='description' /><br />
           <label>Location</label><br /><input type='text' name='location' /><br />
           <label>Image Upload</label><br /><input type='hidden' name='image_url' value={this.state.uploadedFileCloudinaryUrl} /><br />

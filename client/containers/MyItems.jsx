@@ -11,20 +11,20 @@ class MyItems extends React.Component {
 
   constructor() {
     super()
-    this.state =  {toggleMyItems: true}
+    this.state =  { toggleMyItems: true }
   }
 
   toggleItemView() {
-    this.setState({toggleMyItems: !this.state.toggleMyItems})
+    this.setState({ toggleMyItems: !this.state.toggleMyItems })
   }
 
   render () {
     return (
       <div className='dashboard-container'>
-        <h4 onClick={ () => this.toggleItemView() }>My Listings</h4>
-        <div className='dashboard-section'>
+        <h4 onClick={ () => this.toggleItemView() }>My Listings <i className="fa fa-arrow-down" aria-hidden="true"></i></h4>
+        
           {this.state.toggleMyItems ? myItems(this.props.allItems, this.props.loggedInUser.user_id): ''}
-        </div>
+
       </div>
     )
   }

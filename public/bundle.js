@@ -24080,31 +24080,31 @@
 	
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 	
-	var _SingleItem = __webpack_require__(334);
+	var _SingleItem = __webpack_require__(333);
 	
 	var _SingleItem2 = _interopRequireDefault(_SingleItem);
 	
-	var _LenderForm = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./LenderForm\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _LenderForm = __webpack_require__(334);
 	
 	var _LenderForm2 = _interopRequireDefault(_LenderForm);
 	
-	var _MyItemDetails = __webpack_require__(336);
+	var _MyItemDetails = __webpack_require__(335);
 	
 	var _MyItemDetails2 = _interopRequireDefault(_MyItemDetails);
 	
-	var _List = __webpack_require__(337);
+	var _List = __webpack_require__(336);
 	
 	var _List2 = _interopRequireDefault(_List);
 	
-	var _MyLoanedDetails = __webpack_require__(339);
+	var _MyLoanedDetails = __webpack_require__(338);
 	
 	var _MyLoanedDetails2 = _interopRequireDefault(_MyLoanedDetails);
 	
-	var _TermsConditions = __webpack_require__(340);
+	var _TermsConditions = __webpack_require__(339);
 	
 	var _TermsConditions2 = _interopRequireDefault(_TermsConditions);
 	
-	var _MyBorrowerDetails = __webpack_require__(341);
+	var _MyBorrowerDetails = __webpack_require__(340);
 	
 	var _MyBorrowerDetails2 = _interopRequireDefault(_MyBorrowerDetails);
 	
@@ -37322,7 +37322,7 @@
 	
 	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
 	
-	var _MyProfile = __webpack_require__(333);
+	var _MyProfile = __webpack_require__(332);
 	
 	var _MyProfile2 = _interopRequireDefault(_MyProfile);
 	
@@ -37392,11 +37392,11 @@
 	
 	var _MyItems2 = _interopRequireDefault(_MyItems);
 	
-	var _MyBorrowedItems = __webpack_require__(329);
+	var _MyBorrowedItems = __webpack_require__(328);
 	
 	var _MyBorrowedItems2 = _interopRequireDefault(_MyBorrowedItems);
 	
-	var _MyLoanedItems = __webpack_require__(331);
+	var _MyLoanedItems = __webpack_require__(330);
 	
 	var _MyLoanedItems2 = _interopRequireDefault(_MyLoanedItems);
 	
@@ -37434,7 +37434,7 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _MyItemCard = __webpack_require__(328);
+	var _MyItemCard = __webpack_require__(341);
 	
 	var _MyItemCard2 = _interopRequireDefault(_MyItemCard);
 	
@@ -37478,13 +37478,10 @@
 	          { onClick: function onClick() {
 	              return _this2.toggleItemView();
 	            } },
-	          'My Listings'
+	          'My Listings ',
+	          _react2.default.createElement('i', { className: 'fa fa-arrow-down', 'aria-hidden': 'true' })
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'dashboard-section' },
-	          this.state.toggleMyItems ? myItems(this.props.allItems, this.props.loggedInUser.user_id) : ''
-	        )
+	        this.state.toggleMyItems ? myItems(this.props.allItems, this.props.loggedInUser.user_id) : ''
 	      );
 	    }
 	  }]);
@@ -37519,78 +37516,6 @@
 	  value: true
 	});
 	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(182);
-	
-	var _reactRouterDom = __webpack_require__(228);
-	
-	var _actions = __webpack_require__(266);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var MyItemCard = function MyItemCard(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'card-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'card-details-container' },
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-heading' },
-	          props.item_name
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-details' },
-	          props.description
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      _reactRouterDom.Link,
-	      { to: '/my-item-details', className: 'cardLink' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'card-button-container' },
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'card-button', onClick: function onClick() {
-	              return props.dispatch((0, _actions.displaySingleItem)(props));
-	            } },
-	          'View'
-	        )
-	      )
-	    )
-	  );
-	};
-	
-	function mapStateToProps(state) {
-	  return {
-	    item: state.singleItem,
-	    dispatch: state.dispatch
-	  };
-	}
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemCard);
-
-/***/ },
-/* 329 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -37603,7 +37528,7 @@
 	
 	var _actions = __webpack_require__(266);
 	
-	var _BorrowedItemCard = __webpack_require__(330);
+	var _BorrowedItemCard = __webpack_require__(329);
 	
 	var _BorrowedItemCard2 = _interopRequireDefault(_BorrowedItemCard);
 	
@@ -37615,18 +37540,29 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var toggleMyItems = true;
+	
 	var MyBorrowedItems = function (_React$Component) {
 	  _inherits(MyBorrowedItems, _React$Component);
 	
 	  function MyBorrowedItems() {
 	    _classCallCheck(this, MyBorrowedItems);
 	
-	    return _possibleConstructorReturn(this, (MyBorrowedItems.__proto__ || Object.getPrototypeOf(MyBorrowedItems)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (MyBorrowedItems.__proto__ || Object.getPrototypeOf(MyBorrowedItems)).call(this));
+	
+	    _this.state = { toggleMyItems: true };
+	    return _this;
 	  }
 	
 	  _createClass(MyBorrowedItems, [{
+	    key: 'toggleItemView',
+	    value: function toggleItemView() {
+	      this.setState({ toggleMyItems: !this.state.toggleMyItems });
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      console.log(this.props);
 	      this.props.dispatch((0, _actions.fetchBorrowedItems)(this.props.loggedInUserId));
 	    }
 	  }, {
@@ -37634,20 +37570,22 @@
 	    value: function render() {
 	      var _this2 = this;
 	
+	      // console.log(this.props);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'dashboard-container' },
 	        _react2.default.createElement(
 	          'h4',
-	          null,
-	          'My Borrowed Items'
+	          { onClick: function onClick() {
+	              return _this2.toggleItemView();
+	            } },
+	          'My Borrowed Items',
+	          _react2.default.createElement('i', { className: 'fa fa-arrow-down', 'aria-hidden': 'true' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'dashboard-section' },
-	          this.props.borrowedItemsList.map(function (borrowedItem) {
-	            return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this2.props.dispatch }));
-	          })
+	          this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''
 	        )
 	      );
 	    }
@@ -37655,6 +37593,14 @@
 	
 	  return MyBorrowedItems;
 	}(_react2.default.Component);
+	
+	function myItems(borrowedItems, user_id) {
+	  return borrowedItems.map(function (borrowedItem) {
+	    if (borrowedItem.owner_id == user_id) {
+	      return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem));
+	    }
+	  });
+	}
 	
 	function mapStateToProps(state) {
 	  return {
@@ -37667,7 +37613,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowedItems);
 
 /***/ },
-/* 330 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37681,6 +37627,8 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactRouterDom = __webpack_require__(228);
+	
+	var _reactRedux = __webpack_require__(182);
 	
 	var _actions = __webpack_require__(266);
 	
@@ -37727,10 +37675,10 @@
 	  );
 	};
 	
-	exports.default = BorrowedItemCard;
+	exports.default = (0, _reactRedux.connect)()(BorrowedItemCard);
 
 /***/ },
-/* 331 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37751,7 +37699,7 @@
 	
 	var _actions = __webpack_require__(266);
 	
-	var _LoanedItemCard = __webpack_require__(332);
+	var _LoanedItemCard = __webpack_require__(331);
 	
 	var _LoanedItemCard2 = _interopRequireDefault(_LoanedItemCard);
 	
@@ -37823,7 +37771,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLoanedItems);
 
 /***/ },
-/* 332 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37895,7 +37843,7 @@
 	exports.default = LoanedItemCard;
 
 /***/ },
-/* 333 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37985,7 +37933,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyProfile);
 
 /***/ },
-/* 334 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38126,8 +38074,241 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(SingleItem);
 
 /***/ },
-/* 335 */,
-/* 336 */
+/* 334 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(182);
+	
+	var _reactDropzone = __webpack_require__(286);
+	
+	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
+	
+	var _superagent = __webpack_require__(267);
+	
+	var _superagent2 = _interopRequireDefault(_superagent);
+	
+	var _api = __webpack_require__(324);
+	
+	var _actions = __webpack_require__(266);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy';
+	var CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload';
+	
+	var LenderForm = function (_React$Component) {
+	  _inherits(LenderForm, _React$Component);
+	
+	  function LenderForm(props) {
+	    _classCallCheck(this, LenderForm);
+	
+	    var _this = _possibleConstructorReturn(this, (LenderForm.__proto__ || Object.getPrototypeOf(LenderForm)).call(this, props));
+	
+	    _this.state = {
+	      uploadedFile: null,
+	      uploadedFileCloudinaryUrl: ''
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(LenderForm, [{
+	    key: 'onImageDrop',
+	    value: function onImageDrop(files) {
+	      this.setState({
+	        uploadedFile: files[0]
+	      });
+	
+	      this.handleImageUpload(files[0]);
+	    }
+	  }, {
+	    key: 'handleImageUpload',
+	    value: function handleImageUpload(file) {
+	      var _this2 = this;
+	
+	      var upload = _superagent2.default.post(CLOUDINARY_UPLOAD_URL).field('upload_preset', CLOUDINARY_UPLOAD_PRESET).field('file', file);
+	
+	      upload.end(function (err, response) {
+	        if (err) {
+	          console.error(err);
+	        }
+	
+	        if (response.body.secure_url !== '') {
+	          _this2.setState({
+	            uploadedFileCloudinaryUrl: response.body.secure_url
+	          });
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+	
+	      var user_id = this.props.user_id;
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'lenderForm' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'List An Item'
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { method: 'post', onSubmit: function onSubmit(e) {
+	              newItem(e, _this3.props);
+	            } },
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Title'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', name: 'item_name' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Category'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'select',
+	            { name: 'category' },
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Tools' },
+	              'Tools'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Sport and Recreation' },
+	              'Sport and Recreation'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Music' },
+	              'Music'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'Other' },
+	              'Other'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Description'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', name: 'description' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Location'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', name: 'location' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Image Upload'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'hidden', name: 'image_url', value: this.state.uploadedFileCloudinaryUrl }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'imageButtonAndDisplay' },
+	            _react2.default.createElement(
+	              _reactDropzone2.default,
+	              { className: 'dropzone',
+	                onDrop: this.onImageDrop.bind(this),
+	                multiple: false,
+	                accept: 'image/*' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'uploadButton' },
+	                'Drop an image or click to select a file to upload.'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'imageContainer' },
+	              this.state.uploadedFileCloudinaryUrl === '' ? null : _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement('img', { className: 'uploadImage', src: this.state.uploadedFileCloudinaryUrl })
+	              )
+	            )
+	          ),
+	          _react2.default.createElement('input', { type: 'hidden', value: user_id, name: 'user_id' }),
+	          _react2.default.createElement('input', { className: 'createListing', type: 'submit', value: 'Create Listing' })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return LenderForm;
+	}(_react2.default.Component);
+	
+	function newItem(event, props) {
+	  event.preventDefault(event);
+	  var newItemData = {
+	    item_name: event.target.elements.item_name.value,
+	    category: event.target.elements.category.value,
+	    description: event.target.elements.description.value,
+	    location: event.target.elements.location.value,
+	    image_url: event.target.elements.image_url.value,
+	    owner_id: event.target.elements.user_id.value,
+	    available: true
+	  };
+	  (0, _api.getNewItem)(testCallback, newItemData);
+	  props.dispatch((0, _actions.listNewItem)(newItemData));
+	  props.dispatch((0, _actions.updateListing)());
+	  props.history.push('/dashboard');
+	}
+	
+	function testCallback(err, status) {
+	  if (err) {
+	    console.log(err);
+	  } else {
+	    console.log(status);
+	  }
+	}
+	
+	function mapStateToProps(state) {
+	  return {
+	    user_id: state.loggedInUserDetails.user_id
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LenderForm);
+
+/***/ },
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38225,7 +38406,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemDetails);
 
 /***/ },
-/* 337 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38242,7 +38423,7 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _ListAllItems = __webpack_require__(338);
+	var _ListAllItems = __webpack_require__(337);
 	
 	var _ListAllItems2 = _interopRequireDefault(_ListAllItems);
 	
@@ -38338,7 +38519,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(List);
 
 /***/ },
-/* 338 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38403,7 +38584,7 @@
 	exports.default = ListAllItems;
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38502,7 +38683,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLoanedDetails);
 
 /***/ },
-/* 340 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38560,7 +38741,7 @@
 	exports.default = TermsConditions;
 
 /***/ },
-/* 341 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38656,6 +38837,78 @@
 	}
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowerDetails);
+
+/***/ },
+/* 341 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(182);
+	
+	var _reactRouterDom = __webpack_require__(228);
+	
+	var _actions = __webpack_require__(266);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MyItemCard = function MyItemCard(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          props.item_name
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          props.description
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      _reactRouterDom.Link,
+	      { to: '/my-item-details', className: 'cardLink' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-button-container' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button', onClick: function onClick() {
+	              return props.dispatch((0, _actions.displaySingleItem)(props));
+	            } },
+	          'View'
+	        )
+	      )
+	    )
+	  );
+	};
+	
+	function mapStateToProps(state) {
+	  return {
+	    item: state.singleItem,
+	    dispatch: state.dispatch
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemCard);
 
 /***/ }
 /******/ ]);
