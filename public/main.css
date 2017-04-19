@@ -32,6 +32,11 @@ textarea:focus, input:focus, select:focus, button:focus{
   height: 100%;
 }
 
+.fa-times{
+  font-size: 3em !important;
+  height: 100%;
+}
+
 .fa-user{
   font-size: 3em !important;
   height: 100%;

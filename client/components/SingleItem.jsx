@@ -6,6 +6,7 @@ import { fetchLenderById, borrowRequest } from '../actions'
 
 class SingleItem extends React.Component {
   componentDidMount () {
+    window.scrollTo(0, 0)
     this.props.dispatch(fetchLenderById(this.props.item.owner_id))
   }
 
