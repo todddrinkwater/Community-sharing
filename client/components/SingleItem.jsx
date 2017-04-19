@@ -12,7 +12,7 @@ class SingleItem extends React.Component {
 
   render () {
     return (
-      <div className='ItemListing'>
+      <div className='item-listing'>
         <div>
           <h1 className='itemTitle'>{this.props.item.item_name}</h1>
           <img className='itemListingImage' src={this.props.item.image_url} />
@@ -31,7 +31,7 @@ class SingleItem extends React.Component {
           </p>
           <Router>
             <Link to='/dashboard'>
-              <input type='submit' value='Request Item' onClick={() => sendBorrowRequest(this.props)} />
+              <input className='request-button' type='submit' value='Request Item' onClick={() => sendBorrowRequest(this.props)} />
             </Link>
           </Router>
         </form>
