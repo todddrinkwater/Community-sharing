@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import BackToTop from '../components/BackToTop'
 
 import ListAllItems from '../components/ListAllItems'
 import { filteredListings, searchForItem } from '../actions'
@@ -9,7 +10,7 @@ function List (props) {
     <div className='List'>
       <div className='search-bar-container'>
         <i className='fa fa-search' aria-hidden='true' />
-        <input id='search-input' type='text' name='search' />
+        <input id='search-input' type='text' name='search' placeholder='search...' />
         <button className='search-button' onClick={() => search(props.dispatch)}>Search</button>
       </div>
 
@@ -28,7 +29,7 @@ function List (props) {
           <ListAllItems key={listItem.item_id} {...listItem} dispatch={props.dispatch} />
         )
       })}
-
+      <BackToTop />
     </div>
   )
 }

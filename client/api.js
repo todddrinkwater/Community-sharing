@@ -26,7 +26,6 @@ const getUsers = (callback, email) => {
 }
 
 const registerUser = (callback, formData) => {
-  console.log(formData);
   request
     .post(urlPath + '/user/')
     .set('Content-Type', 'application/json')

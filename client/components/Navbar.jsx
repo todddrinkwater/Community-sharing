@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter as Router, Link } from 'react-router-dom'
 
-import { menuNavigation } from '../actions'
+import { menuNavigation, menuVisable } from '../actions'
 
 import NavbarMenu from './NavbarMenu.jsx'
 
@@ -10,11 +10,11 @@ let Navbar = (props) => (
   <div className='header-menu-container'>
     <div className='header-container'>
       <div className='hambuger-container' onClick={() => openMenu(props)}>
-        <i className='fa fa-bars' aria-hidden='true' />
+        { props.menuVisableState ? <i className='fa fa-times' aria-hidden='true' /> : <i className='fa fa-bars' aria-hidden='true' /> }
       </div>
       <Router>
-        <div>
-          <div className='title-container'>
+        <div className='title-container'>
+          <div>
             <Link className='navLink' to='/'>
               <p className='site-title'>Community Sharing</p>
             </Link>
@@ -34,12 +34,14 @@ let Navbar = (props) => (
 function mapStateToProps (state) {
   return {
     dispatch: state.dispatch,
-    menuState: state.menuState
+    menuState: state.menuState,
+    menuVisableState: state.menuVisableState
   }
 }
 
 function openMenu (props) {
   props.dispatch(menuNavigation())
+  props.dispatch(menuVisable())
 }
 
 export default connect(mapStateToProps)(Navbar)

@@ -66,7 +66,6 @@ function saveUser (user) {
 }
 
 function saveLoan (loanRequest) {
-  console.log(loanRequest);
   return knex.insert(loanRequest).into('loans')
 }
 
