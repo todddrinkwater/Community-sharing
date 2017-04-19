@@ -31581,10 +31581,10 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'title-container' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'title-container' },
+	            null,
 	            _react2.default.createElement(
 	              _reactRouterDom.Link,
 	              { className: 'navLink', to: '/' },
@@ -31808,7 +31808,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'login' },
-	        _react2.default.createElement('img', { src: 'http://otlmedia.co.za/wp-content/uploads/2013/10/share1inch.png' }),
+	        _react2.default.createElement('img', { src: 'http://res.cloudinary.com/hpyyiawap/image/upload/v1492507853/community_bxaesr.png' }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'register' },

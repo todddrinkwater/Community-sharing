@@ -85,14 +85,13 @@ textarea:focus, input:focus, select:focus, button:focus{
 
 .title-container{
   width: 100%;
-  height: 100%;
+  padding-right: 2em;
 }
 
 
 /* --- NAVBAR-MENU --- */
 
 .navigation-menu-container{
-  border-bottom: 2px solid black;
   position: absolute;
   width: 100%;
 }
@@ -104,7 +103,7 @@ textarea:focus, input:focus, select:focus, button:focus{
   font-weight: bold;
   font-size: 1em;
   letter-spacing: 0.2em;
-  border-radius: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.23)
 }
 
 
@@ -279,7 +278,7 @@ login-button-container {
 .listItem {
   width: 90%;
   margin: 1em auto;
-  background-color: #f5f5f5;
+  background-color: rgba(99, 103, 125, 0.1);
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: 1px solid #e0e0e0;
@@ -337,8 +336,10 @@ login-button-container {
 /* --- DAHSBOARD - PROFILE --- */
 
 .profile-container{
-  width: 80%;
-  margin: auto;
+      width: 80%;
+      margin: 1em auto;
+      padding: 1em;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .profile-details-container{
@@ -369,7 +370,10 @@ login-button-container {
 
 .transaction {
   width: 70%;
-  margin: 0px auto;
+  margin: 2.5em auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2.5em 2.5em 2.5em;
+  background-color: rgba(99, 103, 125, 0.1);
 }
 
 .order-image-container{
