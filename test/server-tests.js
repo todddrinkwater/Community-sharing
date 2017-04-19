@@ -12,8 +12,7 @@ test('/items', function(t) {
   //post down to server
   //check item is in table using local knex connection
   //reseed table
-  // knex.seed.run([config])
-  app.get('knex').seed.run()
+  // app.get('knex').seed.run()
   t.end()
 })
 
