@@ -35,7 +35,6 @@ router.post('/', function (req, res) {
 router.put('/:id', function (req, res) {
   var id = req.params.id
   var item = req.body
-  console.log(id + item);
   db.updateItem(id, item).then(() => {
     res.sendStatus(201)
   })

@@ -42,8 +42,7 @@ function getLoanItems (id) {
 }
 
 function getLoanedItems (id) {
-  console.log(id);
-  return knex('loans').where('lnders_id', id)
+  return knex('loans').where('lenders_id', id)
     .join('items', 'loans.item_id', 'items.item_id')
     .join('users', 'borrowers_id', 'user_id')
 }
@@ -87,22 +86,12 @@ function searchResults (query, searchString) {
 }
 
 function updateItem (id, item) {
-  console.log(id + item.item_name);
   return knex('items').where('item_id', id)
   .insert(item).into('items')
 }
 
-function updateUser (user) {
-  return knex('users').where('user_id', user.user_id)
-   .update({
-     fname: user.fname,
-     lname: user.lname,
-     email: user.email,
-     phone: user.phone,
-     address: user.address,
-     suburb: user.suburb,
-     town_city: user.town_city,
-     postcode: user.postcode,
-     user_image_url: user.user_image_url
-   })
+function updateUser (id, user) {
+  console.log(user);
+  return knex('users').where('user_id', id)
+   .insert(user).into('users')
 }

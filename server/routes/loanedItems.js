@@ -6,8 +6,7 @@ var db = require('../db')
 router.get('/:id', function (req, res) {
   var id = req.params.id
   db.getLoanedItems(id).then((result) => {
-    console.log(result);
-    res.send(result)
+    res.json(result)
   })
   .catch((err) => {
     res.status(500).send(err)

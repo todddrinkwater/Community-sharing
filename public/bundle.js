@@ -31917,7 +31917,7 @@
 	              null,
 	              'Profile Picture'
 	            ),
-	            _react2.default.createElement('input', { type: 'text', name: 'user_image_url', readonly: 'readonly', value: this.state.uploadedFileCloudinaryUrl }),
+	            _react2.default.createElement('input', { type: 'text', name: 'user_image_url', readOnly: 'readonly', value: this.state.uploadedFileCloudinaryUrl }),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
 	              'div',
@@ -31955,7 +31955,6 @@
 	}(_react2.default.Component);
 	
 	function registerNewUser(event) {
-	  console.log(event.target.elements);
 	  event.preventDefault(event);
 	  var formData = {
 	    fname: event.target.elements.fname.value,
@@ -37317,7 +37316,8 @@
 	};
 	
 	var registerUser = function registerUser(callback, formData) {
-	  request.post(urlPath + '/saveUser').set('Content-Type', 'application/json').send(formData).end(function (err, res) {
+	  console.log(formData);
+	  request.post(urlPath + '/user/').set('Content-Type', 'application/json').send(formData).end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {
