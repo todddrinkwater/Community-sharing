@@ -24084,7 +24084,6 @@
 	
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 	
-<<<<<<< HEAD
 	var _SingleItem = __webpack_require__(335);
 	
 	var _SingleItem2 = _interopRequireDefault(_SingleItem);
@@ -24102,25 +24101,6 @@
 	var _List2 = _interopRequireDefault(_List);
 	
 	var _TermsConditions = __webpack_require__(340);
-=======
-	var _SingleItem = __webpack_require__(334);
-	
-	var _SingleItem2 = _interopRequireDefault(_SingleItem);
-	
-	var _LenderForm = __webpack_require__(335);
-	
-	var _LenderForm2 = _interopRequireDefault(_LenderForm);
-	
-	var _MyItemDetails = __webpack_require__(336);
-	
-	var _MyItemDetails2 = _interopRequireDefault(_MyItemDetails);
-	
-	var _List = __webpack_require__(337);
-	
-	var _List2 = _interopRequireDefault(_List);
-	
-	var _TermsConditions = __webpack_require__(339);
->>>>>>> seed-description-pk
 	
 	var _TermsConditions2 = _interopRequireDefault(_TermsConditions);
 	
@@ -27969,11 +27949,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
 	exports.borrowRequest = exports.updateListing = exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuVisable = exports.menuNavigation = undefined;
-=======
-	exports.borrowRequest = exports.updateListing = exports.searchForItem = exports.listNewItem = exports.fetchBorrowerById = exports.borrowerDetails = exports.fetchLenderById = exports.lenderDetails = exports.fetchSingleItem = exports.singleItemOrder = exports.fetchLoanedItems = exports.loanedItems = exports.fetchBorrowedItems = exports.borrowedItems = exports.fetchUser = exports.loggedInUser = exports.displaySingleItem = exports.filteredListings = exports.initialListings = exports.dashboardTab = exports.menuNavigation = undefined;
->>>>>>> seed-description-pk
 	
 	var _superagent = __webpack_require__(268);
 	
@@ -37445,11 +37421,7 @@
 	
 	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
 	
-<<<<<<< HEAD
 	var _MyProfile = __webpack_require__(334);
-=======
-	var _MyProfile = __webpack_require__(333);
->>>>>>> seed-description-pk
 	
 	var _MyProfile2 = _interopRequireDefault(_MyProfile);
 	
@@ -37516,11 +37488,7 @@
 	
 	var _MyBorrowedItems2 = _interopRequireDefault(_MyBorrowedItems);
 	
-<<<<<<< HEAD
 	var _MyLoanedItems = __webpack_require__(332);
-=======
-	var _MyLoanedItems = __webpack_require__(331);
->>>>>>> seed-description-pk
 	
 	var _MyLoanedItems2 = _interopRequireDefault(_MyLoanedItems);
 	
@@ -37558,11 +37526,7 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-<<<<<<< HEAD
 	var _MyItemCard = __webpack_require__(329);
-=======
-	var _MyItemCard = __webpack_require__(328);
->>>>>>> seed-description-pk
 	
 	var _MyItemCard2 = _interopRequireDefault(_MyItemCard);
 	
@@ -37683,7 +37647,6 @@
 	      )
 	    ),
 	    _react2.default.createElement(
-<<<<<<< HEAD
 	      _reactRouterDom.Link,
 	      { to: '/my-item-details', className: 'cardLink' },
 	      _react2.default.createElement(
@@ -37697,15 +37660,6 @@
 	          'View'
 	        )
 	      )
-=======
-	      'div',
-	      { className: 'dashboard-section' },
-	      props.allItems.map(function (item) {
-	        if (item.owner_id === props.loggedInUser.user_id) {
-	          return _react2.default.createElement(_MyItemCard2.default, _extends({ key: item.item_id }, item));
-	        }
-	      })
->>>>>>> seed-description-pk
 	    )
 	  );
 	};
@@ -37824,11 +37778,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-<<<<<<< HEAD
 	var BorrowedItemCard = function BorrowedItemCard(props) {
-=======
-	var MyItemCard = function MyItemCard(props) {
->>>>>>> seed-description-pk
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'card-wrapper' },
@@ -37869,18 +37819,7 @@
 	  );
 	};
 	
-<<<<<<< HEAD
 	exports.default = BorrowedItemCard;
-=======
-	function mapStateToProps(state) {
-	  return {
-	    item: state.singleItem,
-	    dispatch: state.dispatch
-	  };
-	}
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemCard);
->>>>>>> seed-description-pk
 
 /***/ }),
 /* 332 */
@@ -37904,15 +37843,9 @@
 	
 	var _actions = __webpack_require__(267);
 	
-<<<<<<< HEAD
 	var _LoanedItemCard = __webpack_require__(333);
 	
 	var _LoanedItemCard2 = _interopRequireDefault(_LoanedItemCard);
-=======
-	var _BorrowedItemCard = __webpack_require__(330);
-	
-	var _BorrowedItemCard2 = _interopRequireDefault(_BorrowedItemCard);
->>>>>>> seed-description-pk
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -37952,7 +37885,6 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'dashboard-section' },
-<<<<<<< HEAD
 	          this.props.loanedItems.map(function (loanedItem) {
 	            return _react2.default.createElement(_LoanedItemCard2.default, _extends({
 	              key: loanedItem.loan_id
@@ -37963,10 +37895,6 @@
 	              loggedInPhone: _this2.props.loggedInUser.phone,
 	              loggedInImage: _this2.props.loggedInUser.user_image_url,
 	              dispatch: _this2.props.dispatch }));
-=======
-	          this.props.borrowedItemsList.map(function (borrowedItem) {
-	            return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this2.props.dispatch }));
->>>>>>> seed-description-pk
 	          })
 	        )
 	      );
@@ -38006,11 +37934,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-<<<<<<< HEAD
 	var LoanedItemCard = function LoanedItemCard(props) {
-=======
-	var BorrowedItemCard = function BorrowedItemCard(props) {
->>>>>>> seed-description-pk
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'card-wrapper' },
@@ -38055,184 +37979,15 @@
 	  );
 	};
 	
-<<<<<<< HEAD
 	function goToOrder(props) {
 	  props.dispatch((0, _actions.fetchSingleItem)(props.item_id));
 	  props.dispatch((0, _actions.fetchBorrowerById)(props.borrowers_id));
 	}
 	
 	exports.default = LoanedItemCard;
-=======
-	exports.default = BorrowedItemCard;
->>>>>>> seed-description-pk
 
 /***/ }),
 /* 334 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(182);
-	
-	var _actions = __webpack_require__(266);
-	
-	var _LoanedItemCard = __webpack_require__(332);
-	
-	var _LoanedItemCard2 = _interopRequireDefault(_LoanedItemCard);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var MyLoanedItems = function (_React$Component) {
-	  _inherits(MyLoanedItems, _React$Component);
-	
-	  function MyLoanedItems() {
-	    _classCallCheck(this, MyLoanedItems);
-	
-	    return _possibleConstructorReturn(this, (MyLoanedItems.__proto__ || Object.getPrototypeOf(MyLoanedItems)).apply(this, arguments));
-	  }
-	
-	  _createClass(MyLoanedItems, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.props.dispatch((0, _actions.fetchLoanedItems)(this.props.loggedInUser.user_id));
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'dashboard-container' },
-	        _react2.default.createElement(
-	          'h4',
-	          null,
-	          'My Loaned Items'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'dashboard-section' },
-	          this.props.loanedItems.map(function (loanedItem) {
-	            return _react2.default.createElement(_LoanedItemCard2.default, _extends({
-	              key: loanedItem.loan_id
-	            }, loanedItem, {
-	              loggedInFname: _this2.props.loggedInUser.fname,
-	              loggedInLname: _this2.props.loggedInUser.lname,
-	              loggedInEmail: _this2.props.loggedInUser.email,
-	              loggedInPhone: _this2.props.loggedInUser.phone,
-	              loggedInImage: _this2.props.loggedInUser.user_image_url,
-	              dispatch: _this2.props.dispatch }));
-	          })
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return MyLoanedItems;
-	}(_react2.default.Component);
-	
-	function mapStateToProps(state) {
-	  return {
-	    dispatch: state.dispatch,
-	    loggedInUser: state.loggedInUserDetails,
-	    loanedItems: state.loanedItems
-	  };
-	}
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLoanedItems);
-
-/***/ }),
-/* 332 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouterDom = __webpack_require__(227);
-	
-	var _actions = __webpack_require__(266);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var LoanedItemCard = function LoanedItemCard(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'card-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: props.loggedInImage }),
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'shared-card-details' },
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'shared-name' },
-	          'You'
-	        ),
-	        ' are sharing your ',
-	        props.item_name,
-	        ' with ',
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'shared-name' },
-	          props.fname
-	        )
-	      ),
-	      _react2.default.createElement('img', { className: 'card-image', src: props.user_image_url })
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-button-container' },
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/l-details' },
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'card-button', onClick: function onClick() {
-	              return goToOrder(props);
-	            } },
-	          'More'
-	        )
-	      )
-	    )
-	  );
-	};
-	
-	function goToOrder(props) {
-	  props.dispatch((0, _actions.fetchSingleItem)(props.item_id));
-	  props.dispatch((0, _actions.fetchBorrowerById)(props.borrowers_id));
-	}
-	
-	exports.default = LoanedItemCard;
-
-/***/ }),
-/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38309,11 +38064,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyProfile);
 
 /***/ }),
-<<<<<<< HEAD
 /* 335 */
-=======
-/* 334 */
->>>>>>> seed-description-pk
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38354,10 +38105,7 @@
 	  _createClass(SingleItem, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-<<<<<<< HEAD
 	      window.scrollTo(0, 0);
-=======
->>>>>>> seed-description-pk
 	      this.props.dispatch((0, _actions.fetchLenderById)(this.props.item.owner_id));
 	    }
 	  }, {
@@ -38457,11 +38205,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(SingleItem);
 
 /***/ }),
-<<<<<<< HEAD
 /* 336 */
-=======
-/* 335 */
->>>>>>> seed-description-pk
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38674,11 +38418,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LenderForm);
 
 /***/ }),
-<<<<<<< HEAD
 /* 337 */
-=======
-/* 336 */
->>>>>>> seed-description-pk
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38776,11 +38516,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemDetails);
 
 /***/ }),
-<<<<<<< HEAD
 /* 338 */
-=======
-/* 337 */
->>>>>>> seed-description-pk
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38797,11 +38533,7 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-<<<<<<< HEAD
 	var _ListAllItems = __webpack_require__(339);
-=======
-	var _ListAllItems = __webpack_require__(338);
->>>>>>> seed-description-pk
 	
 	var _ListAllItems2 = _interopRequireDefault(_ListAllItems);
 	
@@ -38897,11 +38629,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(List);
 
 /***/ }),
-<<<<<<< HEAD
 /* 339 */
-=======
-/* 338 */
->>>>>>> seed-description-pk
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38966,11 +38694,7 @@
 	exports.default = ListAllItems;
 
 /***/ }),
-<<<<<<< HEAD
 /* 340 */
-=======
-/* 339 */
->>>>>>> seed-description-pk
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39028,11 +38752,7 @@
 	exports.default = TermsConditions;
 
 /***/ }),
-<<<<<<< HEAD
 /* 341 */
-=======
-/* 340 */
->>>>>>> seed-description-pk
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

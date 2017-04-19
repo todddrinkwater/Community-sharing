@@ -100,11 +100,16 @@ textarea:focus, input:focus, select:focus, button:focus{
 
 .navigation-item{
   padding: 1em;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  background-color: #eee;
-  color: #1492AB;
+  /*border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;*/
+  background-color: rgb(69, 74, 90);
+  color: #17efc1;
   font-weight: bold;
+  font-size: 1em;
+  text-decoration: underline;
+  border-radius: 4px;
 }
 
 
@@ -357,7 +362,6 @@ select {
 
 .card-button{
   border: 2.7px solid #1B2B37;
-  border-radius: 0.7em;
   font-size: 0.8em;
   width: 8em;
   height: 2.5em;
