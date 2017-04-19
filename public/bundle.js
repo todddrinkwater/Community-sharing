@@ -24055,27 +24055,27 @@
 	
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 	
-	var _SingleItem = __webpack_require__(334);
+	var _SingleItem = __webpack_require__(333);
 	
 	var _SingleItem2 = _interopRequireDefault(_SingleItem);
 	
-	var _LenderForm = __webpack_require__(335);
+	var _LenderForm = __webpack_require__(334);
 	
 	var _LenderForm2 = _interopRequireDefault(_LenderForm);
 	
-	var _MyItemDetails = __webpack_require__(336);
+	var _MyItemDetails = __webpack_require__(335);
 	
 	var _MyItemDetails2 = _interopRequireDefault(_MyItemDetails);
 	
-	var _List = __webpack_require__(337);
+	var _List = __webpack_require__(336);
 	
 	var _List2 = _interopRequireDefault(_List);
 	
-	var _TermsConditions = __webpack_require__(339);
+	var _TermsConditions = __webpack_require__(338);
 	
 	var _TermsConditions2 = _interopRequireDefault(_TermsConditions);
 	
-	var _MyLendedDetails = __webpack_require__(340);
+	var _MyLendedDetails = __webpack_require__(339);
 	
 	var _MyLendedDetails2 = _interopRequireDefault(_MyLendedDetails);
 	
@@ -37366,7 +37366,7 @@
 	
 	var _MySharingDetails2 = _interopRequireDefault(_MySharingDetails);
 	
-	var _MyProfile = __webpack_require__(333);
+	var _MyProfile = __webpack_require__(332);
 	
 	var _MyProfile2 = _interopRequireDefault(_MyProfile);
 	
@@ -37425,15 +37425,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _MyListings = __webpack_require__(327);
+	var _MyItems = __webpack_require__(327);
 	
-	var _MyListings2 = _interopRequireDefault(_MyListings);
+	var _MyItems2 = _interopRequireDefault(_MyItems);
 	
-	var _MyBorrowedItems = __webpack_require__(329);
+	var _MyBorrowedItems = __webpack_require__(328);
 	
 	var _MyBorrowedItems2 = _interopRequireDefault(_MyBorrowedItems);
 	
-	var _MyLendedItems = __webpack_require__(331);
+	var _MyLendedItems = __webpack_require__(330);
 	
 	var _MyLendedItems2 = _interopRequireDefault(_MyLendedItems);
 	
@@ -37443,7 +37443,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_MyListings2.default, null),
+	    _react2.default.createElement(_MyItems2.default, null),
 	    _react2.default.createElement(_MyBorrowedItems2.default, null),
 	    _react2.default.createElement(_MyLendedItems2.default, null)
 	  );
@@ -37463,37 +37463,78 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _MyAvailableItemsCard = __webpack_require__(328);
+	var _MyItemsCard = __webpack_require__(340);
 	
-	var _MyAvailableItemsCard2 = _interopRequireDefault(_MyAvailableItemsCard);
+	var _MyItemsCard2 = _interopRequireDefault(_MyItemsCard);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function MyListings(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'dashboard-container' },
-	    _react2.default.createElement(
-	      'h4',
-	      null,
-	      'My Listings'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'dashboard-section' },
-	      props.allItems.map(function (item) {
-	        if (item.owner_id == props.loggedInUser.user_id) {
-	          return _react2.default.createElement(_MyAvailableItemsCard2.default, _extends({ key: item.item_id }, item));
-	        }
-	      })
-	    )
-	  );
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var toggleMyItems = true;
+	
+	var MyItems = function (_React$Component) {
+	  _inherits(MyItems, _React$Component);
+	
+	  function MyItems() {
+	    _classCallCheck(this, MyItems);
+	
+	    var _this = _possibleConstructorReturn(this, (MyItems.__proto__ || Object.getPrototypeOf(MyItems)).call(this));
+	
+	    _this.state = { toggleMyItems: true };
+	    return _this;
+	  }
+	
+	  _createClass(MyItems, [{
+	    key: 'toggleItemView',
+	    value: function toggleItemView() {
+	      this.setState({ toggleMyItems: !this.state.toggleMyItems });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'dashboard-container' },
+	        _react2.default.createElement(
+	          'h4',
+	          { onClick: function onClick() {
+	              return _this2.toggleItemView();
+	            } },
+	          'My Listings'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'dashboard-section' },
+	          this.state.toggleMyItems ? myItems(this.props.allItems, this.props.loggedInUser.user_id) : ''
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return MyItems;
+	}(_react2.default.Component);
+	
+	function myItems(allItems, user_id) {
+	  return allItems.map(function (item) {
+	    if (item.owner_id === user_id) {
+	      return _react2.default.createElement(_MyItemsCard2.default, _extends({ key: item.item_id }, item));
+	    }
+	  });
 	}
 	
 	function mapStateToProps(state) {
@@ -37503,82 +37544,10 @@
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyListings);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItems);
 
 /***/ }),
 /* 328 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(182);
-	
-	var _reactRouterDom = __webpack_require__(227);
-	
-	var _actions = __webpack_require__(266);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var MyAvailableItemsCard = function MyAvailableItemsCard(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'card-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'card-container' },
-	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'card-details-container' },
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-heading' },
-	          props.item_name
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'card-details' },
-	          props.description
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      _reactRouterDom.Link,
-	      { to: '/my-item-details', className: 'cardLink' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'card-button-container' },
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'card-button', onClick: function onClick() {
-	              return props.dispatch((0, _actions.displaySingleItem)(props));
-	            } },
-	          'View'
-	        )
-	      )
-	    )
-	  );
-	};
-	
-	function mapStateToProps(state) {
-	  return {
-	    item: state.singleItem,
-	    dispatch: state.dispatch
-	  };
-	}
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyAvailableItemsCard);
-
-/***/ }),
-/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37599,7 +37568,7 @@
 	
 	var _actions = __webpack_require__(266);
 	
-	var _BorrowedItemsCard = __webpack_require__(330);
+	var _BorrowedItemsCard = __webpack_require__(329);
 	
 	var _BorrowedItemsCard2 = _interopRequireDefault(_BorrowedItemsCard);
 	
@@ -37663,7 +37632,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowedItems);
 
 /***/ }),
-/* 330 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37726,7 +37695,7 @@
 	exports.default = BorrowedItemsCard;
 
 /***/ }),
-/* 331 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37747,7 +37716,7 @@
 	
 	var _actions = __webpack_require__(266);
 	
-	var _LendedItemsCard = __webpack_require__(332);
+	var _LendedItemsCard = __webpack_require__(331);
 	
 	var _LendedItemsCard2 = _interopRequireDefault(_LendedItemsCard);
 	
@@ -37819,7 +37788,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLendedItems);
 
 /***/ }),
-/* 332 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37891,7 +37860,7 @@
 	exports.default = LendedItemsCard;
 
 /***/ }),
-/* 333 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37968,7 +37937,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyProfile);
 
 /***/ }),
-/* 334 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38093,7 +38062,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(SingleItem);
 
 /***/ }),
-/* 335 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38306,7 +38275,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LenderForm);
 
 /***/ }),
-/* 336 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38404,7 +38373,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemDetails);
 
 /***/ }),
-/* 337 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38421,7 +38390,7 @@
 	
 	var _reactRedux = __webpack_require__(182);
 	
-	var _ListAllItems = __webpack_require__(338);
+	var _ListAllItems = __webpack_require__(337);
 	
 	var _ListAllItems2 = _interopRequireDefault(_ListAllItems);
 	
@@ -38517,7 +38486,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(List);
 
 /***/ }),
-/* 338 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38582,7 +38551,7 @@
 	exports.default = ListAllItems;
 
 /***/ }),
-/* 339 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38640,7 +38609,7 @@
 	exports.default = TermsConditions;
 
 /***/ }),
-/* 340 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38736,6 +38705,78 @@
 	}
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLendedDetails);
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(182);
+	
+	var _reactRouterDom = __webpack_require__(227);
+	
+	var _actions = __webpack_require__(266);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MyItemsCard = function MyItemsCard(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'card-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'card-container' },
+	      _react2.default.createElement('img', { className: 'card-image', src: props.image_url }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-details-container' },
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-heading' },
+	          props.item_name
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'card-details' },
+	          props.description
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      _reactRouterDom.Link,
+	      { to: '/my-item-details', className: 'cardLink' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'card-button-container' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'card-button', onClick: function onClick() {
+	              return props.dispatch((0, _actions.displaySingleItem)(props));
+	            } },
+	          'View'
+	        )
+	      )
+	    )
+	  );
+	};
+	
+	function mapStateToProps(state) {
+	  return {
+	    item: state.singleItem,
+	    dispatch: state.dispatch
+	  };
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyItemsCard);
 
 /***/ })
 /******/ ]);
