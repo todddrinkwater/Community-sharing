@@ -37725,12 +37725,12 @@
 	  _createClass(MyBorrowedItems, [{
 	    key: 'toggleItemView',
 	    value: function toggleItemView() {
-	      console.log(this.state);
 	      this.setState({ toggleMyItems: !this.state.toggleMyItems });
 	    }
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      console.log(this.props);
 	      this.props.dispatch((0, _actions.fetchBorrowedItems)(this.props.loggedInUserId));
 	    }
 	  }, {
@@ -37765,7 +37765,6 @@
 	function myItems(borrowedItems, user_id) {
 	  var _this3 = this;
 	
-	  // console.log(user_id, borrowedItems)
 	  return borrowedItems.map(function (borrowedItem) {
 	    if (borrowedItem.owner_id == user_id) {
 	      return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this3.props.dispatch }));

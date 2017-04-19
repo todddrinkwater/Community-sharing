@@ -15,11 +15,11 @@ class MyBorrowedItems extends React.Component {
   }
 
   toggleItemView() {
-    console.log(this.state)
     this.setState({ toggleMyItems: !this.state.toggleMyItems })
   }
 
   componentDidMount () {
+    console.log(this.props)
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
   render () {
@@ -36,7 +36,6 @@ class MyBorrowedItems extends React.Component {
 }
 
 function myItems(borrowedItems, user_id) {
-  // console.log(user_id, borrowedItems)
   return borrowedItems.map((borrowedItem) => {
     if ( (borrowedItem.owner_id == user_id)) {
       return (
