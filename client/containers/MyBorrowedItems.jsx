@@ -19,7 +19,6 @@ class MyBorrowedItems extends React.Component {
   }
 
   componentDidMount () {
-    console.log(this.props)
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
   render () {

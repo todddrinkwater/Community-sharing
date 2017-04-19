@@ -9,7 +9,7 @@ function List (props) {
     <div className='List'>
       <div className='search-bar-container'>
         <i className='fa fa-search' aria-hidden='true' />
-        <input id='search-input' type='text' name='search' />
+        <input id='search-input' type='text' name='search' placeholder='search...' />
         <button className='search-button' onClick={() => search(props.dispatch)}>Search</button>
       </div>
 

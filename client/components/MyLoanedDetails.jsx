@@ -1,24 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-let MyLoanedDetails = (props) => (
-  <div className='Order'>
+let MyBorrowedDetails = (props) => (
+  <div className='transaction'>
     <h3>Request Approved - Transaction Receipt</h3>
 
-    <h3>Item Details</h3>
-    <ul>
-      <li>Item: {props.orderItemDetails.item_name}</li>
-      <li>Details: {props.orderItemDetails.description}</li>
-      <li>Pick Up Date: 01-01-2015</li>
-      <li>Drop Off Date: 03-01-2015</li>
-    </ul>
+    <p> Good News, {props.borrowerDetails.fname} {props.borrowerDetails.lname} wants to borrow your {props.orderItemDetails.item_name}!</p>
 
-    <h3>Borrower Details</h3>
-    <ul>
-      <li>Name: {props.borrowerDetails.fname} {props.borrowerDetails.lname}</li>
-      <li>Phone: {props.borrowerDetails.phone}</li>
-      <li>email: {props.borrowerDetails.email}</li>
-    </ul>
+    <div className='order-image-container'>
+      <img className='order-image' src={props.orderItemDetails.image_url}></img>
+      <img className='order-image' src={props.borrowerDetails.user_image_url}></img>
+    </div>
+
+    <p>
+      You can contact {props.borrowerDetails.fname} via the following methods:
+      <br />
+      <span className='order-bold-text'>Phone:</span> {props.borrowerDetails.phone}<br />
+      <span className='order-bold-text'>Email:</span> {props.borrowerDetails.email}<br />
+    </p>
 
   </div>
 )
@@ -30,4 +29,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(MyLoanedDetails)
+export default connect(mapStateToProps)(MyBorrowedDetails)
