@@ -16,7 +16,7 @@ router.get('/:email', function (req, res) {
 
 router.post('/', function (req, res) {
   var user = req.body
-  console.log(user);
+  console.log(user)
   db.saveUser(user).then(() => {
     res.sendStatus(201)
   })
@@ -35,6 +35,5 @@ router.put('/:id', function (req, res) {
     res.status(500).send(err)
   })
 })
-
 
 module.exports = router

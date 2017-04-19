@@ -8,16 +8,13 @@ var knex = require('knex')(config)
 
 var app = require('../server/server')
 
-test('/items', function(t) {
-  //post down to server
-  //check item is in table using local knex connection
-  //reseed table
-  app.get('knex').seed.run().then(function(){
+test('/items', function (t) {
+  // post down to server
+  // check item is in table using local knex connection
+  // reseed table
+  app.get('knex').seed.run().then(function () {
     t.end()
   })
-
-
-
 })
 
 test('post item', function (t) {
@@ -44,7 +41,6 @@ test('post item', function (t) {
   }
 })
 
-
 test('return items', function (t) {
   supertest(app)
     .get('/items')
@@ -70,7 +66,7 @@ test('return item', function (t) {
   function checkReturnedObject (err, res) {
     if (err) { throw err }
 
-    var response = typeof(res.body)
+    var response = typeof (res.body)
     var expected = 'object'
     var actualID = res.body[0].item_id
     var expectedID = 12003
@@ -86,7 +82,7 @@ test('post user', function (t) {
   supertest(app)
     .post('/user')
     .send({
-      fname:'test',
+      fname: 'test',
       lname: 'object',
       email: 'email@email.com',
       address: 'a road',

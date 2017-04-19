@@ -24,7 +24,7 @@ class MyBorrowedItems extends React.Component {
     return (
       <div className='dashboard-container'>
         <h4 onClick={() => this.toggleItemView()}>My Borrowed Items<i className='fa fa-arrow-down' aria-hidden='true' /></h4>
-          {this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''}
+        {this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''}
       </div>
     )
   }

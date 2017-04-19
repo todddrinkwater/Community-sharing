@@ -5,7 +5,7 @@ let Home = () => (
   <div className='homepage'>
     <div className='welcome-image'>
       <div className='welcome-text-container'>
-            Welcome to Community Share, a place where you can borrow and lend items with others in you community.
+            Welcome to Community Sharing, a place where you can borrow and lend items with others in your community.
           </div>
     </div>
     <div className='into-text-container'>

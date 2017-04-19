@@ -83,9 +83,9 @@ class Register extends React.Component {
               </div>
             </div>
             <Router>
-            <Link to='/login'>
-              <input type='submit' className='itemListingSubmit' value='Register' />
-            </Link>
+              <Link to='/login'>
+                <input type='submit' className='itemListingSubmit' value='Register' />
+              </Link>
             </Router>
           </form>
         </div>
@@ -95,7 +95,7 @@ class Register extends React.Component {
 }
 
 function registerNewUser (event) {
-  console.log(event);
+  console.log(event)
   event.preventDefault(event)
   var formData = {
     fname: event.target.elements.fname.value,

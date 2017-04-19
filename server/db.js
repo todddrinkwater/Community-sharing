@@ -90,7 +90,7 @@ function updateItem (id, item) {
 }
 
 function updateUser (id, user) {
-  console.log(user);
+  console.log(user)
   return knex('users').where('user_id', id)
    .insert(user).into('users')
 }

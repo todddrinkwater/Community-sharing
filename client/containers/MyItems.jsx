@@ -19,7 +19,7 @@ class MyItems extends React.Component {
     return (
       <div className='dashboard-container'>
         <h4 onClick={() => this.toggleItemView()}>My Listings <i className='fa fa-arrow-down' aria-hidden='true' /></h4>
-          {this.state.toggleMyItems ? myItems(this.props.allItems, this.props.loggedInUser.user_id) : ''}
+        {this.state.toggleMyItems ? myItems(this.props.allItems, this.props.loggedInUser.user_id) : ''}
       </div>
     )
   }

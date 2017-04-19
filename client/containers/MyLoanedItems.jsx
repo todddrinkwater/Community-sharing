@@ -14,19 +14,19 @@ class MyLoanedItems extends React.Component {
     return (
       <div className='dashboard-container'>
         <h4>My Loaned Items</h4>
-          { this.props.loanedItems.map((loanedItem) => {
-            return (
-              <LoanedItemCard
-                key={loanedItem.loan_id}
-                {...loanedItem}
-                loggedInFname={this.props.loggedInUser.fname}
-                loggedInLname={this.props.loggedInUser.lname}
-                loggedInEmail={this.props.loggedInUser.email}
-                loggedInPhone={this.props.loggedInUser.phone}
-                loggedInImage={this.props.loggedInUser.user_image_url}
-                dispatch={this.props.dispatch} />
-            )
-          })}
+        { this.props.loanedItems.map((loanedItem) => {
+          return (
+            <LoanedItemCard
+              key={loanedItem.loan_id}
+              {...loanedItem}
+              loggedInFname={this.props.loggedInUser.fname}
+              loggedInLname={this.props.loggedInUser.lname}
+              loggedInEmail={this.props.loggedInUser.email}
+              loggedInPhone={this.props.loggedInUser.phone}
+              loggedInImage={this.props.loggedInUser.user_image_url}
+              dispatch={this.props.dispatch} />
+          )
+        })}
       </div>
     )
   }

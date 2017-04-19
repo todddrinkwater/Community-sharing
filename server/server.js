@@ -17,7 +17,6 @@ var borrowedItems = require('./routes/borrowedItems')
 var loanRequest = require('./routes/loanRequest')
 var search = require('./routes/search')
 
-
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(express.static(path.join(__dirname, '../public')))

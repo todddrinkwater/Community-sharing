@@ -56,11 +56,11 @@ class LenderForm extends React.Component {
         <form method='post' onSubmit={(e) => { newItem(e, this.props) }} >
           <label>Title</label><br /><input type='text' name='item_name' /><br />
           <label>Category</label><br />
-          <select name="category">
-            <option value="Tools">Tools</option>
-            <option value="Sport and Recreation">Sport and Recreation</option>
-            <option value="Music">Music</option>
-            <option value="Other">Other</option>
+          <select name='category'>
+            <option value='Tools'>Tools</option>
+            <option value='Sport and Recreation'>Sport and Recreation</option>
+            <option value='Music'>Music</option>
+            <option value='Other'>Other</option>
           </select>
           <label>Description</label><br /><input type='text' name='description' /><br />
           <label>Location</label><br /><input type='text' name='location' /><br />
