@@ -11,6 +11,7 @@ import orderItemDetails from './orderItemDetails'
 import borrowedItemsState from './borrowedItemsState'
 import lenderDetails from './lenderDetails'
 import borrowerDetails from './borrowerDetails'
+import menuVisableState from './menuVisableState'
 
 export default combineReducers({
   menuState,
@@ -23,5 +24,6 @@ export default combineReducers({
   orderItemDetails,
   borrowedItemsState,
   lenderDetails,
-  borrowerDetails
+  borrowerDetails,
+  menuVisableState
 })

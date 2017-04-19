@@ -5,6 +5,7 @@ const config = require('../../config')
 
 var urlPath = url.format(config)
 var currentMenuState = false
+var menuVisableState = false
 
 export const menuNavigation = () => {
   if (currentMenuState === false) {
@@ -15,6 +16,18 @@ export const menuNavigation = () => {
   return {
     type: 'MENU_STATE',
     menuState: currentMenuState
+  }
+}
+
+export const menuVisable = () => {
+  if (menuVisableState === false) {
+    menuVisableState = true
+  } else {
+    menuVisableState = false
+  }
+  return {
+    type: 'MENU_VISABLE',
+    menuVisableState: menuVisableState
   }
 }
 
