@@ -11,7 +11,7 @@ class MyItemDetails extends React.Component {
 
   render () {
     return (
-      <div className='ItemListing'>
+      <div className='item-listing'>
         <div>
           <h1 className='itemTitle'>{this.props.item.item_name}</h1>
           <img className='itemListingImage' src={this.props.item.image_url} />

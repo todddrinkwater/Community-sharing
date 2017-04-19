@@ -12,7 +12,6 @@ let MyLoanedDetails = (props) => (
       <img className='order-image' src={props.orderItemDetails.user_image_url}></img>
     </div>
 
-
     <p>
       You can contact {props.orderItemDetails.fname} via the following methods:
       <br />
