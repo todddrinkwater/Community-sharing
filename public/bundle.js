@@ -27768,86 +27768,67 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var MyBorrowedDetails = function MyBorrowedDetails(props) {
+	var MyLoanedDetails = function MyLoanedDetails(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'MyBorrowedDetails' },
+	    { className: 'transaction' },
 	    _react2.default.createElement(
 	      'h3',
 	      null,
 	      'Request Approved - Transaction Receipt'
 	    ),
 	    _react2.default.createElement(
-	      'h3',
+	      'p',
 	      null,
-	      'Item Details'
+	      ' Good News! ',
+	      props.orderItemDetails.fname,
+	      ' ',
+	      props.orderItemDetails.lname,
+	      ' is lending you their ',
+	      props.orderItemDetails.item_name,
+	      '.'
 	    ),
 	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Item: ',
-	        props.orderItemDetails.item_name
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Details: ',
-	        props.orderItemDetails.description
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Pick Up Date: 01-01-2015'
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Drop Off Date: 03-01-2015'
-	      )
+	      'div',
+	      { className: 'order-image-container' },
+	      _react2.default.createElement('img', { className: 'order-image', src: props.orderItemDetails.image_url }),
+	      _react2.default.createElement('img', { className: 'order-image', src: props.orderItemDetails.user_image_url })
 	    ),
 	    _react2.default.createElement(
-	      'h3',
+	      'p',
 	      null,
-	      'Borrower Details'
-	    ),
-	    _react2.default.createElement(
-	      'ul',
-	      null,
+	      'You can contact ',
+	      props.orderItemDetails.fname,
+	      ' via the following methods:',
+	      _react2.default.createElement('br', null),
 	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Name: ',
-	        props.borrowerDetails.fname,
-	        ' ',
-	        props.borrowerDetails.lname
+	        'span',
+	        { className: 'order-bold-text' },
+	        'Phone:'
 	      ),
+	      ' ',
+	      props.orderItemDetails.phone,
+	      _react2.default.createElement('br', null),
 	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Phone: ',
-	        props.borrowerDetails.phone
+	        'span',
+	        { className: 'order-bold-text' },
+	        'email:'
 	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'email: ',
-	        props.borrowerDetails.email
-	      )
+	      ' ',
+	      props.orderItemDetails.email,
+	      _react2.default.createElement('br', null)
 	    )
 	  );
 	};
 	
 	function mapStateToProps(state) {
+	  console.log(state.orderItemDetails[0]);
 	  return {
-	    borrowerDetails: state.borrowerDetails[0],
 	    orderItemDetails: state.orderItemDetails[0]
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowedDetails);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLoanedDetails);
 
 /***/ },
 /* 266 */
@@ -38788,85 +38769,67 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var MyLoanedDetails = function MyLoanedDetails(props) {
+	var MyBorrowedDetails = function MyBorrowedDetails(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'Order' },
+	    { className: 'transaction' },
 	    _react2.default.createElement(
 	      'h3',
 	      null,
 	      'Request Approved - Transaction Receipt'
 	    ),
 	    _react2.default.createElement(
-	      'h3',
+	      'p',
 	      null,
-	      'Item Details'
+	      ' Good News! ',
+	      props.borrowerDetails.fname,
+	      ' ',
+	      props.borrowerDetails.lname,
+	      ' wants to borrow your ',
+	      props.orderItemDetails.item_name,
+	      '.'
 	    ),
 	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Item: ',
-	        props.orderItemDetails.item_name
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Details: ',
-	        props.orderItemDetails.description
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Pick Up Date: 01-01-2015'
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Drop Off Date: 03-01-2015'
-	      )
+	      'div',
+	      { className: 'order-image-container' },
+	      _react2.default.createElement('img', { className: 'order-image', src: props.orderItemDetails.image_url }),
+	      _react2.default.createElement('img', { className: 'order-image', src: props.borrowerDetails.user_image_url })
 	    ),
 	    _react2.default.createElement(
-	      'h3',
+	      'p',
 	      null,
-	      'Lender Details'
-	    ),
-	    _react2.default.createElement(
-	      'ul',
-	      null,
+	      'You can contact ',
+	      props.borrowerDetails.fname,
+	      ' via the following methods:',
+	      _react2.default.createElement('br', null),
 	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Name: ',
-	        props.orderItemDetails.fname,
-	        ' ',
-	        props.orderItemDetails.lname
+	        'span',
+	        { className: 'order-bold-text' },
+	        'Phone:'
 	      ),
+	      ' ',
+	      props.borrowerDetails.phone,
+	      _react2.default.createElement('br', null),
 	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Phone: ',
-	        props.orderItemDetails.phone
+	        'span',
+	        { className: 'order-bold-text' },
+	        'email:'
 	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'email: ',
-	        props.orderItemDetails.email
-	      )
+	      ' ',
+	      props.borrowerDetails.email,
+	      _react2.default.createElement('br', null)
 	    )
 	  );
 	};
 	
 	function mapStateToProps(state) {
 	  return {
+	    borrowerDetails: state.borrowerDetails[0],
 	    orderItemDetails: state.orderItemDetails[0]
 	  };
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyLoanedDetails);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyBorrowedDetails);
 
 /***/ }
 /******/ ]);
