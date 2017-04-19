@@ -31746,6 +31746,8 @@
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
+	var _reactRouterDom = __webpack_require__(228);
+	
 	var _api = __webpack_require__(324);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -31907,7 +31909,11 @@
 	                )
 	              )
 	            ),
-	            _react2.default.createElement('input', { type: 'submit', className: 'itemListingSubmit', value: 'Register' })
+	            _react2.default.createElement(
+	              _reactRouterDom.Link,
+	              { to: '/login' },
+	              _react2.default.createElement('input', { type: 'submit', className: 'itemListingSubmit', value: 'Register' })
+	            )
 	          )
 	        )
 	      );
@@ -37641,7 +37647,6 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      console.log(this.props);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'dashboard-container' },
@@ -37663,7 +37668,7 @@
 	
 	function myItems(borrowedItems, user_id) {
 	  return borrowedItems.map(function (borrowedItem) {
-	    if (borrowedItem.owner_id === user_id) {
+	    if (borrowedItem.owner_id != user_id) {
 	      return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem));
 	    }
 	  });

@@ -21,7 +21,6 @@ class MyBorrowedItems extends React.Component {
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
   render () {
-    console.log(this.props)
     return (
       <div className='dashboard-container'>
         <h4 onClick={() => this.toggleItemView()}>My Borrowed Items<i className='fa fa-arrow-down' aria-hidden='true' /></h4>
@@ -33,7 +32,7 @@ class MyBorrowedItems extends React.Component {
 
 function myItems (borrowedItems, user_id) {
   return borrowedItems.map((borrowedItem) => {
-    if ((borrowedItem.owner_id === user_id)) {
+    if (borrowedItem.owner_id != user_id) {
       return (
         <BorrowedItemCard key={borrowedItem.loan_id} {...borrowedItem} />
       )
