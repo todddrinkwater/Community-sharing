@@ -27,7 +27,7 @@ class SingleItem extends React.Component {
         </div>
         <form className='requestForm' action='/action_page.php'>
           <p>
-            <input type='checkbox' />By ticking this box, I agree to the <Link to='/TermsConditions'>Terms and Conditions</Link> of Community Share.
+            <input type='checkbox' />By ticking this box, I agree to the <Link to='/ts&cs'>Terms and Conditions</Link> of Community Share.
           </p>
           <Router>
             <Link to='/dashboard'>
