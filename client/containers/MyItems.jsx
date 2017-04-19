@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import MyItemsCard from '../components/MyItemsCard'
+import MyItemsCard from '../components/MyItemCard'
+
 
 var toggleMyItems = true
 

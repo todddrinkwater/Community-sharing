@@ -4,9 +4,8 @@ const url = require('url')
 const config = require('../../config')
 
 var urlPath = url.format(config)
-console.log(config)
-console.log(urlPath)
 var currentMenuState = false
+var menuVisableState = false
 
 export const menuNavigation = () => {
   if (currentMenuState === false) {
@@ -17,6 +16,18 @@ export const menuNavigation = () => {
   return {
     type: 'MENU_STATE',
     menuState: currentMenuState
+  }
+}
+
+export const menuVisable = () => {
+  if (menuVisableState === false) {
+    menuVisableState = true
+  } else {
+    menuVisableState = false
+  }
+  return {
+    type: 'MENU_VISABLE',
+    menuVisableState: menuVisableState
   }
 }
 
@@ -202,5 +213,20 @@ export const updateListing = () => {
      dispatch(initialListings(res.body))
      dispatch(filteredListings(res.body))
    })
+  }
+}
+
+export const borrowRequest = (borrowRequestDetails) => {
+  return (dispatch) => {
+    request
+    .post(urlPath + /loanRequest/)
+    .send(borrowRequestDetails)
+    .end((err, res) => {
+      if (err) {
+        console.error('borrowRequest ' + err.message)
+        return
+      }
+      dispatch(fetchBorrowedItems(borrowRequestDetails.borrowers_id))
+    })
   }
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { fetchSingleItem } from '../actions'
 
-let BorrowedItemsCard = (props) => (
+let BorrowedItemCard = (props) => (
   <div className='card-wrapper'>
     <div className='card-container'>
       <img className='card-image' src={props.image_url} />
@@ -20,4 +20,4 @@ let BorrowedItemsCard = (props) => (
   </div>
 )
 
-export default BorrowedItemsCard
+export default BorrowedItemCard

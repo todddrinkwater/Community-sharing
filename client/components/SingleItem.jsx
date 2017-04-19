@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter as Router, Link } from 'react-router-dom'
 
-import { fetchLenderById } from '../actions'
+import { fetchLenderById, borrowRequest } from '../actions'
 
 class SingleItem extends React.Component {
   componentDidMount () {
-    this.props.dispatch(fetchLenderById(this.props.item.owner_id))
     window.scrollTo(0, 0)
+    this.props.dispatch(fetchLenderById(this.props.item.owner_id))
   }
 
   render () {
@@ -27,11 +27,11 @@ class SingleItem extends React.Component {
         </div>
         <form className='requestForm' action='/action_page.php'>
           <p>
-            <input type='checkbox' name='vehicle' value='Bike' />By ticking this box, I agree to the <Link to='/ts&cs'>Terms and Conditions</Link> of Community Share.
+            <input type='checkbox' />By ticking this box, I agree to the <Link to='/TermsConditions'>Terms and Conditions</Link> of Community Share.
           </p>
           <Router>
             <Link to='/dashboard'>
-              <input type='submit' value='Request Item' />
+              <input type='submit' value='Request Item' onClick={() => sendBorrowRequest(this.props)} />
             </Link>
           </Router>
         </form>
@@ -40,11 +40,23 @@ class SingleItem extends React.Component {
   }
 }
 
+function sendBorrowRequest (props) {
+  var borrowerRequestDetails = {
+    borrowers_id: props.loggedInUserDetails.user_id,
+    lenders_id: props.lenderDetails.user_id,
+    item_id: props.item.item_id,
+    pickup: '2017-04-25 14:12:22',
+    dropoff: '2017-04-30 10:00:00'
+  }
+  props.dispatch(borrowRequest(borrowerRequestDetails))
+}
+
 function mapStateToProps (state) {
   return {
     item: state.singleItem,
     dispatch: state.dispatch,
-    lenderDetails: state.lenderDetails[0]
+    lenderDetails: state.lenderDetails[0],
+    loggedInUserDetails: state.loggedInUserDetails
   }
 }
 
