@@ -42,9 +42,10 @@ function getLoanItems (id) {
 }
 
 function getLoanedItems (id) {
+  console.log(id);
   return knex('loans').where('lenders_id', id)
-  .join('items', 'loans.item_id', 'items.item_id')
-  .join('users', 'borrowers_id', 'user_id')
+  // .join('items', 'loans.item_id', 'items.item_id')
+  // .join('users', 'borrowers_id', 'user_id')
 }
 
 function getBorrowedItems (id) {

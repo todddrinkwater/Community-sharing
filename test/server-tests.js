@@ -13,6 +13,7 @@ test('/items', function(t) {
   //check item is in table using local knex connection
   //reseed table
   // knex.seed.run([config])
+  app.get('knex').seed.run()
   t.end()
 })
 
@@ -95,7 +96,7 @@ test('return loan items', function (t) {
 
 test('return loaned items', function (t) {
   supertest(app)
-    .get('/loanedItems/7006')
+    .get('/loanedItems/7005')
     .end(checkReturnedObject)
 
   function checkReturnedObject (err, res) {
