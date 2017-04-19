@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import MyItemsCard from '../components/MyItemsCard'
+import MyItemCard from '../components/MyItemCard'
 
 function MyItems (props) {
   return (
@@ -11,7 +11,7 @@ function MyItems (props) {
         { props.allItems.map((item) => {
           if (item.owner_id === props.loggedInUser.user_id) {
             return (
-              <MyItemsCard key={item.item_id} {...item} />
+              <MyItemCard key={item.item_id} {...item} />
             )
           }
         })}
