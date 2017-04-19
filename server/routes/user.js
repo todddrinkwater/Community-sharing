@@ -14,4 +14,27 @@ router.get('/:email', function (req, res) {
   })
 })
 
+router.post('/', function (req, res) {
+  var user = req.body
+  console.log(user);
+  db.saveUser(user).then(() => {
+    res.sendStatus(201)
+  })
+  .catch((err) => {
+    res.status(500).send(err)
+  })
+})
+
+router.put('/:id', function (req, res) {
+  var id = req.params.id
+  var user = req.body
+  db.updateUser(id, user).then(() => {
+    res.sendStatus(201)
+  })
+  .catch((err) => {
+    res.status(500).send(err)
+  })
+})
+
+
 module.exports = router

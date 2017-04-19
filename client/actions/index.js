@@ -128,7 +128,7 @@ export const singleItemOrder = orderItem => {
 
 export const fetchSingleItem = itemId => {
   return dispatch => {
-    request.get(urlPath + '/item/' + itemId).end((err, res) => {
+    request.get(urlPath + '/items/' + itemId).end((err, res) => {
       if (err) {
         console.error('fetchSingleItem ' + err.message)
         return

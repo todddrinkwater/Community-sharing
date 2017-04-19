@@ -3886,7 +3886,6 @@
 	  function createChainableTypeChecker(validate) {
 	    if (true) {
 	      var manualPropTypeCallCache = {};
-	      var manualPropTypeWarningCount = 0;
 	    }
 	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
 	      componentName = componentName || ANONYMOUS;
@@ -3899,12 +3898,9 @@
 	        } else if (("development") !== 'production' && typeof console !== 'undefined') {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey] &&
-	          // Avoid spamming the console because they are often not actionable except for lib authors
-	          manualPropTypeWarningCount < 3) {
+	          if (!manualPropTypeCallCache[cacheKey]) {
 	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
 	            manualPropTypeCallCache[cacheKey] = true;
-	            manualPropTypeWarningCount++;
 	          }
 	        }
 	      }
@@ -27985,7 +27981,7 @@
 	
 	var fetchSingleItem = exports.fetchSingleItem = function fetchSingleItem(itemId) {
 	  return function (dispatch) {
-	    _superagent2.default.get(urlPath + '/item/' + itemId).end(function (err, res) {
+	    _superagent2.default.get(urlPath + '/items/' + itemId).end(function (err, res) {
 	      if (err) {
 	        console.error('fetchSingleItem ' + err.message);
 	        return;
@@ -31910,9 +31906,13 @@
 	              )
 	            ),
 	            _react2.default.createElement(
-	              _reactRouterDom.Link,
-	              { to: '/login' },
-	              _react2.default.createElement('input', { type: 'submit', className: 'itemListingSubmit', value: 'Register' })
+	              _reactRouterDom.HashRouter,
+	              null,
+	              _react2.default.createElement(
+	                _reactRouterDom.Link,
+	                { to: '/login' },
+	                _react2.default.createElement('input', { type: 'submit', className: 'itemListingSubmit', value: 'Register' })
+	              )
 	            )
 	          )
 	        )
@@ -31924,6 +31924,7 @@
 	}(_react2.default.Component);
 	
 	function registerNewUser(event) {
+	  console.log(event);
 	  event.preventDefault(event);
 	  var formData = {
 	    fname: event.target.elements.fname.value,
@@ -37285,7 +37286,7 @@
 	};
 	
 	var registerUser = function registerUser(callback, formData) {
-	  request.post(urlPath + '/saveUser').set('Content-Type', 'application/json').send(formData).end(function (err, res) {
+	  request.post(urlPath + '/user/').set('Content-Type', 'application/json').send(formData).end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {
@@ -37295,7 +37296,7 @@
 	};
 	
 	var getNewItem = function getNewItem(callback, lendData) {
-	  request.post(urlPath + '/saveItem').set('Content-Type', 'application/json').send(lendData).end(function (err, res) {
+	  request.post(urlPath + '/items').set('Content-Type', 'application/json').send(lendData).end(function (err, res) {
 	    if (err) {
 	      callback(err);
 	    } else {

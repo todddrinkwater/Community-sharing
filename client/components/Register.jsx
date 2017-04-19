@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
-import { Link } from 'react-router-dom'
+import { HashRouter as Router, Link } from 'react-router-dom'
 
 const CLOUDINARY_UPLOAD_PRESET = 'm7lw5icy'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/hpyyiawap/image/upload'
@@ -82,9 +82,11 @@ class Register extends React.Component {
                       }
               </div>
             </div>
+            <Router>
             <Link to='/login'>
               <input type='submit' className='itemListingSubmit' value='Register' />
             </Link>
+            </Router>
           </form>
         </div>
       </div>
@@ -93,6 +95,7 @@ class Register extends React.Component {
 }
 
 function registerNewUser (event) {
+  console.log(event);
   event.preventDefault(event)
   var formData = {
     fname: event.target.elements.fname.value,

@@ -27,7 +27,7 @@ const getUsers = (callback, email) => {
 
 const registerUser = (callback, formData) => {
   request
-    .post(urlPath + '/saveUser')
+    .post(urlPath + '/user/')
     .set('Content-Type', 'application/json')
     .send(formData)
     .end(function (err, res) {
@@ -41,7 +41,7 @@ const registerUser = (callback, formData) => {
 
 const getNewItem = (callback, lendData) => {
   request
-    .post(urlPath + '/saveItem')
+    .post(urlPath + '/items')
     .set('Content-Type', 'application/json')
     .send(lendData)
     .end(function (err, res) {

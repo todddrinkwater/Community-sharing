@@ -43,8 +43,8 @@ function getLoanItems (id) {
 
 function getLoanedItems (id) {
   return knex('loans').where('lenders_id', id)
-  .join('items', 'loans.item_id', 'items.item_id')
-  .join('users', 'borrowers_id', 'user_id')
+    .join('items', 'loans.item_id', 'items.item_id')
+    .join('users', 'borrowers_id', 'user_id')
 }
 
 function getBorrowedItems (id) {
@@ -84,29 +84,13 @@ function searchResults (query, searchString) {
   .orWhere('category', 'like', wrappedString)
 }
 
-function updateItem (item) {
-  return knex('items').where('item_id', item.item_id)
-   .update({
-     category: item.category,
-     item_name: item.item_name,
-     description: item.description,
-     available: item.available,
-     image_url: item.image_url,
-     owner_id: item.owner_id
-   })
+function updateItem (id, item) {
+  return knex('items').where('item_id', id)
+  .insert(item).into('items')
 }
 
-function updateUser (user) {
-  return knex('users').where('user_id', user.user_id)
-   .update({
-     fname: user.fname,
-     lname: user.lname,
-     email: user.email,
-     phone: user.phone,
-     address: user.address,
-     suburb: user.suburb,
-     town_city: user.town_city,
-     postcode: user.postcode,
-     user_image_url: user.user_image_url
-   })
+function updateUser (id, user) {
+  console.log(user);
+  return knex('users').where('user_id', id)
+   .insert(user).into('users')
 }
