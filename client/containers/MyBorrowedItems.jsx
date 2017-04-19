@@ -5,25 +5,45 @@ import { fetchBorrowedItems } from '../actions'
 
 import BorrowedItemCard from '../components/BorrowedItemCard'
 
+var toggleMyItems = true
+
 class MyBorrowedItems extends React.Component {
+
+  constructor(){
+    super()
+    this.state = {  toggleMyItems: false }
+  }
+
+  toggleItemView() {
+    console.log(this.state)
+    this.setState({ toggleMyItems: !this.state.toggleMyItems })
+  }
+
   componentDidMount () {
     this.props.dispatch(fetchBorrowedItems(this.props.loggedInUserId))
   }
   render () {
+    // console.log(this.props);
     return (
       <div className='dashboard-container'>
-        <h4>My Borrowed Items</h4>
+        <h4 onClick={ () => this.toggleItemView() }>My Borrowed Items<i className="fa fa-arrow-down" aria-hidden="true"></i></h4>
         <div className='dashboard-section'>
-
-          { this.props.borrowedItemsList.map((borrowedItem) => {
-            return (
-              <BorrowedItemCard key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
-            )
-          })}
+          {this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId): ''}
         </div>
       </div>
     )
   }
+}
+
+function myItems(borrowedItems, user_id) {
+  // console.log(user_id, borrowedItems)
+  return borrowedItems.map((borrowedItem) => {
+    if ( (borrowedItem.owner_id == user_id)) {
+      return (
+        <BorrowedItemCard key={borrowedItem.loan_id} {...borrowedItem} dispatch={this.props.dispatch} />
+      )
+    }
+  })
 }
 
 function mapStateToProps (state) {
