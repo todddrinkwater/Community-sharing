@@ -37478,7 +37478,8 @@
 	          { onClick: function onClick() {
 	              return _this2.toggleItemView();
 	            } },
-	          'My Listings'
+	          'My Listings ',
+	          _react2.default.createElement('i', { className: 'fa fa-arrow-down', 'aria-hidden': 'true' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -37615,18 +37616,29 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var toggleMyItems = true;
+	
 	var MyBorrowedItems = function (_React$Component) {
 	  _inherits(MyBorrowedItems, _React$Component);
 	
 	  function MyBorrowedItems() {
 	    _classCallCheck(this, MyBorrowedItems);
 	
-	    return _possibleConstructorReturn(this, (MyBorrowedItems.__proto__ || Object.getPrototypeOf(MyBorrowedItems)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (MyBorrowedItems.__proto__ || Object.getPrototypeOf(MyBorrowedItems)).call(this));
+	
+	    _this.state = { toggleMyItems: true };
+	    return _this;
 	  }
 	
 	  _createClass(MyBorrowedItems, [{
+	    key: 'toggleItemView',
+	    value: function toggleItemView() {
+	      this.setState({ toggleMyItems: !this.state.toggleMyItems });
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      console.log(this.props);
 	      this.props.dispatch((0, _actions.fetchBorrowedItems)(this.props.loggedInUserId));
 	    }
 	  }, {
@@ -37634,20 +37646,22 @@
 	    value: function render() {
 	      var _this2 = this;
 	
+	      // console.log(this.props);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'dashboard-container' },
 	        _react2.default.createElement(
 	          'h4',
-	          null,
-	          'My Borrowed Items'
+	          { onClick: function onClick() {
+	              return _this2.toggleItemView();
+	            } },
+	          'My Borrowed Items',
+	          _react2.default.createElement('i', { className: 'fa fa-arrow-down', 'aria-hidden': 'true' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'dashboard-section' },
-	          this.props.borrowedItemsList.map(function (borrowedItem) {
-	            return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem, { dispatch: _this2.props.dispatch }));
-	          })
+	          this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''
 	        )
 	      );
 	    }
@@ -37655,6 +37669,14 @@
 	
 	  return MyBorrowedItems;
 	}(_react2.default.Component);
+	
+	function myItems(borrowedItems, user_id) {
+	  return borrowedItems.map(function (borrowedItem) {
+	    if (borrowedItem.owner_id == user_id) {
+	      return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem));
+	    }
+	  });
+	}
 	
 	function mapStateToProps(state) {
 	  return {
@@ -37681,6 +37703,8 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactRouterDom = __webpack_require__(228);
+	
+	var _reactRedux = __webpack_require__(182);
 	
 	var _actions = __webpack_require__(266);
 	
@@ -37727,7 +37751,7 @@
 	  );
 	};
 	
-	exports.default = BorrowedItemCard;
+	exports.default = (0, _reactRedux.connect)()(BorrowedItemCard);
 
 /***/ },
 /* 331 */
