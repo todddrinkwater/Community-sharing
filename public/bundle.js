@@ -27930,6 +27930,7 @@
 	      }
 	      dispatch(loggedInUser(res.body[0]));
 	      dispatch(fetchLoanedItems(res.body[0].user_id));
+	      dispatch(fetchBorrowedItems(res.body[0].user_id));
 	    });
 	  };
 	};
@@ -37453,8 +37454,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var toggleMyItems = true;
-	
 	var MyItems = function (_React$Component) {
 	  _inherits(MyItems, _React$Component);
 	
@@ -37619,10 +37618,15 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var toggleMyItems = true;
-	
 	var MyBorrowedItems = function (_React$Component) {
 	  _inherits(MyBorrowedItems, _React$Component);
+	
+	  _createClass(MyBorrowedItems, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.dispatch((0, _actions.fetchBorrowedItems)(this.props.loggedInUserId));
+	    }
+	  }]);
 	
 	  function MyBorrowedItems() {
 	    _classCallCheck(this, MyBorrowedItems);
@@ -37639,11 +37643,6 @@
 	      this.setState({ toggleMyItems: !this.state.toggleMyItems });
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.props.dispatch((0, _actions.fetchBorrowedItems)(this.props.loggedInUserId));
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -37656,8 +37655,9 @@
 	          { onClick: function onClick() {
 	              return _this2.toggleItemView();
 	            } },
-	          'My Borrowed Items',
-	          _react2.default.createElement('i', { className: 'fa fa-arrow-down', 'aria-hidden': 'true' })
+	          ' My Borrowed Items ',
+	          _react2.default.createElement('i', { className: 'fa fa-arrow-down', 'aria-hidden': 'true' }),
+	          ' '
 	        ),
 	        this.state.toggleMyItems ? myItems(this.props.borrowedItemsList, this.props.loggedInUserId) : ''
 	      );
@@ -37667,9 +37667,9 @@
 	  return MyBorrowedItems;
 	}(_react2.default.Component);
 	
-	function myItems(borrowedItems, user_id) {
+	function myItems(borrowedItems, loggedInUserId) {
 	  return borrowedItems.map(function (borrowedItem) {
-	    if (borrowedItem.owner_id != user_id) {
+	    if (borrowedItem.owner_id !== loggedInUserId) {
 	      return _react2.default.createElement(_BorrowedItemCard2.default, _extends({ key: borrowedItem.loan_id }, borrowedItem));
 	    }
 	  });

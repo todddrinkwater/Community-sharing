@@ -75,6 +75,7 @@ export const fetchUser = submitedEmail => {
       }
       dispatch(loggedInUser(res.body[0]))
       dispatch(fetchLoanedItems(res.body[0].user_id))
+      dispatch(fetchBorrowedItems(res.body[0].user_id))
     })
   }
 }
