@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import MyItemsCard from '../components/MyItemCard'
 
-var toggleMyItems = true
 
 class MyItems extends React.Component {
   constructor () {
