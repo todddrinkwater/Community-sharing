@@ -3644,6 +3644,12 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+	
+	process.listeners = function (name) {
+	    return [];
+	};
 	
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
@@ -4042,6 +4048,14 @@
 	      return emptyFunction.thatReturnsNull;
 	    }
 	
+	    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+	      var checker = arrayOfTypeCheckers[i];
+	      if (typeof checker !== 'function') {
+	        warning(false, 'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' + 'received %s at index %s.', getPostfixForTypeWarning(checker), i);
+	        return emptyFunction.thatReturnsNull;
+	      }
+	    }
+	
 	    function validate(props, propName, componentName, location, propFullName) {
 	      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
 	        var checker = arrayOfTypeCheckers[i];
@@ -4174,6 +4188,9 @@
 	  // This handles more types than `getPropType`. Only used for error messages.
 	  // See `createPrimitiveTypeChecker`.
 	  function getPreciseType(propValue) {
+	    if (typeof propValue === 'undefined' || propValue === null) {
+	      return '' + propValue;
+	    }
 	    var propType = getPropType(propValue);
 	    if (propType === 'object') {
 	      if (propValue instanceof Date) {
@@ -4183,6 +4200,23 @@
 	      }
 	    }
 	    return propType;
+	  }
+	
+	  // Returns a string that is postfixed to a warning about an invalid type.
+	  // For example, "undefined" or "of type array"
+	  function getPostfixForTypeWarning(value) {
+	    var type = getPreciseType(value);
+	    switch (type) {
+	      case 'array':
+	      case 'object':
+	        return 'an ' + type;
+	      case 'boolean':
+	      case 'date':
+	      case 'regexp':
+	        return 'a ' + type;
+	      default:
+	        return type;
+	    }
 	  }
 	
 	  // Returns class name of the object, if any.
@@ -24779,7 +24813,7 @@
 	
 	// This implementation is based heavily on node's url.parse
 	var resolvePathname = function resolvePathname(to) {
-	  var from = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
+	  var from = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 	
 	  var toParts = to && to.split('/') || [];
 	  var fromParts = from && from.split('/') || [];
@@ -24856,13 +24890,9 @@
 	
 	  if (a == null || b == null) return false;
 	
-	  if (Array.isArray(a)) {
-	    if (!Array.isArray(b) || a.length !== b.length) return false;
-	
-	    return a.every(function (item, index) {
-	      return valueEqual(item, b[index]);
-	    });
-	  }
+	  if (Array.isArray(a)) return Array.isArray(b) && a.length === b.length && a.every(function (item, index) {
+	    return valueEqual(item, b[index]);
+	  });
 	
 	  var aType = typeof a === 'undefined' ? 'undefined' : _typeof(a);
 	  var bType = typeof b === 'undefined' ? 'undefined' : _typeof(b);
@@ -36520,6 +36550,12 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+	
+	process.listeners = function (name) {
+	    return [];
+	};
 	
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
