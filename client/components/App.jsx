@@ -1,5 +1,4 @@
 import React from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
 
 import Home from './Home'
 import Login from './Login'
@@ -13,6 +12,7 @@ import List from '../containers/List'
 import MyLoanedDetails from './MyLoanedDetails'
 import TermsConditions from './TermsConditions'
 import MyBorrowerDetails from './MyBorrowerDetails'
+
 
 function App (props) {
   return (

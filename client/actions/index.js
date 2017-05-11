@@ -1,6 +1,6 @@
-import request from 'superagent'
-const url = require('url')
+let nextWordId = 0
 
+<<<<<<< HEAD
 const config = require('../../config')
 
 var urlPath = url.format(config)
@@ -142,62 +142,6 @@ export const lenderDetails = (lenderDetails) => {
   return {
     type: 'LENDER_DETAILS',
     lenderDetails
-  }
-}
-
-export const fetchLenderById = (userId) => {
-  return (dispatch) => {
-    request
-    .get(urlPath + '/userById/' + userId)
-    .end((err, res) => {
-      if (err) {
-        console.error('fetchUserById ' + err.message)
-        return
-      }
-      dispatch(lenderDetails(res.body))
-    })
-  }
-}
-
-export const borrowerDetails = (borrowerDetails) => {
-  return {
-    type: 'BORROWER_DETAILS',
-    borrowerDetails
-  }
-}
-
-export const fetchBorrowerById = (userId) => {
-  return (dispatch) => {
-    request
-    .get(urlPath + '/userById/' + userId)
-    .end((err, res) => {
-      if (err) {
-        console.error('fetchUserById ' + err.message)
-        return
-      }
-      dispatch(borrowerDetails(res.body))
-    })
-  }
-}
-
-export const listNewItem = (newItemData) => {
-  return {
-    type: 'LIST_NEW_ITEM',
-    newItemData
-  }
-}
-
-export const searchForItem = (searchText) => {
-  return (dispatch) => {
-    request
-    .get(urlPath + '/search/' + searchText)
-    .end((err, res) => {
-      if (err) {
-        console.error('SearchForItem ' + err.message)
-        return
-      }
-      dispatch(filteredListings(res.body))
-    })
   }
 }
 
