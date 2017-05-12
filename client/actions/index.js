@@ -1,6 +1,5 @@
 let nextWordId = 0
 
-<<<<<<< HEAD
 const config = require('../../config')
 
 var urlPath = url.format(config)

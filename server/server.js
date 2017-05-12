@@ -7,7 +7,6 @@ var server = express()
 var db = require('./db')
 server.set('knex', db.knex)
 
-<<<<<<< HEAD
 var items = require('./routes/items')
 var user = require('./routes/user')
 
@@ -18,11 +17,9 @@ var borrowedItems = require('./routes/borrowedItems')
 var loanRequest = require('./routes/loanRequest')
 var search = require('./routes/search')
 
-=======
->>>>>>> ce9db23c1be0edf37e526bd4882b00839087b80c
+
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
-<<<<<<< HEAD
 server.use(cors({origin: '*'}))
 
 server.use('/items', items)
@@ -36,7 +33,6 @@ server.use('/borrowedItems', borrowedItems)
 server.use('/loanRequest', loanRequest)
 
 server.use('/search', search)
-=======
->>>>>>> ce9db23c1be0edf37e526bd4882b00839087b80c
+
 
 module.exports = server
